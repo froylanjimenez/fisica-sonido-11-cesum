@@ -26,120 +26,116 @@
   <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#607d8b;margin-bottom:20px;border-left:6px solid #607d8b;padding-left:14px">Semana 10: Tecnología y Sonido</h2>
 
 <div class="section">
-  <div class="section-title">🌊 El SONAR</div>
-  <div class="box box-info">
-    <strong>SONAR = SOund Navigation And Ranging</strong>: Emite ultrasonido bajo el agua y mide el tiempo del eco para calcular distancias.<br>
-    🚢 Navegación · 🐟 Pesca · 🗺️ Cartografía oceánica · 🔍 Búsqueda de naufragios
-  </div>
+  <div class="section-title">🛰️ El sonido en la tecnología</div>
+  <div class="box box-info"><strong>SONAR:</strong> Emite ultrasonido bajo el agua y mide el eco para calcular distancias. 🚢 Navegación · 🐟 Pesca · 🗺️ Cartografía oceánica</div>
+  <div class="box box-tip"><strong>Ecografía:</strong> Imágenes de órganos internos. Sin radiación → segura para embarazo.</div>
+  <div class="box box-warn"><strong>Cancelación activa de ruido:</strong> Los audífonos generan una onda exactamente opuesta al ruido para cancelarlo.</div>
 </div>
 <div class="section">
-  <div class="section-title">🏥 Ultrasonido médico</div>
-  <div class="box box-tip">
-    <strong>Ecografía:</strong> Imágenes de órganos y bebés en gestación.<br>
-    <strong>Fisioterapia:</strong> Calienta tejidos profundos para recuperación.<br>
-    <strong>Litotripsia:</strong> Rompe cálculos renales sin cirugía.<br>
-    <strong>Ecocardiograma:</strong> Ve el corazón en tiempo real.
+  <div class="section-title">🎮 Simulación: SONAR</div>
+  
+<div class="sim-wrap">
+  <div class="sim-title">🎮 Simulación: SONAR — Pulso acústico submarino</div>
+  <canvas id="canvas10" width="520" height="180" style="width:100%;background:#0a1628;border-radius:10px"></canvas>
+  <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+    <button class="sim-btn" onclick="lanzarSonar10()">📡 Emitir pulso SONAR</button>
+    <select id="prof10" style="padding:8px 12px;border-radius:8px;border:2px solid #1565c0;font-weight:700">
+      <option value="1">Profundidad: 100 m</option>
+      <option value="2" selected>Profundidad: 200 m</option>
+      <option value="3">Profundidad: 400 m</option>
+    </select>
   </div>
-</div>
-<div class="section">
-  <div class="section-title">🎧 Tecnología del audio</div>
-  <div class="box box-warn">
-    <strong>Micrófonos:</strong> Convierten vibraciones de aire en señales eléctricas.<br>
-    <strong>Parlantes:</strong> Lo contrario: señal eléctrica → vibración → sonido.<br>
-    <strong>Cancelación activa de ruido:</strong> Genera una onda opuesta al ruido para cancelarlo.<br>
-    <strong>Música digital:</strong> El sonido se guarda como números en archivos MP3/FLAC.
-  </div>
-</div>
-<div class="section">
-  <div class="section-title">📹 Videos recomendados</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">SONAR y aplicaciones del ultrasonido</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=sonar+ultrasonido+aplicaciones+tecnologia+fisica" target="_blank" class="yt-btn">Ver videos</a>
-</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Cancelación activa de ruido en audífonos</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=cancelacion+activa+ruido+como+funciona+auriculares" target="_blank" class="yt-btn">Ver videos</a>
+  <div id="sonar10result" style="text-align:center;font-size:14px;font-weight:700;color:#64b5f6;padding:8px;margin-top:6px"></div>
+  <p class="sim-hint">El SONAR emite ultrasonido, espera el eco del fondo y calcula la profundidad con d=(v×t)÷2</p>
+  <script>
+  (function(){
+    const c=document.getElementById('canvas10'),ctx=c.getContext('2d');
+    const depths=[100,200,400];
+    let pulse={active:false,y:40,returning:false,depth:200},echoes=[];
+    function draw(){
+      const W=c.width,H=c.height;
+      // ocean gradient
+      const g=ctx.createLinearGradient(0,0,0,H);
+      g.addColorStop(0,'#0a1628');g.addColorStop(1,'#0d3b6e');
+      ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+      // surface line
+      ctx.strokeStyle='#64b5f6';ctx.lineWidth=2;ctx.setLineDash([5,5]);
+      ctx.beginPath();ctx.moveTo(0,35);ctx.lineTo(W,35);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle='#64b5f6';ctx.font='11px sans-serif';ctx.fillText('Superficie del mar',10,30);
+      // ship
+      ctx.fillStyle='#90a4ae';ctx.fillRect(W/2-25,20,50,18);
+      ctx.fillStyle='#78909c';ctx.fillRect(W/2-8,8,16,14);
+      ctx.fillStyle='white';ctx.font='bold 14px sans-serif';ctx.fillText('🚢',W/2-10,24);
+      // seafloor
+      const floorY=35+pulse.depth/500*130;
+      ctx.fillStyle='#5d4037';ctx.fillRect(0,floorY,W,H-floorY);
+      ctx.fillStyle='#795548';ctx.font='11px sans-serif';ctx.fillText('Fondo marino',10,floorY+14);
+      // fish
+      ctx.font='18px sans-serif';ctx.fillText('🐟',W*0.3,floorY-15);ctx.fillText('🐠',W*0.7,floorY-20);
+      // pulse
+      if(pulse.active){
+        const r=Math.abs(pulse.y-35)/1.5;
+        ctx.beginPath();ctx.arc(W/2,pulse.y,Math.max(3,r),0,Math.PI*2);
+        ctx.strokeStyle='rgba(100,200,255,0.7)';ctx.lineWidth=2;ctx.stroke();
+        const spd=2.2;
+        if(!pulse.returning){pulse.y+=spd;if(pulse.y>=floorY){pulse.returning=true;document.getElementById('sonar10result').textContent='📡 Eco recibido! Profundidad calculada: '+pulse.depth+' m  (v=1480 m/s, t='+(pulse.depth*2/1480).toFixed(3)+'s)';}}
+        else{pulse.y-=spd;if(pulse.y<=36)pulse.active=false;}
+      }
+      requestAnimationFrame(draw);
+    }
+    window.lanzarSonar10=function(){
+      const d=depths[document.getElementById('prof10').value-1];
+      pulse={active:true,y:36,returning:false,depth:d};
+      document.getElementById('sonar10result').textContent='📡 Pulso emitido...';
+    };
+    draw();
+  })();
+  </script>
 </div>
 </div>
 <div class="section">
   <div class="section-title">🏆 Taller Final Integrador</div>
   <div class="taller">
-    <div class="taller-title">📌 Taller final del período — Todo en tu cuaderno:</div>
-    <div class="taller-item"><strong>Parte 1 — Conceptos:</strong><br>a) ¿Qué es el sonido?<br>b) ¿Por qué el sonido viaja más rápido en el acero?<br>c) ¿Cuáles son las 3 características del sonido?<br>d) ¿Qué es el ultrasonido y el infrasonido?</div>
-    <div class="taller-item"><strong>Parte 2 — Cálculos:</strong><br>a) f = 500 Hz, v = 340 m/s. ¿Cuál es λ?<br>b) Escuchas el eco 3 s después (v = 340 m/s). ¿A qué distancia está la pared?<br>c) Sonar: eco tarda 2 s (v agua = 1480 m/s). ¿Qué profundidad?</div>
-    <div class="taller-item"><strong>Parte 3 — Aplicación:</strong><br>Elige UNA aplicación tecnológica del sonido y explica en un párrafo cómo funciona y por qué es importante.</div>
-    <div class="taller-item"><strong>Parte 4 — Reflexión:</strong><br>¿Cuál fue el tema que más te sorprendió? ¿Cómo lo aplicarías en tu vida cotidiana?</div>
-  </div>
-</div>
-<div class="section">
-  <div class="section-title">🎓 ¡Felicitaciones! Completaste el curso</div>
-  <div class="box box-tip" style="text-align:center;padding:24px">
-    <div style="font-size:48px;margin-bottom:10px">🏆</div>
-    <p style="font-size:16px;font-weight:700;color:#1b5e20">Terminaste las 10 semanas de Física — El Sonido.</p>
-    <a href="index.html" style="display:inline-block;margin-top:14px;padding:10px 24px;background:#43a047;color:white;border-radius:8px;font-weight:700">🏠 Volver al inicio</a>
+    <div class="taller-title">Todo en tu cuaderno:</div>
+    <div class="taller-item"><strong>Parte 1:</strong> a) ¿Qué es el sonido? b) ¿Por qué viaja más rápido en el acero? c) 3 características del sonido. d) ¿Qué es ultrasonido e infrasonido?</div>
+    <div class="taller-item"><strong>Parte 2:</strong> a) f=500 Hz, v=340 m/s → λ=? b) Eco 3 s (v=340) → distancia? c) SONAR eco 2 s (v=1480) → profundidad?</div>
+    <div class="taller-item"><strong>Parte 3:</strong> Elige UNA aplicación tecnológica del sonido y explica cómo funciona y por qué es importante.</div>
+    <div class="taller-item"><strong>Parte 4 — Reflexión:</strong> ¿Qué tema te sorprendió más? ¿Cómo lo usas en tu vida?</div>
   </div>
 </div>
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación Semana</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 1: ¿Qué significa SONAR?</div>
-<div class="quiz-options">
-<label data-q="s10_1" data-val="a"><input type="radio" name="qs10_1" value="a"> Sistema de Ondas Naturales y Resonancia</label>
+<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué significa SONAR?</div><div class="quiz-options">
+<label data-q="s10_1" data-val="a"><input type="radio" name="qs10_1" value="a"> Sistema de Ondas Naturales</label>
 <label data-q="s10_1" data-val="b"><input type="radio" name="qs10_1" value="b"> SOund Navigation And Ranging</label>
 <label data-q="s10_1" data-val="c"><input type="radio" name="qs10_1" value="c"> Sistema Oceánico de Navegación</label>
-<label data-q="s10_1" data-val="d"><input type="radio" name="qs10_1" value="d"> Sonidos Naturales de Alta Resolución</label>
-</div>
-<div class="quiz-feedback" id="fbs10_1"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Qué principio usa el SONAR para medir distancias?</div>
-<div class="quiz-options">
+<label data-q="s10_1" data-val="d"><input type="radio" name="qs10_1" value="d"> Sonidos Naturales Alta Res.</label>
+</div><div class="quiz-feedback" id="fbs10_1"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Qué principio usa el SONAR?</div><div class="quiz-options">
 <label data-q="s10_2" data-val="a"><input type="radio" name="qs10_2" value="a"> Efecto Doppler</label>
 <label data-q="s10_2" data-val="b"><input type="radio" name="qs10_2" value="b"> Resonancia</label>
 <label data-q="s10_2" data-val="c"><input type="radio" name="qs10_2" value="c"> Eco (reflexión del sonido)</label>
 <label data-q="s10_2" data-val="d"><input type="radio" name="qs10_2" value="d"> Refracción</label>
-</div>
-<div class="quiz-feedback" id="fbs10_2"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: ¿Cuál es la ventaja de la ecografía sobre los rayos X?</div>
-<div class="quiz-options">
-<label data-q="s10_3" data-val="a"><input type="radio" name="qs10_3" value="a"> Es más barata</label>
+</div><div class="quiz-feedback" id="fbs10_2"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Ventaja de la ecografía sobre rayos X?</div><div class="quiz-options">
+<label data-q="s10_3" data-val="a"><input type="radio" name="qs10_3" value="a"> Más barata</label>
 <label data-q="s10_3" data-val="b"><input type="radio" name="qs10_3" value="b"> Imágenes en color</label>
 <label data-q="s10_3" data-val="c"><input type="radio" name="qs10_3" value="c"> No usa radiación ionizante</label>
-<label data-q="s10_3" data-val="d"><input type="radio" name="qs10_3" value="d"> Funciona más rápido</label>
-</div>
-<div class="quiz-feedback" id="fbs10_3"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: ¿Cómo funciona la cancelación activa de ruido?</div>
-<div class="quiz-options">
-<label data-q="s10_4" data-val="a"><input type="radio" name="qs10_4" value="a"> Bloquea físicamente el oído</label>
-<label data-q="s10_4" data-val="b"><input type="radio" name="qs10_4" value="b"> Genera una onda opuesta al ruido</label>
-<label data-q="s10_4" data-val="c"><input type="radio" name="qs10_4" value="c"> Sube el volumen de la música</label>
-<label data-q="s10_4" data-val="d"><input type="radio" name="qs10_4" value="d"> Absorbe el sonido con espuma</label>
-</div>
-<div class="quiz-feedback" id="fbs10_4"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: ¿Qué hace un micrófono?</div>
-<div class="quiz-options">
+<label data-q="s10_3" data-val="d"><input type="radio" name="qs10_3" value="d"> Más rápida</label>
+</div><div class="quiz-feedback" id="fbs10_3"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cómo funciona la cancelación activa de ruido?</div><div class="quiz-options">
+<label data-q="s10_4" data-val="a"><input type="radio" name="qs10_4" value="a"> Bloquea el oído</label>
+<label data-q="s10_4" data-val="b"><input type="radio" name="qs10_4" value="b"> Genera onda opuesta al ruido</label>
+<label data-q="s10_4" data-val="c"><input type="radio" name="qs10_4" value="c"> Sube el volumen</label>
+<label data-q="s10_4" data-val="d"><input type="radio" name="qs10_4" value="d"> Absorbe con espuma</label>
+</div><div class="quiz-feedback" id="fbs10_4"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Qué hace un micrófono?</div><div class="quiz-options">
 <label data-q="s10_5" data-val="a"><input type="radio" name="qs10_5" value="a"> Señal eléctrica → sonido</label>
 <label data-q="s10_5" data-val="b"><input type="radio" name="qs10_5" value="b"> Vibraciones de aire → señal eléctrica</label>
 <label data-q="s10_5" data-val="c"><input type="radio" name="qs10_5" value="c"> Amplifica el sonido</label>
 <label data-q="s10_5" data-val="d"><input type="radio" name="qs10_5" value="d"> Elimina el ruido</label>
-</div>
-<div class="quiz-feedback" id="fbs10_5"></div>
-</div>
-<button class="quiz-btn" onclick="checkQuiz('s10',["b", "c", "c", "b", "b"])">✅ Verificar respuestas</button>
+</div><div class="quiz-feedback" id="fbs10_5"></div></div>
+<button class="quiz-btn" onclick="checkQuiz('s10',['b', 'c', 'c', 'b', 'b'])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s10"></div>
 </div>
 
