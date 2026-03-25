@@ -26,111 +26,120 @@
   <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#9b59b6;margin-bottom:20px;border-left:6px solid #9b59b6;padding-left:14px">Semana 7: El Eco y la Reverberación</h2>
 
 <div class="section">
-  <div class="section-title">🏔️ El eco: el sonido que rebota</div>
-  <p>Cuando el sonido choca contra una superficie y <strong>regresa</strong>, se produce la <strong>reflexión del sonido</strong>. Si ese sonido reflejado llega al oído <strong>0,1 segundos o más</strong> después del original, lo escuchamos como <strong>eco</strong>.</p>
+  <div class="section-title">🏔️ El eco y la reverberación</div>
+  <div class="box box-info"><strong>Eco:</strong> Sonido reflejado que llega ≥0.1 s después del original. Necesita ~17 m mínimo.</div>
+  <div class="box box-warn"><strong>Reverberación:</strong> Reflexiones muy rápidas que se mezclan con el original. Ejemplo: cantar en el baño.</div>
+  <div class="box box-formula">d = (v × t) ÷ 2<br><span style="font-size:13px;font-weight:400">Se divide entre 2 porque el sonido va Y vuelve</span></div>
+  <div class="box box-example"><strong>Ejemplo:</strong> Eco en 2 s, v=340 m/s → d=(340×2)÷2 = <strong>340 m</strong></div>
 </div>
 <div class="section">
-  <div class="section-title">🔄 Eco vs. Reverberación</div>
-  <div class="box box-info"><strong>Eco:</strong> El sonido reflejado se escucha claramente separado. Necesita ~17 metros mínimo. Ejemplo: gritar en una montaña.</div>
-  <div class="box box-warn"><strong>Reverberación:</strong> Muchas reflexiones rápidas se mezclan con el original. El sonido "dura" más. Ejemplo: cantar en el baño.</div>
-</div>
-<div class="section">
-  <div class="section-title">📐 Calcular distancias con el eco</div>
-  <div class="box box-formula">d = (v × t) ÷ 2<br><span style="font-size:13px;font-weight:400">Se divide entre 2 porque el sonido va Y viene</span></div>
-  <div class="box box-example">
-    <strong>Ejemplo:</strong> Gritas y escuchas el eco 2 s después (v = 340 m/s).<br>
-    d = (340 × 2) ÷ 2 = 680 ÷ 2 = <strong>340 m</strong>
+  <div class="section-title">🎮 Simulación: calculadora de eco</div>
+  
+<div class="sim-wrap">
+  <div class="sim-title">🎮 Simulación: Calculadora de eco</div>
+  <div class="sim-controls">
+    <label>Distancia a la pared (m): <strong id="d7val">170</strong>
+      <input type="range" id="d7" min="20" max="500" value="170" oninput="upd7()">
+    </label>
+    <label>Medio:
+      <select id="med7" onchange="upd7()" style="padding:6px 10px;border-radius:6px;border:2px solid #9b59b6;font-weight:700">
+        <option value="343">Aire (343 m/s)</option>
+        <option value="1480">Agua (1480 m/s)</option>
+      </select>
+    </label>
   </div>
-  <div class="steps">
-    <div class="step"><div class="step-num" style="background:#9b59b6">1</div><div class="step-text">Identifica el tiempo que tardó en llegar el eco.</div></div>
-    <div class="step"><div class="step-num" style="background:#9b59b6">2</div><div class="step-text">Usa v = 340 m/s (en aire) o 1480 m/s (en agua).</div></div>
-    <div class="step"><div class="step-num" style="background:#9b59b6">3</div><div class="step-text">Aplica: d = (v × t) ÷ 2</div></div>
-    <div class="step"><div class="step-num" style="background:#9b59b6">4</div><div class="step-text">El resultado es la distancia a la pared/montaña.</div></div>
-  </div>
-</div>
-<div class="section">
-  <div class="section-title">📹 Videos recomendados</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Eco y reverberación del sonido</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=eco+reverberacion+reflexion+sonido+fisica+educativo" target="_blank" class="yt-btn">Ver videos</a>
-</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Cálculo de distancias con el eco</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=calculo+distancia+con+eco+ejercicio+resuelto+fisica" target="_blank" class="yt-btn">Ver videos</a>
+  <div id="eco7result" style="text-align:center;font-size:18px;font-weight:700;color:#9b59b6;padding:12px;background:#f5eeff;border-radius:10px;margin:10px 0"></div>
+  <canvas id="canvas7" width="520" height="90" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+  <button class="sim-btn" onclick="lanzarEco7()">🔊 Disparar sonido</button>
+  <p class="sim-hint">d = (v × t) ÷ 2 &nbsp;·&nbsp; El sonido hace el viaje de <strong>ida y vuelta</strong></p>
+  <script>
+  (function(){
+    const c=document.getElementById('canvas7'),ctx=c.getContext('2d');
+    let d=170,v=343,pulse={active:false,x:0,returning:false};
+    function upd7Inner(){
+      const t=(2*d/v);
+      document.getElementById('eco7result').textContent='⏱ Tiempo del eco: '+t.toFixed(3)+' s  |  d = ('+v+'×'+t.toFixed(3)+')÷2 = '+d+' m';
+    }
+    window.upd7=function(){
+      d=+document.getElementById('d7').value;v=+document.getElementById('med7').value;
+      document.getElementById('d7val').textContent=d;
+      upd7Inner();
+    };
+    window.lanzarEco7=function(){pulse={active:true,x:60,returning:false};};
+    const wallX=420;
+    function draw(){
+      const W=c.width,H=c.height;
+      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+      // person
+      ctx.fillStyle='#667eea';ctx.beginPath();ctx.arc(40,H/2,12,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#aaa';ctx.font='10px sans-serif';ctx.fillText('TÚ',28,H/2+26);
+      // wall
+      ctx.fillStyle='#e74c3c';ctx.fillRect(wallX,H/2-25,10,50);
+      ctx.fillStyle='#aaa';ctx.fillText('PARED',wallX-8,H/2+26);
+      // distance label
+      ctx.strokeStyle='#555';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+      ctx.beginPath();ctx.moveTo(52,H/2-20);ctx.lineTo(wallX,H/2-20);ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='#888';ctx.fillText(d+' m',((52+wallX)/2)-12,H/2-22);
+      // pulse
+      if(pulse.active){
+        ctx.beginPath();ctx.arc(pulse.x,H/2,8,0,Math.PI*2);
+        ctx.fillStyle='#f39c12';ctx.fill();
+        const spd=(wallX-52)/60;
+        if(!pulse.returning){pulse.x+=spd;if(pulse.x>=wallX)pulse.returning=true;}
+        else{pulse.x-=spd;if(pulse.x<=52)pulse.active=false;}
+      }
+      requestAnimationFrame(draw);
+    }
+    upd7Inner();draw();
+  })();
+  </script>
 </div>
 </div>
 <div class="section">
   <div class="section-title">📝 Taller Semana 7</div>
   <div class="taller">
-    <div class="taller-title">📌 Resuelve en tu cuaderno:</div>
-    <div class="taller-item">1. ¿Cuál es la diferencia entre eco y reverberación? Da un ejemplo de cada uno.</div>
-    <div class="taller-item">2. Un barco escucha el eco del fondo marino 3 s después (v = 1480 m/s). ¿Qué profundidad tiene el mar?</div>
-    <div class="taller-item">3. Gritas en un cañón y escuchas el eco 4 s después (v = 340 m/s). ¿A cuántos metros está la pared?</div>
-    <div class="taller-item">4. ¿Por qué los estudios de grabación tienen paredes especiales que absorben el sonido?</div>
-    <div class="taller-item">5. Los murciélagos usan ecolocalización. Explica cómo funciona.</div>
+    <div class="taller-title">Resuelve en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Diferencia entre eco y reverberación? Da un ejemplo de cada uno.</div>
+    <div class="taller-item">2. Barco escucha eco del fondo marino a los 3 s (v=1480 m/s). ¿Qué profundidad?</div>
+    <div class="taller-item">3. Eco en un cañón: 4 s después (v=340 m/s). ¿A qué distancia está la pared?</div>
+    <div class="taller-item">4. ¿Por qué los estudios de grabación tienen paredes especiales?</div>
+    <div class="taller-item">5. Explica cómo usan los murciélagos la ecolocalización.</div>
   </div>
 </div>
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación Semana</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 1: ¿Qué es el eco?</div>
-<div class="quiz-options">
+<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué es el eco?</div><div class="quiz-options">
 <label data-q="s7_1" data-val="a"><input type="radio" name="qs7_1" value="a"> Un sonido muy fuerte</label>
 <label data-q="s7_1" data-val="b"><input type="radio" name="qs7_1" value="b"> El sonido reflejado que se escucha separado del original</label>
-<label data-q="s7_1" data-val="c"><input type="radio" name="qs7_1" value="c"> Una onda electromagnética</label>
-<label data-q="s7_1" data-val="d"><input type="radio" name="qs7_1" value="d"> La absorción del sonido</label>
-</div>
-<div class="quiz-feedback" id="fbs7_1"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Por qué se divide entre 2 en la fórmula del eco?</div>
-<div class="quiz-options">
-<label data-q="s7_2" data-val="a"><input type="radio" name="qs7_2" value="a"> El eco es la mitad del sonido</label>
+<label data-q="s7_1" data-val="c"><input type="radio" name="qs7_1" value="c"> Onda electromagnética</label>
+<label data-q="s7_1" data-val="d"><input type="radio" name="qs7_1" value="d"> Absorción del sonido</label>
+</div><div class="quiz-feedback" id="fbs7_1"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Por qué se divide entre 2 en la fórmula del eco?</div><div class="quiz-options">
+<label data-q="s7_2" data-val="a"><input type="radio" name="qs7_2" value="a"> El eco es mitad del sonido</label>
 <label data-q="s7_2" data-val="b"><input type="radio" name="qs7_2" value="b"> El sonido hace ida Y vuelta</label>
 <label data-q="s7_2" data-val="c"><input type="radio" name="qs7_2" value="c"> La velocidad se divide</label>
 <label data-q="s7_2" data-val="d"><input type="radio" name="qs7_2" value="d"> Hay dos paredes</label>
-</div>
-<div class="quiz-feedback" id="fbs7_2"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: Escuchas el eco 1 s después (v = 340 m/s). ¿A qué distancia está la pared?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs7_2"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: Eco a 1 s (v=340 m/s). ¿Distancia a la pared?</div><div class="quiz-options">
 <label data-q="s7_3" data-val="a"><input type="radio" name="qs7_3" value="a"> 340 m</label>
 <label data-q="s7_3" data-val="b"><input type="radio" name="qs7_3" value="b"> 680 m</label>
 <label data-q="s7_3" data-val="c"><input type="radio" name="qs7_3" value="c"> 170 m</label>
 <label data-q="s7_3" data-val="d"><input type="radio" name="qs7_3" value="d"> 34 m</label>
-</div>
-<div class="quiz-feedback" id="fbs7_3"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: ¿Dónde es más probable escuchar reverberación?</div>
-<div class="quiz-options">
-<label data-q="s7_4" data-val="a"><input type="radio" name="qs7_4" value="a"> En una plaza abierta</label>
-<label data-q="s7_4" data-val="b"><input type="radio" name="qs7_4" value="b"> En el campo</label>
-<label data-q="s7_4" data-val="c"><input type="radio" name="qs7_4" value="c"> En una catedral grande</label>
-<label data-q="s7_4" data-val="d"><input type="radio" name="qs7_4" value="d"> En el mar</label>
-</div>
-<div class="quiz-feedback" id="fbs7_4"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: ¿Cuánto tiempo mínimo debe pasar para percibir un eco separado?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs7_3"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Dónde hay más reverberación?</div><div class="quiz-options">
+<label data-q="s7_4" data-val="a"><input type="radio" name="qs7_4" value="a"> Plaza abierta</label>
+<label data-q="s7_4" data-val="b"><input type="radio" name="qs7_4" value="b"> Campo abierto</label>
+<label data-q="s7_4" data-val="c"><input type="radio" name="qs7_4" value="c"> Catedral grande</label>
+<label data-q="s7_4" data-val="d"><input type="radio" name="qs7_4" value="d"> Mar</label>
+</div><div class="quiz-feedback" id="fbs7_4"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Tiempo mínimo para percibir un eco separado?</div><div class="quiz-options">
 <label data-q="s7_5" data-val="a"><input type="radio" name="qs7_5" value="a"> 0.01 s</label>
 <label data-q="s7_5" data-val="b"><input type="radio" name="qs7_5" value="b"> 0.1 s</label>
 <label data-q="s7_5" data-val="c"><input type="radio" name="qs7_5" value="c"> 1 s</label>
 <label data-q="s7_5" data-val="d"><input type="radio" name="qs7_5" value="d"> 10 s</label>
-</div>
-<div class="quiz-feedback" id="fbs7_5"></div>
-</div>
-<button class="quiz-btn" onclick="checkQuiz('s7',["b", "b", "c", "c", "b"])">✅ Verificar respuestas</button>
+</div><div class="quiz-feedback" id="fbs7_5"></div></div>
+<button class="quiz-btn" onclick="checkQuiz('s7',['b', 'b', 'c', 'c', 'b'])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s7"></div>
 </div>
 
