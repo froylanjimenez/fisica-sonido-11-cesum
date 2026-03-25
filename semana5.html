@@ -26,40 +26,60 @@
   <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1abc9c;margin-bottom:20px;border-left:6px solid #1abc9c;padding-left:14px">Semana 5: El Sonido y la Música</h2>
 
 <div class="section">
-  <div class="section-title">🎸 Instrumentos musicales y física</div>
-  <div class="box box-info"><strong>🎸 Cuerdas (guitarra, violín):</strong> Cuerda más corta y tensa → sonido más agudo.</div>
-  <div class="box box-tip"><strong>🎷 Viento (flauta, trombón):</strong> Tubo más corto → columna de aire más corta → sonido más agudo.</div>
-  <div class="box box-warn"><strong>🥁 Percusión (tambor, marimba):</strong> Parche más tenso → sonido más agudo.</div>
+  <div class="section-title">🎸 Instrumentos musicales</div>
+  <div class="box box-info"><strong>🎸 Cuerdas:</strong> Cuerda más corta/tensa → más agudo.</div>
+  <div class="box box-tip"><strong>🎷 Viento:</strong> Columna de aire más corta → más agudo.</div>
+  <div class="box box-warn"><strong>🥁 Percusión:</strong> Parche más tenso → más agudo.</div>
+  <p><strong>Resonancia:</strong> un objeto vibra por sí solo al recibir vibraciones en su frecuencia natural. Los cantantes de ópera pueden romper una copa de vidrio con la nota exacta.</p>
 </div>
 <div class="section">
-  <div class="section-title">🌀 ¿Qué es la resonancia?</div>
-  <p>Ocurre cuando un objeto vibra por sí solo al recibir vibraciones a su <em>frecuencia natural</em>.</p>
-  <div class="box box-tip">💡 Los cantantes de ópera pueden romper una copa de vidrio cantando exactamente la nota de resonancia del vidrio.</div>
-  <div class="box box-warn">⚠️ En 1940, el puente Tacoma Narrows (EE.UU.) colapsó por resonancia con el viento.</div>
-</div>
-<div class="section">
-  <div class="section-title">📹 Videos recomendados</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Física en los instrumentos musicales</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
+  <div class="section-title">🎮 Simulación: cuerdas vibrando en armónicos</div>
+  
+<div class="sim-wrap">
+  <div class="sim-title">🎮 Simulación: Cuerda en resonancia</div>
+  <div class="sim-controls">
+    <label>Armónico: <strong id="h5val">1°</strong>
+      <select id="harm5" onchange="upd5()" style="padding:6px 10px;border-radius:6px;border:2px solid #1abc9c;font-weight:700">
+        <option value="1">1° armónico (fundamental)</option>
+        <option value="2">2° armónico</option>
+        <option value="3">3° armónico</option>
+        <option value="4">4° armónico</option>
+      </select>
+    </label>
   </div>
-  <a href="https://www.youtube.com/results?search_query=instrumentos+musicales+fisica+sonido+resonancia+educativo" target="_blank" class="yt-btn">Ver videos</a>
-</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">La resonancia - experimentos</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=resonancia+fisica+experimento+copa+vidrio+opera" target="_blank" class="yt-btn">Ver videos</a>
+  <canvas id="canvas5" width="520" height="120" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+  <p class="sim-hint">En la resonancia la cuerda vibra en múltiplos de su frecuencia fundamental. El 2° armónico tiene el doble de frecuencia.</p>
+  <script>
+  (function(){
+    const c=document.getElementById('canvas5'),ctx=c.getContext('2d');
+    let n=1,t=0;
+    function draw(){
+      const W=c.width,H=c.height/2;
+      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,c.height);
+      // poles
+      ctx.fillStyle='#888';ctx.fillRect(20,H-40,8,80);ctx.fillRect(W-28,H-40,8,80);
+      // string
+      ctx.strokeStyle='#1abc9c';ctx.lineWidth=2.5;ctx.beginPath();
+      for(let x=28;x<=W-28;x++){
+        const pos=(x-28)/(W-56);
+        const y=H+Math.sin(pos*n*Math.PI)*35*Math.sin(t);
+        x===28?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+      ctx.fillStyle='#aaa';ctx.font='13px sans-serif';
+      ctx.fillText('n='+n+' · f='+(n)+'f₀',W/2-30,H-45);
+      t+=0.06;requestAnimationFrame(draw);
+    }
+    window.upd5=function(){n=+document.getElementById('harm5').value;document.getElementById('h5val').textContent=n+'°';};
+    draw();
+  })();
+  </script>
 </div>
 </div>
 <div class="section">
-  <div class="section-title">🎯 Actividad: Clasifica los instrumentos</div>
+  <div class="section-title">🎯 Actividad: clasifica los instrumentos</div>
   <div class="activity">
-    <div class="activity-title">📋 Copia y completa en tu cuaderno:</div>
+    <div class="activity-title">Copia y completa en tu cuaderno:</div>
     <table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">
       <tr style="background:#1abc9c;color:white"><th style="padding:8px">Instrumento</th><th style="padding:8px">Tipo</th><th style="padding:8px">¿Qué vibra?</th><th style="padding:8px">¿Cómo sube el tono?</th></tr>
       <tr style="background:#f0fff4"><td style="padding:8px">Guitarra</td><td></td><td></td><td></td></tr>
@@ -72,67 +92,47 @@
 <div class="section">
   <div class="section-title">📝 Taller Semana 5</div>
   <div class="taller">
-    <div class="taller-title">📌 Responde en tu cuaderno:</div>
-    <div class="taller-item">1. ¿Qué es la resonancia? Explica con un ejemplo cotidiano.</div>
+    <div class="taller-title">Responde en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Qué es la resonancia? Da un ejemplo cotidiano.</div>
     <div class="taller-item">2. ¿Por qué la cuerda delgada de guitarra suena más aguda?</div>
-    <div class="taller-item">3. Cuando tapas los agujeros de una flauta, ¿qué pasa con el tono?</div>
-    <div class="taller-item">4. ¿Por qué la guitarra tiene una caja hueca? ¿Qué función cumple?</div>
-    <div class="taller-item">5. Investiga: ¿qué instrumento típico colombiano de los Llanos funciona por resonancia de cuerdas?</div>
+    <div class="taller-item">3. Al tapar agujeros de una flauta, ¿el tono sube o baja? ¿Por qué?</div>
+    <div class="taller-item">4. ¿Para qué sirve la caja hueca de la guitarra?</div>
+    <div class="taller-item">5. Investiga: ¿qué instrumento colombiano típico usa resonancia de cuerdas?</div>
   </div>
 </div>
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación Semana</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 1: ¿Qué vibra en una guitarra?</div>
-<div class="quiz-options">
-<label data-q="s5_1" data-val="a"><input type="radio" name="qs5_1" value="a"> El aire dentro de la caja</label>
+<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué vibra en una guitarra?</div><div class="quiz-options">
+<label data-q="s5_1" data-val="a"><input type="radio" name="qs5_1" value="a"> El aire dentro</label>
 <label data-q="s5_1" data-val="b"><input type="radio" name="qs5_1" value="b"> Las cuerdas</label>
 <label data-q="s5_1" data-val="c"><input type="radio" name="qs5_1" value="c"> La madera del mástil</label>
 <label data-q="s5_1" data-val="d"><input type="radio" name="qs5_1" value="d"> Los dedos</label>
-</div>
-<div class="quiz-feedback" id="fbs5_1"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Qué es la resonancia?</div>
-<div class="quiz-options">
-<label data-q="s5_2" data-val="a"><input type="radio" name="qs5_2" value="a"> La velocidad del sonido</label>
-<label data-q="s5_2" data-val="b"><input type="radio" name="qs5_2" value="b"> Cuando un objeto vibra al recibir su frecuencia natural</label>
-<label data-q="s5_2" data-val="c"><input type="radio" name="qs5_2" value="c"> La reflexión del sonido</label>
-<label data-q="s5_2" data-val="d"><input type="radio" name="qs5_2" value="d"> El timbre de un instrumento</label>
-</div>
-<div class="quiz-feedback" id="fbs5_2"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: En una flauta, ¿qué determina el tono?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs5_1"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Qué es la resonancia?</div><div class="quiz-options">
+<label data-q="s5_2" data-val="a"><input type="radio" name="qs5_2" value="a"> Velocidad del sonido</label>
+<label data-q="s5_2" data-val="b"><input type="radio" name="qs5_2" value="b"> Vibrar al recibir la frecuencia natural propia</label>
+<label data-q="s5_2" data-val="c"><input type="radio" name="qs5_2" value="c"> Reflexión del sonido</label>
+<label data-q="s5_2" data-val="d"><input type="radio" name="qs5_2" value="d"> Timbre de un instrumento</label>
+</div><div class="quiz-feedback" id="fbs5_2"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: En una flauta, ¿qué determina el tono?</div><div class="quiz-options">
 <label data-q="s5_3" data-val="a"><input type="radio" name="qs5_3" value="a"> El material</label>
 <label data-q="s5_3" data-val="b"><input type="radio" name="qs5_3" value="b"> La longitud de la columna de aire</label>
 <label data-q="s5_3" data-val="c"><input type="radio" name="qs5_3" value="c"> La fuerza con que soplas</label>
 <label data-q="s5_3" data-val="d"><input type="radio" name="qs5_3" value="d"> El color</label>
-</div>
-<div class="quiz-feedback" id="fbs5_3"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: ¿Cuál es un instrumento de percusión?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs5_3"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cuál es instrumento de percusión?</div><div class="quiz-options">
 <label data-q="s5_4" data-val="a"><input type="radio" name="qs5_4" value="a"> Violín</label>
 <label data-q="s5_4" data-val="b"><input type="radio" name="qs5_4" value="b"> Trombón</label>
 <label data-q="s5_4" data-val="c"><input type="radio" name="qs5_4" value="c"> Marimba</label>
 <label data-q="s5_4" data-val="d"><input type="radio" name="qs5_4" value="d"> Clarinete</label>
-</div>
-<div class="quiz-feedback" id="fbs5_4"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: ¿Para qué sirven los agujeros de una flauta?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs5_4"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Para qué sirven los agujeros de la flauta?</div><div class="quiz-options">
 <label data-q="s5_5" data-val="a"><input type="radio" name="qs5_5" value="a"> Decoración</label>
 <label data-q="s5_5" data-val="b"><input type="radio" name="qs5_5" value="b"> Cambiar la longitud de la columna de aire</label>
-<label data-q="s5_5" data-val="c"><input type="radio" name="qs5_5" value="c"> Respirar mientras tocas</label>
+<label data-q="s5_5" data-val="c"><input type="radio" name="qs5_5" value="c"> Respirar</label>
 <label data-q="s5_5" data-val="d"><input type="radio" name="qs5_5" value="d"> Amplificar</label>
-</div>
-<div class="quiz-feedback" id="fbs5_5"></div>
-</div>
-<button class="quiz-btn" onclick="checkQuiz('s5',["b", "b", "b", "c", "b"])">✅ Verificar respuestas</button>
+</div><div class="quiz-feedback" id="fbs5_5"></div></div>
+<button class="quiz-btn" onclick="checkQuiz('s5',['b', 'b', 'b', 'c', 'b'])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s5"></div>
 </div>
 
