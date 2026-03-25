@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Semana 6: El Oído Humano | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
+<script src="quiz.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -14,8 +15,7 @@
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana5.html" class="nav-back">⬅ Semana 5</a>
-  <a href="semana7.html" class="nav-back">Semana 7 ➡</a>
+  <a href="semana5.html" class="nav-back">⬅ Semana 5</a><a href="semana7.html" class="nav-back">Semana 7 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -26,81 +26,78 @@
   <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#3498db;margin-bottom:20px;border-left:6px solid #3498db;padding-left:14px">Semana 6: El Oído Humano</h2>
 
 <div class="section">
-  <div class="section-title">👂 El oído: nuestra ventana al sonido</div>
-  <p>El oído es uno de los órganos más sofisticados de nuestro cuerpo. Convierte las vibraciones del aire en señales eléctricas que el cerebro interpreta como sonidos. Se divide en tres partes principales:</p>
+  <div class="section-title">👂 Las tres partes del oído</div>
+  <div class="box box-info"><strong>1. Oído externo:</strong> El pabellón auditivo y el canal auditivo. Capta y dirige las ondas hacia el tímpano.</div>
+  <div class="box box-tip"><strong>2. Oído medio:</strong> El tímpano y tres huesecillos (martillo, yunque, estribo). Amplifican la vibración.</div>
+  <div class="box box-warn"><strong>3. Oído interno:</strong> La cóclea (caracol) con células ciliadas que convierten vibraciones en señales eléctricas al cerebro.</div>
+  <div class="box box-example">💡 Los tres huesecillos son los más pequeños del cuerpo humano. ¡Los tres juntos caben en un grano de arroz!</div>
 </div>
-
 <div class="section">
-  <div class="section-title">🔍 Las tres partes del oído</div>
-  <div class="box box-info">
-    <strong>1. Oído externo:</strong> Incluye el pabellón auditivo (la parte que ves) y el canal auditivo. Su función es captar y dirigir las ondas de sonido hacia el tímpano.
-  </div>
-  <div class="box box-tip">
-    <strong>2. Oído medio:</strong> Contiene el tímpano (membrana que vibra) y tres huesecillos: el martillo, el yunque y el estribo. Amplifican la vibración y la pasan al oído interno.
-  </div>
-  <div class="box box-warn">
-    <strong>3. Oído interno:</strong> Contiene la cóclea (caracol), un órgano lleno de líquido y células ciliadas que convierten las vibraciones en impulsos nerviosos enviados al cerebro.
-  </div>
-  <div class="box box-example">💡 Los tres huesecillos del oído (martillo, yunque y estribo) son los huesos más pequeños del cuerpo humano. ¡Los tres juntos caben en un grano de arroz!</div>
-</div>
-
-<div class="section">
-  <div class="section-title">📊 ¿Qué sonidos podemos oír? Los decibeles</div>
-  <p>Los humanos solo escuchamos sonidos entre <strong>20 Hz y 20.000 Hz</strong>. Los perros llegan hasta 65.000 Hz y los murciélagos hasta 120.000 Hz.</p>
+  <div class="section-title">📊 Decibeles: ¿qué podemos escuchar?</div>
+  <p>Los humanos escuchamos entre <strong>20 Hz y 20.000 Hz</strong>.</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">
-    <tr style="background:#3498db;color:white">
-      <th style="padding:8px">Sonido</th><th style="padding:8px">Decibeles (dB)</th><th style="padding:8px">¿Es seguro?</th>
-    </tr>
-    <tr style="background:#f0f8ff"><td style="padding:8px">Silencio absoluto</td><td style="padding:8px;text-align:center">0 dB</td><td style="padding:8px;text-align:center">✅ Seguro</td></tr>
-    <tr><td style="padding:8px">Susurro</td><td style="padding:8px;text-align:center">30 dB</td><td style="padding:8px;text-align:center">✅ Seguro</td></tr>
-    <tr style="background:#f0f8ff"><td style="padding:8px">Conversación normal</td><td style="padding:8px;text-align:center">60 dB</td><td style="padding:8px;text-align:center">✅ Seguro</td></tr>
-    <tr><td style="padding:8px">Música en discoteca</td><td style="padding:8px;text-align:center">100 dB</td><td style="padding:8px;text-align:center">⚠️ Peligroso</td></tr>
-    <tr style="background:#f0f8ff"><td style="padding:8px">Avión despegando</td><td style="padding:8px;text-align:center">140 dB</td><td style="padding:8px;text-align:center">🚫 Muy peligroso</td></tr>
+    <tr style="background:#3498db;color:white"><th style="padding:8px">Sonido</th><th style="padding:8px">dB</th><th style="padding:8px">¿Seguro?</th></tr>
+    <tr style="background:#f0f8ff"><td style="padding:8px">Susurro</td><td style="padding:8px;text-align:center">30 dB</td><td style="padding:8px;text-align:center">✅</td></tr>
+    <tr><td style="padding:8px">Conversación</td><td style="padding:8px;text-align:center">60 dB</td><td style="padding:8px;text-align:center">✅</td></tr>
+    <tr style="background:#f0f8ff"><td style="padding:8px">Música en discoteca</td><td style="padding:8px;text-align:center">100 dB</td><td style="padding:8px;text-align:center">⚠️</td></tr>
+    <tr><td style="padding:8px">Avión despegando</td><td style="padding:8px;text-align:center">140 dB</td><td style="padding:8px;text-align:center">🚫</td></tr>
   </table>
-  <div class="box box-warn">⚠️ Exposición prolongada a más de 85 dB puede causar <strong>pérdida auditiva permanente</strong>. ¡Cuida el volumen de tus audífonos!</div>
+  <div class="box box-warn">⚠️ Más de 85 dB prolongado puede causar <strong>pérdida auditiva permanente</strong>. ¡Cuida el volumen de tus audífonos!</div>
 </div>
-
 <div class="section">
-  <div class="section-title">📹 Video — Cómo funciona el oído humano</div>
-  <div class="video-wrap"><iframe src="https://www.youtube.com/embed/flIAxGsV1AU?rel=0" allowfullscreen loading="lazy"></iframe></div><p class="video-caption">📹 El oído humano: cómo escuchamos los sonidos</p>
+  <div class="section-title">📹 Videos recomendados</div>
+  <div class="yt-search-box">
+  <div class="yt-icon">▶️</div>
+  <div class="yt-text">
+    <div class="yt-label">Cómo funciona el oído humano</div>
+    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
+  </div>
+  <a href="https://www.youtube.com/results?search_query=oido+humano+como+funciona+anatomia+educativo" target="_blank" class="yt-btn">Ver videos</a>
 </div>
-
+  <div class="yt-search-box">
+  <div class="yt-icon">▶️</div>
+  <div class="yt-text">
+    <div class="yt-label">Decibeles y salud auditiva</div>
+    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
+  </div>
+  <a href="https://www.youtube.com/results?search_query=decibeles+daño+auditivo+proteccion+auditiva" target="_blank" class="yt-btn">Ver videos</a>
+</div>
+</div>
 <div class="section">
   <div class="section-title">📝 Taller Semana 6</div>
   <div class="taller">
     <div class="taller-title">📌 Responde en tu cuaderno:</div>
     <div class="taller-item">1. Dibuja el oído y señala sus tres partes principales.</div>
     <div class="taller-item">2. ¿Cuál es la función del tímpano?</div>
-    <div class="taller-item">3. ¿Por qué los perros responden cuando escuchan un silbato que los humanos no escuchamos?</div>
-    <div class="taller-item">4. Estás expuesto 8 horas a 90 dB en una fábrica. ¿Qué riesgo corres y qué protección deberías usar?</div>
-    <div class="taller-item">5. <strong>Reto:</strong> Investiga qué es la hipoacusia y menciona dos causas principales.</div>
+    <div class="taller-item">3. ¿Por qué los perros responden a un silbato ultrasónico que nosotros no escuchamos?</div>
+    <div class="taller-item">4. Estás 8 horas en una fábrica a 90 dB. ¿Qué riesgo corres y qué protección usarías?</div>
+    <div class="taller-item">5. Investiga qué es la hipoacusia y menciona dos causas principales.</div>
   </div>
 </div>
-
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-title">🧠 Autoevaluación Semana</div>
 <div class="quiz-question">
 <div class="quiz-q-text">Pregunta 1: ¿Qué parte del oído convierte las vibraciones en impulsos nerviosos?</div>
 <div class="quiz-options">
 <label data-q="s6_1" data-val="a"><input type="radio" name="qs6_1" value="a"> El tímpano</label>
 <label data-q="s6_1" data-val="b"><input type="radio" name="qs6_1" value="b"> El pabellón auditivo</label>
-<label data-q="s6_1" data-val="c"><input type="radio" name="qs6_1" value="c"> La cóclea (caracol)</label>
+<label data-q="s6_1" data-val="c"><input type="radio" name="qs6_1" value="c"> La cóclea</label>
 <label data-q="s6_1" data-val="d"><input type="radio" name="qs6_1" value="d"> El martillo</label>
 </div>
 <div class="quiz-feedback" id="fbs6_1"></div>
 </div>
 <div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Cuál es el rango de frecuencias que puede escuchar un humano?</div>
+<div class="quiz-q-text">Pregunta 2: ¿Cuál es el rango de frecuencias auditivas humano?</div>
 <div class="quiz-options">
-<label data-q="s6_2" data-val="a"><input type="radio" name="qs6_2" value="a"> 0 Hz a 1000 Hz</label>
-<label data-q="s6_2" data-val="b"><input type="radio" name="qs6_2" value="b"> 20 Hz a 20.000 Hz</label>
-<label data-q="s6_2" data-val="c"><input type="radio" name="qs6_2" value="c"> 1 Hz a 100 Hz</label>
-<label data-q="s6_2" data-val="d"><input type="radio" name="qs6_2" value="d"> 200 Hz a 2.000 Hz</label>
+<label data-q="s6_2" data-val="a"><input type="radio" name="qs6_2" value="a"> 0 a 1000 Hz</label>
+<label data-q="s6_2" data-val="b"><input type="radio" name="qs6_2" value="b"> 20 a 20.000 Hz</label>
+<label data-q="s6_2" data-val="c"><input type="radio" name="qs6_2" value="c"> 1 a 100 Hz</label>
+<label data-q="s6_2" data-val="d"><input type="radio" name="qs6_2" value="d"> 200 a 2000 Hz</label>
 </div>
 <div class="quiz-feedback" id="fbs6_2"></div>
 </div>
 <div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: ¿A partir de cuántos decibeles el sonido empieza a ser peligroso para la audición?</div>
+<div class="quiz-q-text">Pregunta 3: ¿A partir de cuántos dB hay riesgo de daño auditivo prolongado?</div>
 <div class="quiz-options">
 <label data-q="s6_3" data-val="a"><input type="radio" name="qs6_3" value="a"> 30 dB</label>
 <label data-q="s6_3" data-val="b"><input type="radio" name="qs6_3" value="b"> 60 dB</label>
@@ -110,7 +107,7 @@
 <div class="quiz-feedback" id="fbs6_3"></div>
 </div>
 <div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: ¿Cómo se llaman los tres huesecillos del oído medio?</div>
+<div class="quiz-q-text">Pregunta 4: ¿Cómo se llaman los tres huesecillos del oído?</div>
 <div class="quiz-options">
 <label data-q="s6_4" data-val="a"><input type="radio" name="qs6_4" value="a"> Fémur, tibia, peroné</label>
 <label data-q="s6_4" data-val="b"><input type="radio" name="qs6_4" value="b"> Martillo, yunque y estribo</label>
@@ -120,26 +117,23 @@
 <div class="quiz-feedback" id="fbs6_4"></div>
 </div>
 <div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: Un perro escucha un silbato ultrasónico que los humanos no escuchan. ¿Por qué?</div>
+<div class="quiz-q-text">Pregunta 5: ¿Por qué un perro escucha el silbato ultrasónico y tú no?</div>
 <div class="quiz-options">
-<label data-q="s6_5" data-val="a"><input type="radio" name="qs6_5" value="a"> Los perros tienen oídos más grandes</label>
-<label data-q="s6_5" data-val="b"><input type="radio" name="qs6_5" value="b"> Los perros pueden detectar frecuencias mucho más altas que los humanos</label>
+<label data-q="s6_5" data-val="a"><input type="radio" name="qs6_5" value="a"> Tiene orejas más grandes</label>
+<label data-q="s6_5" data-val="b"><input type="radio" name="qs6_5" value="b"> Puede detectar frecuencias mucho más altas</label>
 <label data-q="s6_5" data-val="c"><input type="radio" name="qs6_5" value="c"> El silbato está roto</label>
 <label data-q="s6_5" data-val="d"><input type="radio" name="qs6_5" value="d"> Los perros ven el sonido</label>
 </div>
 <div class="quiz-feedback" id="fbs6_5"></div>
 </div>
-<button class="quiz-btn" id="quiz-btn-s6">✅ Verificar respuestas</button>
+<button class="quiz-btn" onclick="checkQuiz('s6',["c", "b", "c", "b", "b"])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s6"></div>
 </div>
-<script>initQuiz("s6",["c","b","c","b","b"]);</script>
-
 
 </div>
 <footer class="site-footer">
   Física — El Sonido · Semana 6/10 · Grado 11° · 2026
   <div class="creditos">Diseñado por Froylan Jiménez · CESUM</div>
 </footer>
-<script src="quiz.js"></script>
 </body>
 </html>
