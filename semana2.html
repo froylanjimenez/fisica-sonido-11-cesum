@@ -27,118 +27,106 @@
 
 <div class="section">
   <div class="section-title">🌊 ¿Cómo viaja el sonido?</div>
-  <p>El sonido necesita un <strong>medio material</strong> para propagarse. Puede viajar por:</p>
-  <ul>
-    <li>🌬️ <strong>Gases</strong> (como el aire): el más común, aunque no el más rápido.</li>
-    <li>💧 <strong>Líquidos</strong> (como el agua): el sonido viaja más rápido que en el aire.</li>
-    <li>🪨 <strong>Sólidos</strong> (como la madera, el metal): el más rápido de todos.</li>
-  </ul>
-  <div class="box box-tip">💡 Regla fácil: <strong>Sólido > Líquido > Gas</strong>. Entre más juntos están los átomos, más rápido viaja el sonido.</div>
-</div>
-<div class="section">
-  <div class="section-title">📊 Velocidad del sonido en distintos medios</div>
+  <p>El sonido necesita un <strong>medio material</strong>. Viaja por gases, líquidos y sólidos, y su velocidad depende del medio.</p>
+  <div class="box box-tip">💡 Regla: <strong>Sólido &gt; Líquido &gt; Gas</strong>. A mayor densidad de partículas, más rápido viaja.</div>
   <table style="width:100%;border-collapse:collapse;font-size:14px;margin:10px 0">
-    <tr style="background:#1565c0;color:white"><th style="padding:10px;text-align:left">Medio</th><th style="padding:10px;text-align:center">Velocidad</th><th style="padding:10px;text-align:center">¿Qué tan rápido?</th></tr>
-    <tr style="background:#f5f5f5"><td style="padding:10px">Aire (20°C)</td><td style="padding:10px;text-align:center"><strong>343 m/s</strong></td><td style="padding:10px;text-align:center">⚡</td></tr>
-    <tr><td style="padding:10px">Agua</td><td style="padding:10px;text-align:center"><strong>1.480 m/s</strong></td><td style="padding:10px;text-align:center">⚡⚡</td></tr>
-    <tr style="background:#f5f5f5"><td style="padding:10px">Madera</td><td style="padding:10px;text-align:center"><strong>3.900 m/s</strong></td><td style="padding:10px;text-align:center">⚡⚡⚡</td></tr>
-    <tr><td style="padding:10px">Acero</td><td style="padding:10px;text-align:center"><strong>5.100 m/s</strong></td><td style="padding:10px;text-align:center">⚡⚡⚡⚡</td></tr>
-    <tr style="background:#f5f5f5"><td style="padding:10px">Vacío</td><td style="padding:10px;text-align:center"><strong>0 m/s</strong></td><td style="padding:10px;text-align:center">🚫 No viaja</td></tr>
+    <tr style="background:#1565c0;color:white"><th style="padding:10px">Medio</th><th style="padding:10px;text-align:center">Velocidad</th></tr>
+    <tr style="background:#f5f5f5"><td style="padding:10px">Aire (20°C)</td><td style="padding:10px;text-align:center"><strong>343 m/s</strong></td></tr>
+    <tr><td style="padding:10px">Agua</td><td style="padding:10px;text-align:center"><strong>1.480 m/s</strong></td></tr>
+    <tr style="background:#f5f5f5"><td style="padding:10px">Madera</td><td style="padding:10px;text-align:center"><strong>3.900 m/s</strong></td></tr>
+    <tr><td style="padding:10px">Acero</td><td style="padding:10px;text-align:center"><strong>5.100 m/s</strong></td></tr>
+    <tr style="background:#f5f5f5"><td style="padding:10px">Vacío</td><td style="padding:10px;text-align:center"><strong>0 m/s 🚫</strong></td></tr>
   </table>
 </div>
 <div class="section">
-  <div class="section-title">📹 Videos recomendados</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Propagación del sonido en diferentes medios</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=propagacion+del+sonido+medios+solido+liquido+gas+fisica" target="_blank" class="yt-btn">Ver videos</a>
+  <div class="section-title">🎮 Simulación interactiva</div>
+  
+<div class="sim-wrap">
+  <div class="sim-title">🎮 Simulación: Velocidad del sonido en diferentes medios</div>
+  <canvas id="canvas2" width="520" height="180" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+  <button class="sim-btn" onclick="dispararOnda2()" style="margin-top:8px">🔊 Disparar onda de sonido</button>
+  <p class="sim-hint">Observa cómo la misma onda viaja a distintas velocidades en cada medio.</p>
+  <script>
+  (function(){
+    const c=document.getElementById('canvas2'),ctx=c.getContext('2d');
+    const medios=[
+      {name:'Aire',v:1,color:'#64b5f6',y:30},
+      {name:'Agua',v:4.3,color:'#4dd0e1',y:90},
+      {name:'Acero',v:14.9,color:'#ff8a65',y:150}
+    ];
+    let waves=[];
+    function draw(){
+      const W=c.width,H=c.height;
+      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+      medios.forEach(m=>{
+        ctx.fillStyle=m.color+'33';ctx.fillRect(0,m.y-18,W,36);
+        ctx.fillStyle=m.color;ctx.font='bold 12px sans-serif';
+        ctx.fillText(m.name,8,m.y+4);
+        const vText=m.name==='Aire'?'343 m/s':m.name==='Agua'?'1480 m/s':'5100 m/s';
+        ctx.fillStyle='#aaa';ctx.font='11px sans-serif';ctx.fillText(vText,60,m.y+4);
+      });
+      waves=waves.filter(w=>w.x<W+20);
+      waves.forEach(w=>{
+        medios.forEach(m=>{
+          if(!w.started)return;
+          const x=w.x0+w.elapsed*m.v*0.4;
+          ctx.beginPath();ctx.arc(Math.min(x,W-10),m.y,6,0,Math.PI*2);
+          ctx.fillStyle=m.color;ctx.fill();
+        });
+        w.elapsed+=1;
+      });
+      requestAnimationFrame(draw);
+    }
+    window.dispararOnda2=function(){waves.push({x0:120,x:120,elapsed:0,started:true});};
+    draw();
+  })();
+  </script>
 </div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Velocidad del sonido - experimentos</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=velocidad+del+sonido+experimento+educativo" target="_blank" class="yt-btn">Ver videos</a>
-</div>
-</div>
-<div class="section">
-  <div class="section-title">🔬 Experimento: Escucha por la mesa</div>
-  <div class="box box-info">Necesitas: una mesa de madera y un compañero.</div>
-  <div class="steps">
-    <div class="step"><div class="step-num" style="background:#e67e22">1</div><div class="step-text">Coloca tu oído sobre la mesa (cubre el otro oído).</div></div>
-    <div class="step"><div class="step-num" style="background:#e67e22">2</div><div class="step-text">Pide a un compañero que golpee suavemente el extremo opuesto.</div></div>
-    <div class="step"><div class="step-num" style="background:#e67e22">3</div><div class="step-text">Compara ese sonido con escuchar lo mismo por el aire.</div></div>
-  </div>
-  <div class="box box-tip">✏️ El sonido llega más claro por la madera porque los sólidos transmiten mejor las vibraciones.</div>
 </div>
 <div class="section">
   <div class="section-title">📝 Taller Semana 2</div>
   <div class="taller">
-    <div class="taller-title">📌 Responde en tu cuaderno:</div>
-    <div class="taller-item">1. ¿Cuáles son los tres tipos de medios? Da un ejemplo de cada uno.</div>
+    <div class="taller-title">Responde en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Cuáles son los tres medios por los que viaja el sonido? Un ejemplo de cada uno.</div>
     <div class="taller-item">2. Ordena de mayor a menor velocidad: aire, acero, agua.</div>
-    <div class="taller-item">3. Los delfines se comunican bajo el agua. ¿Qué ventaja tiene esto?</div>
-    <div class="taller-item">4. Una película muestra una explosión espacial con gran ruido. ¿Es posible en la realidad? ¿Por qué?</div>
-    <div class="taller-item">5. Si el sonido viaja a 343 m/s, ¿cuánto tarda en recorrer 1 km? (tiempo = distancia ÷ velocidad)</div>
+    <div class="taller-item">3. ¿Por qué los delfines se comunican fácilmente bajo el agua?</div>
+    <div class="taller-item">4. Si el sonido viaja a 343 m/s, ¿cuánto tarda en recorrer 1 km? (t = d ÷ v)</div>
+    <div class="taller-item">5. Una película muestra explosión espacial con sonido. ¿Es posible? ¿Por qué?</div>
   </div>
 </div>
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación Semana</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 1: ¿En qué medio viaja MÁS RÁPIDO el sonido?</div>
-<div class="quiz-options">
+<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿En qué medio viaja MÁS RÁPIDO el sonido?</div><div class="quiz-options">
 <label data-q="s2_1" data-val="a"><input type="radio" name="qs2_1" value="a"> En el aire</label>
 <label data-q="s2_1" data-val="b"><input type="radio" name="qs2_1" value="b"> En el agua</label>
 <label data-q="s2_1" data-val="c"><input type="radio" name="qs2_1" value="c"> En el acero</label>
 <label data-q="s2_1" data-val="d"><input type="radio" name="qs2_1" value="d"> En el vacío</label>
-</div>
-<div class="quiz-feedback" id="fbs2_1"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Por qué el sonido NO puede viajar en el vacío?</div>
-<div class="quiz-options">
-<label data-q="s2_2" data-val="a"><input type="radio" name="qs2_2" value="a"> Hace mucho frío</label>
-<label data-q="s2_2" data-val="b"><input type="radio" name="qs2_2" value="b"> No hay materia que vibre y transmita el sonido</label>
+</div><div class="quiz-feedback" id="fbs2_1"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Por qué el sonido no viaja en el vacío?</div><div class="quiz-options">
+<label data-q="s2_2" data-val="a"><input type="radio" name="qs2_2" value="a"> Hace frío</label>
+<label data-q="s2_2" data-val="b"><input type="radio" name="qs2_2" value="b"> No hay materia para vibrar</label>
 <label data-q="s2_2" data-val="c"><input type="radio" name="qs2_2" value="c"> La luz lo bloquea</label>
-<label data-q="s2_2" data-val="d"><input type="radio" name="qs2_2" value="d"> El vacío es oscuro</label>
-</div>
-<div class="quiz-feedback" id="fbs2_2"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: ¿A qué velocidad aproximada viaja el sonido en el aire?</div>
-<div class="quiz-options">
+<label data-q="s2_2" data-val="d"><input type="radio" name="qs2_2" value="d"> Es oscuro</label>
+</div><div class="quiz-feedback" id="fbs2_2"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿A qué velocidad viaja el sonido en el aire?</div><div class="quiz-options">
 <label data-q="s2_3" data-val="a"><input type="radio" name="qs2_3" value="a"> 34 m/s</label>
 <label data-q="s2_3" data-val="b"><input type="radio" name="qs2_3" value="b"> 343 m/s</label>
-<label data-q="s2_3" data-val="c"><input type="radio" name="qs2_3" value="c"> 3.430 m/s</label>
-<label data-q="s2_3" data-val="d"><input type="radio" name="qs2_3" value="d"> 34.300 m/s</label>
-</div>
-<div class="quiz-feedback" id="fbs2_3"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: Un buzo escucha el motor de un barco lejano. ¿Por qué?</div>
-<div class="quiz-options">
-<label data-q="s2_4" data-val="a"><input type="radio" name="qs2_4" value="a"> El sonido viaja por las burbujas</label>
+<label data-q="s2_3" data-val="c"><input type="radio" name="qs2_3" value="c"> 3430 m/s</label>
+<label data-q="s2_3" data-val="d"><input type="radio" name="qs2_3" value="d"> 34300 m/s</label>
+</div><div class="quiz-feedback" id="fbs2_3"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: Un buzo escucha el motor de un barco lejano. ¿Por qué?</div><div class="quiz-options">
+<label data-q="s2_4" data-val="a"><input type="radio" name="qs2_4" value="a"> Por las burbujas</label>
 <label data-q="s2_4" data-val="b"><input type="radio" name="qs2_4" value="b"> El agua transmite el sonido muy bien</label>
-<label data-q="s2_4" data-val="c"><input type="radio" name="qs2_4" value="c"> El barco usa ondas de radio</label>
-<label data-q="s2_4" data-val="d"><input type="radio" name="qs2_4" value="d"> El sonido no necesita materia</label>
-</div>
-<div class="quiz-feedback" id="fbs2_4"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: Si pones la oreja en una vía de tren, ¿por qué oyes el tren antes?</div>
-<div class="quiz-options">
+<label data-q="s2_4" data-val="c"><input type="radio" name="qs2_4" value="c"> Usa ondas de radio</label>
+<label data-q="s2_4" data-val="d"><input type="radio" name="qs2_4" value="d"> No necesita materia</label>
+</div><div class="quiz-feedback" id="fbs2_4"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Por qué oyes el tren poniendo el oído en los rieles antes que por el aire?</div><div class="quiz-options">
 <label data-q="s2_5" data-val="a"><input type="radio" name="qs2_5" value="a"> El metal vibra más fuerte</label>
-<label data-q="s2_5" data-val="b"><input type="radio" name="qs2_5" value="b"> El acero conduce el sonido mucho más rápido que el aire</label>
-<label data-q="s2_5" data-val="c"><input type="radio" name="qs2_5" value="c"> El tren hace más ruido por el metal</label>
+<label data-q="s2_5" data-val="b"><input type="radio" name="qs2_5" value="b"> El acero transmite el sonido mucho más rápido</label>
+<label data-q="s2_5" data-val="c"><input type="radio" name="qs2_5" value="c"> El tren hace más ruido</label>
 <label data-q="s2_5" data-val="d"><input type="radio" name="qs2_5" value="d"> No hay diferencia</label>
-</div>
-<div class="quiz-feedback" id="fbs2_5"></div>
-</div>
-<button class="quiz-btn" onclick="checkQuiz('s2',["c", "b", "b", "b", "b"])">✅ Verificar respuestas</button>
+</div><div class="quiz-feedback" id="fbs2_5"></div></div>
+<button class="quiz-btn" onclick="checkQuiz('s2',['c', 'b', 'b', 'b', 'b'])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s2"></div>
 </div>
 
