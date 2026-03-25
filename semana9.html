@@ -26,50 +26,62 @@
   <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#ff5722;margin-bottom:20px;border-left:6px solid #ff5722;padding-left:14px">Semana 9: Contaminación Sonora</h2>
 
 <div class="section">
-  <div class="section-title">🏭 ¿Qué es la contaminación sonora?</div>
-  <p>Es la presencia de ruidos en el ambiente que afectan negativamente la salud y calidad de vida.</p>
-  <div class="box box-warn">⚠️ La OMS considera el ruido el <strong>segundo contaminante más dañino</strong>, después del aire.</div>
+  <div class="section-title">🏭 Contaminación sonora</div>
+  <p>Es la presencia de ruidos en el ambiente que afectan la salud. La OMS la considera el <strong>segundo contaminante más dañino</strong> después del aire.</p>
   <ul>
-    <li>🚗 Tráfico vehicular (mayor fuente en ciudades)</li>
-    <li>🏗️ Construcción (taladros, maquinaria)</li>
-    <li>🎵 Entretenimiento (discotecas, conciertos)</li>
-    <li>🏭 Industria (fábricas)</li>
+    <li>🚗 Tráfico vehicular (mayor fuente)</li>
+    <li>🏗️ Construcción · 🎵 Entretenimiento · 🏭 Industria</li>
   </ul>
+  <div class="box box-warn">85 dB prolongado → daño auditivo permanente. ¡Cuida el volumen de tus audífonos!</div>
 </div>
 <div class="section">
-  <div class="section-title">💊 Efectos del ruido en la salud</div>
-  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">
-    <tr style="background:#ff5722;color:white"><th style="padding:8px">Nivel (dB)</th><th style="padding:8px">Efectos</th></tr>
-    <tr style="background:#fff8f5"><td style="padding:8px">55-65 dB</td><td style="padding:8px">Molestia, dificultad para concentrarse</td></tr>
-    <tr><td style="padding:8px">65-85 dB</td><td style="padding:8px">Estrés, problemas para dormir</td></tr>
-    <tr style="background:#fff8f5"><td style="padding:8px">85-100 dB</td><td style="padding:8px">Daño auditivo con exposición prolongada</td></tr>
-    <tr><td style="padding:8px">&gt;120 dB</td><td style="padding:8px">Daño auditivo inmediato</td></tr>
-    <tr style="background:#fff8f5"><td style="padding:8px">&gt;140 dB</td><td style="padding:8px">Perforación del tímpano</td></tr>
-  </table>
-</div>
-<div class="section">
-  <div class="section-title">📹 Videos recomendados</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Contaminación sonora y efectos en la salud</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
+  <div class="section-title">🎮 Simulación: medidor de decibeles</div>
+  
+<div class="sim-wrap">
+  <div class="sim-title">🎮 Simulación: Medidor de decibeles</div>
+  <div class="sim-controls">
+    <label>Nivel de ruido: <strong id="db9val">60</strong> dB
+      <input type="range" id="db9" min="0" max="150" value="60" oninput="upd9()">
+    </label>
   </div>
-  <a href="https://www.youtube.com/results?search_query=contaminacion+sonora+ruido+efectos+salud+educativo" target="_blank" class="yt-btn">Ver videos</a>
-</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Protección auditiva</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
+  <div id="dbbar9" style="margin:10px 0;height:40px;border-radius:10px;overflow:hidden;background:#222;position:relative">
+    <div id="dbfill9" style="height:100%;border-radius:10px;transition:width .3s,background .3s;width:40%"></div>
+    <span id="dblabel9" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:800;font-size:14px;color:white;text-shadow:0 1px 3px #000">Conversación normal</span>
   </div>
-  <a href="https://www.youtube.com/results?search_query=proteccion+auditiva+decibeles+daño+oido" target="_blank" class="yt-btn">Ver videos</a>
+  <div id="dbicon9" style="font-size:40px;text-align:center;margin:8px 0"></div>
+  <div id="dbmsg9" style="text-align:center;font-size:13px;font-weight:600;padding:8px;border-radius:8px"></div>
+  <script>
+  const dbData=[
+    [0,10,'🤫','Silencio absoluto','#27ae60','background:#e8f5e9;color:#1b5e20'],
+    [10,30,'💤','Susurro / hojas movidas por viento','#27ae60','background:#e8f5e9;color:#1b5e20'],
+    [30,55,'🗣️','Conversación normal','#27ae60','background:#e8f5e9;color:#1b5e20'],
+    [55,70,'🚗','Tráfico urbano','#f39c12','background:#fff8e1;color:#5d4037'],
+    [70,85,'🏗️','Aspiradora / tráfico intenso','#f39c12','background:#fff8e1;color:#5d4037'],
+    [85,100,'⚠️','Discoteca / concierto — RIESGO','#e74c3c','background:#fce4ec;color:#b71c1c'],
+    [100,120,'🏭','Taladro / martillo neumático — PELIGROSO','#e74c3c','background:#fce4ec;color:#b71c1c'],
+    [120,140,'✈️','Avión despegando — MUY PELIGROSO','#e74c3c','background:#fce4ec;color:#b71c1c'],
+    [140,151,'💥','Disparo / explosión — DAÑO INMEDIATO','#e74c3c','background:#fce4ec;color:#b71c1c'],
+  ];
+  window.upd9=function(){
+    const db=+document.getElementById('db9').value;
+    document.getElementById('db9val').textContent=db;
+    const d=dbData.find(x=>db>=x[0]&&db<x[1])||dbData[dbData.length-1];
+    const pct=db/150*100;
+    document.getElementById('dbfill9').style.width=pct+'%';
+    document.getElementById('dbfill9').style.background=d[4];
+    document.getElementById('dblabel9').textContent=d[3];
+    document.getElementById('dbicon9').textContent=d[2];
+    document.getElementById('dbmsg9').style.cssText=d[5];
+    document.getElementById('dbmsg9').textContent=db<85?'✅ Nivel seguro para la audición.':db<100?'⚠️ Exposición prolongada puede dañar el oído. Usa protección.':'🚫 Riesgo alto de daño auditivo.';
+  };
+  upd9();
+  </script>
 </div>
 </div>
 <div class="section">
-  <div class="section-title">🎯 Actividad: Mapa de ruido de tu barrio</div>
+  <div class="section-title">🎯 Actividad: mapa de ruido</div>
   <div class="activity">
-    <div class="activity-title">📋 En tu cuaderno, dibuja un mapa de tu barrio e identifica:</div>
+    <div class="activity-title">Dibuja un mapa de tu barrio en tu cuaderno:</div>
     <ul style="font-size:14px;margin:8px 0 0 18px">
       <li>🔴 Zonas con mucho ruido (&gt;70 dB)</li>
       <li>🟡 Zonas con ruido moderado (50-70 dB)</li>
@@ -81,67 +93,47 @@
 <div class="section">
   <div class="section-title">📝 Taller Semana 9</div>
   <div class="taller">
-    <div class="taller-title">📌 Responde en tu cuaderno:</div>
-    <div class="taller-item">1. Define contaminación sonora y menciona 3 fuentes en tu comunidad.</div>
-    <div class="taller-item">2. ¿A partir de cuántos dB puede haber daño auditivo prolongado?</div>
-    <div class="taller-item">3. Menciona 3 efectos del ruido excesivo que NO sean auditivos.</div>
-    <div class="taller-item">4. ¿Por qué plantar árboles en ciudades ayuda a reducir el ruido?</div>
-    <div class="taller-item">5. Redacta una carta de 5 líneas al alcalde explicando el problema del ruido y una solución.</div>
+    <div class="taller-title">Responde en tu cuaderno:</div>
+    <div class="taller-item">1. Define contaminación sonora. Menciona 3 fuentes en tu comunidad.</div>
+    <div class="taller-item">2. ¿A partir de cuántos dB hay daño auditivo prolongado?</div>
+    <div class="taller-item">3. Menciona 3 efectos del ruido que NO sean auditivos.</div>
+    <div class="taller-item">4. ¿Por qué plantar árboles ayuda a reducir el ruido?</div>
+    <div class="taller-item">5. Redacta una carta de 5 líneas al alcalde sobre el problema del ruido.</div>
   </div>
 </div>
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación Semana</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 1: ¿Cuál es el principal efecto del ruido excesivo en los oídos?</div>
-<div class="quiz-options">
+<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Principal efecto del ruido excesivo en los oídos?</div><div class="quiz-options">
 <label data-q="s9_1" data-val="a"><input type="radio" name="qs9_1" value="a"> Visión borrosa</label>
 <label data-q="s9_1" data-val="b"><input type="radio" name="qs9_1" value="b"> Pérdida auditiva</label>
 <label data-q="s9_1" data-val="c"><input type="radio" name="qs9_1" value="c"> Solo dolor de cabeza</label>
 <label data-q="s9_1" data-val="d"><input type="radio" name="qs9_1" value="d"> Mejora la audición</label>
-</div>
-<div class="quiz-feedback" id="fbs9_1"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Cuál es la principal fuente de ruido en las ciudades?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs9_1"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Principal fuente de ruido en las ciudades?</div><div class="quiz-options">
 <label data-q="s9_2" data-val="a"><input type="radio" name="qs9_2" value="a"> Los aviones</label>
 <label data-q="s9_2" data-val="b"><input type="radio" name="qs9_2" value="b"> El tráfico vehicular</label>
-<label data-q="s9_2" data-val="c"><input type="radio" name="qs9_2" value="c"> La música en bares</label>
+<label data-q="s9_2" data-val="c"><input type="radio" name="qs9_2" value="c"> Música en bares</label>
 <label data-q="s9_2" data-val="d"><input type="radio" name="qs9_2" value="d"> Las fábricas</label>
-</div>
-<div class="quiz-feedback" id="fbs9_2"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: ¿A partir de cuántos dB hay daño con exposición prolongada?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs9_2"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿A partir de cuántos dB hay daño prolongado?</div><div class="quiz-options">
 <label data-q="s9_3" data-val="a"><input type="radio" name="qs9_3" value="a"> 30 dB</label>
 <label data-q="s9_3" data-val="b"><input type="radio" name="qs9_3" value="b"> 55 dB</label>
 <label data-q="s9_3" data-val="c"><input type="radio" name="qs9_3" value="c"> 85 dB</label>
 <label data-q="s9_3" data-val="d"><input type="radio" name="qs9_3" value="d"> 120 dB</label>
-</div>
-<div class="quiz-feedback" id="fbs9_3"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: ¿Cuál NO es una medida de protección contra el ruido?</div>
-<div class="quiz-options">
-<label data-q="s9_4" data-val="a"><input type="radio" name="qs9_4" value="a"> Usar tapones auditivos</label>
+</div><div class="quiz-feedback" id="fbs9_3"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cuál NO es protección contra el ruido?</div><div class="quiz-options">
+<label data-q="s9_4" data-val="a"><input type="radio" name="qs9_4" value="a"> Tapones auditivos</label>
 <label data-q="s9_4" data-val="b"><input type="radio" name="qs9_4" value="b"> Plantar árboles</label>
 <label data-q="s9_4" data-val="c"><input type="radio" name="qs9_4" value="c"> Subir el TV para tapar el ruido</label>
 <label data-q="s9_4" data-val="d"><input type="radio" name="qs9_4" value="d"> Ventanas con doble vidrio</label>
-</div>
-<div class="quiz-feedback" id="fbs9_4"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: ¿Cómo afecta el ruido al sistema cardiovascular?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs9_4"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Cómo afecta el ruido al sistema cardiovascular?</div><div class="quiz-options">
 <label data-q="s9_5" data-val="a"><input type="radio" name="qs9_5" value="a"> Lo fortalece</label>
-<label data-q="s9_5" data-val="b"><input type="radio" name="qs9_5" value="b"> No tiene efecto</label>
+<label data-q="s9_5" data-val="b"><input type="radio" name="qs9_5" value="b"> Sin efecto</label>
 <label data-q="s9_5" data-val="c"><input type="radio" name="qs9_5" value="c"> Puede aumentar la presión arterial</label>
 <label data-q="s9_5" data-val="d"><input type="radio" name="qs9_5" value="d"> Acelera el metabolismo</label>
-</div>
-<div class="quiz-feedback" id="fbs9_5"></div>
-</div>
-<button class="quiz-btn" onclick="checkQuiz('s9',["b", "b", "c", "c", "c"])">✅ Verificar respuestas</button>
+</div><div class="quiz-feedback" id="fbs9_5"></div></div>
+<button class="quiz-btn" onclick="checkQuiz('s9',['b', 'b', 'c', 'c', 'c'])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s9"></div>
 </div>
 
