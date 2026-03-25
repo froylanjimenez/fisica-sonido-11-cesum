@@ -122,6 +122,7 @@
     <div class="exp-header">
       <span class="exp-badge" id="expBadge">EXP 1</span>
       <span class="exp-title" id="expTitle"></span>
+      <button class="print-exp-btn" onclick="printExp()">🖨️ Imprimir</button>
       <button class="close-exp" onclick="cerrarExpContent()">✕ Cerrar</button>
     </div>
     <div id="expContent"></div>
@@ -330,6 +331,36 @@ function verificarExpClave() {
   }
 }
 
+function printExp(){
+  var exp=EXPERIMENTOS[expActivo];
+  if(!exp)return;
+  var printCSS=`body{font-family:'Segoe UI',sans-serif;max-width:800px;margin:0 auto;padding:24px;color:#2c3e50;font-size:14px}
+h1{color:#1a237e;border-bottom:3px solid #1a237e;padding-bottom:10px;margin-bottom:20px;font-size:22px}
+.box{border-radius:8px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.6}
+.box-info{background:#e3f2fd;border-left:5px solid #1976d2;color:#0d47a1}
+.box-tip{background:#e8f5e9;border-left:5px solid #43a047;color:#1b5e20}
+.box-warn{background:#fff8e1;border-left:5px solid #ffa000;color:#5d4037}
+.box-formula{background:#f3e5f5;border-left:5px solid #7b1fa2;color:#4a148c;font-family:monospace;font-size:15px;font-weight:700;text-align:center;padding:16px}
+.box-example{background:#fce4ec;border-left:5px solid #c2185b;color:#880e4f}
+.section{background:#f9f9f9;border-radius:8px;padding:16px;margin-bottom:16px}
+.section-title{font-size:15px;font-weight:800;margin-bottom:12px}
+.steps{display:flex;flex-direction:column;gap:8px}
+.step{display:flex;gap:10px;align-items:flex-start}
+.step-num{min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:12px}
+.step-text{font-size:13px;line-height:1.6;padding-top:3px}
+ul{padding-left:20px}li{margin-bottom:5px;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #ddd;padding:7px;text-align:left}
+.print-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid #1a237e}
+.print-logo{font-size:13px;color:#555}`;
+  var w=window.open('','_blank','width=900,height=700');
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>'+exp.title+'</title><style>'+printCSS+'</style></head><body>');
+  w.document.write('<div class="print-header"><div><strong style="font-size:16px;color:#1a237e">'+exp.title+'</strong></div><div class="print-logo">Física 11° · CESUM 2026<br>Profesor: Froylan Jiménez</div></div>');
+  w.document.write(exp.html);
+  w.document.write('<script>setTimeout(function(){window.print();},400);<\/script>');
+  w.document.write('</body></html>');
+  w.document.close();
+}
 function cerrarExpContent() {
   document.getElementById('expContentOverlay').classList.remove('show');
   expActivo = null;
