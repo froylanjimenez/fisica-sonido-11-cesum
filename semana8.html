@@ -27,114 +27,123 @@
 
 <div class="section">
   <div class="section-title">🚑 El Efecto Doppler</div>
-  <p>Cuando una fuente de sonido <strong>se mueve</strong>, las ondas se comprimen hacia el lado que se acerca (→ más agudo) y se estiran hacia el lado que se aleja (→ más grave).</p>
-  <div class="box box-tip">💡 Una ambulancia que se acerca suena más aguda. Al alejarse, suena más grave. El conductor del vehículo siempre escucha el mismo tono.</div>
-  <div class="box box-info">🌌 Los astrónomos usan el Efecto Doppler con la luz de las estrellas para saber si se acercan o se alejan de la Tierra.</div>
+  <p>Cuando una fuente de sonido <strong>se mueve</strong>, las ondas se comprimen hacia el lado que se acerca (→ más agudo) y se estiran hacia el lado que deja atrás (→ más grave).</p>
+  <div class="box box-tip">💡 La ambulancia que se acerca suena más aguda. Al alejarse, suena más grave. ¡El conductor siempre escucha el mismo tono!</div>
+</div>
+<div class="section">
+  <div class="section-title">🎮 Simulación: Efecto Doppler</div>
+  
+<div class="sim-wrap">
+  <div class="sim-title">🎮 Simulación: Efecto Doppler</div>
+  <div class="sim-controls">
+    <label>Velocidad del vehículo:
+      <select id="spd8" onchange="upd8()" style="padding:6px 10px;border-radius:6px;border:2px solid #e91e63;font-weight:700">
+        <option value="0">Quieto (0 m/s)</option>
+        <option value="1" selected>Lento (20 m/s)</option>
+        <option value="2">Rápido (50 m/s)</option>
+        <option value="3">Muy rápido (80 m/s)</option>
+      </select>
+    </label>
+  </div>
+  <canvas id="canvas8" width="520" height="160" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+  <div id="dop8info" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+    <div style="background:#e3f2fd;border-radius:8px;padding:10px;text-align:center">
+      <div style="font-size:11px;color:#888;font-weight:700">DELANTE (se acerca)</div>
+      <div id="dop8front" style="font-size:20px;font-weight:900;color:#1565c0">Más AGUDO 🔺</div>
+    </div>
+    <div style="background:#fce4ec;border-radius:8px;padding:10px;text-align:center">
+      <div style="font-size:11px;color:#888;font-weight:700">DETRÁS (se aleja)</div>
+      <div id="dop8back" style="font-size:20px;font-weight:900;color:#c62828">Más GRAVE 🔻</div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    const c=document.getElementById('canvas8'),ctx=c.getContext('2d');
+    let spd=1,t=0,carX=80;
+    const speeds=[0,20,50,80];
+    window.upd8=function(){spd=+document.getElementById('spd8').value;};
+    function draw(){
+      const W=c.width,H=c.height/2;
+      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,c.height);
+      // road
+      ctx.fillStyle='#222';ctx.fillRect(0,H+10,W,30);
+      ctx.strokeStyle='#555';ctx.setLineDash([20,20]);ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(0,H+24);ctx.lineTo(W,H+24);ctx.stroke();ctx.setLineDash([]);
+      // waves (circles from car)
+      const vCar=speeds[spd];
+      for(let i=1;i<=5;i++){
+        const r=i*22;
+        const cx=carX-vCar*i*0.28;
+        ctx.beginPath();
+        const stretch=1+vCar/343*0.6;
+        ctx.ellipse(Math.max(20,Math.min(W-20,cx)),H,r/stretch,r,0,0,Math.PI*2);
+        ctx.strokeStyle=`rgba(100,180,255,${0.7-i*0.12})`;ctx.lineWidth=1.5;ctx.stroke();
+      }
+      // car
+      ctx.fillStyle='#e91e63';
+      ctx.fillRect(carX-20,H-16,40,20);
+      ctx.beginPath();ctx.arc(carX-10,H+5,6,0,Math.PI*2);ctx.fillStyle='#333';ctx.fill();
+      ctx.beginPath();ctx.arc(carX+10,H+5,6,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='white';ctx.font='bold 14px sans-serif';ctx.fillText('🚑',carX-10,H-2);
+      // move car
+      carX+=speeds[spd]*0.04;if(carX>W+30)carX=-30;
+      t++;requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+</div>
 </div>
 <div class="section">
   <div class="section-title">🔬 Ultrasonido e Infrasonido</div>
-  <div class="box box-warn">
-    <strong>Ultrasonido (&gt; 20.000 Hz):</strong> Demasiado agudo para humanos.<br>
-    🏥 Ecografías · 🦇 Ecolocalización de murciélagos · 🔧 Limpieza industrial
-  </div>
-  <div class="box box-example">
-    <strong>Infrasonido (&lt; 20 Hz):</strong> Demasiado grave para humanos.<br>
-    🐘 Comunicación de elefantes · 🌋 Terremotos · 🌪️ Tormentas
-  </div>
-</div>
-<div class="section">
-  <div class="section-title">🏥 La ecografía: ver con sonido</div>
-  <div class="steps">
-    <div class="step"><div class="step-num" style="background:#e91e63">1</div><div class="step-text">El transductor emite pulsos de ultrasonido.</div></div>
-    <div class="step"><div class="step-num" style="background:#e91e63">2</div><div class="step-text">Los sonidos rebotan en los órganos internos.</div></div>
-    <div class="step"><div class="step-num" style="background:#e91e63">3</div><div class="step-text">Se mide el tiempo que tardan en regresar.</div></div>
-    <div class="step"><div class="step-num" style="background:#e91e63">4</div><div class="step-text">Con esos tiempos se construye una imagen.</div></div>
-  </div>
-  <div class="box box-tip">💡 La ecografía no usa radiación. Por eso es segura para ver bebés en el embarazo.</div>
-</div>
-<div class="section">
-  <div class="section-title">📹 Videos recomendados</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Efecto Doppler explicado</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=efecto+doppler+explicacion+sencilla+fisica+ejemplos" target="_blank" class="yt-btn">Ver videos</a>
-</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Ultrasonido y ecografía médica</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=ultrasonido+ecografia+como+funciona+medicina" target="_blank" class="yt-btn">Ver videos</a>
-</div>
+  <div class="box box-warn"><strong>Ultrasonido (&gt;20.000 Hz):</strong> 🏥 Ecografías · 🦇 Murciélagos · 🔧 Limpieza industrial</div>
+  <div class="box box-example"><strong>Infrasonido (&lt;20 Hz):</strong> 🐘 Elefantes · 🌋 Terremotos · 🌪️ Tormentas</div>
+  <div class="box box-info">La ecografía no usa radiación → segura para ver bebés durante el embarazo.</div>
 </div>
 <div class="section">
   <div class="section-title">📝 Taller Semana 8</div>
   <div class="taller">
-    <div class="taller-title">📌 Responde en tu cuaderno:</div>
-    <div class="taller-item">1. Explica el Efecto Doppler. Da un ejemplo diferente al de la ambulancia.</div>
-    <div class="taller-item">2. ¿Cuál es la diferencia entre ultrasonido e infrasonido?</div>
-    <div class="taller-item">3. ¿Por qué se prefiere la ecografía sobre los rayos X para el embarazo?</div>
-    <div class="taller-item">4. Un murciélago emite ultrasonido a 50.000 Hz (v = 340 m/s). ¿Cuál es λ?</div>
-    <div class="taller-item">5. ¿Qué ventaja tienen los delfines al usar ecolocalización bajo el agua?</div>
+    <div class="taller-title">Responde en tu cuaderno:</div>
+    <div class="taller-item">1. Explica el Efecto Doppler. Da un ejemplo diferente a la ambulancia.</div>
+    <div class="taller-item">2. ¿Diferencia entre ultrasonido e infrasonido?</div>
+    <div class="taller-item">3. ¿Por qué se prefiere la ecografía sobre rayos X para el embarazo?</div>
+    <div class="taller-item">4. Murciélago: f=50.000 Hz, v=340 m/s. ¿Cuál es λ?</div>
+    <div class="taller-item">5. ¿Qué ventaja tiene la ecolocalización de delfines bajo el agua?</div>
   </div>
 </div>
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación Semana</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 1: Cuando una fuente de sonido se acerca, ¿cómo percibes su tono?</div>
-<div class="quiz-options">
+<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: Fuente de sonido que se acerca. ¿Cómo percibes el tono?</div><div class="quiz-options">
 <label data-q="s8_1" data-val="a"><input type="radio" name="qs8_1" value="a"> Más grave</label>
 <label data-q="s8_1" data-val="b"><input type="radio" name="qs8_1" value="b"> Igual</label>
 <label data-q="s8_1" data-val="c"><input type="radio" name="qs8_1" value="c"> Más agudo</label>
 <label data-q="s8_1" data-val="d"><input type="radio" name="qs8_1" value="d"> Más fuerte pero igual tono</label>
-</div>
-<div class="quiz-feedback" id="fbs8_1"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Cuál es el límite superior del rango auditivo humano?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs8_1"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Límite superior del rango auditivo humano?</div><div class="quiz-options">
 <label data-q="s8_2" data-val="a"><input type="radio" name="qs8_2" value="a"> 200 Hz</label>
-<label data-q="s8_2" data-val="b"><input type="radio" name="qs8_2" value="b"> 2.000 Hz</label>
-<label data-q="s8_2" data-val="c"><input type="radio" name="qs8_2" value="c"> 20.000 Hz</label>
-<label data-q="s8_2" data-val="d"><input type="radio" name="qs8_2" value="d"> 200.000 Hz</label>
-</div>
-<div class="quiz-feedback" id="fbs8_2"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: ¿Qué tipo de sonido usan los murciélagos para orientarse?</div>
-<div class="quiz-options">
+<label data-q="s8_2" data-val="b"><input type="radio" name="qs8_2" value="b"> 2000 Hz</label>
+<label data-q="s8_2" data-val="c"><input type="radio" name="qs8_2" value="c"> 20000 Hz</label>
+<label data-q="s8_2" data-val="d"><input type="radio" name="qs8_2" value="d"> 200000 Hz</label>
+</div><div class="quiz-feedback" id="fbs8_2"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Qué tipo de sonido usan los murciélagos?</div><div class="quiz-options">
 <label data-q="s8_3" data-val="a"><input type="radio" name="qs8_3" value="a"> Infrasonido</label>
 <label data-q="s8_3" data-val="b"><input type="radio" name="qs8_3" value="b"> Sonido audible</label>
 <label data-q="s8_3" data-val="c"><input type="radio" name="qs8_3" value="c"> Ultrasonido</label>
 <label data-q="s8_3" data-val="d"><input type="radio" name="qs8_3" value="d"> Ondas de radio</label>
-</div>
-<div class="quiz-feedback" id="fbs8_3"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: ¿Por qué la ecografía es preferible a los rayos X para el bebé?</div>
-<div class="quiz-options">
+</div><div class="quiz-feedback" id="fbs8_3"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Por qué la ecografía es preferible a rayos X para el bebé?</div><div class="quiz-options">
 <label data-q="s8_4" data-val="a"><input type="radio" name="qs8_4" value="a"> Es más barata</label>
 <label data-q="s8_4" data-val="b"><input type="radio" name="qs8_4" value="b"> No usa radiación ionizante</label>
-<label data-q="s8_4" data-val="c"><input type="radio" name="qs8_4" value="c"> Produce mejores imágenes</label>
-<label data-q="s8_4" data-val="d"><input type="radio" name="qs8_4" value="d"> Funciona más rápido</label>
-</div>
-<div class="quiz-feedback" id="fbs8_4"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: ¿Qué produce el Efecto Doppler?</div>
-<div class="quiz-options">
-<label data-q="s8_5" data-val="a"><input type="radio" name="qs8_5" value="a"> Que el sonido se amplifique</label>
-<label data-q="s8_5" data-val="b"><input type="radio" name="qs8_5" value="b"> Que el tono cambie cuando la fuente o receptor se mueven</label>
-<label data-q="s8_5" data-val="c"><input type="radio" name="qs8_5" value="c"> Que el sonido viaje más rápido</label>
-<label data-q="s8_5" data-val="d"><input type="radio" name="qs8_5" value="d"> Que el eco sea más fuerte</label>
-</div>
-<div class="quiz-feedback" id="fbs8_5"></div>
-</div>
-<button class="quiz-btn" onclick="checkQuiz('s8',["c", "c", "c", "b", "b"])">✅ Verificar respuestas</button>
+<label data-q="s8_4" data-val="c"><input type="radio" name="qs8_4" value="c"> Mejores imágenes</label>
+<label data-q="s8_4" data-val="d"><input type="radio" name="qs8_4" value="d"> Más rápida</label>
+</div><div class="quiz-feedback" id="fbs8_4"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Qué produce el Efecto Doppler?</div><div class="quiz-options">
+<label data-q="s8_5" data-val="a"><input type="radio" name="qs8_5" value="a"> Amplifica el sonido</label>
+<label data-q="s8_5" data-val="b"><input type="radio" name="qs8_5" value="b"> El tono cambia cuando la fuente o receptor se mueven</label>
+<label data-q="s8_5" data-val="c"><input type="radio" name="qs8_5" value="c"> Sonido más rápido</label>
+<label data-q="s8_5" data-val="d"><input type="radio" name="qs8_5" value="d"> Eco más fuerte</label>
+</div><div class="quiz-feedback" id="fbs8_5"></div></div>
+<button class="quiz-btn" onclick="checkQuiz('s8',['c', 'c', 'c', 'b', 'b'])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s8"></div>
 </div>
 
