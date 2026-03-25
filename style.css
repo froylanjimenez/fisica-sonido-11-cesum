@@ -118,16 +118,18 @@ a{text-decoration:none;color:inherit}
 }
 .yt-btn:hover { background:#c62828; }
 
-/* ── ADMIN PANEL ── */
-.admin-entry {
-    margin-top:22px; border-top:2px dashed #ecf0f1; padding-top:18px;
-    text-align:center;
+/* ── EXPERIMENT CARDS (en weeks-grid) ── */
+.exp-card {
+    background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);
+    color:white; cursor:pointer; user-select:none;
 }
-.admin-link {
-    font-size:11px; color:#bdc3c7; cursor:pointer; transition:.2s;
-    user-select:none;
-}
-.admin-link:hover { color:#7f8c8d; }
+.exp-card:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,.35); }
+.exp-card .week-num.exp-label { color:rgba(255,255,255,.6); }
+.exp-card .week-title { color:white; }
+.exp-card .week-desc { color:rgba(255,255,255,.55); }
+.tag-exp { background:rgba(255,255,255,.1) !important; color:rgba(255,255,255,.75) !important; }
+
+/* ── ADMIN PANEL (legacy, kept for modal styles) ── */
 
 .admin-modal-overlay {
     display:none; position:fixed; top:0; left:0; width:100%; height:100%;
