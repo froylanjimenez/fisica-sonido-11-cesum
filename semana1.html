@@ -27,115 +27,116 @@
 
 <div class="section">
   <div class="section-title">🔊 ¿Qué es el sonido?</div>
-  <p>El sonido es una <strong>vibración</strong> que se transmite a través de la materia y que nuestros oídos pueden detectar. Cuando algo vibra (se mueve muy rápido hacia adelante y hacia atrás), hace que las partículas a su alrededor también vibren, y así el sonido se propaga.</p>
-  <div class="box box-tip">💡 <strong>Ejemplo sencillo:</strong> Cuando pulsas la cuerda de una guitarra, la cuerda vibra y mueve el aire a su alrededor. Ese aire en movimiento llega a tu oído y ¡escuchas el sonido!</div>
-  <p>Sin vibración no hay sonido. Así de simple.</p>
-</div>
-<div class="section">
-  <div class="section-title">🎸 ¿Qué puede vibrar y producir sonido?</div>
+  <p>El sonido es una <strong>vibración</strong> que se transmite a través de la materia. Cuando algo vibra, mueve las partículas a su alrededor y así el sonido se propaga.</p>
+  <div class="box box-tip">💡 Sin vibración no hay sonido. Así de simple.</div>
   <ul>
-    <li>🥁 Un tambor que golpeas → el parche vibra</li>
+    <li>🥁 Tambor golpeado → el parche vibra</li>
     <li>🗣️ Tu voz → tus cuerdas vocales vibran</li>
-    <li>🔔 Una campana → el metal vibra</li>
-    <li>📱 Un parlante → el cono de papel vibra</li>
-    <li>🌬️ El viento entre los árboles → las ramas y hojas vibran</li>
+    <li>📱 Un parlante → el cono vibra</li>
   </ul>
-  <div class="box box-warn">⚠️ <strong>Importante:</strong> El sonido <em>siempre</em> necesita un material para propagarse. En el espacio exterior no hay aire → no hay sonido. Por eso las explosiones espaciales de Star Wars no serían tan ruidosas en la realidad 😄</div>
+  <div class="box box-warn">⚠️ El sonido necesita materia. En el espacio (vacío) no hay sonido.</div>
 </div>
 <div class="section">
-  <div class="section-title">📹 Videos recomendados</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Introducción al sonido y las vibraciones</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
+  <div class="section-title">🎮 Simulación interactiva</div>
+  
+<div class="sim-wrap">
+  <div class="sim-title">🎮 Simulación: Vibración y ondas de sonido</div>
+  <div class="sim-controls">
+    <label>Frecuencia: <strong id="freqVal1">3</strong> Hz
+      <input type="range" id="freq1" min="1" max="8" value="3" oninput="updateSim1()">
+    </label>
+    <label>Amplitud: <strong id="ampVal1">30</strong>
+      <input type="range" id="amp1" min="5" max="50" value="30" oninput="updateSim1()">
+    </label>
+    <button class="sim-btn" onclick="toggleSim1()">⏸ Pausar</button>
   </div>
-  <a href="https://www.youtube.com/results?search_query=que+es+el+sonido+fisica+vibraciones+educativo+español" target="_blank" class="yt-btn">Ver videos</a>
-</div>
-  <div class="yt-search-box">
-  <div class="yt-icon">▶️</div>
-  <div class="yt-text">
-    <div class="yt-label">Experimentos caseros con sonido</div>
-    <div class="yt-hint">Haz clic para buscar videos relacionados en YouTube</div>
-  </div>
-  <a href="https://www.youtube.com/results?search_query=experimento+sonido+vibracion+casero" target="_blank" class="yt-btn">Ver videos</a>
+  <canvas id="canvas1" width="520" height="120" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+  <p class="sim-hint">Observa cómo al aumentar la frecuencia las ondas se aprietan, y al aumentar la amplitud se hacen más grandes.</p>
+  <script>
+  (function(){
+    const c=document.getElementById('canvas1'),ctx=c.getContext('2d');
+    let f=3,a=30,t=0,running=true,raf;
+    function draw(){
+      const W=c.width,H=c.height;
+      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+      // speaker
+      ctx.fillStyle='#667eea';ctx.fillRect(8,H/2-20,12,40);
+      const off=Math.sin(t*f*0.05)*a*0.3;
+      ctx.fillStyle='#a78bfa';ctx.fillRect(18+off,H/2-15,8,30);
+      // particles
+      for(let x=40;x<W;x+=18){
+        const wave=Math.sin((x-40)*f*0.04-t*f*0.05)*a*0.4;
+        const density=Math.cos((x-40)*f*0.04-t*f*0.05);
+        const bright=Math.round(100+density*80);
+        ctx.beginPath();ctx.arc(x,H/2+wave,3,0,Math.PI*2);
+        ctx.fillStyle=`rgb(${bright+80},${bright+100},${bright+200})`;ctx.fill();
+      }
+      // label
+      ctx.fillStyle='#aaa';ctx.font='11px sans-serif';
+      ctx.fillText('← comprensión →',W*0.55,18);
+      if(running){t++;raf=requestAnimationFrame(draw);}
+    }
+    window.toggleSim1=function(){running=!running;if(running)draw();document.querySelector('#canvas1').previousElementSibling.querySelector('.sim-btn').textContent=running?'⏸ Pausar':'▶ Reanudar';};
+    window.updateSim1=function(){f=+document.getElementById('freq1').value;a=+document.getElementById('amp1').value;document.getElementById('freqVal1').textContent=f;document.getElementById('ampVal1').textContent=a;};
+    draw();
+  })();
+  </script>
 </div>
 </div>
 <div class="section">
-  <div class="section-title">🔬 Experimento casero: ¡Siente el sonido!</div>
-  <div class="box box-info">Necesitas: un globo inflado y un parlante o equipo de música.</div>
+  <div class="section-title">🔬 Experimento: ¡Siente el sonido!</div>
+  <div class="box box-info">Necesitas: un globo inflado y un parlante con música de bajos.</div>
   <div class="steps">
     <div class="step"><div class="step-num" style="background:#e53935">1</div><div class="step-text">Infla el globo y amárralo.</div></div>
-    <div class="step"><div class="step-num" style="background:#e53935">2</div><div class="step-text">Pon música con bastante bajos (reggaetón, electrónica).</div></div>
-    <div class="step"><div class="step-num" style="background:#e53935">3</div><div class="step-text">Acerca el globo al parlante sin tocarlo.</div></div>
-    <div class="step"><div class="step-num" style="background:#e53935">4</div><div class="step-text">¡Siente cómo el globo vibra! Eso son las ondas sonoras.</div></div>
+    <div class="step"><div class="step-num" style="background:#e53935">2</div><div class="step-text">Pon música con bastante bajos cerca del parlante.</div></div>
+    <div class="step"><div class="step-num" style="background:#e53935">3</div><div class="step-text">Acerca el globo al parlante sin tocarlo y siente la vibración.</div></div>
+    <div class="step"><div class="step-num" style="background:#e53935">4</div><div class="step-text">Sube el volumen. ¿Vibra más fuerte?</div></div>
   </div>
-  <div class="box box-tip">✏️ <strong>Anota:</strong> ¿A mayor volumen, vibra más o menos?</div>
 </div>
 <div class="section">
   <div class="section-title">📝 Taller Semana 1</div>
   <div class="taller">
-    <div class="taller-title">📌 Responde en tu cuaderno:</div>
-    <div class="taller-item">1. Define con tus propias palabras qué es el sonido.</div>
-    <div class="taller-item">2. Menciona 5 fuentes de sonido que encuentres en tu casa o barrio.</div>
-    <div class="taller-item">3. ¿Por qué en el espacio exterior no hay sonido? Explica.</div>
-    <div class="taller-item">4. Si haces vibrar una regla y luego la detienes con la mano, ¿qué pasa con el sonido?</div>
-    <div class="taller-item">5. <strong>Investigación:</strong> ¿Qué son las cuerdas vocales y cómo producen el sonido de tu voz?</div>
+    <div class="taller-title">Responde en tu cuaderno:</div>
+    <div class="taller-item">1. Define con tus palabras qué es el sonido.</div>
+    <div class="taller-item">2. Menciona 5 fuentes de sonido de tu entorno.</div>
+    <div class="taller-item">3. ¿Por qué en el espacio exterior no hay sonido?</div>
+    <div class="taller-item">4. Si detienes la vibración de una campana, ¿qué pasa con el sonido?</div>
+    <div class="taller-item">5. Investiga: ¿cómo producen sonido las cuerdas vocales?</div>
   </div>
 </div>
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación Semana</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 1: ¿Qué produce el sonido?</div>
-<div class="quiz-options">
+<div class="quiz-title">🧠 Autoevaluación</div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué produce el sonido?</div><div class="quiz-options">
 <label data-q="s1_1" data-val="a"><input type="radio" name="qs1_1" value="a"> El calor</label>
 <label data-q="s1_1" data-val="b"><input type="radio" name="qs1_1" value="b"> La vibración de la materia</label>
-<label data-q="s1_1" data-val="c"><input type="radio" name="qs1_1" value="c"> La luz del sol</label>
+<label data-q="s1_1" data-val="c"><input type="radio" name="qs1_1" value="c"> La luz</label>
 <label data-q="s1_1" data-val="d"><input type="radio" name="qs1_1" value="d"> El movimiento del agua</label>
-</div>
-<div class="quiz-feedback" id="fbs1_1"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 2: ¿Puede el sonido viajar en el vacío?</div>
-<div class="quiz-options">
-<label data-q="s1_2" data-val="a"><input type="radio" name="qs1_2" value="a"> Sí, viaja más rápido</label>
-<label data-q="s1_2" data-val="b"><input type="radio" name="qs1_2" value="b"> Sí, pero más despacio</label>
+</div><div class="quiz-feedback" id="fbs1_1"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Puede el sonido viajar en el vacío?</div><div class="quiz-options">
+<label data-q="s1_2" data-val="a"><input type="radio" name="qs1_2" value="a"> Sí, más rápido</label>
+<label data-q="s1_2" data-val="b"><input type="radio" name="qs1_2" value="b"> Sí, más despacio</label>
 <label data-q="s1_2" data-val="c"><input type="radio" name="qs1_2" value="c"> No, necesita materia</label>
 <label data-q="s1_2" data-val="d"><input type="radio" name="qs1_2" value="d"> Solo en el espacio</label>
-</div>
-<div class="quiz-feedback" id="fbs1_2"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 3: Cuando detienes una campana con la mano, ¿qué pasa?</div>
-<div class="quiz-options">
-<label data-q="s1_3" data-val="a"><input type="radio" name="qs1_3" value="a"> El sonido continúa igual</label>
+</div><div class="quiz-feedback" id="fbs1_2"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: Detienes una campana con la mano. ¿Qué pasa?</div><div class="quiz-options">
+<label data-q="s1_3" data-val="a"><input type="radio" name="qs1_3" value="a"> El sonido continúa</label>
 <label data-q="s1_3" data-val="b"><input type="radio" name="qs1_3" value="b"> El sonido desaparece al detener la vibración</label>
 <label data-q="s1_3" data-val="c"><input type="radio" name="qs1_3" value="c"> Se vuelve más fuerte</label>
 <label data-q="s1_3" data-val="d"><input type="radio" name="qs1_3" value="d"> Cambia de tono</label>
-</div>
-<div class="quiz-feedback" id="fbs1_3"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 4: ¿Cuál de estos NO produce sonido por sí solo?</div>
-<div class="quiz-options">
-<label data-q="s1_4" data-val="a"><input type="radio" name="qs1_4" value="a"> Una guitarra pulsada</label>
-<label data-q="s1_4" data-val="b"><input type="radio" name="qs1_4" value="b"> Una piedra quieta en el suelo</label>
-<label data-q="s1_4" data-val="c"><input type="radio" name="qs1_4" value="c"> Un tambor golpeado</label>
-<label data-q="s1_4" data-val="d"><input type="radio" name="qs1_4" value="d"> Una persona hablando</label>
-</div>
-<div class="quiz-feedback" id="fbs1_4"></div>
-</div>
-<div class="quiz-question">
-<div class="quiz-q-text">Pregunta 5: ¿Por qué puedes escuchar música de un parlante?</div>
-<div class="quiz-options">
-<label data-q="s1_5" data-val="a"><input type="radio" name="qs1_5" value="a"> Porque emite luz</label>
+</div><div class="quiz-feedback" id="fbs1_3"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cuál NO produce sonido por sí solo?</div><div class="quiz-options">
+<label data-q="s1_4" data-val="a"><input type="radio" name="qs1_4" value="a"> Guitarra pulsada</label>
+<label data-q="s1_4" data-val="b"><input type="radio" name="qs1_4" value="b"> Piedra quieta en el suelo</label>
+<label data-q="s1_4" data-val="c"><input type="radio" name="qs1_4" value="c"> Tambor golpeado</label>
+<label data-q="s1_4" data-val="d"><input type="radio" name="qs1_4" value="d"> Persona hablando</label>
+</div><div class="quiz-feedback" id="fbs1_4"></div></div>
+<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Por qué escuchas música del parlante?</div><div class="quiz-options">
+<label data-q="s1_5" data-val="a"><input type="radio" name="qs1_5" value="a"> Emite luz</label>
 <label data-q="s1_5" data-val="b"><input type="radio" name="qs1_5" value="b"> El cono del parlante vibra y mueve el aire</label>
-<label data-q="s1_5" data-val="c"><input type="radio" name="qs1_5" value="c"> Porque el sonido viaja por cables</label>
-<label data-q="s1_5" data-val="d"><input type="radio" name="qs1_5" value="d"> Porque calienta el aire</label>
-</div>
-<div class="quiz-feedback" id="fbs1_5"></div>
-</div>
-<button class="quiz-btn" onclick="checkQuiz('s1',["b", "c", "b", "b", "b"])">✅ Verificar respuestas</button>
+<label data-q="s1_5" data-val="c"><input type="radio" name="qs1_5" value="c"> El sonido viaja por cables</label>
+<label data-q="s1_5" data-val="d"><input type="radio" name="qs1_5" value="d"> Calienta el aire</label>
+</div><div class="quiz-feedback" id="fbs1_5"></div></div>
+<button class="quiz-btn" onclick="checkQuiz('s1',['b', 'c', 'b', 'b', 'b'])">✅ Verificar respuestas</button>
 <div class="quiz-result" id="quiz-result-s1"></div>
 </div>
 
