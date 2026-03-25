@@ -17,19 +17,19 @@
 
 <div class="container">
   <div class="box box-info" style="margin-top:0">
-    📚 <strong>Bienvenidos al curso de El Sonido.</strong> Explora cada semana: explicaciones, videos, talleres y autoevaluaciones.
+    📚 <strong>Bienvenidos al curso de El Sonido.</strong> Explora cada semana: explicaciones, simulaciones, talleres y autoevaluaciones.
   </div>
 
   <div class="weeks-grid">
     <a href="semana1.html" class="week-card" style="border-color:#e53935">
       <div class="week-num">Semana 1</div><div class="week-title">🔊 ¿Qué es el sonido?</div>
       <div class="week-desc">Vibración, fuentes de sonido y experimentos.</div>
-      <div class="week-tags"><span class="tag">Básico</span><span class="tag">Videos</span><span class="tag">Quiz</span></div>
+      <div class="week-tags"><span class="tag">Básico</span><span class="tag">Simulación</span><span class="tag">Quiz</span></div>
     </a>
     <a href="semana2.html" class="week-card" style="border-color:#e67e22">
       <div class="week-num">Semana 2</div><div class="week-title">🌊 ¿Cómo viaja el sonido?</div>
       <div class="week-desc">Propagación en sólidos, líquidos y gases.</div>
-      <div class="week-tags"><span class="tag">Propagación</span><span class="tag">Videos</span><span class="tag">Quiz</span></div>
+      <div class="week-tags"><span class="tag">Propagación</span><span class="tag">Simulación</span><span class="tag">Quiz</span></div>
     </a>
     <a href="semana3.html" class="week-card" style="border-color:#f1c40f">
       <div class="week-num">Semana 3</div><div class="week-title">🎵 Características del sonido</div>
@@ -71,11 +71,26 @@
       <div class="week-desc">Sonar, ecografía, audio digital y taller final.</div>
       <div class="week-tags"><span class="tag">Tecnología</span><span class="tag">Taller Final</span><span class="tag">Quiz</span></div>
     </a>
-  </div>
 
-  <!-- ADMIN ENTRY -->
-  <div class="admin-entry">
-    <span class="admin-link" onclick="abrirAdmin()">⚙ Zona Docente</span>
+    <!-- EXPERIMENTOS AVANZADOS (misma cuadrícula, clave individual) -->
+    <div class="week-card exp-card" style="border-color:#e94560" onclick="abrirExp(1)">
+      <div class="week-num exp-label">🔒 Experimento 1</div>
+      <div class="week-title">📏 Velocidad del sonido</div>
+      <div class="week-desc">Medición real en campo con análisis de datos.</div>
+      <div class="week-tags"><span class="tag tag-exp">Avanzado</span><span class="tag tag-exp">Campo</span><span class="tag tag-exp">Clave requerida</span></div>
+    </div>
+    <div class="week-card exp-card" style="border-color:#3949ab" onclick="abrirExp(2)">
+      <div class="week-num exp-label">🔒 Experimento 2</div>
+      <div class="week-title">🍶 Resonancia de Helmholtz</div>
+      <div class="week-desc">Resonadores con botellas y análisis espectral.</div>
+      <div class="week-tags"><span class="tag tag-exp">Avanzado</span><span class="tag tag-exp">Laboratorio</span><span class="tag tag-exp">Clave requerida</span></div>
+    </div>
+    <div class="week-card exp-card" style="border-color:#00796b" onclick="abrirExp(3)">
+      <div class="week-num exp-label">🔒 Experimento 3</div>
+      <div class="week-title">📱 Análisis espectral</div>
+      <div class="week-desc">Celular como osciloscopio y analizador FFT.</div>
+      <div class="week-tags"><span class="tag tag-exp">Avanzado</span><span class="tag tag-exp">Tecnología</span><span class="tag tag-exp">Clave requerida</span></div>
+    </div>
   </div>
 </div>
 
@@ -84,63 +99,20 @@
   <div class="creditos">Diseñado por Froylan Jiménez · CESUM</div>
 </footer>
 
-<!-- ═══ MODAL ADMIN MASTER ══════════════════════════════════════════════════ -->
-<div class="admin-modal-overlay" id="adminOverlay">
-  <div class="admin-modal" id="adminModal">
-    <div class="admin-modal-title">⚙️ Zona Docente</div>
-    <div class="admin-modal-sub">Ingresa la clave de administrador</div>
-    <div class="admin-input-group">
-      <span class="admin-input-icon">🔐</span>
-      <input type="password" id="adminClaveInput" placeholder="Clave de administrador"
-             onkeypress="if(event.key==='Enter')verificarAdmin()">
-    </div>
-    <div class="admin-err" id="adminErr">❌ Clave incorrecta</div>
-    <button class="admin-submit" onclick="verificarAdmin()">🔓 Acceder</button>
-    <br><br>
-    <button class="admin-back" onclick="cerrarAdmin()">✕ Cancelar</button>
-  </div>
-</div>
-
-<!-- ═══ MODAL MENÚ EXPERIMENTOS ═════════════════════════════════════════════ -->
-<div class="admin-modal-overlay" id="menuExpOverlay">
-  <div class="admin-modal">
-    <div class="admin-modal-title">🧪 Experimentos Avanzados</div>
-    <div class="admin-modal-sub">Selecciona un experimento e ingresa su clave individual</div>
-    <div class="admin-exp-list">
-      <button class="admin-exp-btn" onclick="abrirExp(1)">
-        <div class="admin-exp-num">EXPERIMENTO 1 · CLAVE REQUERIDA</div>
-        <div class="admin-exp-name">📏 Medición real de la velocidad del sonido</div>
-        <div class="admin-exp-desc">Metodología de campo con instrumentos básicos y análisis de datos</div>
-      </button>
-      <button class="admin-exp-btn" onclick="abrirExp(2)">
-        <div class="admin-exp-num">EXPERIMENTO 2 · CLAVE REQUERIDA</div>
-        <div class="admin-exp-name">🍶 Resonancia de Helmholtz con botellas</div>
-        <div class="admin-exp-desc">Construye resonadores, mide frecuencias y compara con la fórmula teórica</div>
-      </button>
-      <button class="admin-exp-btn" onclick="abrirExp(3)">
-        <div class="admin-exp-num">EXPERIMENTO 3 · CLAVE REQUERIDA</div>
-        <div class="admin-exp-name">📱 Análisis espectral del sonido con el celular</div>
-        <div class="admin-exp-desc">Usa apps de física para medir y comparar espectros de frecuencias reales</div>
-      </button>
-    </div>
-    <button class="admin-back" onclick="cerrarMenuExp()">✕ Cerrar</button>
-  </div>
-</div>
-
 <!-- ═══ MODAL CLAVE EXPERIMENTO ═════════════════════════════════════════════ -->
 <div class="admin-modal-overlay" id="expClaveOverlay">
   <div class="admin-modal">
-    <div class="admin-modal-title" id="expClaveTitle">🔒 Clave del Experimento</div>
+    <div class="admin-modal-title" id="expClaveTitle">🔒 Experimento</div>
     <div class="admin-modal-sub">Este experimento requiere una clave individual</div>
     <div class="admin-input-group">
       <span class="admin-input-icon">🔑</span>
-      <input type="password" id="expClaveInput" placeholder="Clave del experimento"
+      <input type="password" id="expClaveInput" placeholder="Ingresa la clave"
              onkeypress="if(event.key==='Enter')verificarExpClave()">
     </div>
     <div class="admin-err" id="expClaveErr">❌ Clave incorrecta</div>
     <button class="admin-submit" onclick="verificarExpClave()">✅ Acceder</button>
     <br><br>
-    <button class="admin-back" onclick="volverMenu()">← Volver al menú</button>
+    <button class="admin-back" onclick="cerrarExpClave()">✕ Cancelar</button>
   </div>
 </div>
 
@@ -157,7 +129,6 @@
 </div>
 
 <script>
-// ── EXPERIMENTOS (contenido completo) ────────────────────────────────────────
 const EXPERIMENTOS = {
   1: {
     badge: "EXP 1 · MrBot01",
@@ -327,47 +298,19 @@ const EXPERIMENTOS = {
 
 let expActivo = null;
 
-function abrirAdmin() {
-  document.getElementById('adminClaveInput').value = '';
-  document.getElementById('adminErr').classList.remove('show');
-  document.getElementById('adminOverlay').classList.add('show');
-  setTimeout(() => document.getElementById('adminClaveInput').focus(), 100);
-}
-
-function cerrarAdmin() {
-  document.getElementById('adminOverlay').classList.remove('show');
-}
-
-function verificarAdmin() {
-  if (document.getElementById('adminClaveInput').value === 'putostodos') {
-    document.getElementById('adminOverlay').classList.remove('show');
-    document.getElementById('menuExpOverlay').classList.add('show');
-  } else {
-    const e = document.getElementById('adminErr');
-    e.classList.add('show');
-    document.getElementById('adminClaveInput').value = '';
-    document.getElementById('adminClaveInput').focus();
-    setTimeout(() => e.classList.remove('show'), 3000);
-  }
-}
-
-function cerrarMenuExp() {
-  document.getElementById('menuExpOverlay').classList.remove('show');
-}
-
 function abrirExp(num) {
   expActivo = num;
-  document.getElementById('expClaveTitle').textContent = '🔒 ' + EXPERIMENTOS[num].title;
+  const exp = EXPERIMENTOS[num];
+  document.getElementById('expClaveTitle').textContent = '🔒 ' + exp.title;
   document.getElementById('expClaveInput').value = '';
   document.getElementById('expClaveErr').classList.remove('show');
-  document.getElementById('menuExpOverlay').classList.remove('show');
   document.getElementById('expClaveOverlay').classList.add('show');
   setTimeout(() => document.getElementById('expClaveInput').focus(), 100);
 }
 
-function volverMenu() {
+function cerrarExpClave() {
   document.getElementById('expClaveOverlay').classList.remove('show');
-  document.getElementById('menuExpOverlay').classList.add('show');
+  expActivo = null;
 }
 
 function verificarExpClave() {
@@ -392,8 +335,7 @@ function cerrarExpContent() {
   expActivo = null;
 }
 
-// Cerrar modales con click fuera
-['adminOverlay','menuExpOverlay','expClaveOverlay','expContentOverlay'].forEach(id => {
+['expClaveOverlay','expContentOverlay'].forEach(id => {
   document.getElementById(id).addEventListener('click', function(e) {
     if (e.target === this) this.classList.remove('show');
   });
