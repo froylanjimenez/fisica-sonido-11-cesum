@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 5: El Sonido y la Música | Física 11° CESUM</title>
+<title>Semana 5: Contaminación sonora y tecnología del sonido | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,8 @@
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana4.html" class="nav-back">⬅ Semana 4</a><a href="semana6.html" class="nav-back">Semana 6 ➡</a>
+  <a href="semana4.html" class="nav-back">⬅ Semana 4</a>
+  <a href="semana6.html" class="nav-back">Semana 6 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,117 +23,161 @@
     <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
     <span class="progress-text">50%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1abc9c;margin-bottom:20px;border-left:6px solid #1abc9c;padding-left:14px">Semana 5: El Sonido y la Música</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#1abc9c;margin-bottom:20px;border-left:6px solid #1abc9c;padding-left:14px">Semana 5: Contaminación sonora y tecnología del sonido</h2>
 
 <div class="section">
-  <div class="section-title">🎸 Instrumentos musicales</div>
-  <div class="box box-info"><strong>🎸 Cuerdas:</strong> Cuerda más corta/tensa → más agudo.</div>
-  <div class="box box-tip"><strong>🎷 Viento:</strong> Columna de aire más corta → más agudo.</div>
-  <div class="box box-warn"><strong>🥁 Percusión:</strong> Parche más tenso → más agudo.</div>
-  <p><strong>Resonancia:</strong> un objeto vibra por sí solo al recibir vibraciones en su frecuencia natural. Los cantantes de ópera pueden romper una copa de vidrio con la nota exacta.</p>
-</div>
-<div class="section">
-  <div class="section-title">🎮 Simulación: cuerdas vibrando en armónicos</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: Cuerda en resonancia</div>
-  <div class="sim-controls">
-    <label>Armónico: <strong id="h5val">1°</strong>
-      <select id="harm5" onchange="upd5()" style="padding:6px 10px;border-radius:6px;border:2px solid #1abc9c;font-weight:700">
-        <option value="1">1° armónico (fundamental)</option>
-        <option value="2">2° armónico</option>
-        <option value="3">3° armónico</option>
-        <option value="4">4° armónico</option>
-      </select>
-    </label>
+  <div class="section-title">🏭 Contaminación sonora</div>
+  <p>La <strong>contaminación sonora</strong> (o acústica) es la presencia de ruido en el ambiente que afecta la salud humana y el ecosistema. El ruido se define como sonido <em>no deseado</em> o <em>perjudicial</em>.</p>
+  <div class="box box-formula">Nivel de presión sonora: L (dB) = 10 × log₁₀(I / I₀)<br>
+  <span style="font-size:13px;font-weight:400">I₀ = 10⁻¹² W/m² | I = intensidad sonora medida (W/m²)</span>
   </div>
-  <canvas id="canvas5" width="520" height="120" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
-  <p class="sim-hint">En la resonancia la cuerda vibra en múltiplos de su frecuencia fundamental. El 2° armónico tiene el doble de frecuencia.</p>
-  <script>
-  (function(){
-    const c=document.getElementById('canvas5'),ctx=c.getContext('2d');
-    let n=1,t=0;
-    function draw(){
-      const W=c.width,H=c.height/2;
-      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,c.height);
-      // poles
-      ctx.fillStyle='#888';ctx.fillRect(20,H-40,8,80);ctx.fillRect(W-28,H-40,8,80);
-      // string
-      ctx.strokeStyle='#1abc9c';ctx.lineWidth=2.5;ctx.beginPath();
-      for(let x=28;x<=W-28;x++){
-        const pos=(x-28)/(W-56);
-        const y=H+Math.sin(pos*n*Math.PI)*35*Math.sin(t);
-        x===28?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">
+    <tr style="background:#1abc9c;color:white"><th style="padding:7px">Nivel (dB)</th><th style="padding:7px">Fuente</th><th style="padding:7px">Riesgo</th></tr>
+    <tr style="background:#e0f7fa"><td style="padding:7px">0 – 30</td><td style="padding:7px">Susurro, silencio</td><td style="padding:7px">Sin riesgo</td></tr>
+    <tr><td style="padding:7px">60 – 70</td><td style="padding:7px">Conversación, oficina</td><td style="padding:7px">Sin riesgo</td></tr>
+    <tr style="background:#e0f7fa"><td style="padding:7px">85</td><td style="padding:7px">Tráfico intenso, maquinaria</td><td style="padding:7px">Límite de seguridad (8 h/día)</td></tr>
+    <tr><td style="padding:7px">100 – 110</td><td style="padding:7px">Discoteca, sierra eléctrica</td><td style="padding:7px">Daño en 15 min</td></tr>
+    <tr style="background:#e0f7fa"><td style="padding:7px">130 – 140</td><td style="padding:7px">Motor de avión, explosión</td><td style="padding:7px">Daño inmediato, dolor</td></tr>
+  </table>
+  <div class="box box-warn">⚠️ Efectos de la contaminación sonora: estrés, insomnio, pérdida auditiva, hipertensión arterial, disminución del rendimiento cognitivo.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🛰️ Tecnología del sonido: SONAR y ultrasonido</div>
+  <p>El <strong>SONAR</strong> (Sound Navigation And Ranging) usa el principio del eco para medir distancias bajo el agua. El <strong>ultrasonido</strong> (f > 20 000 Hz) tiene aplicaciones médicas, industriales y militares.</p>
+  <div class="box box-formula">Profundidad SONAR: d = (v × t) / 2<br>
+  <span style="font-size:13px;font-weight:400">v_agua ≈ 1 500 m/s | t = tiempo entre emisión y recepción del eco (s)</span>
+  </div>
+  <ul>
+    <li>🏥 <strong>Ecografía médica:</strong> imagen de órganos y fetos con ultrasonido de 1–20 MHz.</li>
+    <li>🚢 <strong>SONAR naval:</strong> detecta submarinos y mapea fondos marinos.</li>
+    <li>🦇 <strong>Ecolocalización:</strong> murciélagos y delfines la usan naturalmente.</li>
+    <li>🔧 <strong>Industria:</strong> detección de grietas en metales sin destruirlos (ultrasonido de alta frecuencia).</li>
+    <li>🔕 <strong>Cancelación activa de ruido:</strong> audífonos que emiten ondas opuestas para anular el ruido.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">🎮 Simulación: medidor de decibeles y SONAR</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Simulador de SONAR y niveles de presión sonora</div>
+    <div class="sim-controls">
+      <label>Profundidad del mar (m): <strong id="depthVal5">300</strong>
+        <input type="range" id="depth5" min="50" max="3000" value="300" oninput="updateSonar5()">
+      </label>
+    </div>
+    <canvas id="canvas5" width="520" height="130" style="width:100%;background:#0a1628;border-radius:10px"></canvas>
+    <div id="sonarMsg5" style="text-align:center;font-size:14px;color:#1abc9c;font-weight:700;padding:8px">d = 300 m → t = (2×300)/1500 = 0,40 s</div>
+    <p class="sim-hint">Ajusta la profundidad. El SONAR calcula el tiempo de ida y vuelta del eco.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas5'),ctx=c.getContext('2d');
+      let depth=300,pulse=0,pulsing=false,t=0;
+      function draw(){
+        const W=c.width,H=c.height;
+        ctx.fillStyle='#0a1628';ctx.fillRect(0,0,W,H);
+        const waterY=30;
+        ctx.fillStyle='#0d3b5e';ctx.fillRect(0,waterY,W,H-waterY);
+        const seabedY=waterY+Math.round((depth/3000)*(H-waterY-10));
+        ctx.fillStyle='#5d4037';ctx.fillRect(0,seabedY,W,H-seabedY);
+        ctx.fillStyle='#1abc9c';ctx.fillRect(W/2-15,waterY,30,20);
+        ctx.fillStyle='#aaa';ctx.font='11px sans-serif';ctx.fillText('SONAR',W/2-20,waterY-5);
+        if(pulsing){
+          const r=(pulse/100)*(seabedY-waterY);
+          ctx.strokeStyle='rgba(26,188,156,'+Math.max(0,1-pulse/120)+')';
+          ctx.lineWidth=2;ctx.beginPath();
+          ctx.arc(W/2,waterY+15,r,0,Math.PI*2);ctx.stroke();
+          pulse+=1.2;
+          if(pulse>120)pulsing=false;
+        }
+        ctx.fillStyle='#aaa';ctx.font='10px sans-serif';
+        ctx.fillText('Fondo marino (~'+depth+' m)',10,seabedY-4);
+        t++;if(t%120===0){pulsing=true;pulse=0;}
+        requestAnimationFrame(draw);
       }
-      ctx.stroke();
-      ctx.fillStyle='#aaa';ctx.font='13px sans-serif';
-      ctx.fillText('n='+n+' · f='+(n)+'f₀',W/2-30,H-45);
-      t+=0.06;requestAnimationFrame(draw);
-    }
-    window.upd5=function(){n=+document.getElementById('harm5').value;document.getElementById('h5val').textContent=n+'°';};
-    draw();
-  })();
-  </script>
-</div>
-</div>
-<div class="section">
-  <div class="section-title">🎯 Actividad: clasifica los instrumentos</div>
-  <div class="activity">
-    <div class="activity-title">Copia y completa en tu cuaderno:</div>
-    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">
-      <tr style="background:#1abc9c;color:white"><th style="padding:8px">Instrumento</th><th style="padding:8px">Tipo</th><th style="padding:8px">¿Qué vibra?</th><th style="padding:8px">¿Cómo sube el tono?</th></tr>
-      <tr style="background:#f0fff4"><td style="padding:8px">Guitarra</td><td></td><td></td><td></td></tr>
-      <tr><td style="padding:8px">Flauta</td><td></td><td></td><td></td></tr>
-      <tr style="background:#f0fff4"><td style="padding:8px">Tambor</td><td></td><td></td><td></td></tr>
-      <tr><td style="padding:8px">Marimba</td><td></td><td></td><td></td></tr>
-    </table>
+      window.updateSonar5=function(){
+        depth=+document.getElementById('depth5').value;
+        document.getElementById('depthVal5').textContent=depth;
+        const tEco=(2*depth/1500).toFixed(3);
+        document.getElementById('sonarMsg5').textContent='d = '+depth+' m → t = (2×'+depth+')/1500 = '+tEco+' s';
+      };
+      draw();
+    })();
+    </script>
   </div>
 </div>
+
 <div class="section">
-  <div class="section-title">📝 Taller Semana 5</div>
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">
+    SONAR: d = (v × t) / 2 &nbsp;|&nbsp; Decibeles: L = 10 × log₁₀(I / I₀)
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — Profundidad con SONAR</strong><br>
+    Un barco emite un pulso. Recibe el eco 0,6 s después. v_agua = 1 500 m/s. ¿Cuál es la profundidad del mar?<br><br>
+    <strong>Solución:</strong> d = (1 500 × 0,6) / 2 = 900 / 2 = <strong>450 m</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — ¿Cuántos dB produce una motosierra?</strong><br>
+    I = 10⁻³ W/m², I₀ = 10⁻¹² W/m²<br><br>
+    <strong>Solución:</strong> L = 10 × log₁₀(10⁻³ / 10⁻¹²) = 10 × log₁₀(10⁹) = 10 × 9 = <strong>90 dB</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — Detección de submarino</strong><br>
+    Un SONAR naval emite un pulso. El submarino está a 1 200 m de profundidad. v = 1 500 m/s. ¿Cuándo llega el eco?<br><br>
+    <strong>Solución:</strong> t = (2 × 1 200) / 1 500 = 2 400 / 1 500 = <strong>1,6 s</strong>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📝 Taller Semana 5 — Cierre del módulo de sonido</div>
   <div class="taller">
-    <div class="taller-title">Responde en tu cuaderno:</div>
-    <div class="taller-item">1. ¿Qué es la resonancia? Da un ejemplo cotidiano.</div>
-    <div class="taller-item">2. ¿Por qué la cuerda delgada de guitarra suena más aguda?</div>
-    <div class="taller-item">3. Al tapar agujeros de una flauta, ¿el tono sube o baja? ¿Por qué?</div>
-    <div class="taller-item">4. ¿Para qué sirve la caja hueca de la guitarra?</div>
-    <div class="taller-item">5. Investiga: ¿qué instrumento colombiano típico usa resonancia de cuerdas?</div>
+    <div class="taller-title">Responde y sintetiza en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Qué efectos tiene la contaminación sonora en la salud humana?</div>
+    <div class="taller-item">2. Un SONAR recibe el eco en t = 1,2 s. v = 1 500 m/s. ¿A qué profundidad está el fondo marino?</div>
+    <div class="taller-item">3. ¿Por qué el ultrasonido (> 20 000 Hz) es útil en medicina? ¿Por qué no dañan?</div>
+    <div class="taller-item">4. Diseña (en tu cuaderno) un experimento para medir el nivel de ruido en tu colegio usando un celular. ¿Qué app usarías?</div>
+    <div class="taller-item">5. Síntesis: En 10 oraciones, resume los conceptos más importantes de las 5 semanas del módulo de sonido.</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué vibra en una guitarra?</div><div class="quiz-options">
-<label data-q="s5_1" data-val="a"><input type="radio" name="qs5_1" value="a"> El aire dentro</label>
-<label data-q="s5_1" data-val="b"><input type="radio" name="qs5_1" value="b"> Las cuerdas</label>
-<label data-q="s5_1" data-val="c"><input type="radio" name="qs5_1" value="c"> La madera del mástil</label>
-<label data-q="s5_1" data-val="d"><input type="radio" name="qs5_1" value="d"> Los dedos</label>
-</div><div class="quiz-feedback" id="fbs5_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Qué es la resonancia?</div><div class="quiz-options">
-<label data-q="s5_2" data-val="a"><input type="radio" name="qs5_2" value="a"> Velocidad del sonido</label>
-<label data-q="s5_2" data-val="b"><input type="radio" name="qs5_2" value="b"> Vibrar al recibir la frecuencia natural propia</label>
-<label data-q="s5_2" data-val="c"><input type="radio" name="qs5_2" value="c"> Reflexión del sonido</label>
-<label data-q="s5_2" data-val="d"><input type="radio" name="qs5_2" value="d"> Timbre de un instrumento</label>
-</div><div class="quiz-feedback" id="fbs5_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: En una flauta, ¿qué determina el tono?</div><div class="quiz-options">
-<label data-q="s5_3" data-val="a"><input type="radio" name="qs5_3" value="a"> El material</label>
-<label data-q="s5_3" data-val="b"><input type="radio" name="qs5_3" value="b"> La longitud de la columna de aire</label>
-<label data-q="s5_3" data-val="c"><input type="radio" name="qs5_3" value="c"> La fuerza con que soplas</label>
-<label data-q="s5_3" data-val="d"><input type="radio" name="qs5_3" value="d"> El color</label>
-</div><div class="quiz-feedback" id="fbs5_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cuál es instrumento de percusión?</div><div class="quiz-options">
-<label data-q="s5_4" data-val="a"><input type="radio" name="qs5_4" value="a"> Violín</label>
-<label data-q="s5_4" data-val="b"><input type="radio" name="qs5_4" value="b"> Trombón</label>
-<label data-q="s5_4" data-val="c"><input type="radio" name="qs5_4" value="c"> Marimba</label>
-<label data-q="s5_4" data-val="d"><input type="radio" name="qs5_4" value="d"> Clarinete</label>
-</div><div class="quiz-feedback" id="fbs5_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Para qué sirven los agujeros de la flauta?</div><div class="quiz-options">
-<label data-q="s5_5" data-val="a"><input type="radio" name="qs5_5" value="a"> Decoración</label>
-<label data-q="s5_5" data-val="b"><input type="radio" name="qs5_5" value="b"> Cambiar la longitud de la columna de aire</label>
-<label data-q="s5_5" data-val="c"><input type="radio" name="qs5_5" value="c"> Respirar</label>
-<label data-q="s5_5" data-val="d"><input type="radio" name="qs5_5" value="d"> Amplificar</label>
-</div><div class="quiz-feedback" id="fbs5_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s5',['b', 'b', 'b', 'c', 'b'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s5"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Cuál es el límite seguro de exposición sonora durante 8 horas diarias?</div><div class="quiz-options">
+    <label data-q="s5_1" data-val="a"><input type="radio" name="qs5_1" value="a"> 60 dB</label>
+    <label data-q="s5_1" data-val="b"><input type="radio" name="qs5_1" value="b"> 100 dB</label>
+    <label data-q="s5_1" data-val="c"><input type="radio" name="qs5_1" value="c"> 85 dB</label>
+    <label data-q="s5_1" data-val="d"><input type="radio" name="qs5_1" value="d"> 120 dB</label>
+  </div><div class="quiz-feedback" id="fbs5_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: Un SONAR recibe el eco en 1 s. v = 1 500 m/s. ¿A qué profundidad está el fondo?</div><div class="quiz-options">
+    <label data-q="s5_2" data-val="a"><input type="radio" name="qs5_2" value="a"> 3 000 m</label>
+    <label data-q="s5_2" data-val="b"><input type="radio" name="qs5_2" value="b"> 750 m</label>
+    <label data-q="s5_2" data-val="c"><input type="radio" name="qs5_2" value="c"> 1 500 m</label>
+    <label data-q="s5_2" data-val="d"><input type="radio" name="qs5_2" value="d"> 150 m</label>
+  </div><div class="quiz-feedback" id="fbs5_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Cuál NO es una aplicación del ultrasonido?</div><div class="quiz-options">
+    <label data-q="s5_3" data-val="a"><input type="radio" name="qs5_3" value="a"> Ecografía médica</label>
+    <label data-q="s5_3" data-val="b"><input type="radio" name="qs5_3" value="b"> Detección de fisuras en metales</label>
+    <label data-q="s5_3" data-val="c"><input type="radio" name="qs5_3" value="c"> Transmisión de señales de televisión</label>
+    <label data-q="s5_3" data-val="d"><input type="radio" name="qs5_3" value="d"> SONAR submarino</label>
+  </div><div class="quiz-feedback" id="fbs5_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: La cancelación activa de ruido en los audífonos funciona porque…</div><div class="quiz-options">
+    <label data-q="s5_4" data-val="a"><input type="radio" name="qs5_4" value="a"> Bloquea el sonido con material esponjoso.</label>
+    <label data-q="s5_4" data-val="b"><input type="radio" name="qs5_4" value="b"> Emite ondas sonoras opuestas (desfasadas 180°) que se cancelan con el ruido.</label>
+    <label data-q="s5_4" data-val="c"><input type="radio" name="qs5_4" value="c"> Aumenta la frecuencia del ruido hasta hacerlo inaudible.</label>
+    <label data-q="s5_4" data-val="d"><input type="radio" name="qs5_4" value="d"> Convierte el ruido en energía eléctrica.</label>
+  </div><div class="quiz-feedback" id="fbs5_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: I = 10⁻⁸ W/m², I₀ = 10⁻¹² W/m². ¿Cuántos dB son?</div><div class="quiz-options">
+    <label data-q="s5_5" data-val="a"><input type="radio" name="qs5_5" value="a"> 8 dB</label>
+    <label data-q="s5_5" data-val="b"><input type="radio" name="qs5_5" value="b"> 80 dB</label>
+    <label data-q="s5_5" data-val="c"><input type="radio" name="qs5_5" value="c"> 40 dB</label>
+    <label data-q="s5_5" data-val="d"><input type="radio" name="qs5_5" value="d"> 100 dB</label>
+  </div><div class="quiz-feedback" id="fbs5_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s5',['c','b','c','b','b'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s5"></div>
 </div>
 
 </div>
@@ -146,60 +191,84 @@
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 5</div>
-      <div class="comp-section-sub">Tema: El sonido y la música — Resonancia · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Contaminación sonora y tecnología · Nombre, fecha y grupo. Elige y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> En el laboratorio de física, cuando un estudiante toca el diapasón A (440 Hz) cerca de otro diapasón A que está quieto, el segundo diapasón comienza a vibrar solo. Con un diapasón de 523 Hz, el segundo no vibra.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#1abc9c">Ejercicio 1</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué condición es indispensable para que ocurra la resonancia entre dos objetos?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Deben ser del mismo material y tamaño.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Deben estar en contacto físico directo.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Deben tener la misma frecuencia natural de vibración.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El segundo objeto debe ser más grande que el primero.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un barco pesquero usa un SONAR y recibe el eco en 0,8 s. La velocidad del sonido en agua de mar es 1 500 m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#1abc9c">Ejercicio 1</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿A qué profundidad están los cardúmenes de peces?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>1 200 m → d = v×t = 1500×0,8</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>600 m → d = (1500×0,8)/2 = 600 m</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>1 875 m</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>300 m</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Tomás afirma: 'en una guitarra, las cuerdas más gruesas producen sonidos más agudos porque hay más cuerda vibrando y más vibración = más agudo'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#1abc9c">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error de Tomás.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Tomás tiene razón; más masa = más vibraciones.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Las cuerdas más gruesas tienen mayor masa, vibran más lento (menor frecuencia) y producen sonidos más graves.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El grosor de la cuerda no afecta el tono del sonido.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Las cuerdas gruesas no pueden vibrar.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un estudiante pone música a 95 dB durante 4 horas en su cuarto.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#1abc9c">Ejercicio 2</span>
+      <span class="comp-tipo">Aplicación</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es el riesgo para la salud auditiva?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Ninguno; 95 dB solo es peligroso más de 8 horas.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Alto riesgo; 95 dB supera el límite de 85 dB y 4 h de exposición ya daña el oído.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Bajo riesgo si descansa después.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Solo es peligroso si hay bajas frecuencias.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un soldado marcha al mismo ritmo sobre un puente. El ingeniero recomienda que los grupos militares 'rompan el paso' (caminen desincronizados) al cruzar puentes.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#1abc9c">Ejercicio 3</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué fenómeno físico justifica esa recomendación?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>La fricción de los zapatos daña el asfalto del puente.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Si el ritmo de los pasos coincide con la frecuencia natural del puente, la resonancia amplifica las vibraciones y puede colapsar la estructura.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Muchas personas pisando juntas suman demasiado peso.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El ruido sincronizado asusta a los animales cercanos.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un médico usa ultrasonido de 3 MHz para hacer una ecografía fetal.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#1abc9c">Ejercicio 3</span>
+      <span class="comp-tipo">Análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Por qué se usa ultrasonido en lugar de sonido audible?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Porque el sonido audible no viaja en líquidos.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>El ultrasonido tiene longitudes de onda muy pequeñas que permiten obtener imágenes de alta resolución de estructuras pequeñas como el feto.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>El ultrasonido es más barato de producir.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>El oído humano lo prefiere.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Al soplar sobre la boca de una botella de vidrio vacía, se produce un tono grave. Al llenar la botella con agua hasta la mitad y soplar de nuevo, el tono sube (es más agudo).</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#1abc9c">Ejercicio 4</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Por qué el tono sube al agregar agua?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El agua amplifica las vibraciones del vidrio.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La columna de aire que vibra es más corta con más agua, lo que aumenta la frecuencia de resonancia.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El agua enfría el aire y eso sube la frecuencia.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El tono baja porque hay más masa en la botella.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> SONAR: la señal tarda t = 2 s en ir y volver al fondo. v = 1 480 m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#1abc9c">Ejercicio 4</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuántos metros tiene la profundidad?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>2 960 m → d = v×t = 1480×2</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>1 480 m → d = (1480×2)/2 = 1480 m</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>740 m</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>4 000 m</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Laura dice: 'las guitarras acústicas tienen una caja hueca solo por diseño estético; si le quitas la caja, el sonido sería igual pero más pequeño'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#1abc9c">Ejercicio 5</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál es el error de Laura?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Laura tiene razón; la caja es solo estética.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La caja resonadora vibra en resonancia con las cuerdas, amplificando y proyectando el sonido. Sin ella, el sonido es casi inaudible.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Sin la caja, el sonido sería más agudo.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La caja solo sirve para que el guitarrista apoye el instrumento.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Pedro dice: "el ruido es solo molestia; no tiene efectos físicos en la salud".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#1abc9c">Ejercicio 5</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto Pedro?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí; el ruido solo molesta psicológicamente.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; la exposición prolongada al ruido causa pérdida auditiva, estrés crónico, hipertensión, insomnio y problemas cardiovasculares.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Solo afecta si es mayor de 120 dB.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Depende del tipo de ruido.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -221,7 +290,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -231,7 +300,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -246,6 +315,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

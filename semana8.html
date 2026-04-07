@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 8: Efecto Doppler y Ultrasonido | Física 11° CESUM</title>
+<title>Semana 8: Reflexión y refracción de la luz | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
-  <div class="logo-icon">🔊</div>
-  <h1>El Sonido — Física Grado 11°</h1>
+  <div class="logo-icon">🔭</div>
+  <h1>La Luz — Física Grado 11°</h1>
   <p class="subtitle">CONCENTRACIÓN EDUCATIVA DEL SUR DE MONTELÍBANO</p>
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana7.html" class="nav-back">⬅ Semana 7</a><a href="semana9.html" class="nav-back">Semana 9 ➡</a>
+  <a href="semana7.html" class="nav-back">⬅ Semana 7</a>
+  <a href="semana9.html" class="nav-back">Semana 9 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,133 +23,205 @@
     <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
     <span class="progress-text">80%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#e91e63;margin-bottom:20px;border-left:6px solid #e91e63;padding-left:14px">Semana 8: Efecto Doppler y Ultrasonido</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#e91e63;margin-bottom:20px;border-left:6px solid #e91e63;padding-left:14px">Semana 8: Reflexión y refracción de la luz</h2>
 
 <div class="section">
-  <div class="section-title">🚑 El Efecto Doppler</div>
-  <p>Cuando una fuente de sonido <strong>se mueve</strong>, las ondas se comprimen hacia el lado que se acerca (→ más agudo) y se estiran hacia el lado que deja atrás (→ más grave).</p>
-  <div class="box box-tip">💡 La ambulancia que se acerca suena más aguda. Al alejarse, suena más grave. ¡El conductor siempre escucha el mismo tono!</div>
+  <div class="section-title">🪞 Reflexión de la luz</div>
+  <p>Cuando un rayo de luz choca con una superficie, parte de la luz <strong>rebota</strong> (reflexión). La <strong>ley de reflexión</strong> establece que el ángulo de incidencia es igual al ángulo de reflexión, ambos medidos respecto a la normal (línea perpendicular a la superficie).</p>
+  <div class="box box-formula">θᵢ = θᵣ<br>
+  <span style="font-size:13px;font-weight:400">Ángulo de incidencia = Ángulo de reflexión (ambos medidos desde la normal)</span>
+  </div>
+  <ul>
+    <li>🪞 <strong>Reflexión especular:</strong> superficie lisa (espejo) → imagen nítida.</li>
+    <li>🏔️ <strong>Reflexión difusa:</strong> superficie rugosa → luz dispersada en todas direcciones (así vemos los objetos no luminosos).</li>
+  </ul>
 </div>
+
 <div class="section">
-  <div class="section-title">🎮 Simulación: Efecto Doppler</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: Efecto Doppler</div>
-  <div class="sim-controls">
-    <label>Velocidad del vehículo:
-      <select id="spd8" onchange="upd8()" style="padding:6px 10px;border-radius:6px;border:2px solid #e91e63;font-weight:700">
-        <option value="0">Quieto (0 m/s)</option>
-        <option value="1" selected>Lento (20 m/s)</option>
-        <option value="2">Rápido (50 m/s)</option>
-        <option value="3">Muy rápido (80 m/s)</option>
-      </select>
-    </label>
+  <div class="section-title">🌊 Refracción e índice de refracción</div>
+  <p>Cuando la luz pasa de un medio a otro, cambia su <strong>velocidad</strong> y (si entra en ángulo) también cambia su <strong>dirección</strong>. Este fenómeno es la <strong>refracción</strong>.</p>
+  <div class="box box-formula">n = c / v<br>
+  <span style="font-size:13px;font-weight:400">n = índice de refracción (sin unidades) | c = 3 × 10⁸ m/s | v = velocidad de la luz en el medio (m/s)</span>
   </div>
-  <canvas id="canvas8" width="520" height="160" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
-  <div id="dop8info" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-    <div style="background:#e3f2fd;border-radius:8px;padding:10px;text-align:center">
-      <div style="font-size:11px;color:#888;font-weight:700">DELANTE (se acerca)</div>
-      <div id="dop8front" style="font-size:20px;font-weight:900;color:#1565c0">Más AGUDO 🔺</div>
-    </div>
-    <div style="background:#fce4ec;border-radius:8px;padding:10px;text-align:center">
-      <div style="font-size:11px;color:#888;font-weight:700">DETRÁS (se aleja)</div>
-      <div id="dop8back" style="font-size:20px;font-weight:900;color:#c62828">Más GRAVE 🔻</div>
-    </div>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">
+    <tr style="background:#e91e63;color:white"><th style="padding:7px">Medio</th><th style="padding:7px">Índice n</th><th style="padding:7px">v de la luz (m/s)</th></tr>
+    <tr style="background:#fce4ec"><td style="padding:7px">Vacío</td><td style="padding:7px;font-weight:700">1,000</td><td style="padding:7px">3 × 10⁸</td></tr>
+    <tr><td style="padding:7px">Aire</td><td style="padding:7px;font-weight:700">≈ 1,000</td><td style="padding:7px">≈ 3 × 10⁸</td></tr>
+    <tr style="background:#fce4ec"><td style="padding:7px">Agua</td><td style="padding:7px;font-weight:700">1,33</td><td style="padding:7px">2,26 × 10⁸</td></tr>
+    <tr><td style="padding:7px">Vidrio (crown)</td><td style="padding:7px;font-weight:700">1,52</td><td style="padding:7px">1,97 × 10⁸</td></tr>
+    <tr style="background:#fce4ec"><td style="padding:7px">Diamante</td><td style="padding:7px;font-weight:700">2,42</td><td style="padding:7px">1,24 × 10⁸</td></tr>
+  </table>
+  <div class="box box-formula">Ley de Snell: n₁ × sin(θ₁) = n₂ × sin(θ₂)<br>
+  <span style="font-size:13px;font-weight:400">n₁, n₂ = índices de refracción de los medios | θ₁ = ángulo incidente | θ₂ = ángulo refractado</span>
   </div>
-  <script>
-  (function(){
-    const c=document.getElementById('canvas8'),ctx=c.getContext('2d');
-    let spd=1,t=0,carX=80;
-    const speeds=[0,20,50,80];
-    window.upd8=function(){spd=+document.getElementById('spd8').value;};
-    function draw(){
-      const W=c.width,H=c.height/2;
-      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,c.height);
-      // road
-      ctx.fillStyle='#222';ctx.fillRect(0,H+10,W,30);
-      ctx.strokeStyle='#555';ctx.setLineDash([20,20]);ctx.lineWidth=2;
-      ctx.beginPath();ctx.moveTo(0,H+24);ctx.lineTo(W,H+24);ctx.stroke();ctx.setLineDash([]);
-      // waves (circles from car)
-      const vCar=speeds[spd];
-      for(let i=1;i<=5;i++){
-        const r=i*22;
-        const cx=carX-vCar*i*0.28;
-        ctx.beginPath();
-        const stretch=1+vCar/343*0.6;
-        ctx.ellipse(Math.max(20,Math.min(W-20,cx)),H,r/stretch,r,0,0,Math.PI*2);
-        ctx.strokeStyle=`rgba(100,180,255,${0.7-i*0.12})`;ctx.lineWidth=1.5;ctx.stroke();
+  <div class="box box-example">
+    <strong>Ejemplo:</strong> Rayo en aire (n₁=1) con θ₁=30° entra al agua (n₂=1,33). ¿Cuál es θ₂?<br>
+    1 × sin(30°) = 1,33 × sin(θ₂)<br>
+    0,5 = 1,33 × sin(θ₂) → sin(θ₂) = 0,5 / 1,33 = 0,376 → θ₂ = <strong>22°</strong>
+  </div>
+  <div class="box box-warn">⚠️ Reflexión total interna: si la luz pasa de un medio denso a uno menos denso con ángulo mayor al crítico, toda la luz se refleja. Esto es la base de la fibra óptica.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎮 Simulación: reflexión y refracción</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Ley de Snell: n₁ sin(θ₁) = n₂ sin(θ₂)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0">
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">n₁ (MEDIO 1)</label>
+        <input id="n1_8" type="number" value="1.00" step="0.01" style="width:100%;padding:8px;border:2px solid #e91e63;border-radius:8px;font-size:16px;font-weight:700;text-align:center;outline:none" oninput="calcSnell8()">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">θ₁ INCIDENTE (°)</label>
+        <input id="t1_8" type="number" value="30" min="0" max="89" style="width:100%;padding:8px;border:2px solid #667eea;border-radius:8px;font-size:16px;font-weight:700;text-align:center;outline:none" oninput="calcSnell8()">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">n₂ (MEDIO 2)</label>
+        <input id="n2_8" type="number" value="1.33" step="0.01" style="width:100%;padding:8px;border:2px solid #2ecc71;border-radius:8px;font-size:16px;font-weight:700;text-align:center;outline:none" oninput="calcSnell8()">
+      </div>
+    </div>
+    <div id="snell8msg" style="text-align:center;font-size:14px;color:#27ae60;font-weight:700;padding:8px">θ₂ ≈ 22,1° | Luz se acerca a la normal al entrar en un medio más denso</div>
+    <canvas id="canvas8" width="520" height="140" style="width:100%;background:#0d1117;border-radius:10px;margin-top:8px"></canvas>
+    <p class="sim-hint">Modifica n₁, θ₁ y n₂ para ver cómo cambia el ángulo de refracción.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas8'),ctx=c.getContext('2d');
+      let n1=1,t1=30,n2=1.33,t2=22.1;
+      function toRad(d){return d*Math.PI/180;}
+      function toDeg(r){return r*180/Math.PI;}
+      function draw(){
+        const W=c.width,H=c.height,cx=W/2,cy=H/2;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+        // Media superior
+        ctx.fillStyle='rgba(100,150,255,0.1)';ctx.fillRect(0,0,W,cy);
+        ctx.fillStyle='rgba(100,200,100,0.1)';ctx.fillRect(0,cy,W,cy);
+        // Interface
+        ctx.strokeStyle='#555';ctx.lineWidth=1;ctx.setLineDash([5,5]);
+        ctx.beginPath();ctx.moveTo(0,cy);ctx.lineTo(W,cy);ctx.stroke();ctx.setLineDash([]);
+        // Normal
+        ctx.strokeStyle='rgba(255,255,255,0.3)';ctx.lineWidth=1;ctx.setLineDash([4,4]);
+        ctx.beginPath();ctx.moveTo(cx,cy-55);ctx.lineTo(cx,cy+55);ctx.stroke();ctx.setLineDash([]);
+        // Incident ray
+        const a1=toRad(t1);
+        ctx.strokeStyle='#e91e63';ctx.lineWidth=2.5;
+        ctx.beginPath();ctx.moveTo(cx-Math.sin(a1)*90,cy-Math.cos(a1)*90);ctx.lineTo(cx,cy);ctx.stroke();
+        // Reflected ray
+        ctx.strokeStyle='rgba(233,30,99,0.5)';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.sin(a1)*70,cy-Math.cos(a1)*70);ctx.stroke();
+        // Refracted ray
+        if(!isNaN(t2)){
+          const a2=toRad(t2);
+          ctx.strokeStyle='#2ecc71';ctx.lineWidth=2.5;
+          ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.sin(a2)*80,cy+Math.cos(a2)*80);ctx.stroke();
+        }
+        // Labels
+        ctx.fillStyle='#e91e63';ctx.font='11px sans-serif';ctx.fillText('θ₁='+t1+'°',cx-55,cy-15);
+        ctx.fillStyle='#2ecc71';ctx.fillText(!isNaN(t2)?'θ₂≈'+t2+'°':'TI',cx+10,cy+25);
+        ctx.fillStyle='rgba(100,150,255,0.8)';ctx.fillText('n₁='+n1,10,20);
+        ctx.fillStyle='rgba(100,200,100,0.8)';ctx.fillText('n₂='+n2,10,cy+20);
       }
-      // car
-      ctx.fillStyle='#e91e63';
-      ctx.fillRect(carX-20,H-16,40,20);
-      ctx.beginPath();ctx.arc(carX-10,H+5,6,0,Math.PI*2);ctx.fillStyle='#333';ctx.fill();
-      ctx.beginPath();ctx.arc(carX+10,H+5,6,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='white';ctx.font='bold 14px sans-serif';ctx.fillText('🚑',carX-10,H-2);
-      // move car
-      carX+=speeds[spd]*0.04;if(carX>W+30)carX=-30;
-      t++;requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-  </script>
+      window.calcSnell8=function(){
+        n1=parseFloat(document.getElementById('n1_8').value)||1;
+        t1=parseFloat(document.getElementById('t1_8').value)||30;
+        n2=parseFloat(document.getElementById('n2_8').value)||1.33;
+        const sinT2=(n1/n2)*Math.sin(t1*Math.PI/180);
+        const msg=document.getElementById('snell8msg');
+        if(Math.abs(sinT2)>1){
+          t2=NaN;
+          msg.textContent='⚠️ Reflexión total interna: sin(θ₂) > 1, el rayo no pasa al medio 2.';
+          msg.style.color='#e74c3c';
+        } else {
+          t2=Math.round(Math.asin(sinT2)*180/Math.PI*10)/10;
+          const dir=n2>n1?'se acerca a la normal':'se aleja de la normal';
+          msg.textContent='θ₂ ≈ '+t2+'° | Al entrar en un medio más '+(n2>n1?'denso':'ligero')+', el rayo '+dir+'.';
+          msg.style.color='#27ae60';
+        }
+        draw();
+      };
+      draw();
+    })();
+    </script>
+  </div>
 </div>
-</div>
+
 <div class="section">
-  <div class="section-title">🔬 Ultrasonido e Infrasonido</div>
-  <div class="box box-warn"><strong>Ultrasonido (&gt;20.000 Hz):</strong> 🏥 Ecografías · 🦇 Murciélagos · 🔧 Limpieza industrial</div>
-  <div class="box box-example"><strong>Infrasonido (&lt;20 Hz):</strong> 🐘 Elefantes · 🌋 Terremotos · 🌪️ Tormentas</div>
-  <div class="box box-info">La ecografía no usa radiación → segura para ver bebés durante el embarazo.</div>
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">n = c / v &nbsp;|&nbsp; n₁ sin(θ₁) = n₂ sin(θ₂)</div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — Velocidad de la luz en vidrio</strong><br>
+    El vidrio corona tiene n = 1,52. c = 3 × 10⁸ m/s. ¿A qué velocidad viaja la luz en el vidrio?<br><br>
+    <strong>Solución:</strong> v = c / n = (3 × 10⁸) / 1,52 ≈ <strong>1,97 × 10⁸ m/s</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Ley de Snell: agua a vidrio</strong><br>
+    Rayo de luz pasa de agua (n₁ = 1,33) a vidrio (n₂ = 1,52) con θ₁ = 40°. ¿Cuál es θ₂?<br><br>
+    <strong>Solución:</strong><br>
+    n₁ sin(θ₁) = n₂ sin(θ₂)<br>
+    1,33 × sin(40°) = 1,52 × sin(θ₂)<br>
+    1,33 × 0,643 = 1,52 × sin(θ₂)<br>
+    sin(θ₂) = 0,855 / 1,52 = 0,562 → θ₂ = <strong>34,2°</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — Índice de refracción de un mineral</strong><br>
+    La luz viaja a 1,5 × 10⁸ m/s en un mineral. c = 3 × 10⁸ m/s. ¿Cuál es su índice de refracción?<br><br>
+    <strong>Solución:</strong> n = c / v = (3 × 10⁸) / (1,5 × 10⁸) = <strong>2,0</strong> (similar al zafiro)
+  </div>
 </div>
+
 <div class="section">
   <div class="section-title">📝 Taller Semana 8</div>
   <div class="taller">
-    <div class="taller-title">Responde en tu cuaderno:</div>
-    <div class="taller-item">1. Explica el Efecto Doppler. Da un ejemplo diferente a la ambulancia.</div>
-    <div class="taller-item">2. ¿Diferencia entre ultrasonido e infrasonido?</div>
-    <div class="taller-item">3. ¿Por qué se prefiere la ecografía sobre rayos X para el embarazo?</div>
-    <div class="taller-item">4. Murciélago: f=50.000 Hz, v=340 m/s. ¿Cuál es λ?</div>
-    <div class="taller-item">5. ¿Qué ventaja tiene la ecolocalización de delfines bajo el agua?</div>
+    <div class="taller-title">Resuelve en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Cuál es la diferencia entre reflexión especular y reflexión difusa? Da un ejemplo de cada una.</div>
+    <div class="taller-item">2. La luz pasa de agua (n=1,33) al aire (n=1). Si θ₁ = 20°, ¿cuál es θ₂?</div>
+    <div class="taller-item">3. ¿A qué velocidad viaja la luz en el diamante (n = 2,42)?</div>
+    <div class="taller-item">4. ¿Por qué un lápiz parece "quebrado" cuando se introduce parcialmente en un vaso de agua?</div>
+    <div class="taller-item">5. Investiga: ¿cómo usa la fibra óptica el principio de reflexión total interna para transmitir datos?</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: Fuente de sonido que se acerca. ¿Cómo percibes el tono?</div><div class="quiz-options">
-<label data-q="s8_1" data-val="a"><input type="radio" name="qs8_1" value="a"> Más grave</label>
-<label data-q="s8_1" data-val="b"><input type="radio" name="qs8_1" value="b"> Igual</label>
-<label data-q="s8_1" data-val="c"><input type="radio" name="qs8_1" value="c"> Más agudo</label>
-<label data-q="s8_1" data-val="d"><input type="radio" name="qs8_1" value="d"> Más fuerte pero igual tono</label>
-</div><div class="quiz-feedback" id="fbs8_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Límite superior del rango auditivo humano?</div><div class="quiz-options">
-<label data-q="s8_2" data-val="a"><input type="radio" name="qs8_2" value="a"> 200 Hz</label>
-<label data-q="s8_2" data-val="b"><input type="radio" name="qs8_2" value="b"> 2000 Hz</label>
-<label data-q="s8_2" data-val="c"><input type="radio" name="qs8_2" value="c"> 20000 Hz</label>
-<label data-q="s8_2" data-val="d"><input type="radio" name="qs8_2" value="d"> 200000 Hz</label>
-</div><div class="quiz-feedback" id="fbs8_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Qué tipo de sonido usan los murciélagos?</div><div class="quiz-options">
-<label data-q="s8_3" data-val="a"><input type="radio" name="qs8_3" value="a"> Infrasonido</label>
-<label data-q="s8_3" data-val="b"><input type="radio" name="qs8_3" value="b"> Sonido audible</label>
-<label data-q="s8_3" data-val="c"><input type="radio" name="qs8_3" value="c"> Ultrasonido</label>
-<label data-q="s8_3" data-val="d"><input type="radio" name="qs8_3" value="d"> Ondas de radio</label>
-</div><div class="quiz-feedback" id="fbs8_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Por qué la ecografía es preferible a rayos X para el bebé?</div><div class="quiz-options">
-<label data-q="s8_4" data-val="a"><input type="radio" name="qs8_4" value="a"> Es más barata</label>
-<label data-q="s8_4" data-val="b"><input type="radio" name="qs8_4" value="b"> No usa radiación ionizante</label>
-<label data-q="s8_4" data-val="c"><input type="radio" name="qs8_4" value="c"> Mejores imágenes</label>
-<label data-q="s8_4" data-val="d"><input type="radio" name="qs8_4" value="d"> Más rápida</label>
-</div><div class="quiz-feedback" id="fbs8_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Qué produce el Efecto Doppler?</div><div class="quiz-options">
-<label data-q="s8_5" data-val="a"><input type="radio" name="qs8_5" value="a"> Amplifica el sonido</label>
-<label data-q="s8_5" data-val="b"><input type="radio" name="qs8_5" value="b"> El tono cambia cuando la fuente o receptor se mueven</label>
-<label data-q="s8_5" data-val="c"><input type="radio" name="qs8_5" value="c"> Sonido más rápido</label>
-<label data-q="s8_5" data-val="d"><input type="radio" name="qs8_5" value="d"> Eco más fuerte</label>
-</div><div class="quiz-feedback" id="fbs8_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s8',['c', 'c', 'c', 'b', 'b'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s8"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué establece la ley de reflexión?</div><div class="quiz-options">
+    <label data-q="s8_1" data-val="a"><input type="radio" name="qs8_1" value="a"> El ángulo de incidencia es el doble del de reflexión.</label>
+    <label data-q="s8_1" data-val="b"><input type="radio" name="qs8_1" value="b"> El ángulo de incidencia es igual al ángulo de reflexión.</label>
+    <label data-q="s8_1" data-val="c"><input type="radio" name="qs8_1" value="c"> El rayo reflejado siempre es paralelo a la superficie.</label>
+    <label data-q="s8_1" data-val="d"><input type="radio" name="qs8_1" value="d"> La luz no cambia de dirección al reflejarse.</label>
+  </div><div class="quiz-feedback" id="fbs8_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: El diamante tiene n = 2,42. ¿Cuál es la velocidad de la luz en él? (c = 3×10⁸ m/s)</div><div class="quiz-options">
+    <label data-q="s8_2" data-val="a"><input type="radio" name="qs8_2" value="a"> 7,26 × 10⁸ m/s</label>
+    <label data-q="s8_2" data-val="b"><input type="radio" name="qs8_2" value="b"> 1,24 × 10⁸ m/s</label>
+    <label data-q="s8_2" data-val="c"><input type="radio" name="qs8_2" value="c"> 3 × 10⁸ m/s</label>
+    <label data-q="s8_2" data-val="d"><input type="radio" name="qs8_2" value="d"> 2,42 × 10⁸ m/s</label>
+  </div><div class="quiz-feedback" id="fbs8_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Qué ley describe el cambio de dirección de la luz al pasar entre medios?</div><div class="quiz-options">
+    <label data-q="s8_3" data-val="a"><input type="radio" name="qs8_3" value="a"> Ley de Newton</label>
+    <label data-q="s8_3" data-val="b"><input type="radio" name="qs8_3" value="b"> Ley de Snell</label>
+    <label data-q="s8_3" data-val="c"><input type="radio" name="qs8_3" value="c"> Ley de Ohm</label>
+    <label data-q="s8_3" data-val="d"><input type="radio" name="qs8_3" value="d"> Ley de Faraday</label>
+  </div><div class="quiz-feedback" id="fbs8_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: Aire (n=1) → agua (n=1,33), θ₁=45°. El rayo en el agua…</div><div class="quiz-options">
+    <label data-q="s8_4" data-val="a"><input type="radio" name="qs8_4" value="a"> Se aleja de la normal (θ₂ > 45°)</label>
+    <label data-q="s8_4" data-val="b"><input type="radio" name="qs8_4" value="b"> Se acerca a la normal (θ₂ < 45°)</label>
+    <label data-q="s8_4" data-val="c"><input type="radio" name="qs8_4" value="c"> Sigue exactamente a 45°</label>
+    <label data-q="s8_4" data-val="d"><input type="radio" name="qs8_4" value="d"> Se convierte en reflexión total</label>
+  </div><div class="quiz-feedback" id="fbs8_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿En qué se basa el funcionamiento de la fibra óptica?</div><div class="quiz-options">
+    <label data-q="s8_5" data-val="a"><input type="radio" name="qs8_5" value="a"> Absorción total de la luz</label>
+    <label data-q="s8_5" data-val="b"><input type="radio" name="qs8_5" value="b"> Reflexión total interna: la luz queda atrapada dentro de la fibra porque el ángulo supera el crítico</label>
+    <label data-q="s8_5" data-val="c"><input type="radio" name="qs8_5" value="c"> Difracción de la luz</label>
+    <label data-q="s8_5" data-val="d"><input type="radio" name="qs8_5" value="d"> Refracción hacia el exterior</label>
+  </div><div class="quiz-feedback" id="fbs8_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s8',['b','b','b','b','b'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s8"></div>
 </div>
 
 </div>
 <footer class="site-footer">
-  Física — El Sonido · Semana 8/10 · Grado 11° · 2026
+  Física — La Luz · Semana 8/10 · Grado 11° · 2026
   <div class="creditos">Diseñado por Froylan Jiménez · CESUM</div>
 </footer>
 
@@ -157,60 +230,84 @@
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 8</div>
-      <div class="comp-section-sub">Tema: Efecto Doppler y ultrasonido · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Reflexión y refracción de la luz · Nombre, fecha y grupo. Elige y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Daniela está parada en una acera. Una ambulancia con sirena se acerca a alta velocidad, pasa frente a ella y luego se aleja.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e91e63">Ejercicio 1</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Mientras la ambulancia se acerca, ¿cómo percibe Daniela el sonido comparado con cuando la ambulancia está parada?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Más grave, porque la ambulancia genera más ondas.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Igual; el tono no cambia con el movimiento.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Más agudo: las ondas se comprimen al frente de la fuente en movimiento, aumentando la frecuencia percibida.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Más fuerte solo cuando está muy cerca.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un diseñador de joyería pregunta por qué el diamante brilla más que el vidrio.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e91e63">Ejercicio 1</span>
+      <span class="comp-tipo">Análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Por qué el diamante (n=2,42) brilla más que el vidrio (n=1,52)?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Porque el diamante es más duro.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>El mayor índice de refracción del diamante produce un ángulo crítico más pequeño, generando reflexión total interna con mayor facilidad y multiplicando los reflejos internos.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Porque el diamante absorbe más luz.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Por la forma de cómo se corta.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Cuando la ambulancia pasa y se aleja, el tono de la sirena baja notablemente. Jorge dice: 'el conductor bajó el volumen de la sirena porque ya pasó el peligro'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e91e63">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error de Jorge y explica qué realmente ocurrió.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Jorge tiene razón; el conductor ajustó la sirena.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La sirena emite siempre el mismo tono; el cambio que escucha Jorge es el efecto Doppler: al alejarse, las ondas se estiran y la frecuencia percibida baja.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La sirena se apaga automáticamente al alejarse.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El efecto Doppler solo ocurre con luz, no con sonido.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Luz pasa de aire (n=1) al agua (n=1,33) con θ₁ = 30°.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e91e63">Ejercicio 2</span>
+      <span class="comp-tipo">Cálculo Snell</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es el ángulo de refracción θ₂?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>30° (no cambia)</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>22° → sin(θ₂) = (1×sin30°)/1,33 = 0,5/1,33 ≈ 0,376 → θ₂ ≈ 22°</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>40°</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>60°</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> La policía usa radares para medir la velocidad de los vehículos. El radar emite ondas y analiza el eco reflejado por el auto en movimiento.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e91e63">Ejercicio 3</span>
-    <span class="comp-tipo">Aplicación</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué principio físico aprovecha el radar de velocidad?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>La reflexión total del sonido en superficies metálicas.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La resonancia entre el radar y el vehículo.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El efecto Doppler: el cambio de frecuencia del eco reflejado indica la velocidad del vehículo.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La amplitud de la onda refleja la velocidad del auto.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un médico usa un endoscopio con fibra óptica para ver el interior del estómago.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e91e63">Ejercicio 3</span>
+      <span class="comp-tipo">Aplicación</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Qué principio físico permite que la imagen viaje por la fibra óptica sin escaparse?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Refracción hacia el exterior.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Reflexión total interna: la luz choca con la pared de la fibra a un ángulo mayor que el crítico y rebota hacia adentro.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Absorción y re-emisión de fotones.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Difracción que curva la luz.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Los delfines 'ven' en agua turbia y oscura emitiendo clics de ultrasonido y analizando los ecos. Este sistema les permite detectar peces a varios metros de distancia.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e91e63">Ejercicio 4</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Por qué los delfines usan ultrasonido (alta frecuencia) en lugar de sonido audible?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El ultrasonido viaja más rápido en el agua.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El agua bloquea el sonido audible.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El ultrasonido tiene mayor longitud de onda y penetra mejor.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La alta frecuencia del ultrasonido tiene menor longitud de onda, lo que permite detectar objetos pequeños con más resolución.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> La luz viaja a 1,97 × 10⁸ m/s en cierto vidrio. c = 3 × 10⁸ m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e91e63">Ejercicio 4</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es el índice de refracción de ese vidrio?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>1,97</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>1,52 → n = c/v = 3×10⁸ / 1,97×10⁸ ≈ 1,52</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>5,91 × 10¹⁶</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>0,66</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un médico realiza una ecografía Doppler de las arterias del corazón. La pantalla muestra en rojo el flujo que se acerca y en azul el que se aleja.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e91e63">Ejercicio 5</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué detecta exactamente el equipo Doppler para determinar la velocidad y dirección del flujo sanguíneo?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>La temperatura de la sangre en cada zona.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El color de los glóbulos rojos.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El cambio de frecuencia del ultrasonido reflejado por los glóbulos en movimiento: si se acercan, la frecuencia sube; si se alejan, baja.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La presión arterial directamente.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Pedro dice: "un espejo plano no cambia la dirección de la luz, solo la devuelve".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e91e63">Ejercicio 5</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto Pedro?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí; la luz siempre vuelve exactamente por donde vino.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Solo en parte; el espejo sí cambia la dirección de la luz (θᵢ = θᵣ respecto a la normal), aunque ángulo incidente = ángulo reflejado.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Los espejos absorben la luz.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>No; el espejo produce refracción.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -232,7 +329,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -242,7 +339,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -257,6 +354,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

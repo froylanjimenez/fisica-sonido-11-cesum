@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 6: El Oído Humano | Física 11° CESUM</title>
+<title>Semana 6: La luz como onda | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
-  <div class="logo-icon">🔊</div>
-  <h1>El Sonido — Física Grado 11°</h1>
+  <div class="logo-icon">💡</div>
+  <h1>La Luz — Física Grado 11°</h1>
   <p class="subtitle">CONCENTRACIÓN EDUCATIVA DEL SUR DE MONTELÍBANO</p>
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana5.html" class="nav-back">⬅ Semana 5</a><a href="semana7.html" class="nav-back">Semana 7 ➡</a>
+  <a href="semana5.html" class="nav-back">⬅ Semana 5</a>
+  <a href="semana7.html" class="nav-back">Semana 7 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,112 +23,184 @@
     <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
     <span class="progress-text">60%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#3498db;margin-bottom:20px;border-left:6px solid #3498db;padding-left:14px">Semana 6: El Oído Humano</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#3498db;margin-bottom:20px;border-left:6px solid #3498db;padding-left:14px">Semana 6: La luz como onda electromagnética</h2>
 
 <div class="section">
-  <div class="section-title">👂 Las tres partes del oído</div>
-  <div class="box box-info"><strong>1. Oído externo:</strong> Pabellón + canal auditivo. Capta y dirige las ondas al tímpano.</div>
-  <div class="box box-tip"><strong>2. Oído medio:</strong> Tímpano + 3 huesecillos (martillo, yunque, estribo). Amplifican la vibración.</div>
-  <div class="box box-warn"><strong>3. Oído interno:</strong> Cóclea (caracol) — convierte vibraciones en señales eléctricas al cerebro.</div>
-  <div class="box box-example">💡 Los tres huesecillos son los más pequeños del cuerpo. ¡Los tres juntos caben en un grano de arroz!</div>
+  <div class="section-title">💡 ¿Qué es la luz?</div>
+  <p>La luz es una <strong>onda electromagnética</strong>: oscilaciones combinadas de campos eléctrico y magnético que se propagan por el espacio <em>sin necesitar un medio material</em>. A diferencia del sonido, la luz sí puede viajar en el vacío.</p>
+  <div class="box box-tip">💡 La luz viaja a c = 3 × 10⁸ m/s en el vacío. ¡Es la velocidad más rápida del universo!</div>
+  <ul>
+    <li>🌊 La luz es una onda <strong>transversal</strong>: el campo eléctrico oscila perpendicular a la dirección de propagación.</li>
+    <li>🌌 No necesita materia para propagarse (puede viajar por el vacío del espacio).</li>
+    <li>📡 Pertenece al <strong>espectro electromagnético</strong>, que incluye también radio, microondas, rayos X, etc.</li>
+  </ul>
+  <div class="box box-warn">⚠️ La diferencia con el sonido: el sonido es una onda <em>mecánica longitudinal</em> que necesita materia. La luz es una onda <em>electromagnética transversal</em> que no necesita materia.</div>
 </div>
+
 <div class="section">
-  <div class="section-title">🎮 Simulación: rango auditivo</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: Rango auditivo y decibeles</div>
-  <div class="sim-controls">
-    <label>Frecuencia: <strong id="f6val">1000</strong> Hz
-      <input type="range" id="f6" min="10" max="20000" value="1000" step="10" oninput="upd6()">
-    </label>
+  <div class="section-title">📡 El espectro electromagnético</div>
+  <p>La luz visible es solo una pequeña parte del espectro electromagnético. Todas las ondas electromagnéticas obedecen la misma relación:</p>
+  <div class="box box-formula">c = f × λ<br>
+  <span style="font-size:13px;font-weight:400">c = velocidad de la luz = 3 × 10⁸ m/s | f = frecuencia (Hz) | λ = longitud de onda (m)</span><br><br>
+  También: f = c / λ &nbsp;|&nbsp; λ = c / f
   </div>
-  <div id="audibar" style="margin:10px 0;height:32px;border-radius:8px;background:#ecf0f1;position:relative;overflow:hidden">
-    <div id="audifill" style="height:100%;border-radius:8px;background:linear-gradient(90deg,#27ae60,#f39c12,#e74c3c);transition:width .3s;width:50%"></div>
-    <span id="audiLabel" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:700;font-size:13px;color:white;text-shadow:0 1px 2px #000">Audible por humanos ✅</span>
-  </div>
-  <div style="display:flex;justify-content:space-between;font-size:11px;color:#7f8c8d;margin-bottom:10px">
-    <span>20 Hz (grave)</span><span>Rango humano: 20–20.000 Hz</span><span>20.000 Hz (agudo)</span>
-  </div>
-  <table style="width:100%;border-collapse:collapse;font-size:12px">
-    <tr style="background:#3498db;color:white"><th style="padding:7px">Animal</th><th style="padding:7px">Rango auditivo</th></tr>
-    <tr style="background:#f0f8ff"><td style="padding:7px">Humano</td><td style="padding:7px">20 – 20.000 Hz</td></tr>
-    <tr><td style="padding:7px">Perro</td><td style="padding:7px">40 – 65.000 Hz</td></tr>
-    <tr style="background:#f0f8ff"><td style="padding:7px">Murciélago</td><td style="padding:7px">1.000 – 120.000 Hz</td></tr>
-    <tr><td style="padding:7px">Delfín</td><td style="padding:7px">75 – 150.000 Hz</td></tr>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">
+    <tr style="background:#3498db;color:white"><th style="padding:7px">Tipo de onda</th><th style="padding:7px">Longitud de onda</th><th style="padding:7px">Aplicación</th></tr>
+    <tr style="background:#e3f2fd"><td style="padding:7px">Ondas de radio</td><td style="padding:7px">1 mm – 100 km</td><td style="padding:7px">Radio, TV, WiFi</td></tr>
+    <tr><td style="padding:7px">Microondas</td><td style="padding:7px">1 mm – 10 cm</td><td style="padding:7px">Microondas, radar, 5G</td></tr>
+    <tr style="background:#e3f2fd"><td style="padding:7px">Infrarrojo</td><td style="padding:7px">750 nm – 1 mm</td><td style="padding:7px">Control remoto, termografía</td></tr>
+    <tr><td style="padding:7px;font-weight:700;color:#1565c0">Luz visible</td><td style="padding:7px;font-weight:700">380 – 750 nm</td><td style="padding:7px">Visión humana</td></tr>
+    <tr style="background:#e3f2fd"><td style="padding:7px">Ultravioleta</td><td style="padding:7px">10 – 380 nm</td><td style="padding:7px">Esterilización, bronceado</td></tr>
+    <tr><td style="padding:7px">Rayos X</td><td style="padding:7px">0,01 – 10 nm</td><td style="padding:7px">Radiografías médicas</td></tr>
+    <tr style="background:#e3f2fd"><td style="padding:7px">Rayos gamma</td><td style="padding:7px">&lt; 0,01 nm</td><td style="padding:7px">Medicina nuclear, astronomía</td></tr>
   </table>
-  <script>
-  window.upd6=function(){
-    const f=+document.getElementById('f6').value;
-    document.getElementById('f6val').textContent=f>=1000?(f/1000).toFixed(1)+'k':f;
-    const pct=(Math.log10(f)-Math.log10(20))/(Math.log10(20000)-Math.log10(20))*100;
-    const audible=f>=20&&f<=20000;
-    document.getElementById('audifill').style.width=Math.max(2,Math.min(100,pct))+'%';
-    document.getElementById('audiLabel').textContent=audible?'✅ Audible por humanos':'🚫 '+(f<20?'Infrasonido':'Ultrasonido');
-  };
-  </script>
+  <div class="box box-info">ℹ️ A mayor frecuencia → menor longitud de onda → mayor energía. Los rayos gamma son los más energéticos.</div>
 </div>
-</div>
+
 <div class="section">
-  <div class="section-title">📊 Tabla de decibeles</div>
-  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">
-    <tr style="background:#3498db;color:white"><th style="padding:8px">Sonido</th><th style="padding:8px">dB</th><th style="padding:8px">¿Seguro?</th></tr>
-    <tr style="background:#f0f8ff"><td style="padding:8px">Susurro</td><td style="padding:8px;text-align:center">30</td><td style="padding:8px;text-align:center">✅</td></tr>
-    <tr><td style="padding:8px">Conversación</td><td style="padding:8px;text-align:center">60</td><td style="padding:8px;text-align:center">✅</td></tr>
-    <tr style="background:#f0f8ff"><td style="padding:8px">Discoteca</td><td style="padding:8px;text-align:center">100</td><td style="padding:8px;text-align:center">⚠️</td></tr>
-    <tr><td style="padding:8px">Avión despegando</td><td style="padding:8px;text-align:center">140</td><td style="padding:8px;text-align:center">🚫</td></tr>
-  </table>
-  <div class="box box-warn">⚠️ Más de 85 dB prolongado puede causar pérdida auditiva permanente.</div>
+  <div class="section-title">🎮 Simulación: onda de luz electromagnética</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Propagación de onda electromagnética (c = f × λ)</div>
+    <div class="sim-controls">
+      <label>Frecuencia: <strong id="freqVal6">5</strong> × 10¹⁴ Hz
+        <input type="range" id="freq6" min="4" max="8" value="5" oninput="updateSim6()">
+      </label>
+    </div>
+    <canvas id="canvas6" width="520" height="120" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+    <div id="lambda6msg" style="text-align:center;font-size:13px;color:#3498db;font-weight:700;padding:6px">λ = c/f = 3×10⁸ / (5×10¹⁴) = 600 nm — Luz naranja/roja</div>
+    <p class="sim-hint">Cambia la frecuencia y observa cómo cambia la longitud de onda. Mayor frecuencia = color más violeta.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas6'),ctx=c.getContext('2d');
+      let freq=5,t=0;
+      const colors6=['#ff4444','#ff8800','#ffff00','#44ff44','#4488ff','#8844ff'];
+      const names6=['Rojo','Naranja','Amarillo','Verde','Azul','Violeta'];
+      const lambdas6=[750,620,580,530,470,420];
+      function draw(){
+        const W=c.width,H=c.height;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+        const fi=freq-4;
+        const col=colors6[Math.min(fi,5)];
+        const cycles=2+fi;
+        // E field (electric)
+        ctx.strokeStyle=col;ctx.lineWidth=2.5;ctx.beginPath();
+        for(let x=0;x<W;x++){
+          const y=H/2+Math.sin((x/W)*cycles*2*Math.PI-t)*30;
+          x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+        // B field (magnetic)
+        ctx.strokeStyle='rgba(100,200,255,0.5)';ctx.lineWidth=1.5;ctx.beginPath();
+        for(let x=0;x<W;x++){
+          const y=H/2+Math.cos((x/W)*cycles*2*Math.PI-t)*20;
+          x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+        ctx.fillStyle='#aaa';ctx.font='11px sans-serif';
+        ctx.fillText('Campo E',6,H/2-33);
+        ctx.fillStyle='rgba(100,200,255,0.8)';
+        ctx.fillText('Campo B',6,H/2+28);
+        t+=0.05;requestAnimationFrame(draw);
+      }
+      window.updateSim6=function(){
+        freq=+document.getElementById('freq6').value;
+        document.getElementById('freqVal6').textContent=freq;
+        const fi=freq-4;
+        const lam=lambdas6[Math.min(fi,5)];
+        const name=names6[Math.min(fi,5)];
+        document.getElementById('lambda6msg').textContent='λ = c/f = 3×10⁸ / ('+freq+'×10¹⁴) ≈ '+lam+' nm — Luz '+name;
+      };
+      draw();
+    })();
+    </script>
+  </div>
 </div>
+
+<div class="section">
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">c = f × λ &nbsp;|&nbsp; f = c / λ &nbsp;|&nbsp; λ = c / f &nbsp;&nbsp; (c = 3 × 10⁸ m/s)</div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — ¿Cuál es la longitud de onda de la luz verde?</strong><br>
+    La luz verde tiene f = 6 × 10¹⁴ Hz. c = 3 × 10⁸ m/s.<br><br>
+    <strong>Solución:</strong> λ = c / f = (3 × 10⁸) / (6 × 10¹⁴) = 0,5 × 10⁻⁶ m = <strong>500 nm</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Frecuencia de las microondas</strong><br>
+    Un horno de microondas usa ondas de λ = 12,2 cm = 0,122 m. c = 3 × 10⁸ m/s.<br><br>
+    <strong>Solución:</strong> f = c / λ = (3 × 10⁸) / 0,122 ≈ <strong>2,46 × 10⁹ Hz = 2,46 GHz</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — ¿Cuánto tarda la luz en llegar del Sol a la Tierra?</strong><br>
+    Distancia Sol–Tierra: d = 1,5 × 10¹¹ m. c = 3 × 10⁸ m/s.<br><br>
+    <strong>Solución:</strong> t = d / c = (1,5 × 10¹¹) / (3 × 10⁸) = 500 s ≈ <strong>8,33 minutos</strong>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🔬 Experimento: La luz y la materia</div>
+  <div class="box box-info">Materiales: linterna, prisma o CD/DVD, hoja blanca.</div>
+  <div class="steps">
+    <div class="step"><div class="step-num" style="background:#3498db">1</div><div class="step-text">En un cuarto oscuro, apunta la linterna al prisma (o al surco del CD con ángulo de 45°).</div></div>
+    <div class="step"><div class="step-num" style="background:#3498db">2</div><div class="step-text">Proyecta la luz refractada sobre la hoja blanca. ¿Ves los colores del arcoíris?</div></div>
+    <div class="step"><div class="step-num" style="background:#3498db">3</div><div class="step-text">Identifica el orden: violeta (menor λ) → rojo (mayor λ). ¿Cuál se desvía más?</div></div>
+    <div class="step"><div class="step-num" style="background:#3498db">4</div><div class="step-text">Investiga: ¿por qué el violeta se desvía más que el rojo en un prisma?</div></div>
+  </div>
+</div>
+
 <div class="section">
   <div class="section-title">📝 Taller Semana 6</div>
   <div class="taller">
-    <div class="taller-title">Responde en tu cuaderno:</div>
-    <div class="taller-item">1. Dibuja el oído y señala sus tres partes.</div>
-    <div class="taller-item">2. ¿Cuál es la función del tímpano?</div>
-    <div class="taller-item">3. ¿Por qué los perros responden a silbatos ultrasónicos que nosotros no escuchamos?</div>
-    <div class="taller-item">4. 8 horas en una fábrica a 90 dB. ¿Qué riesgo corres?</div>
-    <div class="taller-item">5. Investiga qué es la hipoacusia y menciona dos causas.</div>
+    <div class="taller-title">Responde y calcula en tu cuaderno:</div>
+    <div class="taller-item">1. ¿En qué se diferencia la luz del sonido? Menciona 4 diferencias.</div>
+    <div class="taller-item">2. ¿Cuál es la longitud de onda de la luz roja (f = 4 × 10¹⁴ Hz)?</div>
+    <div class="taller-item">3. Una onda de radio tiene λ = 3 m. ¿Cuál es su frecuencia?</div>
+    <div class="taller-item">4. ¿Por qué la luz puede viajar en el espacio pero el sonido no?</div>
+    <div class="taller-item">5. ¿En qué tipo de onda electromagnética se basa la comunicación por WiFi?</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué convierte las vibraciones en impulsos nerviosos?</div><div class="quiz-options">
-<label data-q="s6_1" data-val="a"><input type="radio" name="qs6_1" value="a"> Tímpano</label>
-<label data-q="s6_1" data-val="b"><input type="radio" name="qs6_1" value="b"> Pabellón auditivo</label>
-<label data-q="s6_1" data-val="c"><input type="radio" name="qs6_1" value="c"> La cóclea</label>
-<label data-q="s6_1" data-val="d"><input type="radio" name="qs6_1" value="d"> El martillo</label>
-</div><div class="quiz-feedback" id="fbs6_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Cuál es el rango auditivo humano?</div><div class="quiz-options">
-<label data-q="s6_2" data-val="a"><input type="radio" name="qs6_2" value="a"> 0-1000 Hz</label>
-<label data-q="s6_2" data-val="b"><input type="radio" name="qs6_2" value="b"> 20-20000 Hz</label>
-<label data-q="s6_2" data-val="c"><input type="radio" name="qs6_2" value="c"> 1-100 Hz</label>
-<label data-q="s6_2" data-val="d"><input type="radio" name="qs6_2" value="d"> 200-2000 Hz</label>
-</div><div class="quiz-feedback" id="fbs6_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿A partir de cuántos dB hay riesgo de daño prolongado?</div><div class="quiz-options">
-<label data-q="s6_3" data-val="a"><input type="radio" name="qs6_3" value="a"> 30 dB</label>
-<label data-q="s6_3" data-val="b"><input type="radio" name="qs6_3" value="b"> 60 dB</label>
-<label data-q="s6_3" data-val="c"><input type="radio" name="qs6_3" value="c"> 85 dB</label>
-<label data-q="s6_3" data-val="d"><input type="radio" name="qs6_3" value="d"> 140 dB</label>
-</div><div class="quiz-feedback" id="fbs6_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cómo se llaman los tres huesecillos?</div><div class="quiz-options">
-<label data-q="s6_4" data-val="a"><input type="radio" name="qs6_4" value="a"> Fémur, tibia, peroné</label>
-<label data-q="s6_4" data-val="b"><input type="radio" name="qs6_4" value="b"> Martillo, yunque y estribo</label>
-<label data-q="s6_4" data-val="c"><input type="radio" name="qs6_4" value="c"> Cóclea, tímpano y canal</label>
-<label data-q="s6_4" data-val="d"><input type="radio" name="qs6_4" value="d"> Radio, cúbito y carpo</label>
-</div><div class="quiz-feedback" id="fbs6_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Por qué el perro escucha el silbato ultrasónico y tú no?</div><div class="quiz-options">
-<label data-q="s6_5" data-val="a"><input type="radio" name="qs6_5" value="a"> Orejas más grandes</label>
-<label data-q="s6_5" data-val="b"><input type="radio" name="qs6_5" value="b"> Detecta frecuencias mucho más altas</label>
-<label data-q="s6_5" data-val="c"><input type="radio" name="qs6_5" value="c"> El silbato está roto</label>
-<label data-q="s6_5" data-val="d"><input type="radio" name="qs6_5" value="d"> Los perros ven el sonido</label>
-</div><div class="quiz-feedback" id="fbs6_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s6',['c', 'b', 'c', 'b', 'b'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s6"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿A qué velocidad viaja la luz en el vacío?</div><div class="quiz-options">
+    <label data-q="s6_1" data-val="a"><input type="radio" name="qs6_1" value="a"> 343 m/s</label>
+    <label data-q="s6_1" data-val="b"><input type="radio" name="qs6_1" value="b"> 1 500 m/s</label>
+    <label data-q="s6_1" data-val="c"><input type="radio" name="qs6_1" value="c"> 3 × 10⁸ m/s</label>
+    <label data-q="s6_1" data-val="d"><input type="radio" name="qs6_1" value="d"> 3 × 10⁶ m/s</label>
+  </div><div class="quiz-feedback" id="fbs6_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: La luz es una onda…</div><div class="quiz-options">
+    <label data-q="s6_2" data-val="a"><input type="radio" name="qs6_2" value="a"> Mecánica longitudinal</label>
+    <label data-q="s6_2" data-val="b"><input type="radio" name="qs6_2" value="b"> Mecánica transversal</label>
+    <label data-q="s6_2" data-val="c"><input type="radio" name="qs6_2" value="c"> Electromagnética transversal</label>
+    <label data-q="s6_2" data-val="d"><input type="radio" name="qs6_2" value="d"> Sonora</label>
+  </div><div class="quiz-feedback" id="fbs6_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: f = 6 × 10¹⁴ Hz, c = 3 × 10⁸ m/s. ¿Cuál es λ?</div><div class="quiz-options">
+    <label data-q="s6_3" data-val="a"><input type="radio" name="qs6_3" value="a"> 2 m</label>
+    <label data-q="s6_3" data-val="b"><input type="radio" name="qs6_3" value="b"> 500 nm</label>
+    <label data-q="s6_3" data-val="c"><input type="radio" name="qs6_3" value="c"> 600 nm</label>
+    <label data-q="s6_3" data-val="d"><input type="radio" name="qs6_3" value="d"> 700 nm</label>
+  </div><div class="quiz-feedback" id="fbs6_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cuál onda electromagnética tiene mayor energía?</div><div class="quiz-options">
+    <label data-q="s6_4" data-val="a"><input type="radio" name="qs6_4" value="a"> Ondas de radio</label>
+    <label data-q="s6_4" data-val="b"><input type="radio" name="qs6_4" value="b"> Luz visible</label>
+    <label data-q="s6_4" data-val="c"><input type="radio" name="qs6_4" value="c"> Rayos gamma</label>
+    <label data-q="s6_4" data-val="d"><input type="radio" name="qs6_4" value="d"> Infrarrojo</label>
+  </div><div class="quiz-feedback" id="fbs6_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Por qué la luz puede viajar en el espacio pero el sonido no?</div><div class="quiz-options">
+    <label data-q="s6_5" data-val="a"><input type="radio" name="qs6_5" value="a"> La luz viaja más rápido.</label>
+    <label data-q="s6_5" data-val="b"><input type="radio" name="qs6_5" value="b"> La luz es una onda electromagnética que no necesita materia; el sonido es mecánico y necesita medio.</label>
+    <label data-q="s6_5" data-val="c"><input type="radio" name="qs6_5" value="c"> El espacio está lleno de éter que solo conduce luz.</label>
+    <label data-q="s6_5" data-val="d"><input type="radio" name="qs6_5" value="d"> La luz tiene menor longitud de onda.</label>
+  </div><div class="quiz-feedback" id="fbs6_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s6',['c','c','b','c','b'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s6"></div>
 </div>
 
 </div>
 <footer class="site-footer">
-  Física — El Sonido · Semana 6/10 · Grado 11° · 2026
+  Física — La Luz · Semana 6/10 · Grado 11° · 2026
   <div class="creditos">Diseñado por Froylan Jiménez · CESUM</div>
 </footer>
 
@@ -136,60 +209,84 @@
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 6</div>
-      <div class="comp-section-sub">Tema: El oído humano · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: La luz como onda electromagnética · Nombre, fecha y grupo. Elige y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> En una fábrica, los trabajadores están expuestos a 95 dB de ruido constante durante 8 horas. El límite recomendado es 85 dB. El supervisor dice: 'no hay problema, 10 dB de diferencia es poca cosa'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#3498db">Ejercicio 1</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Por qué el supervisor está equivocado?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El supervisor tiene razón; 10 dB es una diferencia pequeña.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El límite correcto es 100 dB, no 85.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La escala de decibeles es logarítmica: 10 dB más representa el doble de intensidad percibida; 95 dB causa daño auditivo en exposición prolongada.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Solo importa la frecuencia, no el nivel de decibeles.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Valentina dice: "la luz y el sonido son ambos ondas, así que ambos pueden viajar en el vacío".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#3498db">Ejercicio 1</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto Valentina?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, ambas ondas viajan en el vacío.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; la luz es electromagnética (no necesita medio), pero el sonido es mecánico (sí necesita materia).</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Solo el sonido viaja en el vacío.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Ninguna onda puede viajar en el vacío.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un joven de 20 años puede escuchar frecuencias entre 20 Hz y 20.000 Hz. Su abuelo de 70 años ya no escucha bien los sonidos por encima de 8.000 Hz aunque su médico dice que su oído 'está bien para su edad'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#3498db">Ejercicio 2</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué explica la pérdida de audición en frecuencias altas con la edad?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El cerebro deja de interpretar frecuencias altas.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El desgaste progresivo de las células ciliadas en la cóclea, especialmente las encargadas de frecuencias altas.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El tímpano se endurece y no vibra con frecuencias altas.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La edad no afecta la audición de ninguna manera.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> La señal WiFi usa ondas de 2,4 GHz (f = 2,4 × 10⁹ Hz). c = 3 × 10⁸ m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#3498db">Ejercicio 2</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es la longitud de onda del WiFi?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>7,2 × 10¹⁷ m</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>0,125 m = 12,5 cm → λ = 3×10⁸ / 2,4×10⁹ = 0,125 m</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>500 nm</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>2,4 m</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Daniela dice: 'los ultrasonidos son muy peligrosos porque los escuchamos aunque no nos damos cuenta, y eso nos daña el oído sin que lo notemos'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#3498db">Ejercicio 3</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error de Daniela.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Daniela tiene razón; los ultrasonidos son inaudibles pero dañinos.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Los ultrasonidos tienen frecuencias superiores a 20.000 Hz; los humanos no los escuchamos. Pueden causar efectos físicos pero no daño auditivo directo.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Los ultrasonidos tienen frecuencias muy bajas.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El oído humano escucha todos los ultrasonidos médicos.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> La Luna está a 3,84 × 10⁸ m de la Tierra. c = 3 × 10⁸ m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#3498db">Ejercicio 3</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuánto tarda la luz en ir de la Tierra a la Luna?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>1,28 s → t = d/c = 3,84×10⁸ / 3×10⁸ = 1,28 s</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>8 minutos</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>3,84 s</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>1 hora</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un médico realiza una ecografía a una paciente embarazada. Usa ultrasonido de 3,5 MHz, aunque podría usar sonido audible de 1000 Hz. El médico elige el ultrasonido por razones técnicas claras.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#3498db">Ejercicio 4</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Por qué el médico prefiere el ultrasonido para obtener imágenes del bebé?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El ultrasonido es más barato que el sonido audible.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El ultrasonido viaja más lento en el cuerpo, lo que facilita la medición.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La alta frecuencia del ultrasonido permite mayor resolución de imagen (distinguir detalles pequeños) y no causa daño auditivo.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El sonido audible no puede viajar dentro del cuerpo humano.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Carlos dice: "los rayos X y la luz visible son cosas completamente distintas y no tienen nada en común".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#3498db">Ejercicio 4</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto Carlos?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, son fenómenos completamente distintos.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; ambos son ondas electromagnéticas que viajan a c, solo difieren en la frecuencia y longitud de onda.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Los rayos X son ondas mecánicas.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Solo la luz visible es una onda.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Después de un concierto de rock, Sebastián tiene un zumbido en los oídos (tinnitus) que dura varias horas. Su doctor le dice que si repite esto frecuentemente, el daño será permanente.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#3498db">Ejercicio 5</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué estructura del oído se sobrecargó y por qué el daño puede volverse permanente?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El tímpano se estiró demasiado y no puede romperse.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Las células ciliadas de la cóclea fueron sobreestimuladas; a diferencia del tímpano, estas células no se regeneran y su pérdida es permanente.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El nervio auditivo se desconectó temporalmente.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Los huesecillos del oído medio se dislocaron.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Una onda de radio tiene λ = 300 m. c = 3 × 10⁸ m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#3498db">Ejercicio 5</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es la frecuencia de esa onda de radio?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>9 × 10¹⁰ Hz</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>1 × 10⁶ Hz = 1 MHz → f = 3×10⁸ / 300 = 10⁶ Hz</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>300 Hz</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>3 × 10⁸ Hz</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -211,7 +308,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -221,7 +318,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -236,6 +333,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

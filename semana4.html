@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 4: Las Ondas Sonoras | Física 11° CESUM</title>
+<title>Semana 4: El eco, la reverberación y el efecto Doppler | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,8 @@
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana3.html" class="nav-back">⬅ Semana 3</a><a href="semana5.html" class="nav-back">Semana 5 ➡</a>
+  <a href="semana3.html" class="nav-back">⬅ Semana 3</a>
+  <a href="semana5.html" class="nav-back">Semana 5 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,117 +23,177 @@
     <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
     <span class="progress-text">40%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2ecc71;margin-bottom:20px;border-left:6px solid #2ecc71;padding-left:14px">Semana 4: Las Ondas Sonoras</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#2ecc71;margin-bottom:20px;border-left:6px solid #2ecc71;padding-left:14px">Semana 4: El eco, la reverberación y el efecto Doppler</h2>
 
 <div class="section">
-  <div class="section-title">〰️ Ondas sonoras: compresión y rarefacción</div>
-  <p>El sonido forma zonas de <strong>compresión</strong> (aire apretado) y <strong>rarefacción</strong> (aire estirado). Es una onda longitudinal.</p>
-  <div class="box box-formula">v = f × λ<br><span style="font-size:13px;font-weight:400">Velocidad (m/s) = Frecuencia (Hz) × Longitud de onda (m)</span></div>
-  <div class="box box-example"><strong>Ejemplo:</strong> f=440 Hz, v=340 m/s → λ = 340÷440 = <strong>0.77 m</strong></div>
-</div>
-<div class="section">
-  <div class="section-title">🎮 Simulación: calculadora de ondas</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Calculadora de ondas: v = f × λ</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0">
-    <div style="text-align:center">
-      <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">VELOCIDAD (m/s)</label>
-      <input id="v4" type="number" value="340" style="width:100%;padding:10px;border:2px solid #2ecc71;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calc4('v')">
-    </div>
-    <div style="text-align:center">
-      <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">FRECUENCIA (Hz)</label>
-      <input id="f4" type="number" value="170" style="width:100%;padding:10px;border:2px solid #667eea;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calc4('f')">
-    </div>
-    <div style="text-align:center">
-      <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">LONGITUD ONDA (m)</label>
-      <input id="l4" type="number" value="2" style="width:100%;padding:10px;border:2px solid #e74c3c;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calc4('l')">
-    </div>
+  <div class="section-title">🏔️ El eco y la reverberación</div>
+  <p>El sonido se <strong>refleja</strong> en superficies duras. Cuando la distancia al obstáculo es suficiente, el sonido reflejado llega con cierto retardo y lo percibimos como <strong>eco</strong>. Si las reflexiones son múltiples y cercanas, producen <strong>reverberación</strong>.</p>
+  <div class="box box-formula">d = (v × t) / 2<br>
+  <span style="font-size:13px;font-weight:400">d = distancia al obstáculo (m) | v = velocidad del sonido (m/s) | t = tiempo total del viaje de ida y vuelta (s)</span>
   </div>
-  <div id="calc4msg" style="text-align:center;font-size:14px;color:#27ae60;font-weight:700;padding:8px"></div>
-  <canvas id="canvas4" width="520" height="100" style="width:100%;background:#0d1117;border-radius:10px;margin-top:8px"></canvas>
-  <p class="sim-hint">Deja en blanco el valor que quieres calcular y modifica los otros dos. La onda se actualiza en tiempo real.</p>
-  <script>
-  (function(){
-    const c=document.getElementById('canvas4'),ctx=c.getContext('2d');
-    let freq=170,t=0;
-    function draw(){
-      const W=c.width,H=c.height/2;
-      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,c.height);
-      ctx.strokeStyle='#2ecc71';ctx.lineWidth=2;ctx.beginPath();
-      const cycles=Math.max(1,Math.min(freq/50,12));
-      for(let x=0;x<W;x++){
-        const y=H+Math.sin((x/W)*cycles*2*Math.PI-t)*30;
-        x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  <div class="box box-example">
+    <strong>Ejemplo:</strong> Gritas frente a una montaña y escuchas el eco 2 s después. v = 343 m/s.<br>
+    d = (343 × 2) / 2 = <strong>343 m</strong>
+  </div>
+  <div class="box box-tip">💡 Para escuchar un eco, el obstáculo debe estar a más de ~17 m (el oído necesita al menos 0,1 s entre el original y la reflexión).</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🚑 El efecto Doppler</div>
+  <p>Cuando una fuente de sonido se mueve respecto al oyente, la frecuencia <em>percibida</em> cambia: al acercarse se escucha más agudo, al alejarse más grave. Esto es el <strong>efecto Doppler</strong>.</p>
+  <div class="box box-formula">f' = f × (v ± v_o) / (v ∓ v_s)<br>
+  <span style="font-size:13px;font-weight:400">
+    f' = frecuencia percibida (Hz) | f = frecuencia emitida (Hz)<br>
+    v = velocidad del sonido (343 m/s) | v_o = velocidad del oyente | v_s = velocidad de la fuente<br>
+    + en numerador si el oyente se acerca | – si se aleja<br>
+    – en denominador si la fuente se acerca | + si se aleja
+  </span>
+  </div>
+  <div class="box box-example">
+    <strong>Ejemplo simplificado (oyente quieto):</strong><br>
+    Ambulancia a 30 m/s emitiendo 500 Hz. v = 343 m/s.<br>
+    Al acercarse: f' = 500 × 343 / (343 – 30) = 500 × 343/313 ≈ <strong>548 Hz</strong> (más agudo)<br>
+    Al alejarse: f' = 500 × 343 / (343 + 30) = 500 × 343/373 ≈ <strong>460 Hz</strong> (más grave)
+  </div>
+  <div class="box box-warn">⚠️ El efecto Doppler se usa en la medicina (ecografía Doppler), meteorología y radares de velocidad.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎮 Simulación: calculadora de eco</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Calcula la distancia por el eco</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0">
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">VELOCIDAD (m/s)</label>
+        <input id="ve4" type="number" value="343" style="width:100%;padding:10px;border:2px solid #2ecc71;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calcEco4()">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">TIEMPO IDA+VUELTA (s)</label>
+        <input id="te4" type="number" value="2" style="width:100%;padding:10px;border:2px solid #667eea;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calcEco4()">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">DISTANCIA (m)</label>
+        <input id="de4" type="number" value="343" style="width:100%;padding:10px;border:2px solid #e74c3c;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calcEco4d()">
+      </div>
+    </div>
+    <div id="ecomsg4" style="text-align:center;font-size:14px;color:#27ae60;font-weight:700;padding:8px">d = (343 × 2) / 2 = 343 m</div>
+    <canvas id="canvas4" width="520" height="80" style="width:100%;background:#0d1117;border-radius:10px;margin-top:8px"></canvas>
+    <p class="sim-hint">Fórmula: d = (v × t) / 2. También puedes calcular t si conoces la distancia.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas4'),ctx=c.getContext('2d');
+      let pos=0,dir=1,t=0;
+      function draw(){
+        const W=c.width,H=c.height;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+        ctx.fillStyle='#2ecc71';ctx.fillRect(W-15,H/2-25,15,50);
+        ctx.fillStyle='#667eea';ctx.beginPath();ctx.arc(30+pos,H/2,8,0,Math.PI*2);ctx.fill();
+        const rings=[pos-20,pos-40,pos-60];
+        rings.forEach((r,i)=>{
+          if(r>0&&r<W-15){
+            ctx.strokeStyle=`rgba(100,200,255,${0.6-i*0.2})`;
+            ctx.lineWidth=1.5;
+            ctx.beginPath();ctx.arc(30+pos,H/2,r,0,Math.PI*2);ctx.stroke();
+          }
+        });
+        ctx.fillStyle='#aaa';ctx.font='11px sans-serif';
+        ctx.fillText('Fuente',22,H-5);ctx.fillText('Pared',W-30,H-5);
+        pos+=dir*1.2;if(pos>W-60||pos<0)dir*=-1;
+        t++;requestAnimationFrame(draw);
       }
-      ctx.stroke();
-      // lambda arrow
-      const lw=W/cycles;
-      ctx.strokeStyle='#f39c12';ctx.lineWidth=1;ctx.setLineDash([3,3]);
-      ctx.beginPath();ctx.moveTo(40,H-35);ctx.lineTo(40+lw,H-35);ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.fillStyle='#f39c12';ctx.font='11px sans-serif';ctx.fillText('λ',40+lw/2-4,H-38);
-      t+=0.04;requestAnimationFrame(draw);
-    }
-    window.calc4=function(changed){
-      const vEl=document.getElementById('v4'),fEl=document.getElementById('f4'),lEl=document.getElementById('l4');
-      const v=parseFloat(vEl.value),f=parseFloat(fEl.value),l=parseFloat(lEl.value);
-      const msg=document.getElementById('calc4msg');
-      if(changed==='v'&&f&&l){vEl.value=(f*l).toFixed(2);msg.textContent='v = '+f+' × '+l+' = '+(f*l).toFixed(2)+' m/s';}
-      else if(changed==='f'&&v&&l){fEl.value=(v/l).toFixed(2);freq=v/l;msg.textContent='f = '+v+' ÷ '+l+' = '+(v/l).toFixed(2)+' Hz';}
-      else if(changed==='l'&&v&&f){lEl.value=(v/f).toFixed(3);freq=f;msg.textContent='λ = '+v+' ÷ '+f+' = '+(v/f).toFixed(3)+' m';}
-      if(!isNaN(f)&&f>0)freq=f;
-    };
-    draw();
-  })();
-  </script>
+      window.calcEco4=function(){
+        const v=parseFloat(document.getElementById('ve4').value);
+        const t=parseFloat(document.getElementById('te4').value);
+        if(v&&t){
+          const d=(v*t)/2;
+          document.getElementById('de4').value=d.toFixed(1);
+          document.getElementById('ecomsg4').textContent='d = ('+v+' × '+t+') / 2 = '+d.toFixed(1)+' m';
+        }
+      };
+      window.calcEco4d=function(){
+        const v=parseFloat(document.getElementById('ve4').value);
+        const d=parseFloat(document.getElementById('de4').value);
+        if(v&&d){
+          const t=(2*d)/v;
+          document.getElementById('te4').value=t.toFixed(2);
+          document.getElementById('ecomsg4').textContent='t = (2 × '+d+') / '+v+' = '+t.toFixed(2)+' s';
+        }
+      };
+      draw();
+    })();
+    </script>
+  </div>
 </div>
+
+<div class="section">
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">Eco: d = (v × t) / 2 &nbsp;|&nbsp; Doppler: f' = f × (v ± v_o) / (v ∓ v_s)</div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — Distancia de un eco en una cueva</strong><br>
+    Un espeleólogo grita y escucha el eco 1,5 s después. v = 343 m/s.<br><br>
+    <strong>Solución:</strong> d = (343 × 1,5) / 2 = 514,5 / 2 = <strong>257,25 m</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Tiempo de eco de un SONAR</strong><br>
+    Un barco emite un pulso sonoro. El fondo marino está a 600 m. v en agua = 1 500 m/s. ¿Cuántos segundos tarda en recibir el eco?<br><br>
+    <strong>Solución:</strong> t = (2 × d) / v = (2 × 600) / 1 500 = 1 200 / 1 500 = <strong>0,8 s</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — Efecto Doppler: bocina de tren</strong><br>
+    Un tren se acerca a 25 m/s emitiendo su bocina a 400 Hz. v = 343 m/s. ¿Qué frecuencia percibe un observador quieto?<br><br>
+    <strong>Solución:</strong> f' = 400 × 343 / (343 – 25) = 400 × 343/318 ≈ 400 × 1,079 ≈ <strong>431,4 Hz</strong>
+  </div>
 </div>
+
 <div class="section">
   <div class="section-title">📝 Taller Semana 4</div>
   <div class="taller">
     <div class="taller-title">Resuelve en tu cuaderno (muestra el proceso):</div>
-    <div class="taller-item">1. f=680 Hz, v=340 m/s. ¿Cuál es λ?</div>
-    <div class="taller-item">2. f=1000 Hz, v=340 m/s. ¿Cuál es λ?</div>
-    <div class="taller-item">3. En agua (v=1480 m/s), λ=0.4 m. ¿Cuál es f?</div>
-    <div class="taller-item">4. Si f aumenta, ¿qué pasa con λ (misma velocidad)?</div>
-    <div class="taller-item">5. Define compresión y rarefacción con tus palabras.</div>
+    <div class="taller-item">1. ¿Cuál es la diferencia entre eco y reverberación?</div>
+    <div class="taller-item">2. Escuchas un eco 3 s después de gritar. v = 343 m/s. ¿A qué distancia está el obstáculo?</div>
+    <div class="taller-item">3. Un SONAR recibe el eco del fondo marino 0,4 s después. v = 1 500 m/s. ¿Qué profundidad tiene el mar?</div>
+    <div class="taller-item">4. Una ambulancia emite 600 Hz a 20 m/s. ¿Qué escuchas cuando se acerca? (v = 343 m/s)</div>
+    <div class="taller-item">5. Investiga: ¿cómo usan el efecto Doppler los médicos en las ecografías?</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué mide la frecuencia?</div><div class="quiz-options">
-<label data-q="s4_1" data-val="a"><input type="radio" name="qs4_1" value="a"> Distancia entre compresiones</label>
-<label data-q="s4_1" data-val="b"><input type="radio" name="qs4_1" value="b"> Vibraciones por segundo</label>
-<label data-q="s4_1" data-val="c"><input type="radio" name="qs4_1" value="c"> Velocidad del sonido</label>
-<label data-q="s4_1" data-val="d"><input type="radio" name="qs4_1" value="d"> Amplitud</label>
-</div><div class="quiz-feedback" id="fbs4_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Cuál es la fórmula correcta?</div><div class="quiz-options">
-<label data-q="s4_2" data-val="a"><input type="radio" name="qs4_2" value="a"> v=f+λ</label>
-<label data-q="s4_2" data-val="b"><input type="radio" name="qs4_2" value="b"> v=f÷λ</label>
-<label data-q="s4_2" data-val="c"><input type="radio" name="qs4_2" value="c"> v=f×λ</label>
-<label data-q="s4_2" data-val="d"><input type="radio" name="qs4_2" value="d"> v=λ÷f</label>
-</div><div class="quiz-feedback" id="fbs4_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: f=680 Hz, v=340 m/s. ¿Cuál es λ?</div><div class="quiz-options">
-<label data-q="s4_3" data-val="a"><input type="radio" name="qs4_3" value="a"> 2 m</label>
-<label data-q="s4_3" data-val="b"><input type="radio" name="qs4_3" value="b"> 0.5 m</label>
-<label data-q="s4_3" data-val="c"><input type="radio" name="qs4_3" value="c"> 1 m</label>
-<label data-q="s4_3" data-val="d"><input type="radio" name="qs4_3" value="d"> 340 m</label>
-</div><div class="quiz-feedback" id="fbs4_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Zona de mayor densidad en una onda sonora?</div><div class="quiz-options">
-<label data-q="s4_4" data-val="a"><input type="radio" name="qs4_4" value="a"> Rarefacción</label>
-<label data-q="s4_4" data-val="b"><input type="radio" name="qs4_4" value="b"> Amplitud</label>
-<label data-q="s4_4" data-val="c"><input type="radio" name="qs4_4" value="c"> Compresión</label>
-<label data-q="s4_4" data-val="d"><input type="radio" name="qs4_4" value="d"> Frecuencia</label>
-</div><div class="quiz-feedback" id="fbs4_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: Frecuencia muy alta → longitud de onda...?</div><div class="quiz-options">
-<label data-q="s4_5" data-val="a"><input type="radio" name="qs4_5" value="a"> Muy larga</label>
-<label data-q="s4_5" data-val="b"><input type="radio" name="qs4_5" value="b"> Igual siempre</label>
-<label data-q="s4_5" data-val="c"><input type="radio" name="qs4_5" value="c"> Muy corta</label>
-<label data-q="s4_5" data-val="d"><input type="radio" name="qs4_5" value="d"> No cambia</label>
-</div><div class="quiz-feedback" id="fbs4_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s4',['b', 'c', 'b', 'c', 'c'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s4"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué fórmula permite calcular la distancia a un obstáculo usando el eco?</div><div class="quiz-options">
+    <label data-q="s4_1" data-val="a"><input type="radio" name="qs4_1" value="a"> d = v + t</label>
+    <label data-q="s4_1" data-val="b"><input type="radio" name="qs4_1" value="b"> d = (v × t) / 2</label>
+    <label data-q="s4_1" data-val="c"><input type="radio" name="qs4_1" value="c"> d = v × t</label>
+    <label data-q="s4_1" data-val="d"><input type="radio" name="qs4_1" value="d"> d = t / v</label>
+  </div><div class="quiz-feedback" id="fbs4_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: Escuchas el eco 4 s después de gritar. v = 343 m/s. ¿Cuánto mide la distancia al obstáculo?</div><div class="quiz-options">
+    <label data-q="s4_2" data-val="a"><input type="radio" name="qs4_2" value="a"> 1 372 m</label>
+    <label data-q="s4_2" data-val="b"><input type="radio" name="qs4_2" value="b"> 686 m</label>
+    <label data-q="s4_2" data-val="c"><input type="radio" name="qs4_2" value="c"> 343 m</label>
+    <label data-q="s4_2" data-val="d"><input type="radio" name="qs4_2" value="d"> 85,75 m</label>
+  </div><div class="quiz-feedback" id="fbs4_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: Una sirena de policía suena más aguda cuando se acerca. Esto es…</div><div class="quiz-options">
+    <label data-q="s4_3" data-val="a"><input type="radio" name="qs4_3" value="a"> Resonancia</label>
+    <label data-q="s4_3" data-val="b"><input type="radio" name="qs4_3" value="b"> Reverberación</label>
+    <label data-q="s4_3" data-val="c"><input type="radio" name="qs4_3" value="c"> Efecto Doppler</label>
+    <label data-q="s4_3" data-val="d"><input type="radio" name="qs4_3" value="d"> Eco</label>
+  </div><div class="quiz-feedback" id="fbs4_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: Un SONAR recibe el eco en t = 0,6 s. v = 1 500 m/s. ¿Qué profundidad tiene el mar?</div><div class="quiz-options">
+    <label data-q="s4_4" data-val="a"><input type="radio" name="qs4_4" value="a"> 900 m</label>
+    <label data-q="s4_4" data-val="b"><input type="radio" name="qs4_4" value="b"> 450 m</label>
+    <label data-q="s4_4" data-val="c"><input type="radio" name="qs4_4" value="c"> 1 800 m</label>
+    <label data-q="s4_4" data-val="d"><input type="radio" name="qs4_4" value="d"> 2 500 m</label>
+  </div><div class="quiz-feedback" id="fbs4_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: Al alejarse la fuente de sonido, la frecuencia percibida…</div><div class="quiz-options">
+    <label data-q="s4_5" data-val="a"><input type="radio" name="qs4_5" value="a"> Aumenta (más aguda)</label>
+    <label data-q="s4_5" data-val="b"><input type="radio" name="qs4_5" value="b"> Disminuye (más grave)</label>
+    <label data-q="s4_5" data-val="c"><input type="radio" name="qs4_5" value="c"> No cambia</label>
+    <label data-q="s4_5" data-val="d"><input type="radio" name="qs4_5" value="d"> Se vuelve cero</label>
+  </div><div class="quiz-feedback" id="fbs4_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s4',['b','b','c','b','b'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s4"></div>
 </div>
 
 </div>
@@ -146,60 +207,84 @@
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 4</div>
-      <div class="comp-section-sub">Tema: Las ondas sonoras — v = f × λ · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Eco, reverberación y efecto Doppler · Nombre, fecha y grupo. Elige y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> En un estudio de grabación, el ingeniero ajusta una nota musical a 170 Hz. El sonido viaja a 340 m/s en ese ambiente.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#2ecc71">Ejercicio 1</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál es la longitud de onda de ese sonido? Aplica la fórmula v = f × λ.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>170 m — porque λ = v + f.</div><div class="comp-opcion"><span class="comp-letra">b) </span>2 m — porque λ = v / f = 340 / 170 = 2 m.</div><div class="comp-opcion"><span class="comp-letra">c) </span>57.800 m — porque λ = v × f.</div><div class="comp-opcion"><span class="comp-letra">d) </span>0,5 m — porque λ = f / v.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un geólogo usa una explosión controlada y escucha el eco de las capas del suelo 0,2 s después. v = 3 000 m/s en roca.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#2ecc71">Ejercicio 1</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿A qué profundidad está la capa rocosa?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>600 m → d = v×t = 3000×0,2</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>300 m → d = (3000×0,2)/2 = 300 m</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>150 m</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>15 000 m</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Santiago anota en su cuaderno: 'si duplico la frecuencia de una nota, la velocidad del sonido también se duplica porque v = f × λ'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#2ecc71">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error de Santiago.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Santiago tiene razón; duplicar f duplica v.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La fórmula no es v = f × λ.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La velocidad del sonido no depende de la frecuencia; si f se duplica, λ se reduce a la mitad, pero v permanece igual.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Duplicar f hace que λ también se duplique.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Valentina dice: "la reverberación y el eco son lo mismo".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#2ecc71">Ejercicio 2</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Tiene razón Valentina?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, son exactamente lo mismo.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; el eco es una reflexión claramente separada del original; la reverberación es la suma de múltiples reflexiones que prolongan el sonido.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>La reverberación ocurre solo en líquidos.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>El eco solo ocurre en el mar.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un profesor dibuja en el tablero una onda sonora y señala la distancia entre dos compresiones consecutivas (zonas de mayor densidad de partículas).</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#2ecc71">Ejercicio 3</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué magnitud física representa esa distancia señalada por el profesor?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>La amplitud de la onda.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La frecuencia de la onda.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La longitud de onda (λ).</div><div class="comp-opcion"><span class="comp-letra">d) </span>La velocidad de propagación.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Una cámara de radar de velocidad mide la frecuencia de retorno de una onda de 900 Hz reflejada en un auto que se acerca a 30 m/s. v sonido = 343 m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#2ecc71">Ejercicio 3</span>
+      <span class="comp-tipo">Cálculo Doppler</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Qué frecuencia recibirá el radar? (fuente quieta, oyente acercándose)</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>900 Hz (sin cambio)</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>¡menor! porque el auto se aleja</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>f' = 900 × (343+30)/343 = 900 × 1,088 ≈ 979 Hz (más aguda)</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>f' = 900 × 343/(343+30) ≈ 828 Hz</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> En un examen, María responde: 'las ondas de sonido son transversales, como las olas del mar, porque se ven como una curva sinusoidal'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#2ecc71">Ejercicio 4</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál es el error de María?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>María tiene razón; las ondas de sonido son transversales.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Las ondas de sonido son longitudinales: las partículas vibran en la misma dirección en que viaja la onda (compresiones y rarefacciones).</div><div class="comp-opcion"><span class="comp-letra">c) </span>Las ondas del mar también son longitudinales.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Las ondas de sonido no tienen forma sinusoidal.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un murciélago emite ultrasonidos para orientarse en la oscuridad.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#2ecc71">Ejercicio 4</span>
+      <span class="comp-tipo">Aplicación</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Qué principio físico usa el murciélago para detectar obstáculos?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Efecto Doppler únicamente.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Reflexión del sonido (ecolocalización): emite y escucha el eco, calcula la distancia con d=(v×t)/2.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Resonancia de Helmholtz.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Interferencia constructiva.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un murciélago emite ultrasonidos de 50.000 Hz. Un elefante emite infrasonidos de 14 Hz. Ambos sonidos viajan a 340 m/s en el aire.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#2ecc71">Ejercicio 5</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál tiene mayor longitud de onda y por qué? Calcula ambos valores.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El murciélago: λ = 50.000 / 340 = 147 m.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El elefante: λ = 340 / 14 ≈ 24 m, vs. el murciélago: λ = 340 / 50.000 = 0,0068 m. Mayor λ = menor f.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Ambos tienen igual longitud de onda.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La longitud de onda no depende de la frecuencia.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Escuchas el eco de tu voz en un cañón 0,5 s después de gritar. v = 343 m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#2ecc71">Ejercicio 5</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿A qué distancia está la pared del cañón?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>171,5 m → d = (343×0,5)/2 = 85,75 m (incorrecto, ese es 85,75)</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>85,75 m → d = (343×0,5)/2 = 85,75 m</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>343 m</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>686 m</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -221,7 +306,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -231,7 +316,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -246,6 +331,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

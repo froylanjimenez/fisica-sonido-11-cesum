@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 10: Tecnología y Sonido | Física 11° CESUM</title>
+<title>Semana 10: Tecnología de la luz | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
-  <div class="logo-icon">🔊</div>
-  <h1>El Sonido — Física Grado 11°</h1>
+  <div class="logo-icon">💡</div>
+  <h1>La Luz — Física Grado 11°</h1>
   <p class="subtitle">CONCENTRACIÓN EDUCATIVA DEL SUR DE MONTELÍBANO</p>
 </header>
 <nav class="main-nav">
@@ -20,189 +20,288 @@
   <div class="week-progress">
     <span style="font-weight:700;color:#1565c0;font-size:13px">Semana 10/10</span>
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
-    <span class="progress-text">100%</span>
+    <span class="progress-text">100% ✅</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#607d8b;margin-bottom:20px;border-left:6px solid #607d8b;padding-left:14px">Semana 10: Tecnología y Sonido</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#607d8b;margin-bottom:20px;border-left:6px solid #607d8b;padding-left:14px">Semana 10: Tecnología de la luz — láseres, fibra óptica y LEDs</h2>
 
 <div class="section">
-  <div class="section-title">🛰️ El sonido en la tecnología</div>
-  <div class="box box-info"><strong>SONAR:</strong> Emite ultrasonido bajo el agua y mide el eco para calcular distancias. 🚢 Navegación · 🐟 Pesca · 🗺️ Cartografía oceánica</div>
-  <div class="box box-tip"><strong>Ecografía:</strong> Imágenes de órganos internos. Sin radiación → segura para embarazo.</div>
-  <div class="box box-warn"><strong>Cancelación activa de ruido:</strong> Los audífonos generan una onda exactamente opuesta al ruido para cancelarlo.</div>
-</div>
-<div class="section">
-  <div class="section-title">🎮 Simulación: SONAR</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: SONAR — Pulso acústico submarino</div>
-  <canvas id="canvas10" width="520" height="180" style="width:100%;background:#0a1628;border-radius:10px"></canvas>
-  <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
-    <button class="sim-btn" onclick="lanzarSonar10()">📡 Emitir pulso SONAR</button>
-    <select id="prof10" style="padding:8px 12px;border-radius:8px;border:2px solid #1565c0;font-weight:700">
-      <option value="1">Profundidad: 100 m</option>
-      <option value="2" selected>Profundidad: 200 m</option>
-      <option value="3">Profundidad: 400 m</option>
-    </select>
+  <div class="section-title">🔴 El láser</div>
+  <p>Un <strong>láser</strong> (Light Amplification by Stimulated Emission of Radiation) emite luz de forma especial: <em>coherente</em> (todas las ondas en fase), <em>monocromática</em> (una sola frecuencia) y <em>colimada</em> (rayos paralelos sin dispersión).</p>
+  <div class="box box-formula">E = h × f<br>
+  <span style="font-size:13px;font-weight:400">Cada fotón emitido por el láser tiene energía E = hf. La potencia del láser (W) = número de fotones/segundo × E por fotón.</span>
   </div>
-  <div id="sonar10result" style="text-align:center;font-size:14px;font-weight:700;color:#64b5f6;padding:8px;margin-top:6px"></div>
-  <p class="sim-hint">El SONAR emite ultrasonido, espera el eco del fondo y calcula la profundidad con d=(v×t)÷2</p>
-  <script>
-  (function(){
-    const c=document.getElementById('canvas10'),ctx=c.getContext('2d');
-    const depths=[100,200,400];
-    let pulse={active:false,y:40,returning:false,depth:200},echoes=[];
-    function draw(){
-      const W=c.width,H=c.height;
-      // ocean gradient
-      const g=ctx.createLinearGradient(0,0,0,H);
-      g.addColorStop(0,'#0a1628');g.addColorStop(1,'#0d3b6e');
-      ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-      // surface line
-      ctx.strokeStyle='#64b5f6';ctx.lineWidth=2;ctx.setLineDash([5,5]);
-      ctx.beginPath();ctx.moveTo(0,35);ctx.lineTo(W,35);ctx.stroke();ctx.setLineDash([]);
-      ctx.fillStyle='#64b5f6';ctx.font='11px sans-serif';ctx.fillText('Superficie del mar',10,30);
-      // ship
-      ctx.fillStyle='#90a4ae';ctx.fillRect(W/2-25,20,50,18);
-      ctx.fillStyle='#78909c';ctx.fillRect(W/2-8,8,16,14);
-      ctx.fillStyle='white';ctx.font='bold 14px sans-serif';ctx.fillText('🚢',W/2-10,24);
-      // seafloor
-      const floorY=35+pulse.depth/500*130;
-      ctx.fillStyle='#5d4037';ctx.fillRect(0,floorY,W,H-floorY);
-      ctx.fillStyle='#795548';ctx.font='11px sans-serif';ctx.fillText('Fondo marino',10,floorY+14);
-      // fish
-      ctx.font='18px sans-serif';ctx.fillText('🐟',W*0.3,floorY-15);ctx.fillText('🐠',W*0.7,floorY-20);
-      // pulse
-      if(pulse.active){
-        const r=Math.abs(pulse.y-35)/1.5;
-        ctx.beginPath();ctx.arc(W/2,pulse.y,Math.max(3,r),0,Math.PI*2);
-        ctx.strokeStyle='rgba(100,200,255,0.7)';ctx.lineWidth=2;ctx.stroke();
-        const spd=2.2;
-        if(!pulse.returning){pulse.y+=spd;if(pulse.y>=floorY){pulse.returning=true;document.getElementById('sonar10result').textContent='📡 Eco recibido! Profundidad calculada: '+pulse.depth+' m  (v=1480 m/s, t='+(pulse.depth*2/1480).toFixed(3)+'s)';}}
-        else{pulse.y-=spd;if(pulse.y<=36)pulse.active=false;}
+  <div class="box box-example">
+    <strong>Ejemplo — Energía por fotón de un láser rojo (λ = 650 nm):</strong><br>
+    f = c/λ = 3×10⁸ / 650×10⁻⁹ = 4,62 × 10¹⁴ Hz<br>
+    E = hf = 6,626×10⁻³⁴ × 4,62×10¹⁴ = <strong>3,06 × 10⁻¹⁹ J por fotón</strong>
+  </div>
+  <ul>
+    <li>🏥 <strong>Medicina:</strong> cirugía ocular LASIK, tratamiento de cáncer, dermatología.</li>
+    <li>📀 <strong>Información:</strong> CD, DVD, Blu-ray, lectores de código de barras.</li>
+    <li>🏭 <strong>Industria:</strong> corte y soldadura de materiales con precisión de micras.</li>
+    <li>🌐 <strong>Comunicaciones:</strong> transmisión de datos por fibra óptica.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">🌐 Fibra óptica</div>
+  <p>La <strong>fibra óptica</strong> transmite información en forma de pulsos de luz a través de un filamento de vidrio o plástico, usando el principio de <strong>reflexión total interna</strong> (semana 8). La luz queda atrapada dentro de la fibra y viaja grandes distancias con pérdidas mínimas.</p>
+  <div class="box box-info">ℹ️ Un cable de fibra óptica del grosor de un cabello humano puede transmitir más de 10 Tbps (terabits por segundo), equivalente a miles de llamadas telefónicas simultáneas.</div>
+  <div class="box box-tip">💡 La velocidad de la luz en la fibra óptica (vidrio, n≈1,5) es v = c/n ≈ 2×10⁸ m/s, ligeramente menor que en el vacío.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">💡 Diodos LED y paneles solares</div>
+  <p>Un <strong>LED</strong> (Light Emitting Diode) convierte energía eléctrica en luz mediante el efecto electrolu­miniscente. El color del LED depende del material semiconductor y corresponde a una frecuencia específica de luz.</p>
+  <p>El <strong>panel solar</strong> hace el proceso inverso: usa el <strong>efecto fotoeléctrico</strong> (descubierto por Einstein) para convertir fotones de luz en corriente eléctrica.</p>
+  <div class="box box-formula">Efecto fotoeléctrico: E_fotón ≥ Φ (trabajo de extracción)<br>
+  <span style="font-size:13px;font-weight:400">Solo si hf ≥ Φ, el fotón puede liberar un electrón del material. Por eso los LEDs rojos necesitan menos energía que los azules.</span>
+  </div>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">
+    <tr style="background:#607d8b;color:white"><th style="padding:7px">LED</th><th style="padding:7px">λ típica (nm)</th><th style="padding:7px">Material</th><th style="padding:7px">Energía fotón (eV)</th></tr>
+    <tr style="background:#ffebee"><td style="padding:7px;color:#c62828;font-weight:700">Rojo</td><td style="padding:7px">620–750</td><td style="padding:7px">GaAsP</td><td style="padding:7px">1,65 – 2,0</td></tr>
+    <tr><td style="padding:7px;color:#1b5e20;font-weight:700">Verde</td><td style="padding:7px">495–570</td><td style="padding:7px">GaP, InGaN</td><td style="padding:7px">2,2 – 2,5</td></tr>
+    <tr style="background:#e3f2fd"><td style="padding:7px;color:#0d47a1;font-weight:700">Azul</td><td style="padding:7px">450–495</td><td style="padding:7px">InGaN</td><td style="padding:7px">2,5 – 2,75</td></tr>
+    <tr><td style="padding:7px;color:#4a148c;font-weight:700">Blanco</td><td style="padding:7px">Mezcla (azul+fosfor.)</td><td style="padding:7px">InGaN + fósforo</td><td style="padding:7px">—</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">🎮 Simulación: potencia láser y número de fotones</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Calculadora de fotones por segundo</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0">
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">POTENCIA (mW)</label>
+        <input id="pw10" type="number" value="5" style="width:100%;padding:10px;border:2px solid #607d8b;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calcLaser10()">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">λ (nm)</label>
+        <input id="lw10" type="number" value="650" style="width:100%;padding:10px;border:2px solid #e74c3c;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calcLaser10()">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">FOTONES/SEGUNDO</label>
+        <input id="fps10" type="text" value="1,64 × 10¹⁶" style="width:100%;padding:10px;border:2px solid #27ae60;border-radius:8px;font-size:14px;font-weight:700;text-align:center;outline:none;background:#f9f9f9" readonly>
+      </div>
+    </div>
+    <div id="laser10msg" style="text-align:center;font-size:13px;color:#607d8b;font-weight:700;padding:8px">E_fotón = hc/λ = 3,06×10⁻¹⁹ J | N/s = P/E = 0,005/3,06×10⁻¹⁹ ≈ 1,64×10¹⁶</div>
+    <canvas id="canvas10" width="520" height="100" style="width:100%;background:#0d1117;border-radius:10px;margin-top:8px"></canvas>
+    <p class="sim-hint">Un puntero láser de 5 mW emite miles de millones de millones de fotones por segundo.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas10'),ctx=c.getContext('2d');
+      let lam10=650,t=0;
+      function nmToRGB10(nm){
+        if(nm<440)return[148,0,211];
+        if(nm<490)return[0,0,255];
+        if(nm<510)return[0,255,0];
+        if(nm<580)return[255,255,0];
+        if(nm<645)return[255,165,0];
+        return[255,0,0];
       }
-      requestAnimationFrame(draw);
-    }
-    window.lanzarSonar10=function(){
-      const d=depths[document.getElementById('prof10').value-1];
-      pulse={active:true,y:36,returning:false,depth:d};
-      document.getElementById('sonar10result').textContent='📡 Pulso emitido...';
-    };
-    draw();
-  })();
-  </script>
-</div>
-</div>
-<div class="section">
-  <div class="section-title">🏆 Taller Final Integrador</div>
-  <div class="taller">
-    <div class="taller-title">Todo en tu cuaderno:</div>
-    <div class="taller-item"><strong>Parte 1:</strong> a) ¿Qué es el sonido? b) ¿Por qué viaja más rápido en el acero? c) 3 características del sonido. d) ¿Qué es ultrasonido e infrasonido?</div>
-    <div class="taller-item"><strong>Parte 2:</strong> a) f=500 Hz, v=340 m/s → λ=? b) Eco 3 s (v=340) → distancia? c) SONAR eco 2 s (v=1480) → profundidad?</div>
-    <div class="taller-item"><strong>Parte 3:</strong> Elige UNA aplicación tecnológica del sonido y explica cómo funciona y por qué es importante.</div>
-    <div class="taller-item"><strong>Parte 4 — Reflexión:</strong> ¿Qué tema te sorprendió más? ¿Cómo lo usas en tu vida?</div>
+      function draw(){
+        const W=c.width,H=c.height;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+        const [r,g,b]=nmToRGB10(lam10);
+        // Laser source
+        ctx.fillStyle='#607d8b';ctx.fillRect(5,H/2-18,25,36);
+        ctx.fillStyle='#555';ctx.fillRect(30,H/2-5,10,10);
+        // Beam
+        const grd=ctx.createLinearGradient(40,0,W,0);
+        grd.addColorStop(0,`rgba(${r},${g},${b},0.9)`);
+        grd.addColorStop(1,`rgba(${r},${g},${b},0.05)`);
+        ctx.fillStyle=grd;
+        ctx.fillRect(40,H/2-2,W-40,4);
+        // Photon dots
+        for(let i=0;i<8;i++){
+          const x=40+((i*80+t*3)%(W-40));
+          ctx.beginPath();ctx.arc(x,H/2,3,0,Math.PI*2);
+          ctx.fillStyle=`rgb(${r},${g},${b})`;ctx.fill();
+        }
+        ctx.fillStyle='#aaa';ctx.font='11px sans-serif';ctx.fillText('LÁSER',8,H/2+30);
+        t++;requestAnimationFrame(draw);
+      }
+      window.calcLaser10=function(){
+        const pw=parseFloat(document.getElementById('pw10').value)||5;
+        lam10=parseFloat(document.getElementById('lw10').value)||650;
+        const h=6.626e-34,c2=3e8;
+        const E=h*c2/(lam10*1e-9);
+        const N=(pw*1e-3)/E;
+        const exp=Math.floor(Math.log10(N));
+        const mant=(N/Math.pow(10,exp)).toFixed(2);
+        document.getElementById('fps10').value=mant+' × 10'+exp;
+        document.getElementById('laser10msg').textContent='E_fotón = hc/λ = '+E.toExponential(2)+' J | N/s = P/E = '+(pw/1000).toExponential(2)+'/'+E.toExponential(2)+' ≈ '+N.toExponential(2);
+      };
+      draw();
+    })();
+    </script>
   </div>
 </div>
+
+<div class="section">
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">
+    E = h × f = h × c / λ &nbsp;|&nbsp; N/s = P / E &nbsp;|&nbsp; n = c / v
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — Energía de un fotón de láser verde</strong><br>
+    Láser verde: λ = 532 nm. h = 6,626 × 10⁻³⁴ J·s, c = 3 × 10⁸ m/s.<br><br>
+    <strong>Solución:</strong><br>
+    f = c/λ = 3×10⁸ / 532×10⁻⁹ = 5,64 × 10¹⁴ Hz<br>
+    E = hf = 6,626×10⁻³⁴ × 5,64×10¹⁴ = <strong>3,74 × 10⁻¹⁹ J</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Número de fotones por segundo</strong><br>
+    Puntero láser rojo de P = 1 mW = 10⁻³ W. λ = 650 nm, E_fotón = 3,06×10⁻¹⁹ J.<br><br>
+    <strong>Solución:</strong> N/s = P / E = 10⁻³ / 3,06×10⁻¹⁹ ≈ <strong>3,27 × 10¹⁵ fotones/segundo</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — Velocidad de la luz en fibra óptica</strong><br>
+    Fibra de vidrio con n = 1,5. c = 3 × 10⁸ m/s.<br><br>
+    <strong>Solución:</strong> v = c/n = 3×10⁸ / 1,5 = <strong>2 × 10⁸ m/s</strong>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📝 Taller Semana 10 — Cierre del módulo de luz</div>
+  <div class="taller">
+    <div class="taller-title">Responde, calcula y sintetiza en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Cuáles son las tres propiedades especiales de la luz láser?</div>
+    <div class="taller-item">2. Un láser de 10 mW emite luz de λ = 400 nm. Calcula la energía por fotón y el número de fotones/s.</div>
+    <div class="taller-item">3. ¿Por qué los LEDs azules fueron un descubrimiento tan importante? (Pista: Premio Nobel 2014)</div>
+    <div class="taller-item">4. Explica con tus palabras cómo funciona una celda solar basándote en el efecto fotoeléctrico.</div>
+    <div class="taller-item">5. Síntesis final: En 15 oraciones, compara el sonido y la luz como ondas: naturaleza, velocidad, propagación, aplicaciones y las fórmulas clave de cada uno.</div>
+  </div>
+</div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué significa SONAR?</div><div class="quiz-options">
-<label data-q="s10_1" data-val="a"><input type="radio" name="qs10_1" value="a"> Sistema de Ondas Naturales</label>
-<label data-q="s10_1" data-val="b"><input type="radio" name="qs10_1" value="b"> SOund Navigation And Ranging</label>
-<label data-q="s10_1" data-val="c"><input type="radio" name="qs10_1" value="c"> Sistema Oceánico de Navegación</label>
-<label data-q="s10_1" data-val="d"><input type="radio" name="qs10_1" value="d"> Sonidos Naturales Alta Res.</label>
-</div><div class="quiz-feedback" id="fbs10_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Qué principio usa el SONAR?</div><div class="quiz-options">
-<label data-q="s10_2" data-val="a"><input type="radio" name="qs10_2" value="a"> Efecto Doppler</label>
-<label data-q="s10_2" data-val="b"><input type="radio" name="qs10_2" value="b"> Resonancia</label>
-<label data-q="s10_2" data-val="c"><input type="radio" name="qs10_2" value="c"> Eco (reflexión del sonido)</label>
-<label data-q="s10_2" data-val="d"><input type="radio" name="qs10_2" value="d"> Refracción</label>
-</div><div class="quiz-feedback" id="fbs10_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Ventaja de la ecografía sobre rayos X?</div><div class="quiz-options">
-<label data-q="s10_3" data-val="a"><input type="radio" name="qs10_3" value="a"> Más barata</label>
-<label data-q="s10_3" data-val="b"><input type="radio" name="qs10_3" value="b"> Imágenes en color</label>
-<label data-q="s10_3" data-val="c"><input type="radio" name="qs10_3" value="c"> No usa radiación ionizante</label>
-<label data-q="s10_3" data-val="d"><input type="radio" name="qs10_3" value="d"> Más rápida</label>
-</div><div class="quiz-feedback" id="fbs10_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cómo funciona la cancelación activa de ruido?</div><div class="quiz-options">
-<label data-q="s10_4" data-val="a"><input type="radio" name="qs10_4" value="a"> Bloquea el oído</label>
-<label data-q="s10_4" data-val="b"><input type="radio" name="qs10_4" value="b"> Genera onda opuesta al ruido</label>
-<label data-q="s10_4" data-val="c"><input type="radio" name="qs10_4" value="c"> Sube el volumen</label>
-<label data-q="s10_4" data-val="d"><input type="radio" name="qs10_4" value="d"> Absorbe con espuma</label>
-</div><div class="quiz-feedback" id="fbs10_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Qué hace un micrófono?</div><div class="quiz-options">
-<label data-q="s10_5" data-val="a"><input type="radio" name="qs10_5" value="a"> Señal eléctrica → sonido</label>
-<label data-q="s10_5" data-val="b"><input type="radio" name="qs10_5" value="b"> Vibraciones de aire → señal eléctrica</label>
-<label data-q="s10_5" data-val="c"><input type="radio" name="qs10_5" value="c"> Amplifica el sonido</label>
-<label data-q="s10_5" data-val="d"><input type="radio" name="qs10_5" value="d"> Elimina el ruido</label>
-</div><div class="quiz-feedback" id="fbs10_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s10',['b', 'c', 'c', 'b', 'b'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s10"></div>
+  <div class="quiz-title">🧠 Autoevaluación Final</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué significa que la luz láser es "monocromática"?</div><div class="quiz-options">
+    <label data-q="s10_1" data-val="a"><input type="radio" name="qs10_1" value="a"> Es muy brillante.</label>
+    <label data-q="s10_1" data-val="b"><input type="radio" name="qs10_1" value="b"> Emite una sola frecuencia (un único color).</label>
+    <label data-q="s10_1" data-val="c"><input type="radio" name="qs10_1" value="c"> Tiene un solo fotón.</label>
+    <label data-q="s10_1" data-val="d"><input type="radio" name="qs10_1" value="d"> Solo viaja en una dirección.</label>
+  </div><div class="quiz-feedback" id="fbs10_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: Un láser de λ = 600 nm. ¿Cuánta energía tiene cada fotón? (h=6,626×10⁻³⁴ J·s, c=3×10⁸ m/s)</div><div class="quiz-options">
+    <label data-q="s10_2" data-val="a"><input type="radio" name="qs10_2" value="a"> 3,31 × 10⁻¹⁹ J</label>
+    <label data-q="s10_2" data-val="b"><input type="radio" name="qs10_2" value="b"> 6,626 × 10⁻³⁴ J</label>
+    <label data-q="s10_2" data-val="c"><input type="radio" name="qs10_2" value="c"> 3 × 10⁸ J</label>
+    <label data-q="s10_2" data-val="d"><input type="radio" name="qs10_2" value="d"> 600 J</label>
+  </div><div class="quiz-feedback" id="fbs10_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Qué principio físico permite que la luz viaje por una fibra óptica sin escaparse?</div><div class="quiz-options">
+    <label data-q="s10_3" data-val="a"><input type="radio" name="qs10_3" value="a"> Difracción</label>
+    <label data-q="s10_3" data-val="b"><input type="radio" name="qs10_3" value="b"> Refracción hacia fuera</label>
+    <label data-q="s10_3" data-val="c"><input type="radio" name="qs10_3" value="c"> Reflexión total interna</label>
+    <label data-q="s10_3" data-val="d"><input type="radio" name="qs10_3" value="d"> Absorción por el vidrio</label>
+  </div><div class="quiz-feedback" id="fbs10_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Qué convierte una celda solar (panel fotovoltaico)?</div><div class="quiz-options">
+    <label data-q="s10_4" data-val="a"><input type="radio" name="qs10_4" value="a"> Electricidad en luz (como un LED).</label>
+    <label data-q="s10_4" data-val="b"><input type="radio" name="qs10_4" value="b"> Luz en electricidad mediante el efecto fotoeléctrico.</label>
+    <label data-q="s10_4" data-val="c"><input type="radio" name="qs10_4" value="c"> Calor en sonido.</label>
+    <label data-q="s10_4" data-val="d"><input type="radio" name="qs10_4" value="d"> Luz en calor solamente.</label>
+  </div><div class="quiz-feedback" id="fbs10_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Por qué el LED azul es más difícil de fabricar que el rojo?</div><div class="quiz-options">
+    <label data-q="s10_5" data-val="a"><input type="radio" name="qs10_5" value="a"> Porque el color azul no existe en los semiconductores.</label>
+    <label data-q="s10_5" data-val="b"><input type="radio" name="qs10_5" value="b"> La luz azul tiene mayor frecuencia → más energía por fotón → se necesitan materiales semiconductores con mayor energía de banda prohibida, que son más difíciles de fabricar.</label>
+    <label data-q="s10_5" data-val="c"><input type="radio" name="qs10_5" value="c"> Porque el azul es más raro en la naturaleza.</label>
+    <label data-q="s10_5" data-val="d"><input type="radio" name="qs10_5" value">Solo es más caro, no más difícil.</label>
+  </div><div class="quiz-feedback" id="fbs10_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s10',['b','a','c','b','b'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s10"></div>
 </div>
 
 </div>
 <footer class="site-footer">
-  Física — El Sonido · Semana 10/10 · Grado 11° · 2026
+  Física — La Luz · Semana 10/10 · Grado 11° · 2026
   <div class="creditos">Diseñado por Froylan Jiménez · CESUM</div>
 </footer>
 
 <div class="comp-section">
   <div class="comp-banner" style="border-color:#607d8b">
-    <span class="comp-badge-entregable">📋 ENTREGABLE</span>
+    <span class="comp-badge-entregable">📋 ENTREGABLE FINAL</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 10</div>
-      <div class="comp-section-sub">Tema: Tecnología y sonido · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Tecnología de la luz — láseres, fibra óptica y LEDs · Nombre, fecha y grupo. Elige y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un barco pesquero usa SONAR para ubicar un banco de peces. El sistema emite un pulso ultrasónico y recibe el eco 0,04 segundos después. El sonido viaja a 1500 m/s en agua de mar.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#607d8b">Ejercicio 1</span>
-    <span class="comp-tipo">Identificación de concepto — Cálculo</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿A qué profundidad están los peces? Aplica d = v × t / 2.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>60 m — porque d = v × t.</div><div class="comp-opcion"><span class="comp-letra">b) </span>30 m — porque d = v × t / 2 = 1500 × 0,04 / 2.</div><div class="comp-opcion"><span class="comp-letra">c) </span>15 m — porque d = v / t.</div><div class="comp-opcion"><span class="comp-letra">d) </span>120 m — porque d = v × t × 2.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un cirujano usa un láser de λ = 1 064 nm para coagular vasos sanguíneos en una operación.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#607d8b">Ejercicio 1</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuánta energía tiene cada fotón de este láser? (h=6,626×10⁻³⁴, c=3×10⁸)</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>1,86 × 10⁻¹⁹ J → E = hc/λ = 6,626×10⁻³⁴×3×10⁸ / 1064×10⁻⁹ = 1,87×10⁻¹⁹ J</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>3,31 × 10⁻¹⁹ J (para 600 nm)</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>1 064 J</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>6,626 × 10⁻³⁴ J</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un periodista escribe: 'el SONAR es básicamente una cámara submarina que toma fotos del fondo del mar y las convierte en imágenes detalladas como las de una fotografía'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#607d8b">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error del periodista.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El SONAR sí funciona como una cámara fotográfica.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El SONAR usa luz, no sonido.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El SONAR no toma fotos; detecta posición y distancia de objetos midiendo el tiempo y ángulo de los ecos de ultrasonido. No produce imágenes fotográficas.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El SONAR solo funciona en agua salada.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> El cable de fibra óptica del Internet de tu casa tiene n = 1,5 y c = 3×10⁸ m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#607d8b">Ejercicio 2</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿A qué velocidad viaja la señal de luz por esa fibra?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>3 × 10⁸ m/s (vacío)</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>2 × 10⁸ m/s → v = c/n = 3×10⁸/1,5 = 2×10⁸ m/s</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>4,5 × 10⁸ m/s</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Depende del color de la luz</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un médico puede elegir entre usar ultrasonido de 1 MHz o de 5 MHz para una ecografía. A mayor frecuencia, la imagen tiene más resolución pero penetra menos profundamente en los tejidos.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#607d8b">Ejercicio 3</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué ventaja tiene el ultrasonido de 5 MHz sobre el de 1 MHz y cuál es su limitación?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>5 MHz viaja más rápido y llega a mayor profundidad.</div><div class="comp-opcion"><span class="comp-letra">b) </span>5 MHz tiene mayor longitud de onda y detecta objetos más grandes.</div><div class="comp-opcion"><span class="comp-letra">c) </span>5 MHz da mayor resolución de imagen (detecta detalles pequeños), pero su mayor absorción limita la profundidad de penetración.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Ambas frecuencias dan exactamente la misma imagen.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> La pantalla de tu celular usa LEDs que emiten luz blanca mezclando rojo, verde y azul (RGB).</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#607d8b">Ejercicio 3</span>
+      <span class="comp-tipo">Análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál LED consume más energía eléctrica para emitir un fotón: el rojo o el azul?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>El rojo, porque tiene mayor longitud de onda.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>El azul, porque f_azul > f_rojo → E_fotón = hf → el azul necesita más energía por fotón.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Ambos consumen la misma energía.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>El verde, porque es el más brillante para el ojo humano.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Felipe dice: 'los micrófonos de los celulares graban hasta 20.000 Hz porque es el límite técnico del micrófono; si pudieran, grabarían hasta 1.000.000 Hz para mejor calidad'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#607d8b">Ejercicio 4</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál es el error de Felipe?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Felipe tiene razón; más frecuencias grabadas = mejor calidad siempre.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Los celulares no tienen micrófonos, solo altavoces.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El límite de 20.000 Hz no es solo técnico: coincide con el límite superior del oído humano. Grabar frecuencias que no escuchamos no mejora la calidad percibida.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Los celulares ya graban hasta 1.000.000 Hz actualmente.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Pedro dice: "el láser y la luz de una bombilla son iguales: ambos emiten luz blanca brillante".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#607d8b">Ejercicio 4</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es el error de Pedro?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Solo se diferencian en el color.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>El láser emite luz monocromática, coherente y colimada; la bombilla emite luz blanca (mezcla de frecuencias), incoherente y dispersa en todas direcciones.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>La bombilla es más brillante.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>No hay diferencia; ambos son fotones.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Antes de los conciertos en vivo, los técnicos de sonido realizan una 'prueba de sonido' en el que ajustan la ecualización: aumentan o disminuyen frecuencias específicas según la acústica del lugar.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#607d8b">Ejercicio 5</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Por qué el mismo equipo de sonido puede sonar diferente en un estadio abierto que en un teatro cerrado?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El equipo de sonido cambia de configuración automáticamente.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La temperatura del lugar modifica la velocidad del sonido únicamente.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La geometría y los materiales del recinto generan reflexiones y reverberación distintas que modifican cómo se perciben las frecuencias.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El estadio y el teatro tienen voltajes eléctricos diferentes.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un panel solar en Montelíbano recibe luz solar con λ promedio de 550 nm. P = 200 W de potencia luminosa.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#607d8b">Ejercicio 5</span>
+      <span class="comp-tipo">Cálculo y análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuántos fotones por segundo golpean el panel?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>≈ 5,5 × 10²⁰ fotones/s → E_fotón=hc/λ=3,61×10⁻¹⁹J; N=P/E=200/3,61×10⁻¹⁹≈5,5×10²⁰</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>200 fotones/s</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>3,61 × 10⁻¹⁹ fotones/s</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>1 fotón/s por watt</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -224,17 +323,17 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
     var pct=Math.round(s/answers.length*100);
     var col=pct>=70?'#27ae60':pct>=50?'#f39c12':'#e74c3c';
-    var msg=pct===100?'🏆 ¡Perfecto!':pct>=70?'🎉 ¡Muy bien!':pct>=50?'📚 Repasa el material.':'💪 Sigue intentando.';
+    var msg=pct===100?'🏆 ¡Perfecto! Módulo completo.':pct>=70?'🎉 ¡Muy bien! Estás listo.':pct>=50?'📚 Repasa el material.':'💪 Sigue intentando.';
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -249,6 +348,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

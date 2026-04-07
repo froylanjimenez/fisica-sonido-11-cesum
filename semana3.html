@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 3: Características del Sonido | Física 11° CESUM</title>
+<title>Semana 3: El sonido, la música y el oído | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,8 @@
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana2.html" class="nav-back">⬅ Semana 2</a><a href="semana4.html" class="nav-back">Semana 4 ➡</a>
+  <a href="semana2.html" class="nav-back">⬅ Semana 2</a>
+  <a href="semana4.html" class="nav-back">Semana 4 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,112 +23,160 @@
     <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
     <span class="progress-text">30%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#f1c40f;margin-bottom:20px;border-left:6px solid #f1c40f;padding-left:14px">Semana 3: Características del Sonido</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#f39c12;margin-bottom:20px;border-left:6px solid #f39c12;padding-left:14px">Semana 3: El sonido, la música y el oído humano</h2>
 
 <div class="section">
-  <div class="section-title">🎵 Las 3 características del sonido</div>
-  <div class="box box-info"><strong>1. Tono</strong> (frecuencia en Hz): agudo o grave. Cuerda más tensa → más vibraciones/s → tono más agudo.</div>
-  <div class="box box-tip"><strong>2. Intensidad</strong> (amplitud, en dB): fuerte o débil. Mayor amplitud → sonido más fuerte.</div>
-  <div class="box box-warn"><strong>3. Timbre</strong>: la "personalidad" del sonido. Te permite reconocer si es una guitarra o un piano aunque toquen la misma nota.</div>
-  <div class="box box-formula">Frecuencia se mide en Hz · Intensidad se mide en dB</div>
-</div>
-<div class="section">
-  <div class="section-title">🎮 Simulación interactiva</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: Frecuencia y Amplitud de una onda</div>
-  <div class="sim-controls">
-    <label>Frecuencia (tono): <strong id="f3val">3</strong>
-      <input type="range" id="f3" min="1" max="10" value="3" oninput="upd3()">
-    </label>
-    <label>Amplitud (volumen): <strong id="a3val">40</strong>
-      <input type="range" id="a3" min="5" max="55" value="40" oninput="upd3()">
-    </label>
+  <div class="section-title">🎸 El sonido y la música: resonancia y armónicos</div>
+  <p>Los instrumentos musicales producen sonido mediante la <strong>resonancia</strong>: cuando un objeto vibra a su frecuencia natural, se amplifica la vibración. Los sonidos musicales están formados por una <strong>frecuencia fundamental</strong> y sus <strong>armónicos</strong> (múltiplos enteros de la fundamental).</p>
+  <div class="box box-formula">Armónico n en una cuerda: f_n = n × v / (2L)<br>
+  <span style="font-size:13px;font-weight:400">donde L = longitud de la cuerda (m), v = velocidad de la onda en la cuerda (m/s), n = 1, 2, 3…</span>
   </div>
-  <canvas id="canvas3" width="520" height="130" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
-  <p class="sim-hint">🔵 Frecuencia alta = ondas juntas = sonido <strong>agudo</strong>. 🔴 Amplitud alta = ondas altas = sonido <strong>fuerte</strong>.</p>
-  <script>
-  (function(){
-    const c=document.getElementById('canvas3'),ctx=c.getContext('2d');
-    let f=3,a=40,t=0;
-    function draw(){
-      const W=c.width,H=c.height/2;
-      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,c.width,c.height);
-      ctx.strokeStyle='#667eea';ctx.lineWidth=2.5;ctx.beginPath();
-      for(let x=0;x<c.width;x++){
-        const y=H+Math.sin((x/c.width)*f*2*Math.PI-t)*a;
-        x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  <div class="box box-example">
+    <strong>Ejemplo:</strong> Guitarra, cuerda de 65 cm (0,65 m), v = 325 m/s.<br>
+    Fundamental (n=1): f₁ = 1 × 325 / (2 × 0,65) = <strong>250 Hz</strong><br>
+    Segundo armónico (n=2): f₂ = 2 × 250 = <strong>500 Hz</strong>
+  </div>
+  <div class="box box-tip">💡 El timbre de un instrumento depende de cuáles armónicos están presentes y con qué intensidad.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">👂 El oído humano y los decibeles</div>
+  <p>El oído humano percibe frecuencias entre <strong>20 Hz y 20 000 Hz</strong>. La intensidad sonora se mide en <strong>decibeles (dB)</strong>.</p>
+  <div class="box box-formula">L (dB) = 10 × log₁₀ (I / I₀)<br>
+  <span style="font-size:13px;font-weight:400">I₀ = 10⁻¹² W/m² (umbral de audición) | I = intensidad medida (W/m²)</span>
+  </div>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">
+    <tr style="background:#f39c12;color:white"><th style="padding:7px">Sonido</th><th style="padding:7px">Nivel (dB)</th><th style="padding:7px">Efecto</th></tr>
+    <tr style="background:#fff8e1"><td style="padding:7px">Silencio en biblioteca</td><td style="padding:7px">30 dB</td><td style="padding:7px">Sin riesgo</td></tr>
+    <tr><td style="padding:7px">Conversación normal</td><td style="padding:7px">60 dB</td><td style="padding:7px">Sin riesgo</td></tr>
+    <tr style="background:#fff8e1"><td style="padding:7px">Tráfico intenso</td><td style="padding:7px">85 dB</td><td style="padding:7px">Riesgo con exposición prolongada</td></tr>
+    <tr><td style="padding:7px">Concierto de rock</td><td style="padding:7px">110 dB</td><td style="padding:7px">Daño en minutos</td></tr>
+    <tr style="background:#fff8e1"><td style="padding:7px">Motor de avión</td><td style="padding:7px">140 dB</td><td style="padding:7px">Dolor inmediato</td></tr>
+  </table>
+  <div class="box box-warn">⚠️ Exposición a más de 85 dB por 8 horas continuas causa daño auditivo permanente.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎮 Simulación: frecuencias audibles</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Rango auditivo y armónicos</div>
+    <div class="sim-controls">
+      <label>Frecuencia: <strong id="freqVal3">440</strong> Hz
+        <input type="range" id="freq3" min="20" max="4000" value="440" oninput="updateSim3()">
+      </label>
+      <label>Armónico: <strong id="harmVal3">1°</strong>
+        <input type="range" id="harm3" min="1" max="5" value="1" oninput="updateSim3()">
+      </label>
+    </div>
+    <canvas id="canvas3" width="520" height="110" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+    <p class="sim-hint">Sube la frecuencia para ver cómo cambia la longitud de onda. Los armónicos son múltiplos de la fundamental.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas3'),ctx=c.getContext('2d');
+      let freq=440,harm=1,t=0;
+      function draw(){
+        const W=c.width,H=c.height;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+        const colors=['#f39c12','#e67e22','#e74c3c','#9b59b6','#3498db'];
+        for(let h=1;h<=harm;h++){
+          ctx.strokeStyle=colors[h-1];ctx.lineWidth=h===1?2.5:1.5;ctx.globalAlpha=h===1?1:0.6;
+          ctx.beginPath();
+          const cycles=Math.max(1,Math.min(freq*h/200,14));
+          for(let x=0;x<W;x++){
+            const y=H/2+Math.sin((x/W)*cycles*2*Math.PI-t*h)*22/h;
+            x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+          }
+          ctx.stroke();
+        }
+        ctx.globalAlpha=1;
+        ctx.fillStyle='#aaa';ctx.font='11px sans-serif';
+        ctx.fillText('f₁='+freq+'Hz  |  f'+harm+'='+freq*harm+'Hz',10,16);
+        t+=0.03;requestAnimationFrame(draw);
       }
-      ctx.stroke();
-      ctx.fillStyle='#aaa';ctx.font='11px sans-serif';
-      ctx.fillText(f<=3?'Grave':f<=6?'Medio':'Agudo',c.width-60,15);
-      ctx.fillText(a<=20?'Débil':a<=40?'Medio':'Fuerte',c.width-60,30);
-      t+=0.05;requestAnimationFrame(draw);
-    }
-    window.upd3=function(){f=+document.getElementById('f3').value;a=+document.getElementById('a3').value;document.getElementById('f3val').textContent=f;document.getElementById('a3val').textContent=a;};
-    draw();
-  })();
-  </script>
-</div>
-</div>
-<div class="section">
-  <div class="section-title">🎯 Actividad: identifica características</div>
-  <div class="activity">
-    <div class="activity-title">Copia esta tabla en tu cuaderno y complétala:</div>
-    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">
-      <tr style="background:#e67e22;color:white"><th style="padding:8px">Sonido</th><th style="padding:8px">¿Agudo/Grave?</th><th style="padding:8px">¿Fuerte/Débil?</th></tr>
-      <tr style="background:#fff3e0"><td style="padding:8px">Silbato de árbitro</td><td></td><td></td></tr>
-      <tr><td style="padding:8px">Bombo de batería</td><td></td><td></td></tr>
-      <tr style="background:#fff3e0"><td style="padding:8px">Voz de bebé llorando</td><td></td><td></td></tr>
-      <tr><td style="padding:8px">Voz de locutor de radio</td><td></td><td></td></tr>
-    </table>
+      window.updateSim3=function(){
+        freq=+document.getElementById('freq3').value;
+        harm=+document.getElementById('harm3').value;
+        document.getElementById('freqVal3').textContent=freq;
+        const ordinals=['1°','2°','3°','4°','5°'];
+        document.getElementById('harmVal3').textContent=ordinals[harm-1];
+      };
+      draw();
+    })();
+    </script>
   </div>
 </div>
+
+<div class="section">
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">
+    Armónico n: f_n = n × v / (2L) &nbsp;|&nbsp; Decibeles: L = 10 × log₁₀(I / I₀)
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — Frecuencia fundamental de una cuerda</strong><br>
+    Una cuerda de guitarra mide L = 0,65 m. La velocidad de la onda en la cuerda es v = 390 m/s. ¿Cuál es la frecuencia fundamental?<br><br>
+    <strong>Solución:</strong> f₁ = 1 × 390 / (2 × 0,65) = 390 / 1,3 = <strong>300 Hz</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Tercer armónico</strong><br>
+    Si la frecuencia fundamental de una flauta es 264 Hz, ¿cuál es la frecuencia del tercer armónico?<br><br>
+    <strong>Solución:</strong> f₃ = 3 × f₁ = 3 × 264 = <strong>792 Hz</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — ¿Cuántos dB tiene un motor (I = 10⁻² W/m²)?</strong><br>
+    I₀ = 10⁻¹² W/m², I = 10⁻² W/m²<br><br>
+    <strong>Solución:</strong> L = 10 × log₁₀(10⁻² / 10⁻¹²) = 10 × log₁₀(10¹⁰) = 10 × 10 = <strong>100 dB</strong>
+  </div>
+</div>
+
 <div class="section">
   <div class="section-title">📝 Taller Semana 3</div>
   <div class="taller">
-    <div class="taller-title">Responde en tu cuaderno:</div>
-    <div class="taller-item">1. ¿Cuáles son las 3 características? Define cada una.</div>
-    <div class="taller-item">2. Flauta y clarinete tocan la misma nota con igual volumen. ¿Cómo los diferencias?</div>
-    <div class="taller-item">3. ¿Qué característica cambia cuando subes el volumen del parlante?</div>
-    <div class="taller-item">4. Un murciélago emite sonidos de alta frecuencia. ¿Agudo o grave?</div>
-    <div class="taller-item">5. Dibuja dos ondas: una fuerte y una débil. ¿Cuál tiene mayor amplitud?</div>
+    <div class="taller-title">Responde y resuelve en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Qué es la resonancia? Da dos ejemplos de la vida cotidiana.</div>
+    <div class="taller-item">2. Una cuerda de 0,5 m con v = 400 m/s. Calcula f₁, f₂ y f₃.</div>
+    <div class="taller-item">3. ¿Por qué los sonidos por debajo de 20 Hz y por encima de 20 000 Hz no los escuchamos?</div>
+    <div class="taller-item">4. Un lugar registra I = 10⁻⁶ W/m². ¿Cuántos dB son?</div>
+    <div class="taller-item">5. ¿Cuántas horas al día puedes escuchar música a 85 dB sin dañar el oído?</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué diferencia un sonido agudo de uno grave?</div><div class="quiz-options">
-<label data-q="s3_1" data-val="a"><input type="radio" name="qs3_1" value="a"> La intensidad</label>
-<label data-q="s3_1" data-val="b"><input type="radio" name="qs3_1" value="b"> El timbre</label>
-<label data-q="s3_1" data-val="c"><input type="radio" name="qs3_1" value="c"> El tono (frecuencia)</label>
-<label data-q="s3_1" data-val="d"><input type="radio" name="qs3_1" value="d"> La velocidad</label>
-</div><div class="quiz-feedback" id="fbs3_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Qué determina si un sonido es fuerte o débil?</div><div class="quiz-options">
-<label data-q="s3_2" data-val="a"><input type="radio" name="qs3_2" value="a"> La frecuencia</label>
-<label data-q="s3_2" data-val="b"><input type="radio" name="qs3_2" value="b"> La amplitud</label>
-<label data-q="s3_2" data-val="c"><input type="radio" name="qs3_2" value="c"> El timbre</label>
-<label data-q="s3_2" data-val="d"><input type="radio" name="qs3_2" value="d"> El medio</label>
-</div><div class="quiz-feedback" id="fbs3_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: Reconoces la voz de tu mamá sin verla. ¿Qué característica usaste?</div><div class="quiz-options">
-<label data-q="s3_3" data-val="a"><input type="radio" name="qs3_3" value="a"> El tono</label>
-<label data-q="s3_3" data-val="b"><input type="radio" name="qs3_3" value="b"> La intensidad</label>
-<label data-q="s3_3" data-val="c"><input type="radio" name="qs3_3" value="c"> El timbre</label>
-<label data-q="s3_3" data-val="d"><input type="radio" name="qs3_3" value="d"> La amplitud</label>
-</div><div class="quiz-feedback" id="fbs3_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿En qué unidad se mide la intensidad?</div><div class="quiz-options">
-<label data-q="s3_4" data-val="a"><input type="radio" name="qs3_4" value="a"> Hz</label>
-<label data-q="s3_4" data-val="b"><input type="radio" name="qs3_4" value="b"> m/s</label>
-<label data-q="s3_4" data-val="c"><input type="radio" name="qs3_4" value="c"> dB</label>
-<label data-q="s3_4" data-val="d"><input type="radio" name="qs3_4" value="d"> K</label>
-</div><div class="quiz-feedback" id="fbs3_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: Si aumentas la tensión de una cuerda de guitarra, ¿qué pasa con el tono?</div><div class="quiz-options">
-<label data-q="s3_5" data-val="a"><input type="radio" name="qs3_5" value="a"> Más grave</label>
-<label data-q="s3_5" data-val="b"><input type="radio" name="qs3_5" value="b"> No cambia</label>
-<label data-q="s3_5" data-val="c"><input type="radio" name="qs3_5" value="c"> Más agudo</label>
-<label data-q="s3_5" data-val="d"><input type="radio" name="qs3_5" value="d"> Más fuerte</label>
-</div><div class="quiz-feedback" id="fbs3_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s3',['c', 'b', 'c', 'c', 'c'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s3"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué rango de frecuencias percibe el oído humano?</div><div class="quiz-options">
+    <label data-q="s3_1" data-val="a"><input type="radio" name="qs3_1" value="a"> 0 – 1 000 Hz</label>
+    <label data-q="s3_1" data-val="b"><input type="radio" name="qs3_1" value="b"> 20 – 20 000 Hz</label>
+    <label data-q="s3_1" data-val="c"><input type="radio" name="qs3_1" value="c"> 100 – 100 000 Hz</label>
+    <label data-q="s3_1" data-val="d"><input type="radio" name="qs3_1" value="d"> 50 – 5 000 Hz</label>
+  </div><div class="quiz-feedback" id="fbs3_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: La frecuencia fundamental de una cuerda es 200 Hz. ¿Cuál es el segundo armónico?</div><div class="quiz-options">
+    <label data-q="s3_2" data-val="a"><input type="radio" name="qs3_2" value="a"> 100 Hz</label>
+    <label data-q="s3_2" data-val="b"><input type="radio" name="qs3_2" value="b"> 200 Hz</label>
+    <label data-q="s3_2" data-val="c"><input type="radio" name="qs3_2" value="c"> 400 Hz</label>
+    <label data-q="s3_2" data-val="d"><input type="radio" name="qs3_2" value="d"> 600 Hz</label>
+  </div><div class="quiz-feedback" id="fbs3_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: Los decibeles miden…</div><div class="quiz-options">
+    <label data-q="s3_3" data-val="a"><input type="radio" name="qs3_3" value="a"> La frecuencia del sonido</label>
+    <label data-q="s3_3" data-val="b"><input type="radio" name="qs3_3" value="b"> La longitud de onda</label>
+    <label data-q="s3_3" data-val="c"><input type="radio" name="qs3_3" value="c"> El nivel de intensidad sonora</label>
+    <label data-q="s3_3" data-val="d"><input type="radio" name="qs3_3" value="d"> La velocidad del sonido</label>
+  </div><div class="quiz-feedback" id="fbs3_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿A partir de cuántos dB el sonido causa daño auditivo con exposición prolongada?</div><div class="quiz-options">
+    <label data-q="s3_4" data-val="a"><input type="radio" name="qs3_4" value="a"> 60 dB</label>
+    <label data-q="s3_4" data-val="b"><input type="radio" name="qs3_4" value="b"> 75 dB</label>
+    <label data-q="s3_4" data-val="c"><input type="radio" name="qs3_4" value="c"> 85 dB</label>
+    <label data-q="s3_4" data-val="d"><input type="radio" name="qs3_4" value="d"> 100 dB</label>
+  </div><div class="quiz-feedback" id="fbs3_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Qué fenómeno ocurre cuando un objeto vibra a su frecuencia natural y se amplifica?</div><div class="quiz-options">
+    <label data-q="s3_5" data-val="a"><input type="radio" name="qs3_5" value="a"> Difracción</label>
+    <label data-q="s3_5" data-val="b"><input type="radio" name="qs3_5" value="b"> Resonancia</label>
+    <label data-q="s3_5" data-val="c"><input type="radio" name="qs3_5" value="c"> Refracción</label>
+    <label data-q="s3_5" data-val="d"><input type="radio" name="qs3_5" value="d"> Interferencia</label>
+  </div><div class="quiz-feedback" id="fbs3_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s3',['b','c','c','c','b'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s3"></div>
 </div>
 
 </div>
@@ -137,64 +186,88 @@
 </footer>
 
 <div class="comp-section">
-  <div class="comp-banner" style="border-color:#f1c40f">
+  <div class="comp-banner" style="border-color:#f39c12">
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 3</div>
-      <div class="comp-section-sub">Tema: Características del sonido · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Música, oído y decibeles · Nombre, fecha y grupo. Elige la opción correcta y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> En un concierto, el bajista produce un sonido muy grave y el violinista un sonido muy agudo. Un estudiante dice que la diferencia es porque el bajo es más grande que el violín.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#f1c40f">Ejercicio 1</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué característica del sonido determina si lo percibimos como grave o agudo?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>La amplitud de la onda sonora.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La velocidad con que viaja el sonido.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La frecuencia de vibración: más vibraciones por segundo = sonido más agudo.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El tamaño del instrumento siempre determina el tono.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un músico dice: "una guitarra produce un solo tono puro cuando pulsa una cuerda".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#f39c12">Ejercicio 1</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto el músico?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, cada cuerda produce un único tono puro.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; produce la frecuencia fundamental más sus armónicos, que juntos forman el timbre de la guitarra.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>No; produce un ruido aleatorio sin frecuencia definida.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Sí, porque la guitarra es un instrumento de cuerda pulsada.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Valentina dice: 'el violín suena más fuerte que el bajo porque tiene mayor frecuencia'. Su profesora le dice que hay una confusión importante en esa afirmación.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#f1c40f">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál es el error de Valentina?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El violín sí es siempre más fuerte que el bajo.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La frecuencia determina el tono (grave/agudo), no la intensidad (fuerte/suave). La intensidad depende de la amplitud.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La frecuencia y la intensidad son exactamente lo mismo.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El bajo tiene mayor frecuencia que el violín.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Una cuerda de L = 0,8 m tiene una frecuencia fundamental f₁ = 250 Hz.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#f39c12">Ejercicio 2</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es la frecuencia del cuarto armónico?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>750 Hz (3er armónico)</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>500 Hz (2do armónico)</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>1 000 Hz → f₄ = 4 × 250 = 1 000 Hz</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>250 Hz (igual que la fundamental)</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Carolina toca la nota 'La' (440 Hz) en una guitarra. Su hermano toca la misma nota en un piano. Aunque es el mismo tono y la misma intensidad, el sonido se escucha diferente.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#f1c40f">Ejercicio 3</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué característica del sonido explica que guitarra y piano suenen diferente aunque toquen la misma nota?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>La velocidad del sonido en cada instrumento.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La amplitud de la onda.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El timbre: cada instrumento tiene una combinación única de armónicos que lo hace reconocible.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La guitarra y el piano no pueden producir la misma frecuencia.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> El nivel de intensidad en una discoteca es 100 dB. En una biblioteca es 40 dB.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#f39c12">Ejercicio 3</span>
+      <span class="comp-tipo">Análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuántas veces es más intensa la discoteca que la biblioteca?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>60 veces (diferencia lineal de dB)</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>1 000 000 (10⁶) veces → cada 10 dB = ×10 en intensidad; 60 dB de diferencia = 10⁶</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>2,5 veces</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>100 veces</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Andrés escucha música a máximo volumen con audífonos 6 horas al día. Dice: 'no me importa el volumen, lo que daña el oído es el tono agudo, no el volumen'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#f1c40f">Ejercicio 4</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error de Andrés y explica qué característica del sonido está realmente relacionada con el daño auditivo por exceso.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Andrés tiene razón; solo los tonos agudos dañan el oído.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El timbre es lo que daña el oído en los audífonos.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La intensidad (amplitud/volumen) excesiva daña las células del oído; el tono agudo también puede dañar, pero el volumen alto es el principal factor.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La frecuencia y el volumen no tienen ningún efecto sobre el oído.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Juan usa audífonos a 90 dB durante 6 horas diarias.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#f39c12">Ejercicio 4</span>
+      <span class="comp-tipo">Aplicación</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es el riesgo para Juan?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Ninguno; 90 dB es inofensivo.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Solo si usa los audífonos más de 10 horas.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Daño auditivo progresivo; 90 dB supera el límite seguro de 85 dB y 6 h/día es exposición prolongada.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Solo si la música tiene bajas frecuencias.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un médico usa un diapasón para diagnosticar pérdida auditiva. Golpea el diapasón y lo acerca al oído del paciente en diferentes posiciones, variando la distancia.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#f1c40f">Ejercicio 5</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Si el médico aleja el diapasón del oído, ¿qué característica del sonido cambia y cuál permanece igual?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Cambia la frecuencia; el volumen permanece igual.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Cambia la intensidad (el sonido se escucha más suave); la frecuencia (tono) permanece igual.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Cambian tanto la frecuencia como la intensidad.</div><div class="comp-opcion"><span class="comp-letra">d) </span>No cambia nada: el sonido llega igual a cualquier distancia.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un pájaro canta a 3 000 Hz. Un tuba produce 60 Hz.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#f39c12">Ejercicio 5</span>
+      <span class="comp-tipo">Análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál sonido es más agudo y por qué?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>La tuba, porque tiene menos frecuencia.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>El pájaro, porque 3 000 Hz es mayor frecuencia, lo que produce un sonido más agudo.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Depende del volumen (amplitud).</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Son iguales porque ambos pueden escucharse por humanos.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -216,7 +289,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -226,7 +299,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -241,6 +314,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

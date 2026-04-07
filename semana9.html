@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 9: Contaminación Sonora | Física 11° CESUM</title>
+<title>Semana 9: Fenómenos ópticos — difracción e interferencia | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
-  <div class="logo-icon">🔊</div>
-  <h1>El Sonido — Física Grado 11°</h1>
+  <div class="logo-icon">🌈</div>
+  <h1>La Luz — Física Grado 11°</h1>
   <p class="subtitle">CONCENTRACIÓN EDUCATIVA DEL SUR DE MONTELÍBANO</p>
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana8.html" class="nav-back">⬅ Semana 8</a><a href="semana10.html" class="nav-back">Semana 10 ➡</a>
+  <a href="semana8.html" class="nav-back">⬅ Semana 8</a>
+  <a href="semana10.html" class="nav-back">Semana 10 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,123 +23,178 @@
     <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
     <span class="progress-text">90%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#ff5722;margin-bottom:20px;border-left:6px solid #ff5722;padding-left:14px">Semana 9: Contaminación Sonora</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#ff5722;margin-bottom:20px;border-left:6px solid #ff5722;padding-left:14px">Semana 9: Fenómenos ópticos — difracción, interferencia y dispersión</h2>
 
 <div class="section">
-  <div class="section-title">🏭 Contaminación sonora</div>
-  <p>Es la presencia de ruidos en el ambiente que afectan la salud. La OMS la considera el <strong>segundo contaminante más dañino</strong> después del aire.</p>
+  <div class="section-title">🌀 Difracción de la luz</div>
+  <p>La <strong>difracción</strong> ocurre cuando la luz pasa por una abertura estrecha o bordea un obstáculo: la onda se "dobla" y se propaga en nuevas direcciones. La difracción es más notable cuando la abertura es del orden de la longitud de onda.</p>
+  <div class="box box-formula">Condición de máximos (red de difracción): d × sin(θ) = m × λ<br>
+  <span style="font-size:13px;font-weight:400">d = separación entre rendijas (m) | θ = ángulo del máximo (°) | m = orden (0, ±1, ±2…) | λ = longitud de onda (m)</span>
+  </div>
+  <div class="box box-example">
+    <strong>Ejemplo:</strong> Red de difracción con d = 2 × 10⁻⁶ m, luz roja λ = 650 nm = 6,5 × 10⁻⁷ m. Primer orden (m=1).<br>
+    sin(θ) = m × λ / d = 1 × 6,5×10⁻⁷ / 2×10⁻⁶ = 0,325 → θ = <strong>19°</strong>
+  </div>
+  <div class="box box-tip">💡 Un CD o DVD actúa como red de difracción: sus surcos separan los colores de la luz blanca, por eso ves el espectro en su superficie.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🌊 Interferencia de la luz</div>
+  <p>La <strong>interferencia</strong> ocurre cuando dos o más ondas de luz se superponen. Puede ser:</p>
   <ul>
-    <li>🚗 Tráfico vehicular (mayor fuente)</li>
-    <li>🏗️ Construcción · 🎵 Entretenimiento · 🏭 Industria</li>
+    <li>✅ <strong>Constructiva:</strong> las crestas se suman → más luz (brillo). Condición: diferencia de camino = m × λ</li>
+    <li>❌ <strong>Destructiva:</strong> cresta con valle → oscuridad. Condición: diferencia de camino = (m + ½) × λ</li>
   </ul>
-  <div class="box box-warn">85 dB prolongado → daño auditivo permanente. ¡Cuida el volumen de tus audífonos!</div>
+  <div class="box box-warn">⚠️ La interferencia prueba que la luz es una onda. El experimento de la doble rendija de Young (1801) fue la primera demostración de esto.</div>
+  <div class="box box-example">
+    <strong>Doble rendija de Young:</strong> Franjas brillantes en: y_m = m × λ × L / d<br>
+    m = orden, L = distancia a la pantalla, d = separación entre rendijas.
+  </div>
 </div>
+
 <div class="section">
-  <div class="section-title">🎮 Simulación: medidor de decibeles</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: Medidor de decibeles</div>
-  <div class="sim-controls">
-    <label>Nivel de ruido: <strong id="db9val">60</strong> dB
-      <input type="range" id="db9" min="0" max="150" value="60" oninput="upd9()">
-    </label>
-  </div>
-  <div id="dbbar9" style="margin:10px 0;height:40px;border-radius:10px;overflow:hidden;background:#222;position:relative">
-    <div id="dbfill9" style="height:100%;border-radius:10px;transition:width .3s,background .3s;width:40%"></div>
-    <span id="dblabel9" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:800;font-size:14px;color:white;text-shadow:0 1px 3px #000">Conversación normal</span>
-  </div>
-  <div id="dbicon9" style="font-size:40px;text-align:center;margin:8px 0"></div>
-  <div id="dbmsg9" style="text-align:center;font-size:13px;font-weight:600;padding:8px;border-radius:8px"></div>
-  <script>
-  const dbData=[
-    [0,10,'🤫','Silencio absoluto','#27ae60','background:#e8f5e9;color:#1b5e20'],
-    [10,30,'💤','Susurro / hojas movidas por viento','#27ae60','background:#e8f5e9;color:#1b5e20'],
-    [30,55,'🗣️','Conversación normal','#27ae60','background:#e8f5e9;color:#1b5e20'],
-    [55,70,'🚗','Tráfico urbano','#f39c12','background:#fff8e1;color:#5d4037'],
-    [70,85,'🏗️','Aspiradora / tráfico intenso','#f39c12','background:#fff8e1;color:#5d4037'],
-    [85,100,'⚠️','Discoteca / concierto — RIESGO','#e74c3c','background:#fce4ec;color:#b71c1c'],
-    [100,120,'🏭','Taladro / martillo neumático — PELIGROSO','#e74c3c','background:#fce4ec;color:#b71c1c'],
-    [120,140,'✈️','Avión despegando — MUY PELIGROSO','#e74c3c','background:#fce4ec;color:#b71c1c'],
-    [140,151,'💥','Disparo / explosión — DAÑO INMEDIATO','#e74c3c','background:#fce4ec;color:#b71c1c'],
-  ];
-  window.upd9=function(){
-    const db=+document.getElementById('db9').value;
-    document.getElementById('db9val').textContent=db;
-    const d=dbData.find(x=>db>=x[0]&&db<x[1])||dbData[dbData.length-1];
-    const pct=db/150*100;
-    document.getElementById('dbfill9').style.width=pct+'%';
-    document.getElementById('dbfill9').style.background=d[4];
-    document.getElementById('dblabel9').textContent=d[3];
-    document.getElementById('dbicon9').textContent=d[2];
-    document.getElementById('dbmsg9').style.cssText=d[5];
-    document.getElementById('dbmsg9').textContent=db<85?'✅ Nivel seguro para la audición.':db<100?'⚠️ Exposición prolongada puede dañar el oído. Usa protección.':'🚫 Riesgo alto de daño auditivo.';
-  };
-  upd9();
-  </script>
+  <div class="section-title">🌦️ Dispersión y el arcoíris</div>
+  <p>La <strong>dispersión</strong> ocurre cuando la luz blanca se separa en sus colores al pasar por un medio (prisma, gota de lluvia) porque cada longitud de onda tiene un índice de refracción ligeramente diferente. El <strong>arcoíris</strong> se forma por reflexión y dispersión de la luz solar en las gotas de lluvia.</p>
+  <div class="box box-info">ℹ️ En el arcoíris: el rojo aparece en el exterior (ángulo ~42°) y el violeta en el interior (~40°) porque el violeta se refracta más que el rojo.</div>
 </div>
-</div>
+
 <div class="section">
-  <div class="section-title">🎯 Actividad: mapa de ruido</div>
-  <div class="activity">
-    <div class="activity-title">Dibuja un mapa de tu barrio en tu cuaderno:</div>
-    <ul style="font-size:14px;margin:8px 0 0 18px">
-      <li>🔴 Zonas con mucho ruido (&gt;70 dB)</li>
-      <li>🟡 Zonas con ruido moderado (50-70 dB)</li>
-      <li>🟢 Zonas tranquilas (&lt;50 dB)</li>
-    </ul>
-    <p style="font-size:13px;color:#777;margin-top:8px">¿Cuál es la principal fuente de ruido? ¿Qué solución propondrías?</p>
+  <div class="section-title">🎮 Simulación: interferencia de doble rendija</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Patrón de interferencia — Doble rendija de Young</div>
+    <div class="sim-controls">
+      <label>λ (nm): <strong id="lamVal9">550</strong>
+        <input type="range" id="lam9" min="380" max="750" value="550" oninput="updateYoung9()">
+      </label>
+      <label>Separación d (μm): <strong id="dVal9">5</strong>
+        <input type="range" id="d9" min="2" max="20" value="5" oninput="updateYoung9()">
+      </label>
+    </div>
+    <canvas id="canvas9" width="520" height="130" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+    <p class="sim-hint">Cambia la longitud de onda (color) y la separación entre rendijas. Mayor d → franjas más juntas.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas9'),ctx=c.getContext('2d');
+      let lam9=550,d9=5;
+      function nmToRGB9(nm){
+        let r,g,b;
+        if(nm<440){r=(440-nm)/(440-380);g=0;b=1;}
+        else if(nm<490){r=0;g=(nm-440)/(490-440);b=1;}
+        else if(nm<510){r=0;g=1;b=(510-nm)/(510-490);}
+        else if(nm<580){r=(nm-510)/(580-510);g=1;b=0;}
+        else if(nm<645){r=1;g=(645-nm)/(645-580);b=0;}
+        else{r=1;g=0;b=0;}
+        return[Math.round(r*255),Math.round(g*255),Math.round(b*255)];
+      }
+      function draw(){
+        const W=c.width,H=c.height;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+        const [r,g,b]=nmToRGB9(lam9);
+        // Rendijas
+        ctx.fillStyle='#888';ctx.fillRect(30,0,5,H/2-8);ctx.fillRect(30,H/2+8,5,H/2-8);
+        // Pattern
+        const L=W-80,cy=H/2;
+        for(let y=0;y<H;y++){
+          const yPos=y-cy;
+          const sinT=yPos/Math.sqrt(yPos*yPos+L*L);
+          const phase=(d9*1e-6*sinT/(lam9*1e-9))*2*Math.PI;
+          const intensity=Math.cos(phase/2)**2;
+          ctx.fillStyle=`rgba(${r},${g},${b},${intensity})`;
+          ctx.fillRect(60,y,W-60,1);
+        }
+        ctx.fillStyle='#aaa';ctx.font='10px sans-serif';
+        ctx.fillText('Rendijas',5,H-5);ctx.fillText('Pantalla',W-55,H-5);
+      }
+      window.updateYoung9=function(){
+        lam9=+document.getElementById('lam9').value;
+        d9=+document.getElementById('d9').value;
+        document.getElementById('lamVal9').textContent=lam9;
+        document.getElementById('dVal9').textContent=d9;
+        draw();
+      };
+      draw();
+    })();
+    </script>
   </div>
 </div>
+
+<div class="section">
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">
+    Difracción: d × sin(θ) = m × λ &nbsp;|&nbsp; Franjas Young: y_m = m × λ × L / d
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — Primer máximo de difracción</strong><br>
+    Red de difracción con d = 1,5 × 10⁻⁶ m. Luz verde λ = 500 nm = 5 × 10⁻⁷ m. Primer orden (m=1).<br><br>
+    <strong>Solución:</strong><br>
+    sin(θ) = m × λ / d = 1 × 5×10⁻⁷ / 1,5×10⁻⁶ = 0,333 → θ = arcsin(0,333) ≈ <strong>19,5°</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Separación de franjas (Young)</strong><br>
+    Doble rendija: d = 0,2 mm = 2×10⁻⁴ m, L = 1 m, λ = 600 nm = 6×10⁻⁷ m. ¿Cuánto separan las franjas brillantes?<br><br>
+    <strong>Solución:</strong> Δy = λ × L / d = (6×10⁻⁷ × 1) / 2×10⁻⁴ = <strong>3 × 10⁻³ m = 3 mm</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — Longitud de onda de la fuente</strong><br>
+    En un experimento de doble rendija: d = 0,5 mm, L = 2 m, primer franja brillante en y = 2,4 mm.<br><br>
+    <strong>Solución:</strong> λ = y × d / (m × L) = (2,4×10⁻³ × 5×10⁻⁴) / (1 × 2) = 1,2×10⁻⁶ / 2 = <strong>6 × 10⁻⁷ m = 600 nm → Naranja</strong>
+  </div>
+</div>
+
 <div class="section">
   <div class="section-title">📝 Taller Semana 9</div>
   <div class="taller">
-    <div class="taller-title">Responde en tu cuaderno:</div>
-    <div class="taller-item">1. Define contaminación sonora. Menciona 3 fuentes en tu comunidad.</div>
-    <div class="taller-item">2. ¿A partir de cuántos dB hay daño auditivo prolongado?</div>
-    <div class="taller-item">3. Menciona 3 efectos del ruido que NO sean auditivos.</div>
-    <div class="taller-item">4. ¿Por qué plantar árboles ayuda a reducir el ruido?</div>
-    <div class="taller-item">5. Redacta una carta de 5 líneas al alcalde sobre el problema del ruido.</div>
+    <div class="taller-title">Responde y calcula en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Cuál es la diferencia entre interferencia constructiva y destructiva?</div>
+    <div class="taller-item">2. ¿Por qué la superficie de un CD muestra colores cuando la iluminas con luz blanca?</div>
+    <div class="taller-item">3. Red de difracción d = 2 μm, luz azul λ = 460 nm. Calcula el ángulo del primer máximo.</div>
+    <div class="taller-item">4. Explica por qué el arcoíris siempre tiene el rojo afuera y el violeta adentro.</div>
+    <div class="taller-item">5. Investiga: ¿qué es la holografía y qué principios de la luz usa?</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Principal efecto del ruido excesivo en los oídos?</div><div class="quiz-options">
-<label data-q="s9_1" data-val="a"><input type="radio" name="qs9_1" value="a"> Visión borrosa</label>
-<label data-q="s9_1" data-val="b"><input type="radio" name="qs9_1" value="b"> Pérdida auditiva</label>
-<label data-q="s9_1" data-val="c"><input type="radio" name="qs9_1" value="c"> Solo dolor de cabeza</label>
-<label data-q="s9_1" data-val="d"><input type="radio" name="qs9_1" value="d"> Mejora la audición</label>
-</div><div class="quiz-feedback" id="fbs9_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Principal fuente de ruido en las ciudades?</div><div class="quiz-options">
-<label data-q="s9_2" data-val="a"><input type="radio" name="qs9_2" value="a"> Los aviones</label>
-<label data-q="s9_2" data-val="b"><input type="radio" name="qs9_2" value="b"> El tráfico vehicular</label>
-<label data-q="s9_2" data-val="c"><input type="radio" name="qs9_2" value="c"> Música en bares</label>
-<label data-q="s9_2" data-val="d"><input type="radio" name="qs9_2" value="d"> Las fábricas</label>
-</div><div class="quiz-feedback" id="fbs9_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿A partir de cuántos dB hay daño prolongado?</div><div class="quiz-options">
-<label data-q="s9_3" data-val="a"><input type="radio" name="qs9_3" value="a"> 30 dB</label>
-<label data-q="s9_3" data-val="b"><input type="radio" name="qs9_3" value="b"> 55 dB</label>
-<label data-q="s9_3" data-val="c"><input type="radio" name="qs9_3" value="c"> 85 dB</label>
-<label data-q="s9_3" data-val="d"><input type="radio" name="qs9_3" value="d"> 120 dB</label>
-</div><div class="quiz-feedback" id="fbs9_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Cuál NO es protección contra el ruido?</div><div class="quiz-options">
-<label data-q="s9_4" data-val="a"><input type="radio" name="qs9_4" value="a"> Tapones auditivos</label>
-<label data-q="s9_4" data-val="b"><input type="radio" name="qs9_4" value="b"> Plantar árboles</label>
-<label data-q="s9_4" data-val="c"><input type="radio" name="qs9_4" value="c"> Subir el TV para tapar el ruido</label>
-<label data-q="s9_4" data-val="d"><input type="radio" name="qs9_4" value="d"> Ventanas con doble vidrio</label>
-</div><div class="quiz-feedback" id="fbs9_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Cómo afecta el ruido al sistema cardiovascular?</div><div class="quiz-options">
-<label data-q="s9_5" data-val="a"><input type="radio" name="qs9_5" value="a"> Lo fortalece</label>
-<label data-q="s9_5" data-val="b"><input type="radio" name="qs9_5" value="b"> Sin efecto</label>
-<label data-q="s9_5" data-val="c"><input type="radio" name="qs9_5" value="c"> Puede aumentar la presión arterial</label>
-<label data-q="s9_5" data-val="d"><input type="radio" name="qs9_5" value="d"> Acelera el metabolismo</label>
-</div><div class="quiz-feedback" id="fbs9_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s9',['b', 'b', 'c', 'c', 'c'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s9"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué fenómeno ocurre cuando la luz pasa por una abertura estrecha y se "dobla"?</div><div class="quiz-options">
+    <label data-q="s9_1" data-val="a"><input type="radio" name="qs9_1" value="a"> Reflexión</label>
+    <label data-q="s9_1" data-val="b"><input type="radio" name="qs9_1" value="b"> Refracción</label>
+    <label data-q="s9_1" data-val="c"><input type="radio" name="qs9_1" value="c"> Difracción</label>
+    <label data-q="s9_1" data-val="d"><input type="radio" name="qs9_1" value="d"> Absorción</label>
+  </div><div class="quiz-feedback" id="fbs9_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: En interferencia destructiva, las dos ondas se superponen y producen…</div><div class="quiz-options">
+    <label data-q="s9_2" data-val="a"><input type="radio" name="qs9_2" value="a"> Más luz (amplitud suma)</label>
+    <label data-q="s9_2" data-val="b"><input type="radio" name="qs9_2" value="b"> Oscuridad (se cancelan)</label>
+    <label data-q="s9_2" data-val="c"><input type="radio" name="qs9_2" value="c"> Un color diferente</label>
+    <label data-q="s9_2" data-val="d"><input type="radio" name="qs9_2" value="d"> Calor</label>
+  </div><div class="quiz-feedback" id="fbs9_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿Por qué la superficie de un CD muestra colores cuando la iluminas?</div><div class="quiz-options">
+    <label data-q="s9_3" data-val="a"><input type="radio" name="qs9_3" value="a"> Por el plástico que absorbe ciertos colores.</label>
+    <label data-q="s9_3" data-val="b"><input type="radio" name="qs9_3" value="b"> Por difracción: los surcos del CD actúan como red de difracción y separan los colores de la luz.</label>
+    <label data-q="s9_3" data-val="c"><input type="radio" name="qs9_3" value="c"> Por absorción selectiva de frecuencias.</div>
+    <label data-q="s9_3" data-val="d"><input type="radio" name="qs9_3" value="d"> Por reflexión total interna.</label>
+  </div><div class="quiz-feedback" id="fbs9_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: Red de difracción, d = 2×10⁻⁶ m, λ = 500 nm, m = 1. ¿Cuál es sin(θ)?</div><div class="quiz-options">
+    <label data-q="s9_4" data-val="a"><input type="radio" name="qs9_4" value="a"> 0,125</label>
+    <label data-q="s9_4" data-val="b"><input type="radio" name="qs9_4" value="b"> 0,25</label>
+    <label data-q="s9_4" data-val="c"><input type="radio" name="qs9_4" value="c"> 0,5</label>
+    <label data-q="s9_4" data-val="d"><input type="radio" name="qs9_4" value="d"> 1</label>
+  </div><div class="quiz-feedback" id="fbs9_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: En el arcoíris, ¿qué color aparece en el exterior del arco?</div><div class="quiz-options">
+    <label data-q="s9_5" data-val="a"><input type="radio" name="qs9_5" value="a"> Violeta</label>
+    <label data-q="s9_5" data-val="b"><input type="radio" name="qs9_5" value="b"> Verde</label>
+    <label data-q="s9_5" data-val="c"><input type="radio" name="qs9_5" value="c"> Rojo</label>
+    <label data-q="s9_5" data-val="d"><input type="radio" name="qs9_5" value="d"> Azul</label>
+  </div><div class="quiz-feedback" id="fbs9_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s9',['c','b','b','b','c'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s9"></div>
 </div>
 
 </div>
 <footer class="site-footer">
-  Física — El Sonido · Semana 9/10 · Grado 11° · 2026
+  Física — La Luz · Semana 9/10 · Grado 11° · 2026
   <div class="creditos">Diseñado por Froylan Jiménez · CESUM</div>
 </footer>
 
@@ -147,60 +203,84 @@
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 9</div>
-      <div class="comp-section-sub">Tema: Contaminación sonora · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Difracción, interferencia y dispersión de la luz · Nombre, fecha y grupo. Elige y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> En el barrio de Juan hay una fábrica que opera las 24 horas produciendo 80 dB. La empresa dice: '80 dB no supera el límite máximo de 90 dB, así que no hay problema para los vecinos'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#ff5722">Ejercicio 1</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Tiene razón la empresa? Argumenta considerando los efectos del ruido crónico.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Sí, si no supera el límite máximo no hay ningún problema.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Solo hay problema si supera los 120 dB.</div><div class="comp-opcion"><span class="comp-letra">c) </span>No; aunque 80 dB no cause pérdida auditiva inmediata, la exposición crónica genera estrés, insomnio y efectos cardiovasculares comprobados.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El problema es solo de los vecinos que son sensibles al ruido.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Valentina examina un CD y observa que al iluminarlo con luz blanca muestra todos los colores del arcoíris.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#ff5722">Ejercicio 1</span>
+      <span class="comp-tipo">Identificación de concepto</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál fenómeno produce los colores en la superficie del CD?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Reflexión total interna.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Difracción: los microscópicos surcos del CD separan la luz blanca en sus frecuencias componentes.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>El material del CD emite luz.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>El CD actúa como prisma por refracción simple.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Sofía dice: 'si me pongo tapones en los oídos, quedo completamente aislada del ruido. No escucho absolutamente nada'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#ff5722">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error de Sofía.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Sofía tiene razón; los tapones aíslan completamente.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Los tapones reducen el sonido que entra por el canal auditivo, pero el sonido también llega a través de los huesos del cráneo. No hay aislamiento total.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Los tapones amplifican el sonido.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Los tapones solo sirven para protegerse del agua.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Red de difracción con d = 3 × 10⁻⁶ m. Se ilumina con luz verde λ = 540 nm. Primer orden.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#ff5722">Ejercicio 2</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es el ángulo del primer máximo?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>sin(θ) = 0,18 → θ ≈ 10,4° → d sin θ = 1×λ → sin θ = 5,4×10⁻⁷/3×10⁻⁶ = 0,18</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>sin(θ) = 1,8 → θ no existe (imposible)</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>45°</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>sin(θ) = 0,018 → θ ≈ 1°</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Una empresa tiene tres opciones para reducir el ruido de sus máquinas: (A) entregar tapones a trabajadores, (B) instalar muros absorbentes alrededor de las máquinas, (C) rediseñar las máquinas para que produzcan menos ruido.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#ff5722">Ejercicio 3</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál es la opción más efectiva para reducir la contaminación sonora y por qué?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Opción A: los tapones protegen al trabajador directamente.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Opción B: los muros bloquean el sonido para todos.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Opción C: atacar el origen del ruido es siempre la solución más efectiva.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Las tres opciones son igualmente efectivas.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Carlos dice: "la interferencia prueba que la luz es una partícula, como un proyectil".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#ff5722">Ejercicio 3</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto Carlos?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, la interferencia es un efecto de partículas.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; la interferencia es una propiedad exclusiva de las ondas. El experimento de Young demostró en 1801 el carácter ondulatorio de la luz.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Parcialmente; la luz es solo partícula.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>La interferencia no tiene que ver con la naturaleza de la luz.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Los audífonos con cancelación activa de ruido (ANC) tienen un micrófono que detecta el sonido del ambiente y emite una onda sonora que 'cancela' ese ruido.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#ff5722">Ejercicio 4</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué fenómeno físico aprovechan estos audífonos para cancelar el ruido?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Resonancia: hacen vibrar el oído en su frecuencia natural.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Reflexión: devuelven el sonido hacia su origen.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Interferencia destructiva: dos ondas de igual amplitud pero en fase opuesta se cancelan mutuamente.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Efecto Doppler: cambian la frecuencia del ruido.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Doble rendija de Young: d = 0,1 mm, L = 1,5 m, λ = 600 nm.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#ff5722">Ejercicio 4</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿A qué distancia del centro aparece la primera franja brillante (m=1)?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>9 mm → y = m×λ×L/d = 1×6×10⁻⁷×1,5/10⁻⁴ = 9×10⁻³ m = 9 mm</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>0,9 mm</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>90 mm</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>0,09 mm</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un estudio de la OMS indica que el límite de ruido nocturno para no afectar el sueño es 40 dB. El ruido típico en las calles de una ciudad latinoamericana oscila entre 55 y 70 dB.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#ff5722">Ejercicio 5</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué consecuencias concretas para la salud puede tener vivir en esas condiciones de ruido nocturno de forma continua?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Ninguna; el cuerpo se adapta al ruido urbano en pocas semanas.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Solo pérdida auditiva, sin otros efectos.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Insomnio crónico, aumento de cortisol (hormona del estrés), hipertensión y disminución del rendimiento cognitivo.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Solo afecta a personas mayores o con enfermedades previas.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Al ver un arcoíris, el rojo está en el borde exterior y el violeta en el interior del arco.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#ff5722">Ejercicio 5</span>
+      <span class="comp-tipo">Análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Por qué el violeta queda en el interior del arcoíris?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Porque el violeta tiene menor energía y cae hacia adentro.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>El violeta tiene mayor índice de refracción en agua → se refracta más → emerge a menor ángulo → aparece más adentro del arco.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>El rojo se desvía más porque tiene mayor longitud de onda.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Es solo convención; podría ser al revés.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -222,7 +302,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -232,7 +312,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -247,6 +327,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

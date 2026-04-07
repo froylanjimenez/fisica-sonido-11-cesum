@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 2: ¿Cómo viaja el sonido? | Física 11° CESUM</title>
+<title>Semana 2: Características del sonido y ondas sonoras | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,8 @@
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana1.html" class="nav-back">⬅ Semana 1</a><a href="semana3.html" class="nav-back">Semana 3 ➡</a>
+  <a href="semana1.html" class="nav-back">⬅ Semana 1</a>
+  <a href="semana3.html" class="nav-back">Semana 3 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,111 +23,161 @@
     <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
     <span class="progress-text">20%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#e67e22;margin-bottom:20px;border-left:6px solid #e67e22;padding-left:14px">Semana 2: ¿Cómo viaja el sonido?</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#e67e22;margin-bottom:20px;border-left:6px solid #e67e22;padding-left:14px">Semana 2: Características del sonido y ondas sonoras</h2>
 
 <div class="section">
-  <div class="section-title">🌊 ¿Cómo viaja el sonido?</div>
-  <p>El sonido necesita un <strong>medio material</strong>. Viaja por gases, líquidos y sólidos, y su velocidad depende del medio.</p>
-  <div class="box box-tip">💡 Regla: <strong>Sólido &gt; Líquido &gt; Gas</strong>. A mayor densidad de partículas, más rápido viaja.</div>
-  <table style="width:100%;border-collapse:collapse;font-size:14px;margin:10px 0">
-    <tr style="background:#1565c0;color:white"><th style="padding:10px">Medio</th><th style="padding:10px;text-align:center">Velocidad</th></tr>
-    <tr style="background:#f5f5f5"><td style="padding:10px">Aire (20°C)</td><td style="padding:10px;text-align:center"><strong>343 m/s</strong></td></tr>
-    <tr><td style="padding:10px">Agua</td><td style="padding:10px;text-align:center"><strong>1.480 m/s</strong></td></tr>
-    <tr style="background:#f5f5f5"><td style="padding:10px">Madera</td><td style="padding:10px;text-align:center"><strong>3.900 m/s</strong></td></tr>
-    <tr><td style="padding:10px">Acero</td><td style="padding:10px;text-align:center"><strong>5.100 m/s</strong></td></tr>
-    <tr style="background:#f5f5f5"><td style="padding:10px">Vacío</td><td style="padding:10px;text-align:center"><strong>0 m/s 🚫</strong></td></tr>
-  </table>
+  <div class="section-title">🎵 Características del sonido</div>
+  <p>Todo sonido se identifica por tres características principales:</p>
+  <ul>
+    <li>🎼 <strong>Tono (altura):</strong> determinado por la <em>frecuencia</em>. Mayor frecuencia → sonido más agudo.</li>
+    <li>📢 <strong>Intensidad (volumen):</strong> determinada por la <em>amplitud</em>. Mayor amplitud → sonido más fuerte.</li>
+    <li>🎻 <strong>Timbre:</strong> "firma" del sonido. Distingue una guitarra de un piano aunque toquen la misma nota.</li>
+  </ul>
+  <div class="box box-tip">💡 Tono → frecuencia | Intensidad → amplitud | Timbre → forma de onda (armónicos)</div>
 </div>
+
 <div class="section">
-  <div class="section-title">🎮 Simulación interactiva</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: Velocidad del sonido en diferentes medios</div>
-  <canvas id="canvas2" width="520" height="180" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
-  <button class="sim-btn" onclick="dispararOnda2()" style="margin-top:8px">🔊 Disparar onda de sonido</button>
-  <p class="sim-hint">Observa cómo la misma onda viaja a distintas velocidades en cada medio.</p>
-  <script>
-  (function(){
-    const c=document.getElementById('canvas2'),ctx=c.getContext('2d');
-    const medios=[
-      {name:'Aire',v:1,color:'#64b5f6',y:30},
-      {name:'Agua',v:4.3,color:'#4dd0e1',y:90},
-      {name:'Acero',v:14.9,color:'#ff8a65',y:150}
-    ];
-    let waves=[];
-    function draw(){
-      const W=c.width,H=c.height;
-      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
-      medios.forEach(m=>{
-        ctx.fillStyle=m.color+'33';ctx.fillRect(0,m.y-18,W,36);
-        ctx.fillStyle=m.color;ctx.font='bold 12px sans-serif';
-        ctx.fillText(m.name,8,m.y+4);
-        const vText=m.name==='Aire'?'343 m/s':m.name==='Agua'?'1480 m/s':'5100 m/s';
-        ctx.fillStyle='#aaa';ctx.font='11px sans-serif';ctx.fillText(vText,60,m.y+4);
-      });
-      waves=waves.filter(w=>w.x<W+20);
-      waves.forEach(w=>{
-        medios.forEach(m=>{
-          if(!w.started)return;
-          const x=w.x0+w.elapsed*m.v*0.4;
-          ctx.beginPath();ctx.arc(Math.min(x,W-10),m.y,6,0,Math.PI*2);
-          ctx.fillStyle=m.color;ctx.fill();
-        });
-        w.elapsed+=1;
-      });
-      requestAnimationFrame(draw);
-    }
-    window.dispararOnda2=function(){waves.push({x0:120,x:120,elapsed:0,started:true});};
-    draw();
-  })();
-  </script>
+  <div class="section-title">〰️ Las ondas sonoras: v = f × λ</div>
+  <p>Las ondas sonoras son <strong>longitudinales</strong>: las partículas vibran en la misma dirección de propagación. Se forman zonas de <strong>compresión</strong> (mayor densidad) y <strong>rarefacción</strong> (menor densidad).</p>
+  <div class="box box-formula">v = f × λ<br>
+  <span style="font-size:13px;font-weight:400">Velocidad (m/s) = Frecuencia (Hz) × Longitud de onda (m)</span><br><br>
+  También: &nbsp; f = v / λ &nbsp;|&nbsp; λ = v / f
+  </div>
+  <div class="box box-example">
+    <strong>Ejemplo:</strong> Una nota a f = 440 Hz viaja a v = 343 m/s.<br>
+    λ = v / f = 343 / 440 = <strong>0,78 m</strong>
+  </div>
+  <div class="box box-warn">⚠️ Si f aumenta (v constante), λ DISMINUYE. Son inversamente proporcionales.</div>
 </div>
+
+<div class="section">
+  <div class="section-title">🎮 Simulación: calculadora v = f × λ</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Calculadora interactiva de ondas sonoras</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0">
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">VELOCIDAD (m/s)</label>
+        <input id="v2" type="number" value="343" style="width:100%;padding:10px;border:2px solid #e67e22;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calc2('v')">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">FRECUENCIA (Hz)</label>
+        <input id="f2" type="number" value="343" style="width:100%;padding:10px;border:2px solid #667eea;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calc2('f')">
+      </div>
+      <div style="text-align:center">
+        <label style="font-size:12px;font-weight:700;color:#888;display:block;margin-bottom:4px">LONG. DE ONDA (m)</label>
+        <input id="l2" type="number" value="1" style="width:100%;padding:10px;border:2px solid #e74c3c;border-radius:8px;font-size:18px;font-weight:700;text-align:center;outline:none" oninput="calc2('l')">
+      </div>
+    </div>
+    <div id="calc2msg" style="text-align:center;font-size:14px;color:#27ae60;font-weight:700;padding:8px"></div>
+    <canvas id="canvas2" width="520" height="90" style="width:100%;background:#0d1117;border-radius:10px;margin-top:8px"></canvas>
+    <p class="sim-hint">Modifica dos campos y el tercero se calcula automáticamente.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas2'),ctx=c.getContext('2d');
+      let freq=343,t=0;
+      function draw(){
+        const W=c.width,H=c.height/2;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,c.height);
+        ctx.strokeStyle='#e67e22';ctx.lineWidth=2.5;ctx.beginPath();
+        const cycles=Math.max(1,Math.min(freq/80,10));
+        for(let x=0;x<W;x++){
+          const y=H+Math.sin((x/W)*cycles*2*Math.PI-t)*28;
+          x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+        const lw=W/cycles;
+        ctx.strokeStyle='#f39c12';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+        ctx.beginPath();ctx.moveTo(20,H-32);ctx.lineTo(20+lw,H-32);ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle='#f39c12';ctx.font='12px sans-serif';ctx.fillText('λ',20+lw/2-4,H-35);
+        t+=0.04;requestAnimationFrame(draw);
+      }
+      window.calc2=function(changed){
+        const vEl=document.getElementById('v2'),fEl=document.getElementById('f2'),lEl=document.getElementById('l2');
+        const v=parseFloat(vEl.value),f=parseFloat(fEl.value),l=parseFloat(lEl.value);
+        const msg=document.getElementById('calc2msg');
+        if(changed==='v'&&f&&l){vEl.value=(f*l).toFixed(2);msg.textContent='v = '+f+' × '+l+' = '+(f*l).toFixed(2)+' m/s';}
+        else if(changed==='f'&&v&&l){fEl.value=(v/l).toFixed(2);freq=v/l;msg.textContent='f = '+v+' ÷ '+l+' = '+(v/l).toFixed(2)+' Hz';}
+        else if(changed==='l'&&v&&f){lEl.value=(v/f).toFixed(3);freq=f;msg.textContent='λ = '+v+' ÷ '+f+' = '+(v/f).toFixed(3)+' m';}
+        if(!isNaN(f)&&f>0)freq=f;
+      };
+      draw();
+    })();
+    </script>
+  </div>
 </div>
+
+<div class="section">
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">v = f × λ &nbsp;|&nbsp; f = v / λ &nbsp;|&nbsp; λ = v / f</div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — La nota "La" (440 Hz)</strong><br>
+    Un diapasón vibra a 440 Hz. El sonido viaja a 343 m/s. ¿Cuál es su longitud de onda?<br><br>
+    <strong>Solución:</strong> λ = v / f = 343 / 440 = <strong>0,78 m</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Frecuencia de una onda submarina</strong><br>
+    Una ballena emite un sonido con λ = 7,4 m en agua (v = 1 480 m/s). ¿Cuál es la frecuencia?<br><br>
+    <strong>Solución:</strong> f = v / λ = 1 480 / 7,4 = <strong>200 Hz</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — Agudo vs grave</strong><br>
+    Sonido A: f = 20 Hz. Sonido B: f = 20 000 Hz. Ambos en aire (v = 343 m/s). Calcula λ para cada uno.<br><br>
+    <strong>Solución:</strong><br>
+    λ_A = 343 / 20 = <strong>17,15 m</strong> (muy grave, onda muy larga)<br>
+    λ_B = 343 / 20 000 = <strong>0,017 m = 1,7 cm</strong> (muy agudo, onda muy corta)
+  </div>
+</div>
+
 <div class="section">
   <div class="section-title">📝 Taller Semana 2</div>
   <div class="taller">
-    <div class="taller-title">Responde en tu cuaderno:</div>
-    <div class="taller-item">1. ¿Cuáles son los tres medios por los que viaja el sonido? Un ejemplo de cada uno.</div>
-    <div class="taller-item">2. Ordena de mayor a menor velocidad: aire, acero, agua.</div>
-    <div class="taller-item">3. ¿Por qué los delfines se comunican fácilmente bajo el agua?</div>
-    <div class="taller-item">4. Si el sonido viaja a 343 m/s, ¿cuánto tarda en recorrer 1 km? (t = d ÷ v)</div>
-    <div class="taller-item">5. Una película muestra explosión espacial con sonido. ¿Es posible? ¿Por qué?</div>
+    <div class="taller-title">Resuelve en tu cuaderno (muestra el proceso):</div>
+    <div class="taller-item">1. ¿Qué diferencia hay entre el tono y la intensidad de un sonido?</div>
+    <div class="taller-item">2. f = 680 Hz, v = 343 m/s. Calcula λ.</div>
+    <div class="taller-item">3. λ = 0,25 m, v = 343 m/s. ¿Cuál es la frecuencia?</div>
+    <div class="taller-item">4. ¿Por qué la guitarra y el piano suenan diferente aunque toquen la misma nota?</div>
+    <div class="taller-item">5. Si f aumenta al doble con v constante, ¿qué le ocurre a λ? Justifica con la fórmula.</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿En qué medio viaja MÁS RÁPIDO el sonido?</div><div class="quiz-options">
-<label data-q="s2_1" data-val="a"><input type="radio" name="qs2_1" value="a"> En el aire</label>
-<label data-q="s2_1" data-val="b"><input type="radio" name="qs2_1" value="b"> En el agua</label>
-<label data-q="s2_1" data-val="c"><input type="radio" name="qs2_1" value="c"> En el acero</label>
-<label data-q="s2_1" data-val="d"><input type="radio" name="qs2_1" value="d"> En el vacío</label>
-</div><div class="quiz-feedback" id="fbs2_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Por qué el sonido no viaja en el vacío?</div><div class="quiz-options">
-<label data-q="s2_2" data-val="a"><input type="radio" name="qs2_2" value="a"> Hace frío</label>
-<label data-q="s2_2" data-val="b"><input type="radio" name="qs2_2" value="b"> No hay materia para vibrar</label>
-<label data-q="s2_2" data-val="c"><input type="radio" name="qs2_2" value="c"> La luz lo bloquea</label>
-<label data-q="s2_2" data-val="d"><input type="radio" name="qs2_2" value="d"> Es oscuro</label>
-</div><div class="quiz-feedback" id="fbs2_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: ¿A qué velocidad viaja el sonido en el aire?</div><div class="quiz-options">
-<label data-q="s2_3" data-val="a"><input type="radio" name="qs2_3" value="a"> 34 m/s</label>
-<label data-q="s2_3" data-val="b"><input type="radio" name="qs2_3" value="b"> 343 m/s</label>
-<label data-q="s2_3" data-val="c"><input type="radio" name="qs2_3" value="c"> 3430 m/s</label>
-<label data-q="s2_3" data-val="d"><input type="radio" name="qs2_3" value="d"> 34300 m/s</label>
-</div><div class="quiz-feedback" id="fbs2_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: Un buzo escucha el motor de un barco lejano. ¿Por qué?</div><div class="quiz-options">
-<label data-q="s2_4" data-val="a"><input type="radio" name="qs2_4" value="a"> Por las burbujas</label>
-<label data-q="s2_4" data-val="b"><input type="radio" name="qs2_4" value="b"> El agua transmite el sonido muy bien</label>
-<label data-q="s2_4" data-val="c"><input type="radio" name="qs2_4" value="c"> Usa ondas de radio</label>
-<label data-q="s2_4" data-val="d"><input type="radio" name="qs2_4" value="d"> No necesita materia</label>
-</div><div class="quiz-feedback" id="fbs2_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Por qué oyes el tren poniendo el oído en los rieles antes que por el aire?</div><div class="quiz-options">
-<label data-q="s2_5" data-val="a"><input type="radio" name="qs2_5" value="a"> El metal vibra más fuerte</label>
-<label data-q="s2_5" data-val="b"><input type="radio" name="qs2_5" value="b"> El acero transmite el sonido mucho más rápido</label>
-<label data-q="s2_5" data-val="c"><input type="radio" name="qs2_5" value="c"> El tren hace más ruido</label>
-<label data-q="s2_5" data-val="d"><input type="radio" name="qs2_5" value="d"> No hay diferencia</label>
-</div><div class="quiz-feedback" id="fbs2_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s2',['c', 'b', 'b', 'b', 'b'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s2"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué característica determina si un sonido es agudo o grave?</div><div class="quiz-options">
+    <label data-q="s2_1" data-val="a"><input type="radio" name="qs2_1" value="a"> La amplitud</label>
+    <label data-q="s2_1" data-val="b"><input type="radio" name="qs2_1" value="b"> La frecuencia</label>
+    <label data-q="s2_1" data-val="c"><input type="radio" name="qs2_1" value="c"> El timbre</label>
+    <label data-q="s2_1" data-val="d"><input type="radio" name="qs2_1" value="d"> La velocidad</label>
+  </div><div class="quiz-feedback" id="fbs2_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Cuál es la fórmula correcta de la onda sonora?</div><div class="quiz-options">
+    <label data-q="s2_2" data-val="a"><input type="radio" name="qs2_2" value="a"> v = f + λ</label>
+    <label data-q="s2_2" data-val="b"><input type="radio" name="qs2_2" value="b"> v = f / λ</label>
+    <label data-q="s2_2" data-val="c"><input type="radio" name="qs2_2" value="c"> v = f × λ</label>
+    <label data-q="s2_2" data-val="d"><input type="radio" name="qs2_2" value="d"> v = λ / f</label>
+  </div><div class="quiz-feedback" id="fbs2_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: f = 1 000 Hz, v = 343 m/s. ¿Cuál es λ?</div><div class="quiz-options">
+    <label data-q="s2_3" data-val="a"><input type="radio" name="qs2_3" value="a"> 0,343 m</label>
+    <label data-q="s2_3" data-val="b"><input type="radio" name="qs2_3" value="b"> 343 000 m</label>
+    <label data-q="s2_3" data-val="c"><input type="radio" name="qs2_3" value="c"> 1 343 m</label>
+    <label data-q="s2_3" data-val="d"><input type="radio" name="qs2_3" value="d"> 2,91 m</label>
+  </div><div class="quiz-feedback" id="fbs2_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: Las ondas sonoras son ondas…</div><div class="quiz-options">
+    <label data-q="s2_4" data-val="a"><input type="radio" name="qs2_4" value="a"> Transversales</label>
+    <label data-q="s2_4" data-val="b"><input type="radio" name="qs2_4" value="b"> Longitudinales: las partículas vibran en la dirección de propagación</label>
+    <label data-q="s2_4" data-val="c"><input type="radio" name="qs2_4" value="c"> Electromagnéticas</label>
+    <label data-q="s2_4" data-val="d"><input type="radio" name="qs2_4" value="d"> Siempre estacionarias</label>
+  </div><div class="quiz-feedback" id="fbs2_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Qué permite distinguir dos instrumentos tocando la misma nota?</div><div class="quiz-options">
+    <label data-q="s2_5" data-val="a"><input type="radio" name="qs2_5" value="a"> La frecuencia</label>
+    <label data-q="s2_5" data-val="b"><input type="radio" name="qs2_5" value="b"> La amplitud</label>
+    <label data-q="s2_5" data-val="c"><input type="radio" name="qs2_5" value="c"> El timbre</label>
+    <label data-q="s2_5" data-val="d"><input type="radio" name="qs2_5" value="d"> La velocidad</label>
+  </div><div class="quiz-feedback" id="fbs2_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s2',['b','c','a','b','c'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s2"></div>
 </div>
 
 </div>
@@ -140,60 +191,84 @@
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 2</div>
-      <div class="comp-section-sub">Tema: ¿Cómo viaja el sonido? · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Características del sonido y v = f × λ · Nombre, fecha y grupo.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Miguel está buceando a 10 metros de profundidad. Escucha claramente el motor de un bote que está a 500 m. Cuando saca la cabeza al aire, apenas escucha el motor.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e67e22">Ejercicio 1</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué propiedad del agua explica que el sonido se propague mejor en ella que en el aire?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El agua es más transparente que el aire.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Las partículas del agua están más unidas y transmiten la vibración con mayor eficiencia.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El agua es más fría y eso amplifica el sonido.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El motor del bote emite más sonido hacia abajo que hacia arriba.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un ingeniero de audio ajusta una nota a 170 Hz; el sonido viaja a 340 m/s en la sala.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e67e22">Ejercicio 1</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es la longitud de onda?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>170 m</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>2 m → λ = 340 / 170 = 2 m</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>57 800 m</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>0,5 m</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Sofía le explica a su hermano: 'el sonido viaja más rápido en el aire porque tiene más espacio libre para moverse entre las partículas'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e67e22">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Identifica el error conceptual de Sofía y escribe la corrección correcta.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Sofía tiene razón; más espacio = mayor velocidad.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El sonido viaja más rápido en sólidos y líquidos porque las partículas están más cerca y transmiten la vibración más rápido.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El sonido no puede viajar en el aire.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El espacio entre partículas no tiene ninguna relación con la velocidad del sonido.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Santiago dice: "si duplico la frecuencia, la velocidad también se duplica".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e67e22">Ejercicio 2</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es el error de Santiago?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Tiene razón.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>La fórmula es v = f + λ.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>La velocidad no depende de f; si f se duplica, λ se reduce a la mitad.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Duplicar f duplica λ.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Los astronautas dentro de la Estación Espacial Internacional pueden hablar entre sí normalmente. Sin embargo, si uno saliera al espacio exterior sin comunicación por radio, no escucharía nada aunque su compañero gritara.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e67e22">Ejercicio 3</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Por qué no hay sonido en el espacio exterior pero sí dentro de la estación?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El espacio es demasiado frío para el sonido.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Las paredes de la estación bloquean el sonido del exterior.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El sonido necesita materia para propagarse; dentro de la estación hay aire, pero fuera hay vacío.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Los cascos de los trajes espaciales amplifican el sonido.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un murciélago emite 50 000 Hz; un elefante emite 14 Hz. Ambos en aire a 343 m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e67e22">Ejercicio 3</span>
+      <span class="comp-tipo">Análisis y cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál tiene mayor longitud de onda y por qué?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Murciélago: λ ≈ 145 m</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Elefante: λ = 343 / 14 ≈ 24,5 m (mayor λ = menor f)</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Ambos tienen la misma λ</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>λ no depende de f</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> En una clase, el profesor pregunta qué material conduce mejor el sonido. Juan responde: 'el aire, porque es el que usamos para hablar'. María responde: 'el hierro, porque está más compacto'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e67e22">Ejercicio 4</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Quién tiene razón? Ordena de MAYOR a MENOR velocidad del sonido: hierro, agua, aire.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Juan: aire > agua > hierro.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Ambos tienen razón parcialmente.</div><div class="comp-opcion"><span class="comp-letra">c) </span>María: hierro (~5100 m/s) > agua (~1500 m/s) > aire (~340 m/s).</div><div class="comp-opcion"><span class="comp-letra">d) </span>El sonido viaja igual en todos los medios.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Una onda sonora tiene λ = 0,686 m en aire a 343 m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e67e22">Ejercicio 4</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Cuál es la frecuencia?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>235 Hz</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>500 Hz → f = 343 / 0,686 = 500 Hz</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>1 000 Hz</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>686 Hz</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Los elefantes se comunican mediante infrasonidos (frecuencias menores a 20 Hz) que viajan a través del suelo. Pueden detectar estas vibraciones a kilómetros de distancia con sus patas.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#e67e22">Ejercicio 5</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué ventaja tiene comunicarse por el suelo (sólido) en lugar de por el aire para estas distancias tan grandes?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El suelo está más frío y conserva mejor el sonido.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El sonido viaja más rápido y con menos pérdida de energía en sólidos, llegando a mayor distancia.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Los infrasonidos solo pueden viajar en sólidos.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Las patas de los elefantes actúan como amplificadores del sonido del aire.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> María dice: "un sonido de alta intensidad viaja más rápido que uno de baja intensidad".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#e67e22">Ejercicio 5</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Es correcta María?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, más energía = más velocidad.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; la intensidad (amplitud) no afecta la velocidad del sonido. La velocidad depende del medio y la temperatura.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Depende de la frecuencia.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Solo en sólidos la intensidad afecta la velocidad.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -215,7 +290,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -225,7 +300,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -240,6 +315,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>

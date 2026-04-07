@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semana 7: El Eco y la Reverberación | Física 11° CESUM</title>
+<title>Semana 7: Frecuencia de la luz y espectro visible | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
-  <div class="logo-icon">🔊</div>
-  <h1>El Sonido — Física Grado 11°</h1>
+  <div class="logo-icon">🌈</div>
+  <h1>La Luz — Física Grado 11°</h1>
   <p class="subtitle">CONCENTRACIÓN EDUCATIVA DEL SUR DE MONTELÍBANO</p>
 </header>
 <nav class="main-nav">
   <a href="index.html" class="nav-back">🏠 Inicio</a>
-  <a href="semana6.html" class="nav-back">⬅ Semana 6</a><a href="semana8.html" class="nav-back">Semana 8 ➡</a>
+  <a href="semana6.html" class="nav-back">⬅ Semana 6</a>
+  <a href="semana8.html" class="nav-back">Semana 8 ➡</a>
 </nav>
 <div class="container">
   <div class="week-progress">
@@ -22,129 +23,187 @@
     <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
     <span class="progress-text">70%</span>
   </div>
-  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#9b59b6;margin-bottom:20px;border-left:6px solid #9b59b6;padding-left:14px">Semana 7: El Eco y la Reverberación</h2>
+  <h2 style="font-size:clamp(20px,4vw,26px);font-weight:900;color:#9b59b6;margin-bottom:20px;border-left:6px solid #9b59b6;padding-left:14px">Semana 7: Frecuencia de la luz y espectro visible</h2>
 
 <div class="section">
-  <div class="section-title">🏔️ El eco y la reverberación</div>
-  <div class="box box-info"><strong>Eco:</strong> Sonido reflejado que llega ≥0.1 s después del original. Necesita ~17 m mínimo.</div>
-  <div class="box box-warn"><strong>Reverberación:</strong> Reflexiones muy rápidas que se mezclan con el original. Ejemplo: cantar en el baño.</div>
-  <div class="box box-formula">d = (v × t) ÷ 2<br><span style="font-size:13px;font-weight:400">Se divide entre 2 porque el sonido va Y vuelve</span></div>
-  <div class="box box-example"><strong>Ejemplo:</strong> Eco en 2 s, v=340 m/s → d=(340×2)÷2 = <strong>340 m</strong></div>
+  <div class="section-title">🌈 El espectro visible y los colores</div>
+  <p>La luz <strong>blanca</strong> es una mezcla de todas las frecuencias del espectro visible. Cuando pasa por un prisma, se dispersa en sus colores componentes según su longitud de onda. El orden de colores es: <strong>ROY G BIV</strong> (Rojo, Naranja, Amarillo, Verde, Azul, Índigo, Violeta).</p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin:12px 0">
+    <tr style="background:#9b59b6;color:white"><th style="padding:7px">Color</th><th style="padding:7px">Longitud de onda (nm)</th><th style="padding:7px">Frecuencia (× 10¹⁴ Hz)</th></tr>
+    <tr style="background:#ffebee"><td style="padding:7px;color:#c62828;font-weight:700">■ Rojo</td><td style="padding:7px">620 – 750</td><td style="padding:7px">4,0 – 4,8</td></tr>
+    <tr><td style="padding:7px;color:#e65100;font-weight:700">■ Naranja</td><td style="padding:7px">590 – 620</td><td style="padding:7px">4,8 – 5,1</td></tr>
+    <tr style="background:#fffde7"><td style="padding:7px;color:#f57f17;font-weight:700">■ Amarillo</td><td style="padding:7px">570 – 590</td><td style="padding:7px">5,1 – 5,3</td></tr>
+    <tr><td style="padding:7px;color:#1b5e20;font-weight:700">■ Verde</td><td style="padding:7px">495 – 570</td><td style="padding:7px">5,3 – 6,1</td></tr>
+    <tr style="background:#e3f2fd"><td style="padding:7px;color:#0d47a1;font-weight:700">■ Azul</td><td style="padding:7px">450 – 495</td><td style="padding:7px">6,1 – 6,7</td></tr>
+    <tr><td style="padding:7px;color:#4a148c;font-weight:700">■ Índigo</td><td style="padding:7px">415 – 450</td><td style="padding:7px">6,7 – 7,2</td></tr>
+    <tr style="background:#f3e5f5"><td style="padding:7px;color:#6a1b9a;font-weight:700">■ Violeta</td><td style="padding:7px">380 – 415</td><td style="padding:7px">7,2 – 7,9</td></tr>
+  </table>
+  <div class="box box-tip">💡 El rojo tiene la menor frecuencia (y mayor λ) de la luz visible. El violeta tiene la mayor frecuencia (y menor λ).</div>
 </div>
+
 <div class="section">
-  <div class="section-title">🎮 Simulación: calculadora de eco</div>
-  
-<div class="sim-wrap">
-  <div class="sim-title">🎮 Simulación: Calculadora de eco</div>
-  <div class="sim-controls">
-    <label>Distancia a la pared (m): <strong id="d7val">170</strong>
-      <input type="range" id="d7" min="20" max="500" value="170" oninput="upd7()">
-    </label>
-    <label>Medio:
-      <select id="med7" onchange="upd7()" style="padding:6px 10px;border-radius:6px;border:2px solid #9b59b6;font-weight:700">
-        <option value="343">Aire (343 m/s)</option>
-        <option value="1480">Agua (1480 m/s)</option>
-      </select>
-    </label>
+  <div class="section-title">⚡ Energía de los fotones: E = h × f</div>
+  <p>La luz también actúa como partícula: un <strong>fotón</strong> es el paquete mínimo de energía de luz. La energía de un fotón depende de su frecuencia:</p>
+  <div class="box box-formula">E = h × f<br>
+  <span style="font-size:13px;font-weight:400">E = energía del fotón (J) | h = constante de Planck = 6,626 × 10⁻³⁴ J·s | f = frecuencia (Hz)</span><br><br>
+  Como c = f × λ → f = c/λ, también: E = h × c / λ
   </div>
-  <div id="eco7result" style="text-align:center;font-size:18px;font-weight:700;color:#9b59b6;padding:12px;background:#f5eeff;border-radius:10px;margin:10px 0"></div>
-  <canvas id="canvas7" width="520" height="90" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
-  <button class="sim-btn" onclick="lanzarEco7()">🔊 Disparar sonido</button>
-  <p class="sim-hint">d = (v × t) ÷ 2 &nbsp;·&nbsp; El sonido hace el viaje de <strong>ida y vuelta</strong></p>
-  <script>
-  (function(){
-    const c=document.getElementById('canvas7'),ctx=c.getContext('2d');
-    let d=170,v=343,pulse={active:false,x:0,returning:false};
-    function upd7Inner(){
-      const t=(2*d/v);
-      document.getElementById('eco7result').textContent='⏱ Tiempo del eco: '+t.toFixed(3)+' s  |  d = ('+v+'×'+t.toFixed(3)+')÷2 = '+d+' m';
-    }
-    window.upd7=function(){
-      d=+document.getElementById('d7').value;v=+document.getElementById('med7').value;
-      document.getElementById('d7val').textContent=d;
-      upd7Inner();
-    };
-    window.lanzarEco7=function(){pulse={active:true,x:60,returning:false};};
-    const wallX=420;
-    function draw(){
-      const W=c.width,H=c.height;
-      ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
-      // person
-      ctx.fillStyle='#667eea';ctx.beginPath();ctx.arc(40,H/2,12,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='#aaa';ctx.font='10px sans-serif';ctx.fillText('TÚ',28,H/2+26);
-      // wall
-      ctx.fillStyle='#e74c3c';ctx.fillRect(wallX,H/2-25,10,50);
-      ctx.fillStyle='#aaa';ctx.fillText('PARED',wallX-8,H/2+26);
-      // distance label
-      ctx.strokeStyle='#555';ctx.lineWidth=1;ctx.setLineDash([3,3]);
-      ctx.beginPath();ctx.moveTo(52,H/2-20);ctx.lineTo(wallX,H/2-20);ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.fillStyle='#888';ctx.fillText(d+' m',((52+wallX)/2)-12,H/2-22);
-      // pulse
-      if(pulse.active){
-        ctx.beginPath();ctx.arc(pulse.x,H/2,8,0,Math.PI*2);
-        ctx.fillStyle='#f39c12';ctx.fill();
-        const spd=(wallX-52)/60;
-        if(!pulse.returning){pulse.x+=spd;if(pulse.x>=wallX)pulse.returning=true;}
-        else{pulse.x-=spd;if(pulse.x<=52)pulse.active=false;}
+  <div class="box box-example">
+    <strong>Ejemplo:</strong> Fotón de luz verde, f = 6 × 10¹⁴ Hz.<br>
+    E = 6,626 × 10⁻³⁴ × 6 × 10¹⁴ = <strong>3,98 × 10⁻¹⁹ J</strong>
+  </div>
+  <div class="box box-warn">⚠️ Los fotones violeta tienen más energía que los rojos. Por eso la radiación UV (ultravioleta) puede dañar la piel y el ADN.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">🎮 Simulación: espectro de luz visible</div>
+  <div class="sim-wrap">
+    <div class="sim-title">🎮 Explora el espectro visible</div>
+    <div class="sim-controls">
+      <label>Longitud de onda: <strong id="lambdaVal7">550</strong> nm
+        <input type="range" id="lambda7" min="380" max="750" value="550" oninput="updateSpec7()">
+      </label>
+    </div>
+    <canvas id="canvas7" width="520" height="120" style="width:100%;background:#0d1117;border-radius:10px"></canvas>
+    <div id="spec7msg" style="text-align:center;font-size:13px;color:#aaa;font-weight:700;padding:6px">λ = 550 nm | Verde | f ≈ 5,45 × 10¹⁴ Hz | E ≈ 3,61 × 10⁻¹⁹ J</div>
+    <p class="sim-hint">Desplaza el deslizador para ver el color correspondiente y sus datos físicos.</p>
+    <script>
+    (function(){
+      const c=document.getElementById('canvas7'),ctx=c.getContext('2d');
+      let lam=550,t=0;
+      function nmToRGB(nm){
+        let r,g,b;
+        if(nm<380)return[148,0,211];
+        if(nm<440){r=(440-nm)/(440-380);g=0;b=1;}
+        else if(nm<490){r=0;g=(nm-440)/(490-440);b=1;}
+        else if(nm<510){r=0;g=1;b=(510-nm)/(510-490);}
+        else if(nm<580){r=(nm-510)/(580-510);g=1;b=0;}
+        else if(nm<645){r=1;g=(645-nm)/(645-580);b=0;}
+        else{r=1;g=0;b=0;}
+        return[Math.round(r*255),Math.round(g*255),Math.round(b*255)];
       }
-      requestAnimationFrame(draw);
-    }
-    upd7Inner();draw();
-  })();
-  </script>
+      function draw(){
+        const W=c.width,H=c.height;
+        ctx.fillStyle='#0d1117';ctx.fillRect(0,0,W,H);
+        // spectrum bar
+        for(let x=0;x<W;x++){
+          const nm=380+(750-380)*(x/W);
+          const [r,g,b]=nmToRGB(nm);
+          ctx.fillStyle=`rgb(${r},${g},${b})`;
+          ctx.fillRect(x,H-20,1,20);
+        }
+        // cursor
+        const cx=(lam-380)/(750-380)*W;
+        ctx.strokeStyle='white';ctx.lineWidth=2;
+        ctx.beginPath();ctx.moveTo(cx,0);ctx.lineTo(cx,H-20);ctx.stroke();
+        // wave
+        const [r,g,b]=nmToRGB(lam);
+        const freq7=3e8/(lam*1e-9);
+        const cycles=2+(lam<500?3:lam<600?2:1);
+        ctx.strokeStyle=`rgb(${r},${g},${b})`;ctx.lineWidth=2.5;ctx.beginPath();
+        for(let x=0;x<W;x++){
+          const y=H/2-15+Math.sin((x/W)*cycles*2*Math.PI-t)*22;
+          x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+        t+=0.05;requestAnimationFrame(draw);
+      }
+      window.updateSpec7=function(){
+        lam=+document.getElementById('lambda7').value;
+        document.getElementById('lambdaVal7').textContent=lam;
+        const f=(3e8/(lam*1e-9)).toExponential(2);
+        const E=(6.626e-34*3e8/(lam*1e-9)).toExponential(2);
+        const colors7={380:'Violeta',415:'Índigo',450:'Azul',495:'Verde',570:'Amarillo',590:'Naranja',620:'Rojo'};
+        let col='Rojo';
+        for(const k of Object.keys(colors7).map(Number).sort((a,b)=>a-b)){if(lam>=k)col=colors7[k];}
+        document.getElementById('spec7msg').textContent='λ = '+lam+' nm | '+col+' | f ≈ '+f+' Hz | E ≈ '+E+' J';
+      };
+      draw();
+    })();
+    </script>
+  </div>
 </div>
+
+<div class="section">
+  <div class="section-title">🧮 Ejercicios de Cálculo</div>
+  <div class="box box-formula" style="margin-bottom:12px">
+    c = f × λ &nbsp;|&nbsp; E = h × f &nbsp;|&nbsp; h = 6,626 × 10⁻³⁴ J·s &nbsp;|&nbsp; c = 3 × 10⁸ m/s
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 1 — Energía de un fotón rojo</strong><br>
+    Luz roja: λ = 700 nm = 700 × 10⁻⁹ m. Calcula su frecuencia y energía.<br><br>
+    <strong>Solución:</strong><br>
+    f = c / λ = (3 × 10⁸) / (700 × 10⁻⁹) = 4,29 × 10¹⁴ Hz<br>
+    E = h × f = 6,626 × 10⁻³⁴ × 4,29 × 10¹⁴ = <strong>2,84 × 10⁻¹⁹ J</strong>
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 2 — Energía de un fotón violeta</strong><br>
+    Luz violeta: λ = 400 nm. Calcula f y E. Compara con el fotón rojo.<br><br>
+    <strong>Solución:</strong><br>
+    f = (3 × 10⁸) / (400 × 10⁻⁹) = 7,5 × 10¹⁴ Hz<br>
+    E = 6,626 × 10⁻³⁴ × 7,5 × 10¹⁴ = <strong>4,97 × 10⁻¹⁹ J</strong><br>
+    El fotón violeta tiene ~1,75 veces más energía que el rojo.
+  </div>
+
+  <div class="box box-example">
+    <strong>Ejercicio 3 — ¿De qué color es una onda de f = 5 × 10¹⁴ Hz?</strong><br>
+    λ = c / f = (3 × 10⁸) / (5 × 10¹⁴) = 6 × 10⁻⁷ m = <strong>600 nm → Naranja</strong>
+  </div>
 </div>
+
 <div class="section">
   <div class="section-title">📝 Taller Semana 7</div>
   <div class="taller">
-    <div class="taller-title">Resuelve en tu cuaderno:</div>
-    <div class="taller-item">1. ¿Diferencia entre eco y reverberación? Da un ejemplo de cada uno.</div>
-    <div class="taller-item">2. Barco escucha eco del fondo marino a los 3 s (v=1480 m/s). ¿Qué profundidad?</div>
-    <div class="taller-item">3. Eco en un cañón: 4 s después (v=340 m/s). ¿A qué distancia está la pared?</div>
-    <div class="taller-item">4. ¿Por qué los estudios de grabación tienen paredes especiales?</div>
-    <div class="taller-item">5. Explica cómo usan los murciélagos la ecolocalización.</div>
+    <div class="taller-title">Responde y calcula en tu cuaderno:</div>
+    <div class="taller-item">1. ¿Por qué el violeta se desvía más que el rojo en un prisma?</div>
+    <div class="taller-item">2. Calcula la energía de un fotón de luz azul (λ = 450 nm).</div>
+    <div class="taller-item">3. ¿Qué color tiene la luz con f = 4,3 × 10¹⁴ Hz?</div>
+    <div class="taller-item">4. ¿Por qué la radiación UV puede causar cáncer de piel y la luz roja no?</div>
+    <div class="taller-item">5. ¿Qué significan los "lm" (lúmenes) en las bombillas? ¿Se relacionan con la energía del fotón?</div>
   </div>
 </div>
+
 <div class="quiz-section">
-<div class="quiz-title">🧠 Autoevaluación</div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué es el eco?</div><div class="quiz-options">
-<label data-q="s7_1" data-val="a"><input type="radio" name="qs7_1" value="a"> Un sonido muy fuerte</label>
-<label data-q="s7_1" data-val="b"><input type="radio" name="qs7_1" value="b"> El sonido reflejado que se escucha separado del original</label>
-<label data-q="s7_1" data-val="c"><input type="radio" name="qs7_1" value="c"> Onda electromagnética</label>
-<label data-q="s7_1" data-val="d"><input type="radio" name="qs7_1" value="d"> Absorción del sonido</label>
-</div><div class="quiz-feedback" id="fbs7_1"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Por qué se divide entre 2 en la fórmula del eco?</div><div class="quiz-options">
-<label data-q="s7_2" data-val="a"><input type="radio" name="qs7_2" value="a"> El eco es mitad del sonido</label>
-<label data-q="s7_2" data-val="b"><input type="radio" name="qs7_2" value="b"> El sonido hace ida Y vuelta</label>
-<label data-q="s7_2" data-val="c"><input type="radio" name="qs7_2" value="c"> La velocidad se divide</label>
-<label data-q="s7_2" data-val="d"><input type="radio" name="qs7_2" value="d"> Hay dos paredes</label>
-</div><div class="quiz-feedback" id="fbs7_2"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 3: Eco a 1 s (v=340 m/s). ¿Distancia a la pared?</div><div class="quiz-options">
-<label data-q="s7_3" data-val="a"><input type="radio" name="qs7_3" value="a"> 340 m</label>
-<label data-q="s7_3" data-val="b"><input type="radio" name="qs7_3" value="b"> 680 m</label>
-<label data-q="s7_3" data-val="c"><input type="radio" name="qs7_3" value="c"> 170 m</label>
-<label data-q="s7_3" data-val="d"><input type="radio" name="qs7_3" value="d"> 34 m</label>
-</div><div class="quiz-feedback" id="fbs7_3"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 4: ¿Dónde hay más reverberación?</div><div class="quiz-options">
-<label data-q="s7_4" data-val="a"><input type="radio" name="qs7_4" value="a"> Plaza abierta</label>
-<label data-q="s7_4" data-val="b"><input type="radio" name="qs7_4" value="b"> Campo abierto</label>
-<label data-q="s7_4" data-val="c"><input type="radio" name="qs7_4" value="c"> Catedral grande</label>
-<label data-q="s7_4" data-val="d"><input type="radio" name="qs7_4" value="d"> Mar</label>
-</div><div class="quiz-feedback" id="fbs7_4"></div></div>
-<div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Tiempo mínimo para percibir un eco separado?</div><div class="quiz-options">
-<label data-q="s7_5" data-val="a"><input type="radio" name="qs7_5" value="a"> 0.01 s</label>
-<label data-q="s7_5" data-val="b"><input type="radio" name="qs7_5" value="b"> 0.1 s</label>
-<label data-q="s7_5" data-val="c"><input type="radio" name="qs7_5" value="c"> 1 s</label>
-<label data-q="s7_5" data-val="d"><input type="radio" name="qs7_5" value="d"> 10 s</label>
-</div><div class="quiz-feedback" id="fbs7_5"></div></div>
-<button class="quiz-btn" onclick="checkQuiz('s7',['b', 'b', 'c', 'c', 'b'])">✅ Verificar respuestas</button>
-<div class="quiz-result" id="quiz-result-s7"></div>
+  <div class="quiz-title">🧠 Autoevaluación</div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 1: ¿Qué color del espectro visible tiene mayor longitud de onda?</div><div class="quiz-options">
+    <label data-q="s7_1" data-val="a"><input type="radio" name="qs7_1" value="a"> Violeta</label>
+    <label data-q="s7_1" data-val="b"><input type="radio" name="qs7_1" value="b"> Verde</label>
+    <label data-q="s7_1" data-val="c"><input type="radio" name="qs7_1" value="c"> Rojo</label>
+    <label data-q="s7_1" data-val="d"><input type="radio" name="qs7_1" value="d"> Azul</label>
+  </div><div class="quiz-feedback" id="fbs7_1"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 2: ¿Cuál fotón tiene más energía?</div><div class="quiz-options">
+    <label data-q="s7_2" data-val="a"><input type="radio" name="qs7_2" value="a"> Fotón rojo (700 nm)</label>
+    <label data-q="s7_2" data-val="b"><input type="radio" name="qs7_2" value="b"> Fotón violeta (400 nm)</label>
+    <label data-q="s7_2" data-val="c"><input type="radio" name="qs7_2" value="c"> Ambos tienen la misma energía</label>
+    <label data-q="s7_2" data-val="d"><input type="radio" name="qs7_2" value="d"> Depende de la intensidad</label>
+  </div><div class="quiz-feedback" id="fbs7_2"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 3: La constante de Planck h tiene un valor aproximado de…</div><div class="quiz-options">
+    <label data-q="s7_3" data-val="a"><input type="radio" name="qs7_3" value="a"> 6,626 × 10³⁴ J·s</label>
+    <label data-q="s7_3" data-val="b"><input type="radio" name="qs7_3" value="b"> 6,626 × 10⁻³⁴ J·s</label>
+    <label data-q="s7_3" data-val="c"><input type="radio" name="qs7_3" value="c"> 3 × 10⁸ J·s</label>
+    <label data-q="s7_3" data-val="d"><input type="radio" name="qs7_3" value="d"> 9,11 × 10⁻³¹ J·s</label>
+  </div><div class="quiz-feedback" id="fbs7_3"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 4: λ = 500 nm, h = 6,626×10⁻³⁴ J·s, c = 3×10⁸ m/s. ¿Cuánta energía tiene ese fotón?</div><div class="quiz-options">
+    <label data-q="s7_4" data-val="a"><input type="radio" name="qs7_4" value="a"> 3,98 × 10⁻¹⁹ J</label>
+    <label data-q="s7_4" data-val="b"><input type="radio" name="qs7_4" value="b"> 2,84 × 10⁻¹⁹ J</label>
+    <label data-q="s7_4" data-val="c"><input type="radio" name="qs7_4" value="c"> 6,626 × 10⁻³⁴ J</label>
+    <label data-q="s7_4" data-val="d"><input type="radio" name="qs7_4" value="d"> 500 J</label>
+  </div><div class="quiz-feedback" id="fbs7_4"></div></div>
+  <div class="quiz-question"><div class="quiz-q-text">Pregunta 5: ¿Por qué la radiación UV daña el ADN pero la luz roja no?</div><div class="quiz-options">
+    <label data-q="s7_5" data-val="a"><input type="radio" name="qs7_5" value="a"> Porque la luz roja viaja más rápido.</label>
+    <label data-q="s7_5" data-val="b"><input type="radio" name="qs7_5" value="b"> Porque el UV tiene fotones de mayor energía (mayor frecuencia) capaces de romper enlaces moleculares del ADN.</label>
+    <label data-q="s7_5" data-val="c"><input type="radio" name="qs7_5" value="c"> Porque la luz roja tiene mayor longitud de onda y no entra a las células.</label>
+    <label data-q="s7_5" data-val="d"><input type="radio" name="qs7_5" value="d"> Porque el UV es más brillante.</label>
+  </div><div class="quiz-feedback" id="fbs7_5"></div></div>
+  <button class="quiz-btn" onclick="checkQuiz('s7',['c','b','b','a','b'])">✅ Verificar respuestas</button>
+  <div class="quiz-result" id="quiz-result-s7"></div>
 </div>
 
 </div>
 <footer class="site-footer">
-  Física — El Sonido · Semana 7/10 · Grado 11° · 2026
+  Física — La Luz · Semana 7/10 · Grado 11° · 2026
   <div class="creditos">Diseñado por Froylan Jiménez · CESUM</div>
 </footer>
 
@@ -153,60 +212,84 @@
     <span class="comp-badge-entregable">📋 ENTREGABLE</span>
     <div>
       <div class="comp-section-title">Ejercicios por Competencias — Semana 7</div>
-      <div class="comp-section-sub">Tema: El eco y la reverberación · Escribe nombre, fecha y grupo. Para cada ejercicio: elige la opción correcta y escribe 2–3 líneas justificando tu respuesta.</div>
+      <div class="comp-section-sub">Tema: Frecuencia de la luz y energía de fotones · Nombre, fecha y grupo. Elige y justifica en 2–3 líneas.</div>
     </div>
   </div>
-  
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Pablo está parado frente a una montaña y grita '¡Hola!'. Escucha el eco exactamente 0,6 segundos después. El sonido viaja a 340 m/s.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#9b59b6">Ejercicio 1</span>
-    <span class="comp-tipo">Identificación de concepto — Cálculo</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿A qué distancia está la montaña? Aplica la fórmula d = v × t / 2.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>340 m — porque d = v × t.</div><div class="comp-opcion"><span class="comp-letra">b) </span>204 m — porque d = v × t × 2.</div><div class="comp-opcion"><span class="comp-letra">c) </span>102 m — porque d = v × t / 2 = 340 × 0,6 / 2.</div><div class="comp-opcion"><span class="comp-letra">d) </span>56,7 m — porque d = v / t.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Laura dice: "todos los colores del arcoíris tienen la misma energía, solo cambia el color".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#9b59b6">Ejercicio 1</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto Laura?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, el color no afecta la energía.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; cada color tiene diferente frecuencia → diferente energía (E = hf). El violeta es más energético que el rojo.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Solo depende de la intensidad.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>La energía depende de la velocidad.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Camilo dice en clase: 'la reverberación y el eco son exactamente lo mismo; los dos son reflexiones del sonido, así que no hay diferencia'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#9b59b6">Ejercicio 2</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">Explica la diferencia entre eco y reverberación.</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Camilo tiene razón; son el mismo fenómeno.</div><div class="comp-opcion"><span class="comp-letra">b) </span>El eco requiere superficies curvas; la reverberación requiere superficies planas.</div><div class="comp-opcion"><span class="comp-letra">c) </span>El eco es una reflexión claramente separada del sonido original (≥17 ms de retraso); la reverberación son múltiples reflexiones que se superponen y prolongan el sonido.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El eco ocurre solo bajo el agua; la reverberación solo en el aire.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un fotón tiene λ = 600 nm. h = 6,626×10⁻³⁴ J·s, c = 3×10⁸ m/s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#9b59b6">Ejercicio 2</span>
+      <span class="comp-tipo">Cálculo</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">Calcula la energía del fotón.</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>E = 3,31 × 10⁻¹⁹ J → E = hc/λ = 6,626×10⁻³⁴ × 3×10⁸ / 600×10⁻⁹</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>E = 6,626 × 10⁻³⁴ J (solo h)</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>E = 600 J</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>E = 5 × 10¹⁴ J</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Una iglesia tiene paredes de piedra lisas y está completamente vacía. Al cantar dentro, el sonido 'retumba' varios segundos. Cuando la iglesia está llena de personas con ropa, el efecto se reduce mucho.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#9b59b6">Ejercicio 3</span>
-    <span class="comp-tipo">Análisis</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Por qué las personas con ropa reducen la reverberación?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Las personas generan sus propias ondas sonoras que se cancelan.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La ropa y los cuerpos absorben la energía sonora de las reflexiones, reduciendo la reverberación.</div><div class="comp-opcion"><span class="comp-letra">c) </span>Las personas bloquean físicamente el paso de las ondas.</div><div class="comp-opcion"><span class="comp-letra">d) </span>El calor corporal cambia la velocidad del sonido.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un médico usa lámparas de luz azul (λ ≈ 470 nm) para tratar la ictericia en recién nacidos.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#9b59b6">Ejercicio 3</span>
+      <span class="comp-tipo">Análisis</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Por qué se usa luz azul y no luz roja para este tratamiento?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Porque la luz azul es más brillante.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>La luz azul tiene mayor frecuencia → más energía por fotón, capaz de romper las moléculas de bilirrubina en la piel del bebé.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Porque la luz roja no penetra la piel.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>El color no importa, solo la intensidad.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Los murciélagos navegan en completa oscuridad emitiendo pulsos de ultrasonido y analizando los ecos que regresan. Este sistema se llama ecolocalización.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#9b59b6">Ejercicio 4</span>
-    <span class="comp-tipo">Identificación de concepto</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Qué información obtiene el murciélago a partir del eco?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>Solo la dirección del obstáculo.</div><div class="comp-opcion"><span class="comp-letra">b) </span>La distancia (por el tiempo que tarda el eco) y la dirección (por qué oído recibe el eco primero).</div><div class="comp-opcion"><span class="comp-letra">c) </span>Solo si el obstáculo es sólido o líquido.</div><div class="comp-opcion"><span class="comp-letra">d) </span>La temperatura y textura del obstáculo.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Una onda tiene f = 7 × 10¹⁴ Hz. h = 6,626×10⁻³⁴ J·s.</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#9b59b6">Ejercicio 4</span>
+      <span class="comp-tipo">Cálculo e identificación</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿De qué color es y cuánta energía tiene el fotón?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Rojo: E = 2,84 × 10⁻¹⁹ J</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>Violeta/Índigo: E = 4,64 × 10⁻¹⁹ J → E = 6,626×10⁻³⁴ × 7×10¹⁴; λ=428nm=violeta</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>Verde: E = 3,61 × 10⁻¹⁹ J</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>Naranja: E = 3,31 × 10⁻¹⁹ J</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
-<div class="comp-item">
-  <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Un estudiante de arquitectura dice: 'los estudios de grabación tienen paredes con espuma rugosa porque la espuma es más barata que el concreto liso. No tiene ningún efecto técnico real'.</div>
-  <div class="comp-q">
-    <span class="comp-num" style="background:#9b59b6">Ejercicio 5</span>
-    <span class="comp-tipo">Error conceptual</span>
-    <p style="margin:10px 0 10px 0;font-size:15px;font-weight:600">¿Cuál es el error del estudiante?</p>
-    <div class="comp-opciones"><div class="comp-opcion"><span class="comp-letra">a) </span>El estudiante tiene razón; es solo un tema de costo.</div><div class="comp-opcion"><span class="comp-letra">b) </span>Las superficies irregulares y absorbentes de la espuma difunden y eliminan reflexiones y ecos que distorsionarían la grabación.</div><div class="comp-opcion"><span class="comp-letra">c) </span>La espuma lisa funciona igual que la rugosa.</div><div class="comp-opcion"><span class="comp-letra">d) </span>Solo importa el material de las paredes, no la forma.</div></div>
+  <div class="comp-item">
+    <div class="comp-ctx"><span class="comp-ctx-label">📖 Contexto:</span> Carlos dice: "usar bloqueador solar me protege de la luz visible, que es la que quema".</div>
+    <div class="comp-q">
+      <span class="comp-num" style="background:#9b59b6">Ejercicio 5</span>
+      <span class="comp-tipo">Error conceptual</span>
+      <p style="margin:10px 0;font-size:15px;font-weight:600">¿Está en lo correcto Carlos?</p>
+      <div class="comp-opciones">
+        <div class="comp-opcion"><span class="comp-letra">a) </span>Sí, la luz roja es la que más quema.</div>
+        <div class="comp-opcion"><span class="comp-letra">b) </span>No; el bloqueador protege principalmente de la radiación UV, que tiene mayor energía por fotón y puede dañar el ADN de las células de la piel.</div>
+        <div class="comp-opcion"><span class="comp-letra">c) </span>El bloqueador no tiene efecto real.</div>
+        <div class="comp-opcion"><span class="comp-letra">d) </span>La luz visible no llega a la Tierra.</div>
+      </div>
+    </div>
+    <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
   </div>
-  <div class="comp-justifica">✏️ <strong>Justifica tu respuesta:</strong> ________________________________________________________________________________________________________</div>
-</div>
 </div>
 
 <script>
@@ -228,7 +311,7 @@ function checkQuiz(qid,answers){
       if(!ok&&lbls[k].getAttribute('data-val')===correct)lbls[k].classList.add('correct');
     }
     if(fb){fb.className='quiz-feedback '+(ok?'correct':'wrong');
-      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La correcta aparece en verde.';}
+      fb.textContent=ok?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta aparece en verde.';}
   }
   var rd=document.getElementById('quiz-result-'+qid);
   if(rd){
@@ -238,7 +321,7 @@ function checkQuiz(qid,answers){
     rd.innerHTML='<div class="quiz-result-num" style="color:'+col+'">'+s+'/'+answers.length+'</div>'
       +'<div style="font-size:22px;margin:4px 0">'+pct+'%</div>'
       +'<div class="quiz-result-msg">'+msg+'</div>'
-      +'<button class="quiz-retry" onclick="retryQuiz(''+qid+'')">🔄 Intentar de nuevo</button>';
+      +'<button class="quiz-retry" onclick="retryQuiz(\''+qid+'\')">🔄 Intentar de nuevo</button>';
     rd.style.display='block';
   }
 }
@@ -253,6 +336,5 @@ function retryQuiz(qid){
   if(rd)rd.style.display='none';
 }
 </script>
-
 </body>
 </html>
