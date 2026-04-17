@@ -6,8 +6,10 @@
 <title>Examen Módulo 2 — La Luz | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.exam-header-badge{display:inline-block;background:#1565c0;color:white;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;letter-spacing:.5px;margin-bottom:10px}
-.week-group-title{font-size:14px;font-weight:800;color:white;background:#1565c0;padding:8px 16px;border-radius:8px;margin:24px 0 10px 0;display:flex;align-items:center;gap:8px}
+.exam-badge{display:inline-block;background:#1565c0;color:white;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;letter-spacing:.5px;margin-bottom:10px}
+.week-group-title{font-size:14px;font-weight:800;color:white;padding:8px 16px;border-radius:8px;margin:24px 0 10px 0}
+.exam-ctx{background:#f8f9ff;border-left:4px solid #667eea;border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#2c3e50;line-height:1.65}
+.exam-ctx strong{color:#1a237e}
 .exam-instructions{background:#e3f2fd;border-left:5px solid #1976d2;border-radius:12px;padding:16px 18px;margin-bottom:20px;font-size:14px;line-height:1.7;color:#0d47a1}
 </style>
 </head>
@@ -29,263 +31,277 @@
     <span class="progress-text">Semanas 6–10</span>
   </div>
 
-  <div class="exam-header-badge">📝 MACRO-EXAMEN</div>
+  <div class="exam-badge">📝 MACRO-EXAMEN · ESTILO ICFES</div>
   <h2 style="font-size:clamp(18px,4vw,24px);font-weight:900;color:#1565c0;margin-bottom:16px;border-left:6px solid #1565c0;padding-left:14px">Examen Final — Módulo 2: La Luz como onda</h2>
 
   <div class="exam-instructions">
-    📋 <strong>Instrucciones:</strong> Este examen cubre las <strong>Semanas 6 a 10</strong> (La Luz). Tiene <strong>20 preguntas de selección múltiple</strong> (4 por semana). Lee cada pregunta con atención, selecciona la mejor respuesta y haz clic en <em>"Verificar todas las respuestas"</em> al final. Recibirás retroalimentación automática pregunta a pregunta.<br>
-    ⏱ Tiempo recomendado: 40 minutos. No hay penalización por respuesta incorrecta.
+    📋 <strong>Instrucciones:</strong> Lee el contexto de cada pregunta antes de responder. Las preguntas evalúan tu capacidad de <strong>identificar conceptos, aplicarlos a situaciones nuevas y detectar errores conceptuales</strong>. No busques el dato numérico: busca el razonamiento correcto. Haz clic en <em>"Verificar respuestas"</em> al final para recibir retroalimentación inmediata.<br>
+    ⏱ Tiempo recomendado: 45 minutos.
   </div>
 
   <div class="quiz-section" style="background:linear-gradient(135deg,#e3f2fd,#e8eaf6)">
-    <div class="quiz-title" style="color:#0d47a1">💡 Examen — Módulo 2: La Luz (20 preguntas)</div>
+    <div class="quiz-title" style="color:#0d47a1">💡 Módulo 2: La Luz — 20 preguntas por competencias</div>
 
-    <!-- ── SEMANA 6 ── -->
-    <div class="week-group-title">📌 Semana 6 — La luz como onda electromagnética</div>
+    <div class="week-group-title" style="background:#1565c0">📌 Semana 6 — La luz como onda electromagnética</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">1. ¿A qué velocidad viaja la luz en el vacío?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> En un debate escolar, Mateo afirma: "la luz y el sonido son básicamente lo mismo: ambos son ondas que viajan por el aire y necesitan un medio para propagarse. La única diferencia real entre ellas es la velocidad".</div>
+      <div class="quiz-q-text">1. ¿Cuál es el error fundamental de Mateo?</div>
       <div class="quiz-options">
-        <label data-q="ex2_1" data-val="a"><input type="radio" name="qex2_1" value="a"> 3 × 10⁶ m/s</label>
-        <label data-q="ex2_1" data-val="b"><input type="radio" name="qex2_1" value="b"> 3 × 10⁸ m/s</label>
-        <label data-q="ex2_1" data-val="c"><input type="radio" name="qex2_1" value="c"> 3 × 10¹⁰ m/s</label>
-        <label data-q="ex2_1" data-val="d"><input type="radio" name="qex2_1" value="d"> 343 m/s</label>
+        <label data-q="ex2_1" data-val="a"><input type="radio" name="qex2_1" value="a"> El error es la velocidad; en el vacío ambas ondas viajan exactamente a la misma velocidad.</label>
+        <label data-q="ex2_1" data-val="b"><input type="radio" name="qex2_1" value="b"> El error es que ni la luz ni el sonido necesitan medio material para propagarse.</label>
+        <label data-q="ex2_1" data-val="c"><input type="radio" name="qex2_1" value="c"> El error es que la luz viaja más lento que el sonido en el vacío.</label>
+        <label data-q="ex2_1" data-val="d"><input type="radio" name="qex2_1" value="d"> El error es que la luz es una onda electromagnética que no necesita medio material para propagarse, mientras el sonido es mecánico y sí lo necesita; por eso el sonido no existe en el vacío.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_1"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">2. Una onda de radio tiene f = 100 MHz (10⁸ Hz). ¿Cuál es su longitud de onda? (c = 3×10⁸ m/s)</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Los astrónomos detectan la luz de una supernova que explotó a 1 000 años luz de la Tierra. Algunos divulgadores hablan poéticamente del "estruendo de la explosión viajando por el espacio interestelar".</div>
+      <div class="quiz-q-text">2. ¿Qué afirmación describe mejor la realidad física de esa explosión?</div>
       <div class="quiz-options">
-        <label data-q="ex2_2" data-val="a"><input type="radio" name="qex2_2" value="a"> 3 m</label>
-        <label data-q="ex2_2" data-val="b"><input type="radio" name="qex2_2" value="b"> 30 m</label>
-        <label data-q="ex2_2" data-val="c"><input type="radio" name="qex2_2" value="c"> 0,3 m</label>
-        <label data-q="ex2_2" data-val="d"><input type="radio" name="qex2_2" value="d"> 300 m</label>
+        <label data-q="ex2_2" data-val="a"><input type="radio" name="qex2_2" value="a"> El sonido de la explosión llegará a la Tierra 1 000 años después que su luz.</label>
+        <label data-q="ex2_2" data-val="b"><input type="radio" name="qex2_2" value="b"> La luz llegó 1 000 años después de la explosión; el "estruendo" en el vacío interestelar no existe como tal porque las ondas mecánicas no se propagan sin materia.</label>
+        <label data-q="ex2_2" data-val="c"><input type="radio" name="qex2_2" value="c"> Ambos, luz y sonido, llegaron simultáneamente porque la explosión fue extremadamente poderosa.</label>
+        <label data-q="ex2_2" data-val="d"><input type="radio" name="qex2_2" value="d"> El sonido viajó más rápido que la luz porque la presión de la onda de choque supera la presión de radiación.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_2"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">3. ¿Cuál tipo de onda del espectro electromagnético tiene mayor energía por fotón?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un aficionado al deporte ve un partido "en vivo" por señal satelital en su televisor. Su vecino está sentado físicamente en las graderías del estadio a 200 m del campo. La señal de TV sube a un satélite geoestacionario a 36 000 km de altitud y baja de regreso a la antena del televidente.</div>
+      <div class="quiz-q-text">3. ¿Cuál de los dos percibe cada jugada primero, en términos estrictamente físicos?</div>
       <div class="quiz-options">
-        <label data-q="ex2_3" data-val="a"><input type="radio" name="qex2_3" value="a"> Ondas de radio</label>
-        <label data-q="ex2_3" data-val="b"><input type="radio" name="qex2_3" value="b"> Luz visible</label>
-        <label data-q="ex2_3" data-val="c"><input type="radio" name="qex2_3" value="c"> Infrarrojo</label>
-        <label data-q="ex2_3" data-val="d"><input type="radio" name="qex2_3" value="d"> Rayos gamma</label>
+        <label data-q="ex2_3" data-val="a"><input type="radio" name="qex2_3" value="a"> El televidente; la señal satelital viaja a velocidad de la luz y es prácticamente instantánea.</label>
+        <label data-q="ex2_3" data-val="b"><input type="radio" name="qex2_3" value="b"> Ambos la perciben al mismo tiempo porque la velocidad de la luz es tan grande que cualquier distancia es despreciable.</label>
+        <label data-q="ex2_3" data-val="c"><input type="radio" name="qex2_3" value="c"> El vecino en el estadio; la luz recorre 200 m casi instantáneamente, mientras la señal satelital recorre ~72 000 km de ida y vuelta al satélite, acumulando un retraso de ~0,24 s.</label>
+        <label data-q="ex2_3" data-val="d"><input type="radio" name="qex2_3" value="d"> El televidente; los satélites tienen tecnología de "anticipación" que compensa el retardo de transmisión.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_3"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">4. ¿Por qué la luz puede viajar en el espacio exterior pero el sonido no?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Una estación de radio AM emite en 1 MHz y una estación FM emite en 100 MHz. Ambas señales son ondas electromagnéticas que viajan por el aire a c = 3×10⁸ m/s.</div>
+      <div class="quiz-q-text">4. ¿Qué se puede concluir sobre las longitudes de onda de estas emisiones?</div>
       <div class="quiz-options">
-        <label data-q="ex2_4" data-val="a"><input type="radio" name="qex2_4" value="a"> La luz viaja más rápido que el sonido</label>
-        <label data-q="ex2_4" data-val="b"><input type="radio" name="qex2_4" value="b"> La luz es electromagnética y no necesita materia; el sonido es mecánico y sí la necesita</label>
-        <label data-q="ex2_4" data-val="c"><input type="radio" name="qex2_4" value="c"> El espacio tiene éter que solo conduce luz</label>
-        <label data-q="ex2_4" data-val="d"><input type="radio" name="qex2_4" value="d"> La temperatura del espacio detiene el sonido</label>
+        <label data-q="ex2_4" data-val="a"><input type="radio" name="qex2_4" value="a"> La emisora AM tiene mayor longitud de onda (300 m) que la FM (3 m); a menor frecuencia corresponde mayor longitud de onda cuando la velocidad es constante.</label>
+        <label data-q="ex2_4" data-val="b"><input type="radio" name="qex2_4" value="b"> La FM tiene mayor longitud de onda porque su frecuencia más alta le da más energía para "estirarse".</label>
+        <label data-q="ex2_4" data-val="c"><input type="radio" name="qex2_4" value="c"> Ambas tienen la misma longitud de onda porque viajan a la misma velocidad.</label>
+        <label data-q="ex2_4" data-val="d"><input type="radio" name="qex2_4" value="d"> La longitud de onda no puede calcularse sin conocer la potencia de emisión de cada estación.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_4"></div>
     </div>
 
-    <!-- ── SEMANA 7 ── -->
     <div class="week-group-title" style="background:#9b59b6">📌 Semana 7 — Frecuencia de la luz y espectro visible</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">5. ¿Cuál color de la luz visible tiene mayor frecuencia (y mayor energía por fotón)?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Camila argumenta: "el rojo tiene más energía que el violeta porque es más 'intenso' y 'cálido'. Por eso los láseres rojos son más peligrosos para los ojos que los violetas de la misma potencia".</div>
+      <div class="quiz-q-text">5. ¿Cuál es el error de Camila?</div>
       <div class="quiz-options">
-        <label data-q="ex2_5" data-val="a"><input type="radio" name="qex2_5" value="a"> Rojo</label>
-        <label data-q="ex2_5" data-val="b"><input type="radio" name="qex2_5" value="b"> Naranja</label>
-        <label data-q="ex2_5" data-val="c"><input type="radio" name="qex2_5" value="c"> Amarillo</label>
-        <label data-q="ex2_5" data-val="d"><input type="radio" name="qex2_5" value="d"> Violeta</label>
+        <label data-q="ex2_5" data-val="a"><input type="radio" name="qex2_5" value="a"> No hay error; el rojo sí tiene mayor energía por fotón que el violeta.</label>
+        <label data-q="ex2_5" data-val="b"><input type="radio" name="qex2_5" value="b"> Confunde sensación cultural (la "calidez" del rojo) con física: el violeta tiene mayor frecuencia y por tanto más energía por fotón (E = h×f); un láser violeta de igual potencia es físicamente más peligroso por fotón.</label>
+        <label data-q="ex2_5" data-val="c"><input type="radio" name="qex2_5" value="c"> El error es comparar láseres de diferentes colores; no tienen relación física comparable.</label>
+        <label data-q="ex2_5" data-val="d"><input type="radio" name="qex2_5" value="d"> El rojo es más peligroso porque su longitud de onda mayor penetra más profundamente el tejido ocular.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_5"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">6. El espectro visible de la luz abarca aproximadamente:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un diseñador de señales viales argumenta que el rojo es el mejor color para la señal de "pare" porque "sus ondas más largas se dispersan menos en la atmósfera y penetran mejor la neblina y la lluvia que los otros colores".</div>
+      <div class="quiz-q-text">6. ¿Es razonable su justificación física?</div>
       <div class="quiz-options">
-        <label data-q="ex2_6" data-val="a"><input type="radio" name="qex2_6" value="a"> 100 nm a 380 nm</label>
-        <label data-q="ex2_6" data-val="b"><input type="radio" name="qex2_6" value="b"> 380 nm a 750 nm</label>
-        <label data-q="ex2_6" data-val="c"><input type="radio" name="qex2_6" value="c"> 750 nm a 1 000 nm</label>
-        <label data-q="ex2_6" data-val="d"><input type="radio" name="qex2_6" value="d"> 10 nm a 100 nm</label>
+        <label data-q="ex2_6" data-val="a"><input type="radio" name="qex2_6" value="a"> No; el verde tiene mayor energía por fotón y penetra mejor cualquier obstáculo atmosférico.</label>
+        <label data-q="ex2_6" data-val="b"><input type="radio" name="qex2_6" value="b"> No; todos los colores visibles tienen exactamente la misma dispersión y penetración atmosférica.</label>
+        <label data-q="ex2_6" data-val="c"><input type="radio" name="qex2_6" value="c"> Sí; el rojo tiene la mayor longitud de onda del espectro visible y es menos dispersado por las partículas pequeñas del aire (dispersión de Rayleigh), lo que mejora su visibilidad a distancia y en condiciones adversas.</label>
+        <label data-q="ex2_6" data-val="d"><input type="radio" name="qex2_6" value="d"> Sí; el rojo tiene mayor energía por fotón y por eso viaja más lejos que los otros colores.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_6"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">7. Calcula la energía de un fotón de luz verde (f = 6×10¹⁴ Hz, h = 6,63×10⁻³⁴ J·s):</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un fotógrafo descubre que al retirar el filtro infrarrojo de su cámara digital, puede fotografiar plantas que se ven brillantísimas en esas imágenes, aunque él no percibe absolutamente nada inusual al mirar las mismas plantas con sus propios ojos.</div>
+      <div class="quiz-q-text">7. ¿Qué explica la diferencia entre lo que registra la cámara y lo que ve el ojo humano?</div>
       <div class="quiz-options">
-        <label data-q="ex2_7" data-val="a"><input type="radio" name="qex2_7" value="a"> 3,98 × 10⁻¹⁹ J</label>
-        <label data-q="ex2_7" data-val="b"><input type="radio" name="qex2_7" value="b"> 1,0 × 10⁻³⁴ J</label>
-        <label data-q="ex2_7" data-val="c"><input type="radio" name="qex2_7" value="c"> 6,63 × 10⁻²⁰ J</label>
-        <label data-q="ex2_7" data-val="d"><input type="radio" name="qex2_7" value="d"> 1,0 × 10⁻¹⁹ J</label>
+        <label data-q="ex2_7" data-val="a"><input type="radio" name="qex2_7" value="a"> El infrarrojo tiene longitud de onda mayor a 750 nm, fuera del rango visible humano (380–750 nm); el sensor digital es sensible a un espectro electromagnético más amplio que el ojo.</label>
+        <label data-q="ex2_7" data-val="b"><input type="radio" name="qex2_7" value="b"> La cámara amplifica señales invisibles y las convierte en colores que el ojo puede interpretar artificialmente.</label>
+        <label data-q="ex2_7" data-val="c"><input type="radio" name="qex2_7" value="c"> Las plantas emiten radiación gamma que solo detectan los sensores electrónicos, no el ojo humano.</label>
+        <label data-q="ex2_7" data-val="d"><input type="radio" name="qex2_7" value="d"> El infrarrojo es luz roja de altísima intensidad que satura y ciega el ojo humano, por eso no podemos verla conscientemente.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_7"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">8. Un fotón rojo tiene λ = 700 nm. ¿Cuál es su frecuencia? (c = 3×10⁸ m/s)</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> En una discoteca, lámparas de "luz negra" (UV, λ ≈ 365 nm) hacen brillar intensamente la ropa blanca, los dientes y ciertos plásticos, aunque las propias lámparas parecen casi apagadas al ojo humano.</div>
+      <div class="quiz-q-text">8. ¿Qué fenómeno físico explica este efecto de brillo?</div>
       <div class="quiz-options">
-        <label data-q="ex2_8" data-val="a"><input type="radio" name="qex2_8" value="a"> 4,3 × 10¹⁴ Hz</label>
-        <label data-q="ex2_8" data-val="b"><input type="radio" name="qex2_8" value="b"> 7,0 × 10¹⁴ Hz</label>
-        <label data-q="ex2_8" data-val="c"><input type="radio" name="qex2_8" value="c"> 3,0 × 10⁸ Hz</label>
-        <label data-q="ex2_8" data-val="d"><input type="radio" name="qex2_8" value="d"> 2,1 × 10⁸ Hz</label>
+        <label data-q="ex2_8" data-val="a"><input type="radio" name="qex2_8" value="a"> La luz UV es en realidad luz azul muy concentrada que el ojo humano no puede enfocar con precisión.</label>
+        <label data-q="ex2_8" data-val="b"><input type="radio" name="qex2_8" value="b"> La ropa blanca refleja el 100% de la energía UV sin absorberla, enviándola de regreso al ojo con mayor intensidad.</label>
+        <label data-q="ex2_8" data-val="c"><input type="radio" name="qex2_8" value="c"> Las moléculas de la ropa absorben la UV, se calientan y emiten ese calor como luz visible perceptible.</label>
+        <label data-q="ex2_8" data-val="d"><input type="radio" name="qex2_8" value="d"> Los materiales fluorescentes absorben fotones UV de alta energía y re-emiten fotones de menor energía en el rango visible; el exceso de energía se libera como calor.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_8"></div>
     </div>
 
-    <!-- ── SEMANA 8 ── -->
     <div class="week-group-title" style="background:#e91e63">📌 Semana 8 — Reflexión y refracción</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">9. Según la ley de Snell, al pasar de un medio menos denso (n₁) a uno más denso (n₂ &gt; n₁), el rayo de luz:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un niño observa un lápiz dentro de un vaso de agua y le dice a su mamá: "¡el agua rompió el lápiz! ¡Se ve doblado!". La madre responde: "es que el agua distorsiona la forma de los objetos que están adentro".</div>
+      <div class="quiz-q-text">9. ¿Cuál es la explicación física correcta que ninguno de los dos dio?</div>
       <div class="quiz-options">
-        <label data-q="ex2_9" data-val="a"><input type="radio" name="qex2_9" value="a"> Se dobla alejándose de la normal (θ₂ &gt; θ₁)</label>
-        <label data-q="ex2_9" data-val="b"><input type="radio" name="qex2_9" value="b"> Se dobla acercándose a la normal (θ₂ &lt; θ₁)</label>
-        <label data-q="ex2_9" data-val="c"><input type="radio" name="qex2_9" value="c"> No cambia de dirección</label>
-        <label data-q="ex2_9" data-val="d"><input type="radio" name="qex2_9" value="d"> Siempre se refleja completamente</label>
+        <label data-q="ex2_9" data-val="a"><input type="radio" name="qex2_9" value="a"> El agua sí deforma físicamente el lápiz por la presión hidrostática que ejerce; la madre tiene razón en el fondo.</label>
+        <label data-q="ex2_9" data-val="b"><input type="radio" name="qex2_9" value="b"> El lápiz no está roto ni distorsionado; la luz cambia de dirección al pasar del agua al aire (refracción), creando la ilusión visual del doblez sin alterar el objeto real.</label>
+        <label data-q="ex2_9" data-val="c"><input type="radio" name="qex2_9" value="c"> El agua actúa como un espejo que refleja parte del lápiz, duplicando su imagen y creando el efecto de doblez.</label>
+        <label data-q="ex2_9" data-val="d"><input type="radio" name="qex2_9" value="d"> El efecto se debe a la absorción diferencial de colores por el agua, que distorsiona la apariencia del lápiz.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_9"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">10. La ley de reflexión establece que el ángulo de incidencia es:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un salvavidas en una piscina nota que cuando mira un objeto en el fondo, este parece estar más cerca de la superficie de lo que realmente está. El índice de refracción del agua es n = 1,33.</div>
+      <div class="quiz-q-text">10. ¿Qué propiedad óptica del agua causa esta ilusión?</div>
       <div class="quiz-options">
-        <label data-q="ex2_10" data-val="a"><input type="radio" name="qex2_10" value="a"> Mayor que el ángulo de reflexión</label>
-        <label data-q="ex2_10" data-val="b"><input type="radio" name="qex2_10" value="b"> Menor que el ángulo de reflexión</label>
-        <label data-q="ex2_10" data-val="c"><input type="radio" name="qex2_10" value="c"> Igual al ángulo de reflexión</label>
-        <label data-q="ex2_10" data-val="d"><input type="radio" name="qex2_10" value="d"> El doble del ángulo de reflexión</label>
+        <label data-q="ex2_10" data-val="a"><input type="radio" name="qex2_10" value="a"> La absorción parcial de la luz por el agua comprime visualmente la profundidad percibida.</label>
+        <label data-q="ex2_10" data-val="b"><input type="radio" name="qex2_10" value="b"> La reflexión total interna en el fondo de la piscina hace que los objetos se proyecten hacia arriba.</label>
+        <label data-q="ex2_10" data-val="c"><input type="radio" name="qex2_10" value="c"> Al pasar del agua al aire, la luz se aleja de la normal; el ojo extiende los rayos en línea recta hacia atrás y proyecta el objeto a una posición aparente menos profunda que la real.</label>
+        <label data-q="ex2_10" data-val="d"><input type="radio" name="qex2_10" value="d"> La dispersión de la luz en el agua crea una imagen virtual del objeto más cerca de la superficie.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_10"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">11. ¿Qué es la reflexión total interna?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un estudiante argumenta: "la reflexión total interna es imposible en el vidrio porque, si así fuera, no podríamos ver a través de las ventanas; si el vidrio la produciera, bloquearía toda la luz que intenta entrar".</div>
+      <div class="quiz-q-text">11. ¿Cuál es el error del estudiante?</div>
       <div class="quiz-options">
-        <label data-q="ex2_11" data-val="a"><input type="radio" name="qex2_11" value="a"> Cuando la luz se absorbe completamente en el vidrio</label>
-        <label data-q="ex2_11" data-val="b"><input type="radio" name="qex2_11" value="b"> Cuando un rayo en un medio denso no puede salir y se refleja totalmente al superar el ángulo crítico</label>
-        <label data-q="ex2_11" data-val="c"><input type="radio" name="qex2_11" value="c"> Cuando la luz se divide en todos los colores del arcoíris</label>
-        <label data-q="ex2_11" data-val="d"><input type="radio" name="qex2_11" value="d"> Cuando la reflexión aumenta la velocidad de la luz</label>
+        <label data-q="ex2_11" data-val="a"><input type="radio" name="qex2_11" value="a"> Confunde dos situaciones distintas: la ventana deja pasar la luz exterior con ángulos pequeños, mientras la reflexión total interna ocurre cuando la luz va de adentro hacia afuera del vidrio con un ángulo mayor al crítico; son fenómenos completamente diferentes.</label>
+        <label data-q="ex2_11" data-val="b"><input type="radio" name="qex2_11" value="b"> No hay error; en el vidrio plano la reflexión total interna es efectivamente imposible.</label>
+        <label data-q="ex2_11" data-val="c"><input type="radio" name="qex2_11" value="c"> El error es que la reflexión total interna solo ocurre en el agua, no en materiales sólidos como el vidrio.</label>
+        <label data-q="ex2_11" data-val="d"><input type="radio" name="qex2_11" value="d"> El error es que las ventanas de vidrio bloquean completamente la luz, por lo que no son transparentes.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_11"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">12. Un rayo pasa del aire (n₁=1,0) al vidrio (n₂=1,5) con θ₁ = 30°. ¿Cuál es sin θ₂? (n₁ sin θ₁ = n₂ sin θ₂)</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Los buzos que miran hacia arriba desde el fondo del mar observan que pueden ver el mundo exterior únicamente a través de un "círculo brillante" directamente sobre su cabeza. El resto de la superficie les aparece como un espejo perfecto que refleja el fondo marino.</div>
+      <div class="quiz-q-text">12. ¿Qué principio físico explica el fenómeno que observan los buzos?</div>
       <div class="quiz-options">
-        <label data-q="ex2_12" data-val="a"><input type="radio" name="qex2_12" value="a"> 0,500</label>
-        <label data-q="ex2_12" data-val="b"><input type="radio" name="qex2_12" value="b"> 0,333</label>
-        <label data-q="ex2_12" data-val="c"><input type="radio" name="qex2_12" value="c"> 0,750</label>
-        <label data-q="ex2_12" data-val="d"><input type="radio" name="qex2_12" value="d"> 0,167</label>
+        <label data-q="ex2_12" data-val="a"><input type="radio" name="qex2_12" value="a"> La absorción selectiva de la luz por el agua crea el círculo luminoso en el centro de la superficie.</label>
+        <label data-q="ex2_12" data-val="b"><input type="radio" name="qex2_12" value="b"> La dispersión de Rayleigh concentra la luz solar en un punto central directamente sobre el buzo.</label>
+        <label data-q="ex2_12" data-val="c"><input type="radio" name="qex2_12" value="c"> La reflexión especular de la superficie actúa como espejo solo desde el punto de vista de los buzos.</label>
+        <label data-q="ex2_12" data-val="d"><input type="radio" name="qex2_12" value="d"> La luz exterior solo puede entrar al agua dentro del ángulo crítico (~48°), formando un cono luminoso; fuera de ese cono, la luz interna se refleja totalmente haciendo que la superficie parezca un espejo.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_12"></div>
     </div>
 
-    <!-- ── SEMANA 9 ── -->
     <div class="week-group-title" style="background:#ff5722">📌 Semana 9 — Difracción e interferencia</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">13. En el experimento de doble rendija de Young, ¿qué fenómeno produce las franjas brillantes?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Thomas Young realizó en 1801 su famoso experimento de doble rendija. Al proyectar luz monocromática a través de dos rendijas estrechas, observó en la pantalla franjas alternas de luz y oscuridad, en lugar de las dos manchas brillantes que se esperarían si la luz fuera únicamente un conjunto de partículas.</div>
+      <div class="quiz-q-text">13. ¿Qué conclusión fundamental sobre la naturaleza de la luz extrajo Young de este resultado?</div>
       <div class="quiz-options">
-        <label data-q="ex2_13" data-val="a"><input type="radio" name="qex2_13" value="a"> Interferencia destructiva</label>
-        <label data-q="ex2_13" data-val="b"><input type="radio" name="qex2_13" value="b"> Difracción simple</label>
-        <label data-q="ex2_13" data-val="c"><input type="radio" name="qex2_13" value="c"> Interferencia constructiva</label>
-        <label data-q="ex2_13" data-val="d"><input type="radio" name="qex2_13" value="d"> Reflexión total interna</label>
+        <label data-q="ex2_13" data-val="a"><input type="radio" name="qex2_13" value="a"> La luz se divide en partículas más pequeñas e invisibles al pasar por dos rendijas simultáneamente.</label>
+        <label data-q="ex2_13" data-val="b"><input type="radio" name="qex2_13" value="b"> El patrón de franjas alternas demuestra el comportamiento ondulatorio de la luz: las ondas de las dos rendijas se interfieren constructivamente (franjas brillantes) y destructivamente (franjas oscuras).</label>
+        <label data-q="ex2_13" data-val="c"><input type="radio" name="qex2_13" value="c"> Las dos rendijas actúan como dos prismas que separan los colores de la luz blanca en el espectro visible.</label>
+        <label data-q="ex2_13" data-val="d"><input type="radio" name="qex2_13" value="d"> El experimento demostró que la luz viaja estrictamente en línea recta y no se desvía al pasar por rendijas estrechas.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_13"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">14. Una red de difracción tiene d = 2×10⁻⁶ m. Para m=1 y λ=500 nm, ¿cuál es sin θ? (d sin θ = mλ)</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un científico ilumina una red de difracción con luz roja (700 nm) y observa los máximos en ciertos ángulos. Al reemplazar la luz roja por violeta (400 nm), los máximos de difracción aparecen en ángulos notablemente menores.</div>
+      <div class="quiz-q-text">14. ¿Qué explica la diferencia de ángulos entre los dos colores?</div>
       <div class="quiz-options">
-        <label data-q="ex2_14" data-val="a"><input type="radio" name="qex2_14" value="a"> 0,25</label>
-        <label data-q="ex2_14" data-val="b"><input type="radio" name="qex2_14" value="b"> 0,50</label>
-        <label data-q="ex2_14" data-val="c"><input type="radio" name="qex2_14" value="c"> 1,0</label>
-        <label data-q="ex2_14" data-val="d"><input type="radio" name="qex2_14" value="d"> 0,125</label>
+        <label data-q="ex2_14" data-val="a"><input type="radio" name="qex2_14" value="a"> La luz violeta tiene menos energía y se difracta con menos fuerza, produciendo ángulos menores.</label>
+        <label data-q="ex2_14" data-val="b"><input type="radio" name="qex2_14" value="b"> La red funciona mejor con luz roja porque el ojo humano la percibe con mayor facilidad.</label>
+        <label data-q="ex2_14" data-val="c"><input type="radio" name="qex2_14" value="c"> Según d × sin θ = mλ, a menor longitud de onda (violeta, λ más pequeña), el ángulo θ es menor para el mismo orden m; la red separa más el rojo que el violeta.</label>
+        <label data-q="ex2_14" data-val="d"><input type="radio" name="qex2_14" value="d"> La luz violeta viaja más despacio al pasar por los surcos de la red, lo que reduce el ángulo de difracción.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_14"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">15. ¿Por qué se forma el arcoíris en el cielo?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un estudiante explica el arcoíris a sus compañeros: "se forma porque la lluvia actúa como un prisma gigante que divide la luz. El rojo aparece abajo del arcoíris y el violeta arriba, porque el rojo es el color más 'pesado' y cae primero hacia el suelo".</div>
+      <div class="quiz-q-text">15. ¿Cuáles son los errores en esta explicación?</div>
       <div class="quiz-options">
-        <label data-q="ex2_15" data-val="a"><input type="radio" name="qex2_15" value="a"> Solo por reflexión de la luz en las gotas</label>
-        <label data-q="ex2_15" data-val="b"><input type="radio" name="qex2_15" value="b"> Solo por difracción de la luz solar en el polvo</label>
-        <label data-q="ex2_15" data-val="c"><input type="radio" name="qex2_15" value="c"> Reflexión y refracción en gotas de agua que descomponen la luz blanca</label>
-        <label data-q="ex2_15" data-val="d"><input type="radio" name="qex2_15" value="d"> Interferencia de dos fuentes de luz solar distintas</label>
+        <label data-q="ex2_15" data-val="a"><input type="radio" name="qex2_15" value="a"> Hay dos errores: los colores de la luz no tienen "peso"; y el orden es al revés: el rojo aparece en la parte exterior (arriba) del arcoíris, no abajo, porque se refracta menos que el violeta.</label>
+        <label data-q="ex2_15" data-val="b"><input type="radio" name="qex2_15" value="b"> No hay errores; el rojo sí aparece abajo del arcoíris y los fotones de mayor longitud de onda son más "pesados" en el sentido energético.</label>
+        <label data-q="ex2_15" data-val="c"><input type="radio" name="qex2_15" value="c"> El único error es comparar las gotas de lluvia con un prisma; las gotas solo funcionan por reflexión, no por refracción.</label>
+        <label data-q="ex2_15" data-val="d"><input type="radio" name="qex2_15" value="d"> El error es que el arcoíris no puede explicarse con refracción sino únicamente con difracción en las gotas de agua.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_15"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">16. Cuando dos ondas de luz se encuentran con diferencia de camino igual a λ/2, ocurre:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un ingeniero diseña un sistema de interferometría para detectar grietas microscópicas en piezas de avión. Sin grieta, el patrón de franjas es regular y simétrico. Con una grieta, el patrón se distorsiona localmente justo en el sitio del defecto.</div>
+      <div class="quiz-q-text">16. ¿Qué propiedad fundamental de la luz ondulatorio hace posible este sistema?</div>
       <div class="quiz-options">
-        <label data-q="ex2_16" data-val="a"><input type="radio" name="qex2_16" value="a"> Interferencia constructiva (franja brillante)</label>
-        <label data-q="ex2_16" data-val="b"><input type="radio" name="qex2_16" value="b"> Interferencia destructiva (franja oscura)</label>
-        <label data-q="ex2_16" data-val="c"><input type="radio" name="qex2_16" value="c"> No hay interferencia</label>
-        <label data-q="ex2_16" data-val="d"><input type="radio" name="qex2_16" value="d"> Difracción</label>
+        <label data-q="ex2_16" data-val="a"><input type="radio" name="qex2_16" value="a"> La luz cambia de color al refractarse en los bordes de la grieta, lo que permite detectarla visualmente.</label>
+        <label data-q="ex2_16" data-val="b"><input type="radio" name="qex2_16" value="b"> La luz se absorbe completamente en la grieta, creando una sombra oscura perfectamente detectable.</label>
+        <label data-q="ex2_16" data-val="c"><input type="radio" name="qex2_16" value="c"> La difracción en los bordes de la grieta crea anillos brillantes concéntricos que revelan su posición exacta.</label>
+        <label data-q="ex2_16" data-val="d"><input type="radio" name="qex2_16" value="d"> La interferencia es sensible a diferencias de camino óptico del orden de nanómetros; una grieta altera mínimamente el trayecto de la luz y esa diferencia distorsiona el patrón de franjas de forma detectable.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_16"></div>
     </div>
 
-    <!-- ── SEMANA 10 ── -->
     <div class="week-group-title" style="background:#607d8b">📌 Semana 10 — Tecnología de la luz</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">17. Un láser tiene λ = 600 nm. ¿Cuánta energía tiene cada fotón? (h = 6,626×10⁻³⁴ J·s, c = 3×10⁸ m/s)</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Una cirujana usa un láser de CO₂ para realizar incisiones quirúrgicas precisas. Un asistente nuevo pregunta: "¿por qué no usamos simplemente un bisturí normal? No entiendo cómo un rayo de luz puede cortar tejido vivo".</div>
+      <div class="quiz-q-text">17. ¿Cuál es la explicación física más precisa que daría la cirujana?</div>
       <div class="quiz-options">
-        <label data-q="ex2_17" data-val="a"><input type="radio" name="qex2_17" value="a"> 3,31 × 10⁻¹⁹ J</label>
-        <label data-q="ex2_17" data-val="b"><input type="radio" name="qex2_17" value="b"> 6,626 × 10⁻³⁴ J</label>
-        <label data-q="ex2_17" data-val="c"><input type="radio" name="qex2_17" value="c"> 3 × 10⁸ J</label>
-        <label data-q="ex2_17" data-val="d"><input type="radio" name="qex2_17" value="d"> 1,99 × 10⁻²⁵ J</label>
+        <label data-q="ex2_17" data-val="a"><input type="radio" name="qex2_17" value="a"> "El láser vibra tan rápido que sus fotones actúan mecánicamente como un filo invisible sobre el tejido".</label>
+        <label data-q="ex2_17" data-val="b"><input type="radio" name="qex2_17" value="b"> "El láser concentra enormes cantidades de energía electromagnética en un punto microscópico; el tejido absorbe los fotones, se calienta y se vaporiza instantáneamente, produciendo el corte con mínimo sangrado".</label>
+        <label data-q="ex2_17" data-val="c"><input type="radio" name="qex2_17" value="c"> "El láser empuja físicamente el tejido con la presión de radiación de sus fotones, como el viento mueve las hojas de un árbol".</label>
+        <label data-q="ex2_17" data-val="d"><input type="radio" name="qex2_17" value="d"> "La luz del láser ioniza el aire alrededor del tejido y el plasma resultante es el que realiza el corte".</label>
       </div>
       <div class="quiz-feedback" id="fbex2_17"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">18. La fibra óptica transmite señales de información usando:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un periodista escribe: "la fibra óptica funciona transmitiendo electricidad a la velocidad de la luz por cables de vidrio muy delgados. Por eso es más rápida que el Internet por cable de cobre, que usa electricidad convencional".</div>
+      <div class="quiz-q-text">18. ¿Qué imprecisión fundamental contiene el artículo?</div>
       <div class="quiz-options">
-        <label data-q="ex2_18" data-val="a"><input type="radio" name="qex2_18" value="a"> Difracción del sonido en el vidrio</label>
-        <label data-q="ex2_18" data-val="b"><input type="radio" name="qex2_18" value="b"> Reflexión total interna de la luz</label>
-        <label data-q="ex2_18" data-val="c"><input type="radio" name="qex2_18" value="c"> Refracción normal en agua</label>
-        <label data-q="ex2_18" data-val="d"><input type="radio" name="qex2_18" value="d"> Interferencia de microondas</label>
+        <label data-q="ex2_18" data-val="a"><input type="radio" name="qex2_18" value="a"> No hay imprecisión; la fibra óptica sí transmite electricidad, pero en pulsos de alta velocidad.</label>
+        <label data-q="ex2_18" data-val="b"><input type="radio" name="qex2_18" value="b"> La imprecisión es que el cable de cobre puede ser igual de rápido que la fibra con la tecnología correcta.</label>
+        <label data-q="ex2_18" data-val="c"><input type="radio" name="qex2_18" value="c"> La imprecisión es confundir electricidad con luz: la fibra óptica transmite pulsos de fotones (luz), no electrones; precisamente por usar luz en lugar de corriente eléctrica no sufre interferencia electromagnética.</label>
+        <label data-q="ex2_18" data-val="d"><input type="radio" name="qex2_18" value="d"> La imprecisión es que los cables de fibra óptica son de plástico especial, no de vidrio.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_18"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">19. Un LED emite luz porque:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un arquitecto instala paneles solares fotovoltaicos en la fachada de su edificio. Un visitante pregunta: "¿cómo puede un panel plano, sin partes móviles ni combustible, generar electricidad simplemente porque le da el sol?"</div>
+      <div class="quiz-q-text">19. ¿Cuál es la explicación física más precisa?</div>
       <div class="quiz-options">
-        <label data-q="ex2_19" data-val="a"><input type="radio" name="qex2_19" value="a"> El metal del filamento se calienta y emite luz</label>
-        <label data-q="ex2_19" data-val="b"><input type="radio" name="qex2_19" value="b"> Electrones caen a niveles de menor energía y liberan fotones</label>
-        <label data-q="ex2_19" data-val="c"><input type="radio" name="qex2_19" value="c"> La luz solar se convierte en calor</label>
-        <label data-q="ex2_19" data-val="d"><input type="radio" name="qex2_19" value="d"> El gas del interior se ioniza</label>
+        <label data-q="ex2_19" data-val="a"><input type="radio" name="qex2_19" value="a"> Los fotones solares tienen energía suficiente (E = h×f) para liberar electrones del material semiconductor mediante el efecto fotoeléctrico; ese flujo ordenado de electrones constituye la corriente eléctrica.</label>
+        <label data-q="ex2_19" data-val="b"><input type="radio" name="qex2_19" value="b"> La luz solar calienta el panel y el gradiente de temperatura entre su cara frontal y trasera genera electricidad por efecto termoeléctrico.</label>
+        <label data-q="ex2_19" data-val="c"><input type="radio" name="qex2_19" value="c"> El panel actúa como una antena que capta las ondas electromagnéticas solares y las convierte directamente en corriente alterna.</label>
+        <label data-q="ex2_19" data-val="d"><input type="radio" name="qex2_19" value="d"> Los fotones comprimen mecánicamente las capas del semiconductor, creando una diferencia de presión que impulsa los electrones hacia el circuito externo.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_19"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">20. ¿Cuál de las siguientes es una propiedad EXCLUSIVA de la luz láser que no tiene la luz de una bombilla?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un vendedor de una tienda de electrónica explica: "los LEDs de todos los colores son técnicamente idénticos; la única diferencia es el recubrimiento de color aplicado externamente. Por eso una vez que se inventó el primer LED, fabricar todos los colores fue cuestión de semanas".</div>
+      <div class="quiz-q-text">20. ¿Cuál es el error del vendedor?</div>
       <div class="quiz-options">
-        <label data-q="ex2_20" data-val="a"><input type="radio" name="qex2_20" value="a"> Puede viajar en el vacío</label>
-        <label data-q="ex2_20" data-val="b"><input type="radio" name="qex2_20" value="b"> Tiene una velocidad de 3×10⁸ m/s en el vacío</label>
-        <label data-q="ex2_20" data-val="c"><input type="radio" name="qex2_20" value="c"> Se puede refractar en un prisma</label>
-        <label data-q="ex2_20" data-val="d"><input type="radio" name="qex2_20" value="d"> Es coherente: todas sus ondas están en fase (monocromática y colimada)</label>
+        <label data-q="ex2_20" data-val="a"><input type="radio" name="qex2_20" value="a"> No hay error; los LEDs de diferente color solo se diferencian en el recubrimiento exterior aplicado.</label>
+        <label data-q="ex2_20" data-val="b"><input type="radio" name="qex2_20" value="b"> El error es que los LEDs no tienen recubrimiento; el color se produce por el gas interno, como en una bombilla de neón.</label>
+        <label data-q="ex2_20" data-val="c"><input type="radio" name="qex2_20" value="c"> El error es que los LEDs rojos fueron los más difíciles de fabricar históricamente, no los de otros colores.</label>
+        <label data-q="ex2_20" data-val="d"><input type="radio" name="qex2_20" value="d"> El error está en simplificar la física: los LEDs emiten su color directamente del material semiconductor, sin recubrimiento. El LED azul fue tan difícil de fabricar (Premio Nobel 2014) porque requiere materiales con mayor energía de banda prohibida (nitruro de galio), que tardaron décadas en desarrollarse.</label>
       </div>
       <div class="quiz-feedback" id="fbex2_20"></div>
     </div>
 
     <button class="quiz-btn" style="background:linear-gradient(135deg,#0d47a1,#1565c0);margin-top:10px"
-      onclick="checkQuiz('ex2',['b','a','d','b','d','b','a','a','b','c','b','b','c','a','c','b','a','b','b','d'])">
-      ✅ Verificar todas las respuestas (20 preguntas)
+      onclick="checkQuiz('ex2',['d','b','c','a','b','c','a','d','b','c','a','d','b','c','a','d','b','c','a','d'])">
+      ✅ Verificar todas las respuestas
     </button>
     <div class="quiz-result" id="quiz-result-ex2"></div>
   </div>
 
   <div class="box box-info" style="margin-top:16px;font-size:13px">
-    💡 <strong>Retroalimentación:</strong> Las respuestas correctas aparecen en <span style="color:#2e7d32;font-weight:700">verde</span>. Las incorrectas aparecen en <span style="color:#c62828;font-weight:700">rojo</span> y se muestra la respuesta correcta. Repasa las semanas correspondientes a las preguntas que fallaste.
+    💡 Las respuestas correctas aparecen en <span style="color:#2e7d32;font-weight:700">verde</span>. Las incorrectas en <span style="color:#c62828;font-weight:700">rojo</span>, mostrando la opción correcta. Repasa las semanas correspondientes a las preguntas que fallaste.
   </div>
-
 </div>
 <footer class="site-footer">
   Física 11° — Examen Módulo 2: La Luz · CESUM 2026

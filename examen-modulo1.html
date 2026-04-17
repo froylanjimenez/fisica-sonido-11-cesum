@@ -6,10 +6,11 @@
 <title>Examen Módulo 1 — El Sonido | Física 11° CESUM</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.exam-header-badge{display:inline-block;background:#e53935;color:white;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;letter-spacing:.5px;margin-bottom:10px}
-.week-group-title{font-size:14px;font-weight:800;color:white;background:#e53935;padding:8px 16px;border-radius:8px;margin:24px 0 10px 0;display:flex;align-items:center;gap:8px}
+.exam-badge{display:inline-block;background:#e53935;color:white;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;letter-spacing:.5px;margin-bottom:10px}
+.week-group-title{font-size:14px;font-weight:800;color:white;padding:8px 16px;border-radius:8px;margin:24px 0 10px 0}
+.exam-ctx{background:#f8f9ff;border-left:4px solid #667eea;border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#2c3e50;line-height:1.65}
+.exam-ctx strong{color:#1a237e}
 .exam-instructions{background:#fff3e0;border-left:5px solid #ef6c00;border-radius:12px;padding:16px 18px;margin-bottom:20px;font-size:14px;line-height:1.7}
-.exam-score-detail{background:#f8f9ff;border-radius:8px;padding:12px;margin-top:12px;font-size:13px;color:#555}
 </style>
 </head>
 <body>
@@ -30,263 +31,277 @@
     <span class="progress-text">Semanas 1–5</span>
   </div>
 
-  <div class="exam-header-badge">📝 MACRO-EXAMEN</div>
+  <div class="exam-badge">📝 MACRO-EXAMEN · ESTILO ICFES</div>
   <h2 style="font-size:clamp(18px,4vw,24px);font-weight:900;color:#e53935;margin-bottom:16px;border-left:6px solid #e53935;padding-left:14px">Examen Final — Módulo 1: El Sonido</h2>
 
   <div class="exam-instructions">
-    📋 <strong>Instrucciones:</strong> Este examen cubre las <strong>Semanas 1 a 5</strong> (El Sonido). Tiene <strong>20 preguntas de selección múltiple</strong> (4 por semana). Lee cada pregunta con atención, selecciona la mejor respuesta y haz clic en <em>"Verificar todas las respuestas"</em> al final. Recibirás retroalimentación automática pregunta a pregunta.<br>
-    ⏱ Tiempo recomendado: 40 minutos. No hay penalización por respuesta incorrecta.
+    📋 <strong>Instrucciones:</strong> Lee el contexto de cada pregunta con atención antes de responder. Las preguntas evalúan tu capacidad de <strong>identificar conceptos, aplicarlos a situaciones nuevas y detectar errores conceptuales</strong>. No busques el dato numérico: busca el razonamiento correcto. Haz clic en <em>"Verificar respuestas"</em> al final para recibir retroalimentación inmediata.<br>
+    ⏱ Tiempo recomendado: 45 minutos.
   </div>
 
   <div class="quiz-section" style="background:linear-gradient(135deg,#fff5f5,#fff0f0)">
-    <div class="quiz-title" style="color:#b71c1c">🔊 Examen — Módulo 1: El Sonido (20 preguntas)</div>
+    <div class="quiz-title" style="color:#b71c1c">🔊 Módulo 1: El Sonido — 20 preguntas por competencias</div>
 
-    <!-- ── SEMANA 1 ── -->
-    <div class="week-group-title">📌 Semana 1 — Propagación del sonido</div>
+    <div class="week-group-title" style="background:#e53935">📌 Semana 1 — Propagación del sonido</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">1. ¿Cuál es la velocidad aproximada del sonido en el acero a temperatura ambiente?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> En una película de ciencia ficción, dos astronautas flotan en el espacio exterior y se comunican gritando sin casco. El director justificó la escena diciendo: "el espacio tiene una atmósfera tenue que conduce el sonido".</div>
+      <div class="quiz-q-text">1. ¿Cuál es el error científico que comete el director?</div>
       <div class="quiz-options">
-        <label data-q="ex1_1" data-val="a"><input type="radio" name="qex1_1" value="a"> 343 m/s</label>
-        <label data-q="ex1_1" data-val="b"><input type="radio" name="qex1_1" value="b"> 1 480 m/s</label>
-        <label data-q="ex1_1" data-val="c"><input type="radio" name="qex1_1" value="c"> 5 100 m/s</label>
-        <label data-q="ex1_1" data-val="d"><input type="radio" name="qex1_1" value="d"> 3 850 m/s</label>
+        <label data-q="ex1_1" data-val="a"><input type="radio" name="qex1_1" value="a"> El error es que los astronautas no podrían gritar sin oxígeno en los pulmones.</label>
+        <label data-q="ex1_1" data-val="b"><input type="radio" name="qex1_1" value="b"> No hay error; el espacio sí tiene partículas suficientes para propagar sonido.</label>
+        <label data-q="ex1_1" data-val="c"><input type="radio" name="qex1_1" value="c"> El error es afirmar que el espacio transmite sonido: en el vacío no hay materia para propagar ondas mecánicas.</label>
+        <label data-q="ex1_1" data-val="d"><input type="radio" name="qex1_1" value="d"> El error es la velocidad; el sonido en el espacio viaja tan despacio que no se podría escuchar.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_1"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">2. Un rayo cae. Cinco segundos después escuchas el trueno. Con v = 343 m/s, ¿a qué distancia está la tormenta?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un pescador golpea con su mano el casco metálico del bote desde adentro. Su compañero, con el oído apoyado sobre el casco en el exterior, escucha el golpe mucho antes que un turista parado a 2 metros en el muelle.</div>
+      <div class="quiz-q-text">2. ¿Qué principio físico explica mejor esta observación?</div>
       <div class="quiz-options">
-        <label data-q="ex1_2" data-val="a"><input type="radio" name="qex1_2" value="a"> 686 m</label>
-        <label data-q="ex1_2" data-val="b"><input type="radio" name="qex1_2" value="b"> 1 372 m</label>
-        <label data-q="ex1_2" data-val="c"><input type="radio" name="qex1_2" value="c"> 1 715 m</label>
-        <label data-q="ex1_2" data-val="d"><input type="radio" name="qex1_2" value="d"> 3 430 m</label>
+        <label data-q="ex1_2" data-val="a"><input type="radio" name="qex1_2" value="a"> El sonido se amplifica dentro del metal por reverberación interna.</label>
+        <label data-q="ex1_2" data-val="b"><input type="radio" name="qex1_2" value="b"> El sonido viaja más rápido en medios sólidos y rígidos como el metal que en el aire; por eso llega antes al oído apoyado en el casco.</label>
+        <label data-q="ex1_2" data-val="c"><input type="radio" name="qex1_2" value="c"> La mano transmite electricidad estática que el oído detecta antes que las ondas sonoras.</label>
+        <label data-q="ex1_2" data-val="d"><input type="radio" name="qex1_2" value="d"> El casco del bote filtra las frecuencias bajas y hace el sonido más perceptible.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_2"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">3. En Montelíbano a 35 °C, ¿cuál es la velocidad del sonido? Usa: v = 331 + 0,6×T</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Lucía afirma en clase: "en un día muy caluroso, el trueno tarda más en llegar porque el calor 'frena' las ondas sonoras, como la resistencia que siente uno al caminar contra el viento".</div>
+      <div class="quiz-q-text">3. ¿Qué error conceptual comete Lucía?</div>
       <div class="quiz-options">
-        <label data-q="ex1_3" data-val="a"><input type="radio" name="qex1_3" value="a"> 331 m/s</label>
-        <label data-q="ex1_3" data-val="b"><input type="radio" name="qex1_3" value="b"> 352 m/s</label>
-        <label data-q="ex1_3" data-val="c"><input type="radio" name="qex1_3" value="c"> 372 m/s</label>
-        <label data-q="ex1_3" data-val="d"><input type="radio" name="qex1_3" value="d"> 340 m/s</label>
+        <label data-q="ex1_3" data-val="a"><input type="radio" name="qex1_3" value="a"> El error está en la dirección del efecto: el calor no frena el sonido, lo acelera. A mayor temperatura, mayor velocidad del sonido (v = 331 + 0,6 × T).</label>
+        <label data-q="ex1_3" data-val="b"><input type="radio" name="qex1_3" value="b"> Ninguno; el calor sí frena las ondas sonoras de la misma forma en que el viento frena a una persona.</label>
+        <label data-q="ex1_3" data-val="c"><input type="radio" name="qex1_3" value="c"> El error es comparar el sonido con el movimiento físico humano, que no es una analogía válida.</label>
+        <label data-q="ex1_3" data-val="d"><input type="radio" name="qex1_3" value="d"> El error es que el trueno no es sonido sino una onda electromagnética producida por el rayo.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_3"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">4. ¿Por qué en el espacio exterior no hay sonido?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> En el rescate de mineros atrapados, el equipo de rescate golpea una tubería metálica de 500 m que conecta la superficie con la galería. Los mineros detectan el sonido del golpe por la tubería mucho antes de escuchar el mismo golpe propagado por el aire del túnel.</div>
+      <div class="quiz-q-text">4. ¿Cuál de estas afirmaciones describe mejor la razón de esa diferencia?</div>
       <div class="quiz-options">
-        <label data-q="ex1_4" data-val="a"><input type="radio" name="qex1_4" value="a"> Hace demasiado frío</label>
-        <label data-q="ex1_4" data-val="b"><input type="radio" name="qex1_4" value="b"> La gravedad detiene las ondas</label>
-        <label data-q="ex1_4" data-val="c"><input type="radio" name="qex1_4" value="c"> La presión es muy alta</label>
-        <label data-q="ex1_4" data-val="d"><input type="radio" name="qex1_4" value="d"> No hay materia; el sonido necesita un medio para propagarse</label>
+        <label data-q="ex1_4" data-val="a"><input type="radio" name="qex1_4" value="a"> El metal amplifica el sonido y por eso se escucha con más rapidez.</label>
+        <label data-q="ex1_4" data-val="b"><input type="radio" name="qex1_4" value="b"> El túnel absorbe las ondas de aire pero el metal no absorbe energía sonora.</label>
+        <label data-q="ex1_4" data-val="c"><input type="radio" name="qex1_4" value="c"> La temperatura del metal hace que las moléculas de aire del túnel vibren más rápido.</label>
+        <label data-q="ex1_4" data-val="d"><input type="radio" name="qex1_4" value="d"> La velocidad del sonido en acero (~5 100 m/s) es aproximadamente 15 veces mayor que en el aire (~343 m/s), por eso llega notablemente antes por el metal.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_4"></div>
     </div>
 
-    <!-- ── SEMANA 2 ── -->
     <div class="week-group-title" style="background:#e67e22">📌 Semana 2 — Características del sonido y v = f × λ</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">5. Una onda sonora tiene f = 440 Hz y v = 343 m/s. ¿Cuál es su longitud de onda λ?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un murciélago emite pulsos ultrasónicos a 80 000 Hz para navegar en una habitación donde también hay una persona. La persona no escucha absolutamente nada inusual en la habitación.</div>
+      <div class="quiz-q-text">5. ¿Qué es físicamente correcto sobre las ondas del murciélago en esa habitación?</div>
       <div class="quiz-options">
-        <label data-q="ex1_5" data-val="a"><input type="radio" name="qex1_5" value="a"> 1,28 m</label>
-        <label data-q="ex1_5" data-val="b"><input type="radio" name="qex1_5" value="b"> 0,78 m</label>
-        <label data-q="ex1_5" data-val="c"><input type="radio" name="qex1_5" value="c"> 0,50 m</label>
-        <label data-q="ex1_5" data-val="d"><input type="radio" name="qex1_5" value="d"> 343 m</label>
+        <label data-q="ex1_5" data-val="a"><input type="radio" name="qex1_5" value="a"> Las ondas no existen físicamente si ningún humano puede escucharlas.</label>
+        <label data-q="ex1_5" data-val="b"><input type="radio" name="qex1_5" value="b"> Las ondas se convierten en luz infrarroja al superar los 20 000 Hz del umbral humano.</label>
+        <label data-q="ex1_5" data-val="c"><input type="radio" name="qex1_5" value="c"> Las ondas se propagan normalmente en el aire; la persona simplemente no puede detectarlas porque están fuera del rango de su sistema auditivo.</label>
+        <label data-q="ex1_5" data-val="d"><input type="radio" name="qex1_5" value="d"> Las ondas del murciélago quedan atrapadas en el rango ultrasónico y no pueden interactuar con objetos del tamaño humano.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_5"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">6. Si se duplica la frecuencia de un sonido en el mismo medio (v constante), la longitud de onda:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un técnico de sonido afirma en una reunión: "si duplico la frecuencia de un sonido en el mismo recinto, la longitud de onda también se duplica, por eso el sonido se escucha más lleno y rico".</div>
+      <div class="quiz-q-text">6. ¿Es correcta su afirmación?</div>
       <div class="quiz-options">
-        <label data-q="ex1_6" data-val="a"><input type="radio" name="qex1_6" value="a"> Se duplica</label>
-        <label data-q="ex1_6" data-val="b"><input type="radio" name="qex1_6" value="b"> No cambia</label>
-        <label data-q="ex1_6" data-val="c"><input type="radio" name="qex1_6" value="c"> Se reduce a la mitad</label>
-        <label data-q="ex1_6" data-val="d"><input type="radio" name="qex1_6" value="d"> Se cuadruplica</label>
+        <label data-q="ex1_6" data-val="a"><input type="radio" name="qex1_6" value="a"> No; en el mismo medio la velocidad del sonido es constante (v = f × λ), así que si la frecuencia se duplica, la longitud de onda se reduce a la mitad.</label>
+        <label data-q="ex1_6" data-val="b"><input type="radio" name="qex1_6" value="b"> Sí; frecuencia y longitud de onda son directamente proporcionales en el mismo medio.</label>
+        <label data-q="ex1_6" data-val="c"><input type="radio" name="qex1_6" value="c"> Sí, pero solo si la amplitud también aumenta proporcionalmente.</label>
+        <label data-q="ex1_6" data-val="d"><input type="radio" name="qex1_6" value="d"> No; la longitud de onda no depende de la frecuencia sino únicamente de la temperatura del medio.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_6"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">7. ¿Qué característica del sonido determina si percibimos un tono como agudo o grave?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> En un video viral, un divulgador científico afirma: "los sonidos graves (baja frecuencia) viajan más despacio que los agudos (alta frecuencia) en el aire; por eso en un concierto los graves siempre llegan tarde al fondo del recinto".</div>
+      <div class="quiz-q-text">7. ¿Qué tan precisa es esta afirmación?</div>
       <div class="quiz-options">
-        <label data-q="ex1_7" data-val="a"><input type="radio" name="qex1_7" value="a"> Amplitud</label>
-        <label data-q="ex1_7" data-val="b"><input type="radio" name="qex1_7" value="b"> Timbre</label>
-        <label data-q="ex1_7" data-val="c"><input type="radio" name="qex1_7" value="c"> Frecuencia</label>
-        <label data-q="ex1_7" data-val="d"><input type="radio" name="qex1_7" value="d"> Velocidad</label>
+        <label data-q="ex1_7" data-val="a"><input type="radio" name="qex1_7" value="a"> Es correcta; a menor frecuencia, menor velocidad del sonido en el aire.</label>
+        <label data-q="ex1_7" data-val="b"><input type="radio" name="qex1_7" value="b"> Es incorrecta; en el aire, todos los sonidos audibles viajan a la misma velocidad (~343 m/s) sin importar su frecuencia.</label>
+        <label data-q="ex1_7" data-val="c"><input type="radio" name="qex1_7" value="c"> Es correcta solo para frecuencias inferiores a 100 Hz.</label>
+        <label data-q="ex1_7" data-val="d"><input type="radio" name="qex1_7" value="d"> Es parcialmente correcta; solo los ultrasonidos se diferencian en velocidad del resto.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_7"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">8. Las ondas sonoras son ondas:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un ingeniero transmite simultáneamente señales de audio de 100 Hz y de 10 000 Hz desde el mismo parlante, en el mismo recinto. Ambas señales parten al mismo tiempo hacia un micrófono ubicado a 343 m de distancia.</div>
+      <div class="quiz-q-text">8. ¿Cuál de estas afirmaciones describe correctamente lo que ocurrirá?</div>
       <div class="quiz-options">
-        <label data-q="ex1_8" data-val="a"><input type="radio" name="qex1_8" value="a"> Transversales</label>
-        <label data-q="ex1_8" data-val="b"><input type="radio" name="qex1_8" value="b"> Electromagnéticas</label>
-        <label data-q="ex1_8" data-val="c"><input type="radio" name="qex1_8" value="c"> Longitudinales: las partículas vibran en la dirección de propagación</label>
-        <label data-q="ex1_8" data-val="d"><input type="radio" name="qex1_8" value="d"> Siempre estacionarias</label>
+        <label data-q="ex1_8" data-val="a"><input type="radio" name="qex1_8" value="a"> La señal de 10 000 Hz llega primero porque tiene mayor energía por ciclo.</label>
+        <label data-q="ex1_8" data-val="b"><input type="radio" name="qex1_8" value="b"> La señal de 100 Hz llega primero porque sus ondas son más largas y "abarcan" más espacio.</label>
+        <label data-q="ex1_8" data-val="c"><input type="radio" name="qex1_8" value="c"> La señal de 10 000 Hz llega primero porque oscila más veces por segundo.</label>
+        <label data-q="ex1_8" data-val="d"><input type="radio" name="qex1_8" value="d"> Ambas señales llegan al mismo tiempo: la velocidad del sonido en el aire no depende de la frecuencia.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_8"></div>
     </div>
 
-    <!-- ── SEMANA 3 ── -->
     <div class="week-group-title" style="background:#f39c12">📌 Semana 3 — Música, oído y decibeles</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">9. La frecuencia fundamental de una cuerda de guitarra es 220 Hz. ¿Cuál es el tercer armónico?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Andrés y Beatriz tocan la misma nota "La" (440 Hz), uno en guitarra y la otra en flauta. Un oyente con los ojos cerrados los distingue perfectamente sin equivocarse ni una sola vez.</div>
+      <div class="quiz-q-text">9. ¿Qué característica del sonido le permite al oyente distinguirlos?</div>
       <div class="quiz-options">
-        <label data-q="ex1_9" data-val="a"><input type="radio" name="qex1_9" value="a"> 440 Hz</label>
-        <label data-q="ex1_9" data-val="b"><input type="radio" name="qex1_9" value="b"> 660 Hz</label>
-        <label data-q="ex1_9" data-val="c"><input type="radio" name="qex1_9" value="c"> 880 Hz</label>
-        <label data-q="ex1_9" data-val="d"><input type="radio" name="qex1_9" value="d"> 110 Hz</label>
+        <label data-q="ex1_9" data-val="a"><input type="radio" name="qex1_9" value="a"> La frecuencia: aunque dicen ser la misma nota, cada instrumento produce 440 Hz de forma diferente.</label>
+        <label data-q="ex1_9" data-val="b"><input type="radio" name="qex1_9" value="b"> La velocidad: el sonido viaja a diferente rapidez en madera (guitarra) que en metal (flauta).</label>
+        <label data-q="ex1_9" data-val="c"><input type="radio" name="qex1_9" value="c"> El timbre: la combinación e intensidad relativa de los armónicos es única en cada instrumento, aunque compartan la misma frecuencia fundamental.</label>
+        <label data-q="ex1_9" data-val="d"><input type="radio" name="qex1_9" value="d"> La amplitud: la guitarra y la flauta tienen volúmenes ligeramente diferentes, lo que permite identificarlos.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_9"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">10. ¿A partir de cuántos dB el sonido causa daño auditivo con exposición prolongada (8 h/día)?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un estudiante escribe en su evaluación: "los decibeles miden la frecuencia del sonido; por eso una conversación a 60 dB significa que las cuerdas vocales vibran a 60 Hz".</div>
+      <div class="quiz-q-text">10. ¿Cuál es el error conceptual del estudiante?</div>
       <div class="quiz-options">
-        <label data-q="ex1_10" data-val="a"><input type="radio" name="qex1_10" value="a"> 60 dB</label>
-        <label data-q="ex1_10" data-val="b"><input type="radio" name="qex1_10" value="b"> 75 dB</label>
-        <label data-q="ex1_10" data-val="c"><input type="radio" name="qex1_10" value="c"> 85 dB</label>
-        <label data-q="ex1_10" data-val="d"><input type="radio" name="qex1_10" value="d"> 100 dB</label>
+        <label data-q="ex1_10" data-val="a"><input type="radio" name="qex1_10" value="a"> Confunde dos magnitudes distintas: los decibeles (dB) miden el nivel de intensidad sonora, no la frecuencia. La frecuencia indica cuántas veces vibra algo por segundo; los dB indican cuánta energía transporta la onda.</label>
+        <label data-q="ex1_10" data-val="b"><input type="radio" name="qex1_10" value="b"> No hay error; los decibeles sí miden la frecuencia de vibración del sonido.</label>
+        <label data-q="ex1_10" data-val="c"><input type="radio" name="qex1_10" value="c"> El error es que 60 Hz está fuera del rango audible humano.</label>
+        <label data-q="ex1_10" data-val="d"><input type="radio" name="qex1_10" value="d"> El error es que los decibeles solo aplican a instrumentos musicales, no a la voz humana.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_10"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">11. El nivel de intensidad sonora de una conversación normal es aproximadamente:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Una fábrica tiene un nivel sonoro de 95 dB en su interior. La normativa laboral establece un límite de 85 dB durante 8 horas. El gerente argumenta: "son solo 10 dB más, un exceso del 11%; no justifica una multa tan alta".</div>
+      <div class="quiz-q-text">11. ¿Por qué es incorrecta la percepción del gerente?</div>
       <div class="quiz-options">
-        <label data-q="ex1_11" data-val="a"><input type="radio" name="qex1_11" value="a"> 30 dB</label>
-        <label data-q="ex1_11" data-val="b"><input type="radio" name="qex1_11" value="b"> 60 dB</label>
-        <label data-q="ex1_11" data-val="c"><input type="radio" name="qex1_11" value="c"> 90 dB</label>
-        <label data-q="ex1_11" data-val="d"><input type="radio" name="qex1_11" value="d"> 120 dB</label>
+        <label data-q="ex1_11" data-val="a"><input type="radio" name="qex1_11" value="a"> Tiene razón; 10 dB adicionales representan exactamente un 10% más de intensidad sonora.</label>
+        <label data-q="ex1_11" data-val="b"><input type="radio" name="qex1_11" value="b"> La escala de decibeles es logarítmica, no lineal; 10 dB adicionales representan aproximadamente 10 veces mayor intensidad física, lo que sí implica riesgo auditivo real.</label>
+        <label data-q="ex1_11" data-val="c"><input type="radio" name="qex1_11" value="c"> Tiene razón parcialmente; el riesgo solo existe si hay frecuencias agudas presentes en el ruido.</label>
+        <label data-q="ex1_11" data-val="d"><input type="radio" name="qex1_11" value="d"> Está equivocado porque 10 dB adicionales representan 100 veces más intensidad y el daño es inmediato.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_11"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">12. ¿Qué determina el timbre de un instrumento musical?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> En un estudio de grabación, al presionar la misma tecla en un piano de cola profesional y en un piano digital económico —ambos afinados exactamente en 440 Hz— el sonido del piano de cola se percibe como más "rico" y "cálido".</div>
+      <div class="quiz-q-text">12. ¿Qué fenómeno físico explica mejor esta diferencia perceptual?</div>
       <div class="quiz-options">
-        <label data-q="ex1_12" data-val="a"><input type="radio" name="qex1_12" value="a"> Su frecuencia fundamental únicamente</label>
-        <label data-q="ex1_12" data-val="b"><input type="radio" name="qex1_12" value="b"> Su amplitud de onda</label>
-        <label data-q="ex1_12" data-val="c"><input type="radio" name="qex1_12" value="c"> Los armónicos presentes y su distribución de intensidad</label>
-        <label data-q="ex1_12" data-val="d"><input type="radio" name="qex1_12" value="d"> La velocidad del sonido en ese instrumento</label>
+        <label data-q="ex1_12" data-val="a"><input type="radio" name="qex1_12" value="a"> El piano de cola produce frecuencias ligeramente distintas aunque ambos estén afinados en 440 Hz.</label>
+        <label data-q="ex1_12" data-val="b"><input type="radio" name="qex1_12" value="b"> La diferencia se debe a la velocidad del sonido: en madera maciza es diferente que en plástico.</label>
+        <label data-q="ex1_12" data-val="c"><input type="radio" name="qex1_12" value="c"> El piano digital tiene menor amplitud de onda, lo que lo hace sonar más "delgado".</label>
+        <label data-q="ex1_12" data-val="d"><input type="radio" name="qex1_12" value="d"> La diferencia está en el timbre: el piano de cola produce una distribución más rica y compleja de armónicos sobre los 440 Hz que el piano digital.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_12"></div>
     </div>
 
-    <!-- ── SEMANA 4 ── -->
     <div class="week-group-title" style="background:#2ecc71">📌 Semana 4 — Eco y efecto Doppler</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">13. El sonido tarda 0,8 s en ir y volver desde una pared (v = 343 m/s). ¿A qué distancia está la pared?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un turista grita "¡hola!" en el Gran Cañón del Colorado y escucha el eco claramente 3 s después. En su habitación de hotel, grita con la misma intensidad y escucha una "reverberación", pero no puede distinguir el eco de su propia voz.</div>
+      <div class="quiz-q-text">13. ¿Qué diferencia física explica este contraste?</div>
       <div class="quiz-options">
-        <label data-q="ex1_13" data-val="a"><input type="radio" name="qex1_13" value="a"> 274,4 m</label>
-        <label data-q="ex1_13" data-val="b"><input type="radio" name="qex1_13" value="b"> 137,2 m</label>
-        <label data-q="ex1_13" data-val="c"><input type="radio" name="qex1_13" value="c"> 68,6 m</label>
-        <label data-q="ex1_13" data-val="d"><input type="radio" name="qex1_13" value="d"> 343 m</label>
+        <label data-q="ex1_13" data-val="a"><input type="radio" name="qex1_13" value="a"> El eco del cañón es más fuerte porque las paredes de roca reflejan mejor que las paredes del hotel.</label>
+        <label data-q="ex1_13" data-val="b"><input type="radio" name="qex1_13" value="b"> La reverberación ocurre solo en interiores porque el sonido no puede reflejarse al aire libre.</label>
+        <label data-q="ex1_13" data-val="c"><input type="radio" name="qex1_13" value="c"> El eco requiere que el sonido reflejado llegue al oído más de ~0,1 s después del original; en habitaciones pequeñas las múltiples reflexiones llegan tan rápido que se fusionan con el sonido original.</label>
+        <label data-q="ex1_13" data-val="d"><input type="radio" name="qex1_13" value="d"> El eco del cañón se produce porque el sonido rebota solo en el suelo y no en las paredes laterales.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_13"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">14. Un automóvil con bocina activada se acerca a ti. Debido al efecto Doppler, el sonido que percibes es:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un periodista describe el efecto Doppler en televisión: "cuando la ambulancia se acerca, el sonido de la sirena se hace más fuerte; cuando se aleja, el sonido se hace más débil. Eso es el efecto Doppler".</div>
+      <div class="quiz-q-text">14. ¿Es correcta la descripción del periodista?</div>
       <div class="quiz-options">
-        <label data-q="ex1_14" data-val="a"><input type="radio" name="qex1_14" value="a"> Más grave (menor frecuencia)</label>
-        <label data-q="ex1_14" data-val="b"><input type="radio" name="qex1_14" value="b"> Sin cambio de frecuencia</label>
-        <label data-q="ex1_14" data-val="c"><input type="radio" name="qex1_14" value="c"> Más agudo (mayor frecuencia)</label>
-        <label data-q="ex1_14" data-val="d"><input type="radio" name="qex1_14" value="d"> Más silencioso</label>
+        <label data-q="ex1_14" data-val="a"><input type="radio" name="qex1_14" value="a"> Sí, describe perfectamente el efecto Doppler en toda su extensión.</label>
+        <label data-q="ex1_14" data-val="b"><input type="radio" name="qex1_14" value="b"> No del todo; el periodista describe el cambio de intensidad (amplitud), pero el efecto Doppler se refiere al cambio de frecuencia percibida: más agudo al acercarse y más grave al alejarse.</label>
+        <label data-q="ex1_14" data-val="c"><input type="radio" name="qex1_14" value="c"> No; el efecto Doppler solo aplica a la luz, no al sonido.</label>
+        <label data-q="ex1_14" data-val="d"><input type="radio" name="qex1_14" value="d"> Sí; en el efecto Doppler, la intensidad y la frecuencia siempre cambian de la misma manera.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_14"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">15. El eco se diferencia de la reverberación porque el eco:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un geólogo usa explosiones controladas para estudiar capas del subsuelo. Registra que el eco de la primera capa de roca regresa en 0,2 s y el de una segunda capa más profunda regresa en 0,6 s. La velocidad del sonido en la roca es 3 000 m/s.</div>
+      <div class="quiz-q-text">15. ¿Cuál es la interpretación correcta de estos datos?</div>
       <div class="quiz-options">
-        <label data-q="ex1_15" data-val="a"><input type="radio" name="qex1_15" value="a"> Solo ocurre bajo el agua</label>
-        <label data-q="ex1_15" data-val="b"><input type="radio" name="qex1_15" value="b"> Llega al oído claramente separado del sonido original (más de ~0,1 s después)</label>
-        <label data-q="ex1_15" data-val="c"><input type="radio" name="qex1_15" value="c"> No depende de la velocidad del sonido</label>
-        <label data-q="ex1_15" data-val="d"><input type="radio" name="qex1_15" value="d"> Solo se produce con frecuencias bajas</label>
+        <label data-q="ex1_15" data-val="a"><input type="radio" name="qex1_15" value="a"> La primera capa está a 300 m y la segunda a 900 m de profundidad, usando d = (v × t) / 2 para el trayecto de ida y vuelta.</label>
+        <label data-q="ex1_15" data-val="b"><input type="radio" name="qex1_15" value="b"> La primera capa está a 600 m y la segunda a 1 800 m, usando d = v × t sin dividir.</label>
+        <label data-q="ex1_15" data-val="c"><input type="radio" name="qex1_15" value="c"> La primera capa está a 150 m y la segunda a 450 m porque el eco recorre el doble de distancia.</label>
+        <label data-q="ex1_15" data-val="d"><input type="radio" name="qex1_15" value="d"> No es posible calcular sin conocer la densidad de la roca en cada capa.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_15"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">16. Un barco emite un pulso SONAR y recibe el eco en 0,6 s (v_agua = 1 500 m/s). ¿A qué profundidad está el objeto?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Valentina observa que cuando un tren se acerca tocando su pito, la nota suena más aguda. Concluye: "el tren sube la frecuencia de su pito cuando acelera, por eso suena más agudo; es el motor trabajando con más potencia".</div>
+      <div class="quiz-q-text">16. ¿Qué error de razonamiento comete Valentina?</div>
       <div class="quiz-options">
-        <label data-q="ex1_16" data-val="a"><input type="radio" name="qex1_16" value="a"> 900 m</label>
-        <label data-q="ex1_16" data-val="b"><input type="radio" name="qex1_16" value="b"> 450 m</label>
-        <label data-q="ex1_16" data-val="c"><input type="radio" name="qex1_16" value="c"> 1 800 m</label>
-        <label data-q="ex1_16" data-val="d"><input type="radio" name="qex1_16" value="d"> 2 500 m</label>
+        <label data-q="ex1_16" data-val="a"><input type="radio" name="qex1_16" value="a"> No comete error; el motor sí cambia la frecuencia del pito al acelerar.</label>
+        <label data-q="ex1_16" data-val="b"><input type="radio" name="qex1_16" value="b"> El error es que los trenes no tienen pito de frecuencia variable; su pito es fijo.</label>
+        <label data-q="ex1_16" data-val="c"><input type="radio" name="qex1_16" value="c"> El error es que el sonido más agudo no implica mayor frecuencia.</label>
+        <label data-q="ex1_16" data-val="d"><input type="radio" name="qex1_16" value="d"> Valentina confunde la causa real: el tren emite siempre la misma frecuencia; el cambio que ella percibe es producido por el efecto Doppler al acortarse la distancia entre la fuente y el oyente.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_16"></div>
     </div>
 
-    <!-- ── SEMANA 5 ── -->
-    <div class="week-group-title" style="background:#1abc9c">📌 Semana 5 — Contaminación y tecnología del sonido</div>
+    <div class="week-group-title" style="background:#1abc9c">📌 Semana 5 — Contaminación sonora y tecnología</div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">17. Un SONAR marino emite un pulso y recibe el eco en 1,2 s. Con v = 1 500 m/s, ¿cuánto mide la profundidad?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Una empresa constructora argumenta ante las autoridades: "nuestras máquinas producen 90 dB, apenas 5 dB más que el límite permitido de 85 dB. Es un exceso del 5,9% y no amerita sanción".</div>
+      <div class="quiz-q-text">17. ¿Por qué es cuestionable el argumento de la empresa?</div>
       <div class="quiz-options">
-        <label data-q="ex1_17" data-val="a"><input type="radio" name="qex1_17" value="a"> 1 800 m</label>
-        <label data-q="ex1_17" data-val="b"><input type="radio" name="qex1_17" value="b"> 900 m</label>
-        <label data-q="ex1_17" data-val="c"><input type="radio" name="qex1_17" value="c"> 3 600 m</label>
-        <label data-q="ex1_17" data-val="d"><input type="radio" name="qex1_17" value="d"> 600 m</label>
+        <label data-q="ex1_17" data-val="a"><input type="radio" name="qex1_17" value="a"> Tiene razón; 5 dB de diferencia es insignificante para la salud auditiva.</label>
+        <label data-q="ex1_17" data-val="b"><input type="radio" name="qex1_17" value="b"> La escala de decibeles es logarítmica; 5 dB adicionales no representan un 5,9% más de intensidad sino aproximadamente 3 veces mayor, lo que supone riesgo real durante una jornada laboral completa.</label>
+        <label data-q="ex1_17" data-val="c"><input type="radio" name="qex1_17" value="c"> Tiene razón parcialmente; el riesgo solo existe si los trabajadores no usan protección auditiva.</label>
+        <label data-q="ex1_17" data-val="d"><input type="radio" name="qex1_17" value="d"> Está equivocado porque 5 dB adicionales representan 50 veces más intensidad y el daño es inmediato.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_17"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">18. ¿Cuál de estas NO es una aplicación del ultrasonido?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un médico realiza una ecografía a una paciente embarazada usando ultrasonido de 5 MHz. La paciente, preocupada, pregunta: "¿no es dañino ese sonido tan agudo para el bebé?"</div>
+      <div class="quiz-q-text">18. ¿Cuál es la respuesta más física y precisa del médico?</div>
       <div class="quiz-options">
-        <label data-q="ex1_18" data-val="a"><input type="radio" name="qex1_18" value="a"> Ecografías médicas</label>
-        <label data-q="ex1_18" data-val="b"><input type="radio" name="qex1_18" value="b"> Detectar grietas en metales</label>
-        <label data-q="ex1_18" data-val="c"><input type="radio" name="qex1_18" value="c"> Medir la temperatura del aire</label>
-        <label data-q="ex1_18" data-val="d"><input type="radio" name="qex1_18" value="d"> SONAR para detectar peces y submarinos</label>
+        <label data-q="ex1_18" data-val="a"><input type="radio" name="qex1_18" value="a"> "Sí, por eso la duración de la exposición es muy corta para minimizar el riesgo".</label>
+        <label data-q="ex1_18" data-val="b"><input type="radio" name="qex1_18" value="b"> "El ultrasonido de diagnóstico es dañino pero la información que obtenemos justifica el riesgo mínimo".</label>
+        <label data-q="ex1_18" data-val="c"><input type="radio" name="qex1_18" value="c"> "El ultrasonido de diagnóstico opera a una intensidad muy baja y bien por encima del umbral auditivo; el tejido lo absorbe sin acumular calor peligroso a esa potencia clínica".</label>
+        <label data-q="ex1_18" data-val="d"><input type="radio" name="qex1_18" value="d"> "No importa la frecuencia; lo que determina el riesgo es únicamente la duración de la exposición".</label>
       </div>
       <div class="quiz-feedback" id="fbex1_18"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">19. La cancelación activa de ruido (ANC) en audífonos funciona porque emite:</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Un estudiante escribe en su tarea: "el SONAR funciona midiendo cuánto tarda la luz en ir al fondo del mar y volver, similar al radar de los aviones. Por eso es tan efectivo en las profundidades oscuras donde la luz solar no llega".</div>
+      <div class="quiz-q-text">19. ¿Cuál es el error fundamental en la descripción?</div>
       <div class="quiz-options">
-        <label data-q="ex1_19" data-val="a"><input type="radio" name="qex1_19" value="a"> Más ruido para cubrir el sonido original</label>
-        <label data-q="ex1_19" data-val="b"><input type="radio" name="qex1_19" value="b"> Una onda de igual amplitud pero en fase opuesta (interferencia destructiva)</label>
-        <label data-q="ex1_19" data-val="c"><input type="radio" name="qex1_19" value="c"> Ultrasonido de muy alta frecuencia</label>
-        <label data-q="ex1_19" data-val="d"><input type="radio" name="qex1_19" value="d"> Luz infrarroja que neutraliza el sonido</label>
+        <label data-q="ex1_19" data-val="a"><input type="radio" name="qex1_19" value="a"> El error es confundir SONAR con radar: el SONAR usa ondas sonoras (no luz), que se propagan eficientemente en el agua, donde la luz se atenúa en pocos metros.</label>
+        <label data-q="ex1_19" data-val="b"><input type="radio" name="qex1_19" value="b"> No hay error; el SONAR sí usa luz infrarroja que penetra más que la luz visible.</label>
+        <label data-q="ex1_19" data-val="c"><input type="radio" name="qex1_19" value="c"> El error es que el radar de aviones tampoco usa luz sino microondas, igual que el SONAR.</label>
+        <label data-q="ex1_19" data-val="d"><input type="radio" name="qex1_19" value="d"> El error es afirmar que la luz solar no llega a las profundidades del océano.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_19"></div>
     </div>
 
     <div class="quiz-question">
-      <div class="quiz-q-text">20. ¿Cuál afirmación sobre contaminación sonora es CORRECTA?</div>
+      <div class="exam-ctx"><strong>Contexto:</strong> Una empresa publicita audífonos con cancelación activa de ruido (ANC) diciendo que "eliminan el sonido del ambiente". Un consumidor escéptico responde: "eso es imposible; no se puede crear silencio poniendo más sonido, sería como apagar el fuego con más fuego".</div>
+      <div class="quiz-q-text">20. ¿Quién tiene razón en términos físicos y por qué?</div>
       <div class="quiz-options">
-        <label data-q="ex1_20" data-val="a"><input type="radio" name="qex1_20" value="a"> Solo afecta el sentido del oído, no otros sistemas del cuerpo</label>
-        <label data-q="ex1_20" data-val="b"><input type="radio" name="qex1_20" value="b"> 60 dB ya causa daño auditivo permanente</label>
-        <label data-q="ex1_20" data-val="c"><input type="radio" name="qex1_20" value="c"> La exposición prolongada a más de 85 dB puede causar pérdida auditiva, estrés e hipertensión</label>
-        <label data-q="ex1_20" data-val="d"><input type="radio" name="qex1_20" value="d"> Los animales no son afectados por la contaminación sonora</label>
+        <label data-q="ex1_20" data-val="a"><input type="radio" name="qex1_20" value="a"> El consumidor; añadir más sonido siempre incrementa el nivel sonoro total sin excepción.</label>
+        <label data-q="ex1_20" data-val="b"><input type="radio" name="qex1_20" value="b"> La empresa, pero por razones equivocadas; el ANC usa absorción acústica con espuma especial, no generación de ondas.</label>
+        <label data-q="ex1_20" data-val="c"><input type="radio" name="qex1_20" value="c"> El consumidor tiene razón parcialmente; la cancelación funciona solo con sonidos de muy baja frecuencia.</label>
+        <label data-q="ex1_20" data-val="d"><input type="radio" name="qex1_20" value="d"> La empresa; cuando el audífono genera una onda con la misma amplitud pero fase opuesta (desfasada 180°) a la onda de ruido, ambas se cancelan mutuamente por interferencia destructiva.</label>
       </div>
       <div class="quiz-feedback" id="fbex1_20"></div>
     </div>
 
     <button class="quiz-btn" style="background:linear-gradient(135deg,#b71c1c,#e53935);margin-top:10px"
-      onclick="checkQuiz('ex1',['c','c','b','d','b','c','c','c','b','c','b','c','b','c','b','b','b','c','b','c'])">
-      ✅ Verificar todas las respuestas (20 preguntas)
+      onclick="checkQuiz('ex1',['c','b','a','d','c','a','b','d','c','a','b','d','c','b','a','d','b','c','a','d'])">
+      ✅ Verificar todas las respuestas
     </button>
     <div class="quiz-result" id="quiz-result-ex1"></div>
   </div>
 
   <div class="box box-info" style="margin-top:16px;font-size:13px">
-    💡 <strong>Retroalimentación:</strong> Las respuestas correctas aparecen en <span style="color:#2e7d32;font-weight:700">verde</span>. Las incorrectas aparecen en <span style="color:#c62828;font-weight:700">rojo</span> y se muestra la respuesta correcta. Repasa las semanas correspondientes a las preguntas que fallaste.
+    💡 Las respuestas correctas aparecen en <span style="color:#2e7d32;font-weight:700">verde</span>. Las incorrectas en <span style="color:#c62828;font-weight:700">rojo</span>, mostrando la opción correcta. Repasa las semanas correspondientes a las preguntas que fallaste.
   </div>
-
 </div>
 <footer class="site-footer">
   Física 11° — Examen Módulo 1: El Sonido · CESUM 2026
